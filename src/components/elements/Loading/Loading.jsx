@@ -1,10 +1,5 @@
-/**
- * Created by kinneretzin on 01/01/2017.
- */
-
-import PropTypes from 'prop-types';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Segment, Dimmer, Loader } from 'semantic-ui-react';
 
 /**
@@ -15,7 +10,7 @@ function Loading(props) {
     const { message } = props;
 
     return (
-        <Segment basic className="loadingSegment">
+        <Segment basic style={{ height: '100%', zIndex: 5 }}>
             <Dimmer active inverted>
                 <Loader>{message}</Loader>
             </Dimmer>

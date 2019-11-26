@@ -4986,6 +4986,53 @@ exports[`Storyshots Elements/Loading Custom Message 1`] = `
 </div>
 `;
 
+exports[`Storyshots Elements/LoadingOverlay Basic 1`] = `
+<div
+  className="ui segment"
+>
+  Covered text
+  <div
+    className="ui active transition visible inverted dimmer"
+    onClick={[Function]}
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="ui loader"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/LoadingOverlay Custom Message 1`] = `
+<div
+  className="ui segment"
+  style={
+    Object {
+      "height": 80,
+    }
+  }
+>
+  Covered text
+  <div
+    className="ui active transition visible inverted dimmer"
+    onClick={[Function]}
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="ui text loader"
+      >
+        Loading files
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Elements/Menu Example 1`] = `
 <div
   className="ui vertical menu"
@@ -9226,9 +9273,13 @@ exports[`Storyshots Form.File Basic 1`] = `
       </button>
     </div>
     <input
-      hidden={true}
       name="file1"
       onChange={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }
       type="file"
     />
   </div>
@@ -9249,11 +9300,73 @@ Array [
     Load File
   </button>,
   <input
-    hidden={true}
     name="file3"
     onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
     type="file"
   />,
+]
+`;
+
+exports[`Storyshots Form.File Controlled 1`] = `
+Array [
+  <div
+    className="ui action input"
+  >
+    <input
+      disabled={false}
+      name="fileNamefile3"
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder=""
+      readOnly={true}
+      type="text"
+      value=""
+    />
+    <button
+      className="ui icon button"
+      onClick={[Function]}
+    >
+      <i
+        aria-hidden="true"
+        className="folder open icon"
+        onClick={[Function]}
+      />
+    </button>
+    <button
+      className="ui icon disabled button"
+      disabled={true}
+      onClick={[Function]}
+      tabIndex={-1}
+    >
+      <i
+        aria-hidden="true"
+        className="remove icon"
+        onClick={[Function]}
+      />
+    </button>
+  </div>,
+  <input
+    name="file3"
+    onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file"
+  />,
+  " ",
+  <button
+    className="ui button"
+    onClick={[Function]}
+  >
+    Reset
+  </button>,
 ]
 `;
 
@@ -9294,9 +9407,13 @@ exports[`Storyshots Form.File No Reset 1`] = `
       </button>
     </div>
     <input
-      hidden={true}
       name="file2"
       onChange={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }
       type="file"
     />
   </div>
@@ -12332,17 +12449,17 @@ exports[`Storyshots Form.UrlOrFile Basic 1`] = `
     className="field"
   >
     <label>
-      File
+      File or URL
        
     </label>
     <div
-      className="ui action left labeled input"
+      className="ui action left labeled input fileOrUrl"
     >
       <div
         className="ui label"
         onClick={[Function]}
       >
-        URL or File
+        URL
       </div>
       <input
         name="blueprintUrl"
@@ -12376,9 +12493,13 @@ exports[`Storyshots Form.UrlOrFile Basic 1`] = `
         />
       </button>
       <input
-        hidden={true}
         name="blueprintFile"
         onChange={[Function]}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
         type="file"
       />
     </div>

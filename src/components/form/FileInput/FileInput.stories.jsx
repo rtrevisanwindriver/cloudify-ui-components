@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 import _ from 'lodash';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
+import StoryWithHooks from 'decorators/StoryWithHooks';
 import Form from '../Form/Form';
-import StoryWithHooks from '../../../decorators/StoryWithHooks';
 
 export default {
     title: 'Form.File',
     component: Form.File,
-    decorators: [LiveEditDecorator({ useState, Button })]
+    decorators: [LiveEditDecorator({ Button })]
 };
 
 export const basic = () => (
@@ -38,7 +38,7 @@ export const button = () => (
 );
 
 export const controlled = StoryWithHooks(() => {
-    const [value, setValue] = useState();
+    const [value, setValue] = React.useState();
 
     return (
         <>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
+import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import LoadingOverlay from './LoadingOverlay';
-import LiveEditDecorator from '../../../decorators/LiveEditDecorator';
 
 export default {
     title: 'Elements/LoadingOverlay',

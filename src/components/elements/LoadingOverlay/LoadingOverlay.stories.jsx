@@ -2,10 +2,12 @@ import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
 import LoadingOverlay from './LoadingOverlay';
+import LiveEditDecorator from '../../../decorators/LiveEditDecorator';
 
 export default {
     title: 'Elements/LoadingOverlay',
-    component: LoadingOverlay
+    component: LoadingOverlay,
+    decorators: [LiveEditDecorator({ Segment })]
 };
 
 export const basic = () => (

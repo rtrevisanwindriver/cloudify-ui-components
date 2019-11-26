@@ -12,6 +12,7 @@ import Popup from '../../popups/Popup';
  * Accessible as `FileInput` or `Form.File`.
  */
 export default function FileInput({
+    value,
     name,
     placeholder,
     onChange,
@@ -24,7 +25,7 @@ export default function FileInput({
     help
 }) {
     const inputRef = createRef();
-    const [value, setValue] = useState('');
+    const [internalValue, setInternalValue] = useState('');
 
     const openFileSelection = e => {
         e.preventDefault();
@@ -37,7 +38,7 @@ export default function FileInput({
     };
 
     const resetInput = () => {
-        setValue('');
+        setInternalValue('');
         onChange(null, '');
     };
 
@@ -55,7 +56,7 @@ export default function FileInput({
             return;
         }
 
-        setValue(filename);
+        setInternalValue(filename);
         onChange(getFile(), filename);
     };
 
@@ -74,16 +75,26 @@ export default function FileInput({
         return !_.isEmpty(help) ? <Popup trigger={<FolderButton />} content={help} /> : <FolderButton />;
     };
 
-    const ResetFileButton = () =>
-        showReset ? <Button icon="remove" onClick={resetFileSelection} disabled={!value || disabled} /> : null;
+    function getValue() {
+        if (value === null) {
+            return internalValue;
+        }
 
-    const HiddenInput = () => <input type="file" name={name} hidden onChange={fileChanged} ref={inputRef} />;
+        return value;
+    }
+
+    const ResetFileButton = () =>
+        showReset ? <Button icon="remove" onClick={resetFileSelection} disabled={!getValue() || disabled} /> : null;
+
+    const HiddenInput = () => (
+        <input type="file" name={name} style={{ display: 'none' }} onChange={fileChanged} ref={inputRef} />
+    );
 
     return showInput ? (
         <>
             <Input
                 readOnly
-                value={value}
+                value={getValue()}
                 name={`fileName${name}`}
                 placeholder={placeholder}
                 onClick={openFileSelection}
@@ -106,6 +117,11 @@ export default function FileInput({
 }
 
 FileInput.propTypes = {
+    /**
+     * string value to be displayed, creates controlled component if specified
+     */
+    value: PropTypes.string,
+
     /**
      * name of the field appended to 'fileName' string
      */
@@ -158,6 +174,7 @@ FileInput.propTypes = {
 };
 
 FileInput.defaultProps = {
+    value: null,
     name: '',
     placeholder: '',
     onChange: () => {},

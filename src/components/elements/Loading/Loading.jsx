@@ -4,7 +4,7 @@ import { Segment } from 'semantic-ui-react';
 import LoadingOverlay from '../LoadingOverlay';
 
 /**
- * Loading is a block component which uses [LoadingOverlay](http://localhost:9001/?path=/docs/elements-loadingoverlay) component
+ * Loading is a block component which uses LoadingOverlay component
  * to display loader in center of parent component.
  */
 function Loading({ message }) {

@@ -20,6 +20,7 @@
   "module": "es/index.js",
   "scripts": {
     "build": "sh scripts/build-components.sh",
+    "buildDev": "babel ./src --ignore '**/*.stories.jsx' --copy-files --delete-dir-on-start --out-dir es --watch",
     "lint": "eslint --ext js,jsx src test",
     "test:only": "jest test --coverage",
     "test": "npm run lint && npm run test:only",

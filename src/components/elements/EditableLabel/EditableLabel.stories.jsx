@@ -1,7 +1,6 @@
 import React from 'react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import StoryWithHooks from 'decorators/StoryWithHooks';
 import EditableLabel from './EditableLabel';
 
 export default {
@@ -10,15 +9,9 @@ export default {
     decorators: [LiveEditDecorator({ EditableLabel })]
 };
 
-export const basic = () => <EditableLabel />;
+export const basic = () => <EditableLabel placeholder="Enter your text here..." />;
 basic.story = {
     name: 'Default'
 };
 
-export const readOnly = () => <EditableLabel isEditEnable={false} text="Sample Text" />;
-
-export const editable = StoryWithHooks(() => {
-    const [text, setText] = React.useState('');
-
-    return <EditableLabel placeholder="Enter your text here..." onEditDone={setText} text={text} />;
-});
+export const readOnly = () => <EditableLabel enabled={false} value="Sample Text" />;

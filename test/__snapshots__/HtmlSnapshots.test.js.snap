@@ -4784,30 +4784,31 @@ exports[`Storyshots Elements/Dropdown With Empty Option 1`] = `
 `;
 
 exports[`Storyshots Elements/EditableLabel Basic 1`] = `
-<label
-  className=" editPlaceholder"
+<div
+  className="ui label null editPlaceholder"
   onClick={[Function]}
->
-  Click to edit
-</label>
-`;
-
-exports[`Storyshots Elements/EditableLabel Editable 1`] = `
-<label
-  className=" editPlaceholder"
-  onClick={[Function]}
+  style={
+    Object {
+      "background": "none",
+      "cursor": "pointer",
+    }
+  }
 >
   Enter your text here...
-</label>
+</div>
 `;
 
 exports[`Storyshots Elements/EditableLabel Read Only 1`] = `
-<label
-  className=" "
+<div
+  className="ui label null "
   onClick={[Function]}
->
-  Sample Text
-</label>
+  style={
+    Object {
+      "background": "none",
+      "cursor": "inherit",
+    }
+  }
+/>
 `;
 
 exports[`Storyshots Elements/ErrorMessage Auto Hide 1`] = `

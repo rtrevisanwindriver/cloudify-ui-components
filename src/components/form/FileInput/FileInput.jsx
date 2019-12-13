@@ -22,7 +22,8 @@ export default function FileInput({
     showInput,
     showReset,
     openButtonParams,
-    help
+    help,
+    multiple
 }) {
     const inputRef = createRef();
     const [internalValue, setInternalValue] = useState('');
@@ -31,10 +32,6 @@ export default function FileInput({
         e.preventDefault();
         inputRef.current.click();
         return false;
-    };
-
-    const getFile = () => {
-        return inputRef.current.files[0];
     };
 
     const resetInput = () => {
@@ -57,7 +54,9 @@ export default function FileInput({
         }
 
         setInternalValue(filename);
-        onChange(getFile(), filename);
+        const { files } = inputRef.current;
+        if (multiple) onChange(files);
+        else onChange(files[0], filename);
     };
 
     const OpenFolderButton = () => {
@@ -87,7 +86,14 @@ export default function FileInput({
         showReset ? <Button icon="remove" onClick={resetFileSelection} disabled={!getValue() || disabled} /> : null;
 
     const HiddenInput = () => (
-        <input type="file" name={name} style={{ display: 'none' }} onChange={fileChanged} ref={inputRef} />
+        <input
+            type="file"
+            multiple={multiple}
+            name={name}
+            style={{ display: 'none' }}
+            onChange={fileChanged}
+            ref={inputRef}
+        />
     );
 
     return showInput ? (
@@ -170,7 +176,12 @@ FileInput.propTypes = {
     /**
      * additional help information shown in Popup
      */
-    help: PropTypes.string
+    help: PropTypes.string,
+
+    /**
+     * if set to true multiple files can be selected
+     */
+    multiple: PropTypes.bool
 };
 
 FileInput.defaultProps = {
@@ -184,5 +195,6 @@ FileInput.defaultProps = {
     showInput: true,
     showReset: true,
     openButtonParams: {},
-    help: ''
+    help: '',
+    multiple: false
 };

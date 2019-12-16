@@ -9271,6 +9271,7 @@ exports[`Storyshots Form.File Basic 1`] = `
       </button>
     </div>
     <input
+      multiple={false}
       name="file1"
       onChange={[Function]}
       style={
@@ -9298,6 +9299,7 @@ Array [
     Load File
   </button>,
   <input
+    multiple={false}
     name="file3"
     onChange={[Function]}
     style={
@@ -9349,6 +9351,7 @@ Array [
     </button>
   </div>,
   <input
+    multiple={false}
     name="file3"
     onChange={[Function]}
     style={
@@ -9405,6 +9408,7 @@ exports[`Storyshots Form.File No Reset 1`] = `
       </button>
     </div>
     <input
+      multiple={false}
       name="file2"
       onChange={[Function]}
       style={
@@ -12492,6 +12496,7 @@ exports[`Storyshots Form.UrlOrFile Basic 1`] = `
         />
       </button>
       <input
+        multiple={false}
         name="blueprintFile"
         onChange={[Function]}
         style={

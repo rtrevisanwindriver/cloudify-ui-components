@@ -24,8 +24,12 @@ jobs:
           command: npm run lint
 
       - run:
-          name: Run tests
-          command: npm run test
+          name: Run jest tests
+          command: npm run test:only
+
+      - run:
+          name: Run loki tests
+          command: npx loki test
 
       - persist_to_workspace:
           root: ~/

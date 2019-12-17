@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: Run loki tests
-          command: npx loki test
+          command: npm run test:loki
 
       - persist_to_workspace:
           root: ~/

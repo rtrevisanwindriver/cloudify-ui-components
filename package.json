@@ -23,6 +23,7 @@
     "buildDev": "babel ./src --ignore '**/*.stories.jsx' --copy-files --delete-dir-on-start --out-dir es --watch",
     "lint": "eslint --ext js,jsx src test",
     "test:only": "jest test --coverage",
+    "test:loki": "npm run storybook & curl --retry-delay 1 --retry-connrefused --retry 60 localhost:9001 &> /dev/null && npx loki test",
     "test": "npm run lint && npm run test:only",
     "storybook": "start-storybook --docs -p 9001",
     "build-storybook": "build-storybook --docs -c .storybook",

@@ -23,7 +23,7 @@
     "buildDev": "babel ./src --ignore '**/*.stories.jsx' --copy-files --delete-dir-on-start --out-dir es --watch",
     "lint": "eslint --ext js,jsx src test",
     "test:only": "jest test --coverage",
-    "test:loki": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
+    "test:loki": "build-storybook && loki --chromeTolerance 101 --requireReference --reactUri file:./storybook-static",
     "test": "npm run lint && npm run test:only",
     "storybook": "start-storybook --docs -p 9001",
     "build-storybook": "build-storybook --docs -c .storybook",

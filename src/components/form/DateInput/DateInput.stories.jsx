@@ -19,7 +19,7 @@ export const basic = StoryWithHooks(() => {
 });
 
 export const defaultValue = StoryWithHooks(() => {
-    const defaultDate = `${moment().format(DateInput.DATE_FORMAT)} 00:00`;
+    const defaultDate = '2019-12-15 00:00';
     const [date, setDate] = React.useState(defaultDate);
 
     return (

@@ -7104,7 +7104,7 @@ exports[`Storyshots Form.Date Default Value 1`] = `
     onMouseLeave={[Function]}
     placeholder="YYYY-MM-DD HH:mm"
     type="text"
-    value="2019-10-31 00:00"
+    value="2019-12-15 00:00"
   />
   <button
     className="ui icon button"

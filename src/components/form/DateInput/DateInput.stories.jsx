@@ -55,7 +55,7 @@ export const customTimeIntervals = StoryWithHooks(() => {
 export const invalidValue = () => <Form.Date name="date" value="Invalid value" />;
 
 export const initiallyOpen = StoryWithHooks(() => {
-    const [date, setDate] = React.useState('2019-12-15 00:00');
+    const [date, setDate] = React.useState('2019-11-15 00:00');
 
     return (
         <div style={{ paddingTop: 280 }}>

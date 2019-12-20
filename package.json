@@ -89,8 +89,8 @@
     "react-datepicker": "1.8.0",
     "react-json-view": "^1.19.1",
     "react-live": "^2.2.1",
-    "react-transition-group": "^4.3.0",
     "react-syntax-highlighter": "^11.0.2",
+    "react-transition-group": "^4.3.0",
     "tinycolor2": "^1.4.1"
   },
   "peerDependencies": {

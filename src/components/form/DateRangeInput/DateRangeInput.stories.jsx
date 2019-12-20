@@ -77,7 +77,7 @@ export const initiallyOpen = StoryWithHooks(() => {
             <Form.DateRange
                 name="timeFilter"
                 defaultOpen
-                value={{ start: '2019-12-10 00:00', end: '2019-12-15 00:00', range: '' }}
+                value={{ start: '2019-11-10 00:00', end: '2019-11-15 00:00', range: '' }}
             />
         </div>
     );

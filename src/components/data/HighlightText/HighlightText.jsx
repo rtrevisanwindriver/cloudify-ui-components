@@ -33,7 +33,7 @@ export default function HighlightText(props) {
         <SyntaxHighlighter
             language={language}
             style={idea}
-            codeTagProps={{ style: { whiteSpace: 'pre-wrap', wordBreak: 'break-word' } }}
+            codeTagProps={{ style: { whiteSpace: 'pre-wrap', wordBreak: 'break-word', fontFamily: 'Consolas' } }}
         >
             {children}
         </SyntaxHighlighter>

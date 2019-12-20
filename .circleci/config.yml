@@ -2,7 +2,7 @@ version: 2.1
 
 defaults: &defaults
   docker:
-    - image: circleci/node:10.16-buster-browsers
+    - image: circleci/node:10.15-stretch-browsers
   working_directory: ~/repo
 
 jobs:
@@ -12,7 +12,11 @@ jobs:
       - checkout
 
       - run:
-          name: Install dependencies
+          name: Install graphicsmagick
+          command: sudo apt-get update && sudo apt-get install graphicsmagick
+
+      - run:
+          name: Install npm dependencies
           command: npm ci
 
       - run:

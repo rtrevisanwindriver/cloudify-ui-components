@@ -5304,7 +5304,7 @@ exports[`Storyshots Elements/Menu Example 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Checkbox Basic 1`] = `
+exports[`Storyshots Form/Checkbox Basic 1`] = `
 <div
   className="ui checkbox"
   onChange={[Function]}
@@ -5337,7 +5337,7 @@ exports[`Storyshots Form.Checkbox Basic 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Checkbox Toggle 1`] = `
+exports[`Storyshots Form/Checkbox Toggle 1`] = `
 <div
   className="ui toggle checkbox"
   onChange={[Function]}
@@ -5359,7 +5359,7 @@ exports[`Storyshots Form.Checkbox Toggle 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Checkbox Without Help 1`] = `
+exports[`Storyshots Form/Checkbox Without Help 1`] = `
 <div
   className="ui checkbox"
   onChange={[Function]}
@@ -5381,7 +5381,7 @@ exports[`Storyshots Form.Checkbox Without Help 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.ColorPicker Default 1`] = `
+exports[`Storyshots Form/ColorPicker Default 1`] = `
 <div
   style={
     Object {
@@ -7211,7 +7211,7 @@ exports[`Storyshots Form.ColorPicker Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Basic 1`] = `
+exports[`Storyshots Form/Date Basic 1`] = `
 <div
   className="ui fluid action input"
 >
@@ -7252,7 +7252,7 @@ exports[`Storyshots Form.Date Basic 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Custom Time Intervals 1`] = `
+exports[`Storyshots Form/Date Custom Time Intervals 1`] = `
 <div
   className="ui fluid action input"
 >
@@ -7293,7 +7293,7 @@ exports[`Storyshots Form.Date Custom Time Intervals 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Default Value 1`] = `
+exports[`Storyshots Form/Date Default Value 1`] = `
 <div
   className="ui fluid action input"
 >
@@ -7334,7 +7334,7 @@ exports[`Storyshots Form.Date Default Value 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Initially Open 1`] = `
+exports[`Storyshots Form/Date Initially Open 1`] = `
 <div
   style={
     Object {
@@ -7881,7 +7881,7 @@ exports[`Storyshots Form.Date Initially Open 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Invalid Value 1`] = `
+exports[`Storyshots Form/Date Invalid Value 1`] = `
 <div
   className="ui error fluid action input"
 >
@@ -7920,7 +7920,7 @@ exports[`Storyshots Form.Date Invalid Value 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.Date Minimal And Maximal Date 1`] = `
+exports[`Storyshots Form/Date Minimal And Maximal Date 1`] = `
 <div
   className="ui fluid action input"
 >
@@ -7961,7 +7961,7 @@ exports[`Storyshots Form.Date Minimal And Maximal Date 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DatePicker Basic 1`] = `
+exports[`Storyshots Form/DatePicker Basic 1`] = `
 <div
   className="react-datepicker input-time-filter"
 >
@@ -8450,7 +8450,7 @@ exports[`Storyshots Form.DatePicker Basic 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DatePicker Custom Time Intervals 1`] = `
+exports[`Storyshots Form/DatePicker Custom Time Intervals 1`] = `
 <div
   className="react-datepicker input-time-filter"
 >
@@ -8939,7 +8939,7 @@ exports[`Storyshots Form.DatePicker Custom Time Intervals 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DatePicker Minimal And Maximal Date 1`] = `
+exports[`Storyshots Form/DatePicker Minimal And Maximal Date 1`] = `
 <div
   className="react-datepicker input-time-filter"
 >
@@ -9414,7 +9414,7 @@ exports[`Storyshots Form.DatePicker Minimal And Maximal Date 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DateRange Basic 1`] = `
+exports[`Storyshots Form/DateRange Basic 1`] = `
 <div
   className="ui fluid icon input"
 >
@@ -9437,7 +9437,7 @@ exports[`Storyshots Form.DateRange Basic 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DateRange Custom Ranges 1`] = `
+exports[`Storyshots Form/DateRange Custom Ranges 1`] = `
 <div
   className="ui fluid icon input"
 >
@@ -9460,7 +9460,7 @@ exports[`Storyshots Form.DateRange Custom Ranges 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DateRange Default Value 1`] = `
+exports[`Storyshots Form/DateRange Default Value 1`] = `
 <div
   className="ui fluid icon input"
 >
@@ -9483,7 +9483,7 @@ exports[`Storyshots Form.DateRange Default Value 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.DateRange Initially Open 1`] = `
+exports[`Storyshots Form/DateRange Initially Open 1`] = `
 <div
   style={
     Object {
@@ -10645,7 +10645,7 @@ exports[`Storyshots Form.DateRange Initially Open 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.File Basic 1`] = `
+exports[`Storyshots Form/File Basic 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -10708,7 +10708,7 @@ exports[`Storyshots Form.File Basic 1`] = `
 </form>
 `;
 
-exports[`Storyshots Form.File Button 1`] = `
+exports[`Storyshots Form/File Button 1`] = `
 Array [
   <button
     className="ui icon left labeled button rightFloated"
@@ -10735,7 +10735,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Form.File Controlled 1`] = `
+exports[`Storyshots Form/File Controlled 1`] = `
 Array [
   <div
     className="ui action input"
@@ -10794,7 +10794,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Form.File No Reset 1`] = `
+exports[`Storyshots Form/File No Reset 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -10845,7 +10845,7 @@ exports[`Storyshots Form.File No Reset 1`] = `
 </form>
 `;
 
-exports[`Storyshots Form.Form Default 1`] = `
+exports[`Storyshots Form/Form Default 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -11080,7 +11080,138 @@ exports[`Storyshots Form.Form Default 1`] = `
 </form>
 `;
 
-exports[`Storyshots Form.Json JSON Value 1`] = `
+exports[`Storyshots Form/FormDivider Basic 1`] = `
+<h4
+  className="ui dividing header"
+>
+  User Data
+</h4>
+`;
+
+exports[`Storyshots Form/FormField Error 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="error field"
+  >
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Provide username"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form/FormField Help 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label>
+      Username
+       
+      <span>
+        <i
+          aria-hidden="true"
+          className="help circle icon"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        />
+      </span>
+    </label>
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Provide username"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form/FormField Label 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label>
+      Username
+       
+    </label>
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Provide username"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form/FormField Required 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="required field"
+  >
+    <label>
+      Username
+       
+    </label>
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Provide username"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form/Json JSON Value 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -11651,7 +11782,7 @@ exports[`Storyshots Form.Json JSON Value 1`] = `
 </form>
 `;
 
-exports[`Storyshots Form.Json Marked As Error 1`] = `
+exports[`Storyshots Form/Json Marked As Error 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -12222,7 +12353,7 @@ exports[`Storyshots Form.Json Marked As Error 1`] = `
 </form>
 `;
 
-exports[`Storyshots Form.Json Text Value 1`] = `
+exports[`Storyshots Form/Json Text Value 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -12257,7 +12388,7 @@ Something"
 </form>
 `;
 
-exports[`Storyshots Form.Time Basic 1`] = `
+exports[`Storyshots Form/Time Basic 1`] = `
 <div
   style={
     Object {
@@ -13866,7 +13997,7 @@ exports[`Storyshots Form.Time Basic 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form.UrlOrFile Basic 1`] = `
+exports[`Storyshots Form/UrlOrFile Basic 1`] = `
 <form
   className="ui form"
   onSubmit={[Function]}
@@ -13929,137 +14060,6 @@ exports[`Storyshots Form.UrlOrFile Basic 1`] = `
         }
         type="file"
       />
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Storyshots Form/FormDivider Basic 1`] = `
-<h4
-  className="ui dividing header"
->
-  User Data
-</h4>
-`;
-
-exports[`Storyshots Form/FormField Error 1`] = `
-<form
-  className="ui form"
-  onSubmit={[Function]}
->
-  <div
-    className="error field"
-  >
-    <div
-      className="field"
-    >
-      <div
-        className="ui input"
-      >
-        <input
-          onChange={[Function]}
-          placeholder="Provide username"
-          type="text"
-        />
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Storyshots Form/FormField Help 1`] = `
-<form
-  className="ui form"
-  onSubmit={[Function]}
->
-  <div
-    className="field"
-  >
-    <label>
-      Username
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
-    </label>
-    <div
-      className="field"
-    >
-      <div
-        className="ui input"
-      >
-        <input
-          onChange={[Function]}
-          placeholder="Provide username"
-          type="text"
-        />
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Storyshots Form/FormField Label 1`] = `
-<form
-  className="ui form"
-  onSubmit={[Function]}
->
-  <div
-    className="field"
-  >
-    <label>
-      Username
-       
-    </label>
-    <div
-      className="field"
-    >
-      <div
-        className="ui input"
-      >
-        <input
-          onChange={[Function]}
-          placeholder="Provide username"
-          type="text"
-        />
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`Storyshots Form/FormField Required 1`] = `
-<form
-  className="ui form"
-  onSubmit={[Function]}
->
-  <div
-    className="required field"
-  >
-    <label>
-      Username
-       
-    </label>
-    <div
-      className="field"
-    >
-      <div
-        className="ui input"
-      >
-        <input
-          onChange={[Function]}
-          placeholder="Provide username"
-          type="text"
-        />
-      </div>
     </div>
   </div>
 </form>

@@ -2,11 +2,11 @@ version: 2.1
 
 defaults: &defaults
   docker:
-    - image: circleci/node:10.15-stretch
+    - image: circleci/node:10.15-stretch-browsers
   working_directory: ~/repo
 
 jobs:
-  build-test:
+  build:
     <<: *defaults
     steps:
       - checkout
@@ -16,21 +16,43 @@ jobs:
           command: npm ci
 
       - run:
-          name: Build application
+          name: Build UI components
           command: npm run build
+
+      - run:
+          name: Build Storybook
+          command: npm run build-storybook
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - repo
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
 
       - run:
           name: Run static analysis and check code style
           command: npm run lint
 
       - run:
-          name: Run tests
-          command: npm run test
+          name: Run Jest tests
+          command: npm run test:jest
 
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - repo
+      - run:
+          name: Run Loki tests
+          command: |
+            sudo apt-get update && sudo apt-get install graphicsmagick
+            npm run test:loki
+
+      - store_artifacts:
+          path: .loki/current
+
+      - store_artifacts:
+          path: .loki/difference
 
   publish:
     <<: *defaults
@@ -63,42 +85,17 @@ jobs:
           name: Remove publish branch
           command: git push -q https://${GITHUB_TOKEN}@github.com/cloudify-cosmo/cloudify-ui-components.git --delete ${CIRCLE_BRANCH}
 
-  deploy:
-    docker:
-      - image: xueshanf/awscli:latest
-    working_directory: ~/repo
-    steps:
-      - attach_workspace:
-          at: ~/
-
-      - run:
-          name: Building static version of StoryBook
-          command: npm run build-storybook
-
-      - run:
-          name: Setting Signature Version 4 for S3 Request Authentication
-          command: aws configure set default.s3.signature_version s3v4
-
-      - run:
-          name: Deploy to S3
-          command:  |
-            export VERSION=${CIRCLE_BRANCH/publish-v/}
-            aws s3 sync public s3://docs.cloudify.co/ui-components/$VERSION --delete --acl public-read storybook-static
-
 workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build-test
+      - build
+      - test:
+          requires:
+            - build
       - publish:
           requires:
-            - build-test
-          filters:
-            branches:
-              only: /^publish-v.*/
-      - deploy:
-          requires:
-            - publish
+            - test
           filters:
             branches:
               only: /^publish-v.*/

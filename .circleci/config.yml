@@ -85,6 +85,26 @@ jobs:
           name: Remove publish branch
           command: git push -q https://${GITHUB_TOKEN}@github.com/cloudify-cosmo/cloudify-ui-components.git --delete ${CIRCLE_BRANCH}
 
+  deploy:
+    docker:
+      - image: xueshanf/awscli:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run:
+          name: Setting Signature Version 4 for S3 Request Authentication
+          command: aws configure set default.s3.signature_version s3v4
+
+      - run:
+          name: Deploy to S3
+          command:  |
+            export VERSION=${CIRCLE_BRANCH/publish-v/}
+            aws s3 sync storybook-static s3://docs.cloudify.co/ui-components/$VERSION --delete --acl public-read
+
 workflows:
   version: 2
   build-test-deploy:
@@ -99,3 +119,6 @@ workflows:
           filters:
             branches:
               only: /^publish-v.*/
+      - deploy:
+          requires:
+            - publish

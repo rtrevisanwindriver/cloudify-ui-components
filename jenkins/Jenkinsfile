@@ -1,6 +1,9 @@
 def secrets = [
   [path: 'secret/jenkins/github', engineVersion: 2, secretValues: [
     [envVar: 'GITHUB_TOKEN', vaultKey: 'public_token']]],
+  [path: 'secret/jenkins/aws', engineVersion: 2, secretValues: [
+    [envVar: 'AWS_ACCESS_KEY_ID', vaultKey: 'aws_access_key_id'],
+    [envVar: 'AWS_SECRET_ACCESS_KEY', vaultKey: 'aws_secret_access_key']]],
   [path: 'secret/jenkins/npm', engineVersion: 2, secretValues: [
     [envVar: 'NPM_TOKEN', vaultKey: 'token']]],
 ]

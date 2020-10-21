@@ -48,8 +48,8 @@ describe('<PopupMenu />', () => {
         );
         wrapper.find('i.content').first().simulate('click');
 
-        // Click inside the Popup component to close popup
-        wrapper.find('Popup').first().simulate('click');
+        // Click inside the Popup component on first option to close popup
+        wrapper.find('MenuItem').first().simulate('click');
         expect(wrapper.find('Popup').first().prop('open')).toEqual(false);
     });
 

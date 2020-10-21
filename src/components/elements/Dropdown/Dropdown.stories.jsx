@@ -2,7 +2,6 @@ import React from 'react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import StoryWithHooks from 'decorators/StoryWithHooks';
 import Dropdown from './Dropdown';
 
 export default {
@@ -11,7 +10,7 @@ export default {
     decorators: [LiveEditDecorator({ Dropdown, DivContainer })]
 };
 
-export const basic = StoryWithHooks(() => {
+export const basic = () => {
     const options = [
         { text: 'Blue', value: 'blue' },
         { text: 'Red', value: 'red' },
@@ -30,12 +29,10 @@ export const basic = StoryWithHooks(() => {
             />
         </DivContainer>
     );
-});
-basic.story = {
-    name: 'Default'
 };
+basic.storyName = 'Default';
 
-export const withEmptyOption = StoryWithHooks(() => {
+export const withEmptyOption = () => {
     const options = [
         { text: 'Blue', value: 'blue' },
         { text: 'Red', value: 'red' },
@@ -55,6 +52,6 @@ export const withEmptyOption = StoryWithHooks(() => {
             />
         </DivContainer>
     );
-});
+};
 
 export const empty = () => <Dropdown />;

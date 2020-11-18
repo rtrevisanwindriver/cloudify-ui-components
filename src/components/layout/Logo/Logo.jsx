@@ -1,12 +1,24 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import logo from 'cloudify-ui-common/images/logo.png';
 
 /**
  * Logo is a component displaying 45px x 45x image in div block.
- * If `url` prop is not provided, then by default it shows Cloudify logo.
+ *
+ * This component supports theming: `logoUrl` parameter is used as logo URL.
+ *
+ * The logo selection is done the following way:
+ *
+ * 1. If non-empty `url` prop is provided, then it is selected
+ * 1. If first condition is not met and theme is provided with non-empty `logoUrl` parameter, then it is selected
+ * 1. In all other cases, the default Cloudify logo will be selected
+ *
  */
 export default function Logo({ className, style, url }) {
+    const theme = useContext(ThemeContext) || {};
+    const logoUrl = url || theme.logoUrl || logo;
+
     return (
         <div
             className={className}
@@ -21,7 +33,7 @@ export default function Logo({ className, style, url }) {
                 margin: '5px 10px',
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
-                backgroundImage: `url(${url || logo})`,
+                backgroundImage: `url(${logoUrl})`,
                 ...style
             }}
         />

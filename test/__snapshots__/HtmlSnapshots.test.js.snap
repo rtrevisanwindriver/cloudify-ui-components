@@ -14443,7 +14443,7 @@ exports[`Storyshots Layout/FullScreenSegment Colored 1`] = `
   }
 >
   <div
-    className="ui segment"
+    className="ui segment fullScreenSegment "
     style={
       Object {
         "backgroundColor": "green",
@@ -14476,7 +14476,7 @@ exports[`Storyshots Layout/FullScreenSegment Default 1`] = `
   }
 >
   <div
-    className="ui segment"
+    className="ui segment fullScreenSegment "
     style={
       Object {
         "backgroundColor": undefined,
@@ -14509,7 +14509,7 @@ exports[`Storyshots Layout/FullScreenSegment Styled 1`] = `
   }
 >
   <div
-    className="ui segment"
+    className="ui segment fullScreenSegment "
     style={
       Object {
         "backgroundColor": undefined,
@@ -14562,7 +14562,7 @@ exports[`Storyshots Layout/HeaderBanner Custom Logo 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": undefined,
@@ -14592,6 +14592,81 @@ exports[`Storyshots Layout/HeaderBanner Custom Logo 1`] = `
     >
        
       2.3
+    </span>
+  </h1>
+</div>
+`;
+
+exports[`Storyshots Layout/HeaderBanner Data From Theme 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "black",
+      "height": 55,
+      "position": "relative",
+    }
+  }
+>
+  <div
+    className="logo"
+    style={
+      Object {
+        "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1920px-Coca-Cola_logo.svg.png)",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "contain",
+        "display": "inline-block",
+        "float": "left",
+        "height": 45,
+        "left": 0,
+        "margin": "5px 10px",
+        "position": "relative",
+        "top": 0,
+        "verticalAlign": "middle",
+        "width": 45,
+      }
+    }
+  />
+  <h1
+    className="ui header headerBanner "
+    style={
+      Object {
+        "color": "red",
+        "float": "left",
+        "height": "100%",
+        "margin": "9px 0",
+        "padding": 0,
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "verticalAlign": "middle",
+        }
+      }
+    >
+      Sugar Corps
+    </span>
+    <span
+      style={
+        Object {
+          "verticalAlign": "middle",
+        }
+      }
+    >
+       
+      Premium
+    </span>
+    <span
+      style={
+        Object {
+          "color": undefined,
+          "verticalAlign": "middle",
+        }
+      }
+    >
+       
+      20.10
     </span>
   </h1>
 </div>
@@ -14627,7 +14702,7 @@ exports[`Storyshots Layout/HeaderBanner Default 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": undefined,
@@ -14702,7 +14777,7 @@ exports[`Storyshots Layout/HeaderBanner No Version Details 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": undefined,
@@ -14728,7 +14803,7 @@ exports[`Storyshots Layout/HeaderBanner No Version Details 1`] = `
 
 exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
 <div
-  className="sc-bdfBwQ cpjHsn"
+  className="sc-bdfBwQ cpjHsn headerBar "
   color="white"
   height="100px"
 >
@@ -14752,7 +14827,7 @@ exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": "white",
@@ -14774,14 +14849,13 @@ exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
     </span>
   </h1>
   <div
-    className="ui inverted secondary right floated sc-dlfnbm bZplZF menu"
+    className="ui inverted secondary right floated menusBar  menu"
     style={
       Object {
         "height": "100%",
         "marginLeft": "auto",
       }
     }
-    textColor="white"
   >
     <div
       aria-expanded={false}
@@ -14832,7 +14906,7 @@ exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
 
 exports[`Storyshots Layout/HeaderBar Default 1`] = `
 <div
-  className="sc-bdfBwQ hkjYnb"
+  className="sc-bdfBwQ hkjYnb headerBar "
   color="white"
   height="55px"
 >
@@ -14856,7 +14930,7 @@ exports[`Storyshots Layout/HeaderBar Default 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": "white",
@@ -14878,14 +14952,13 @@ exports[`Storyshots Layout/HeaderBar Default 1`] = `
     </span>
   </h1>
   <div
-    className="ui inverted secondary right floated sc-dlfnbm bZplZF menu"
+    className="ui inverted secondary right floated menusBar  menu"
     style={
       Object {
         "height": "100%",
         "marginLeft": "auto",
       }
     }
-    textColor="white"
   >
     <div
       aria-expanded={false}
@@ -14936,7 +15009,7 @@ exports[`Storyshots Layout/HeaderBar Default 1`] = `
 
 exports[`Storyshots Layout/HeaderBar No Theme 1`] = `
 <div
-  className="sc-bdfBwQ kdpXrv"
+  className="sc-bdfBwQ kdpXrv headerBar "
   height="55px"
 >
   <div
@@ -14959,7 +15032,7 @@ exports[`Storyshots Layout/HeaderBar No Theme 1`] = `
     }
   />
   <h1
-    className="ui header"
+    className="ui header headerBanner "
     style={
       Object {
         "color": undefined,
@@ -14981,7 +15054,7 @@ exports[`Storyshots Layout/HeaderBar No Theme 1`] = `
     </span>
   </h1>
   <div
-    className="ui inverted secondary right floated sc-dlfnbm hcSRum menu"
+    className="ui inverted secondary right floated menusBar  menu"
     style={
       Object {
         "height": "100%",
@@ -15205,11 +15278,11 @@ exports[`Storyshots Layout/Logo Custom Style 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout/Logo Custom Url 1`] = `
+exports[`Storyshots Layout/Logo Default 1`] = `
 <div
   style={
     Object {
-      "backgroundColor": "white",
+      "backgroundColor": "blue",
       "height": 250,
       "position": "relative",
     }
@@ -15219,7 +15292,7 @@ exports[`Storyshots Layout/Logo Custom Url 1`] = `
     className="logo"
     style={
       Object {
-        "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/a/a7/Wikipedia_logo_v3.svg)",
+        "backgroundImage": "url([object Object])",
         "backgroundRepeat": "no-repeat",
         "backgroundSize": "contain",
         "display": "inline-block",
@@ -15236,12 +15309,12 @@ exports[`Storyshots Layout/Logo Custom Url 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout/Logo Default 1`] = `
+exports[`Storyshots Layout/Logo Logo From Theme 1`] = `
 <div
   style={
     Object {
-      "backgroundColor": "blue",
-      "height": 250,
+      "backgroundColor": "white",
+      "height": 60,
       "position": "relative",
     }
   }
@@ -15250,7 +15323,38 @@ exports[`Storyshots Layout/Logo Default 1`] = `
     className="logo"
     style={
       Object {
-        "backgroundImage": "url([object Object])",
+        "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1920px-Coca-Cola_logo.svg.png)",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "contain",
+        "display": "inline-block",
+        "height": 45,
+        "left": 0,
+        "margin": "5px 10px",
+        "position": "relative",
+        "top": 0,
+        "verticalAlign": "middle",
+        "width": 45,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Layout/Logo Logo From Url 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "height": 60,
+      "position": "relative",
+    }
+  }
+>
+  <div
+    className="logo"
+    style={
+      Object {
+        "backgroundImage": "url(https://upload.wikimedia.org/wikipedia/commons/a/a7/Wikipedia_logo_v3.svg)",
         "backgroundRepeat": "no-repeat",
         "backgroundSize": "contain",
         "display": "inline-block",
@@ -15287,14 +15391,13 @@ exports[`Storyshots Layout/MenusBar Default 1`] = `
     }
   >
     <div
-      className="ui inverted secondary right floated sc-dlfnbm eRboKV menu"
+      className="ui inverted secondary right floated menusBar  menu"
       style={
         Object {
           "height": "100%",
           "marginLeft": "auto",
         }
       }
-      textColor="red"
     >
       <div
         aria-expanded={false}
@@ -15417,7 +15520,7 @@ exports[`Storyshots Layout/MenusBar No Theme 1`] = `
     }
   >
     <div
-      className="ui inverted secondary right floated sc-dlfnbm hcSRum menu"
+      className="ui inverted secondary right floated menusBar  menu"
       style={
         Object {
           "height": "100%",

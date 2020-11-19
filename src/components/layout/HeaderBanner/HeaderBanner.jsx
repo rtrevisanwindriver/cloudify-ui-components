@@ -16,7 +16,7 @@ import LicenseEdition from './LicenseEdition';
  *
  * * contains: logo, product name, license edition and product version
  * * supports theming:
- *   * `headerTextColor` parameter is used as text color
+ *   * `headerTextColor` parameter is used as text color, if not specified then `white` from default colors is chosen
  *   * `logoUrl` parameter is used as URL for Logo component
  *   * `showVersionDetails` parameter is used to determine if license edition and product version should be visible
  */
@@ -30,8 +30,8 @@ export default function HeaderBanner({
 }) {
     const theme = useContext(ThemeContext) || {};
     const color = theme.headerTextColor || colors.white;
-    const url = theme.logoUrl || logoUrl;
-    const showDetails = _.isBoolean(theme.showVersionDetails) ? theme.showVersionDetails : showVersionDetails;
+    const url = logoUrl || theme.logoUrl;
+    const showDetails = _.isBoolean(showVersionDetails) ? showVersionDetails : theme.showVersionDetails;
 
     return (
         <>
@@ -71,7 +71,7 @@ HeaderBanner.propTypes = {
     licenseEdition: PropTypes.string,
 
     /**
-     * URL for logo, displayed first from the left side
+     * URL for logo, displayed first from the left side, overrides theme parameter `logoUrl`
      */
     logoUrl: PropTypes.string,
 
@@ -86,7 +86,7 @@ HeaderBanner.propTypes = {
     productVersion: PropTypes.string,
 
     /**
-     * if set to true, then license edition and product version will be displayed
+     * if set to true, then license edition and product version will be displayed, overrides theme parameter `showVersionDetails`
      */
     showVersionDetails: PropTypes.bool
 };
@@ -97,5 +97,5 @@ HeaderBanner.defaultProps = {
     logoUrl: '',
     productName: '',
     productVersion: '',
-    showVersionDetails: true
+    showVersionDetails: undefined
 };

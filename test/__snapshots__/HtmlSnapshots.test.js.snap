@@ -258,12 +258,7 @@ exports[`Storyshots Data/DataSegment Action Buttons 1`] = `
   <div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -272,12 +267,7 @@ exports[`Storyshots Data/DataSegment Action Buttons 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -286,12 +276,7 @@ exports[`Storyshots Data/DataSegment Action Buttons 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -300,12 +285,7 @@ exports[`Storyshots Data/DataSegment Action Buttons 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -344,12 +324,7 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
   <div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -358,12 +333,7 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -372,12 +342,7 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -386,12 +351,7 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -727,12 +687,7 @@ exports[`Storyshots Data/DataSegment Search Filter 1`] = `
   <div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -741,12 +696,7 @@ exports[`Storyshots Data/DataSegment Search Filter 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -755,12 +705,7 @@ exports[`Storyshots Data/DataSegment Search Filter 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -769,12 +714,7 @@ exports[`Storyshots Data/DataSegment Search Filter 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -857,12 +797,7 @@ exports[`Storyshots Data/DataSegment Simple 1`] = `
   <div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -871,12 +806,7 @@ exports[`Storyshots Data/DataSegment Simple 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -885,12 +815,7 @@ exports[`Storyshots Data/DataSegment Simple 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -899,12 +824,7 @@ exports[`Storyshots Data/DataSegment Simple 1`] = `
     </div>
     <div
       className="ui segment"
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-        }
-      }
+      style={Object {}}
     >
       <h2>
         Item 
@@ -992,16 +912,7 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             68
@@ -1015,16 +926,7 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             62
@@ -1218,16 +1120,7 @@ exports[`Storyshots Data/DataTable Col Span 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             colSpan={3}
@@ -1490,16 +1383,7 @@ exports[`Storyshots Data/DataTable Column Tooltips 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             55
@@ -1513,16 +1397,7 @@ exports[`Storyshots Data/DataTable Column Tooltips 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             14
@@ -1664,11 +1539,7 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -1687,11 +1558,7 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -1710,11 +1577,7 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -1733,11 +1596,7 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
         </tr>
         <tr
           className=" active"
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -1847,16 +1706,7 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             68
@@ -1870,16 +1720,7 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             62
@@ -1893,16 +1734,7 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             8
@@ -1916,16 +1748,7 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             55
@@ -1939,16 +1762,7 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             14
@@ -2008,16 +1822,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             68
@@ -2031,16 +1836,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             62
@@ -2054,16 +1850,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             8
@@ -2077,16 +1864,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             55
@@ -2100,16 +1878,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             14
@@ -2430,16 +2199,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             style={
@@ -2461,16 +2221,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             style={
@@ -2487,16 +2238,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             style={
@@ -2518,16 +2260,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             style={
@@ -2544,16 +2277,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td
             style={
@@ -2649,16 +2373,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
       >
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             68
@@ -2672,16 +2387,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             62
@@ -2695,16 +2401,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             8
@@ -2718,16 +2415,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             55
@@ -2741,16 +2429,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+          style={Object {}}
         >
           <td>
             14
@@ -3071,11 +2750,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
       >
         <tr
           className=" active"
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -3094,11 +2769,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -3117,11 +2788,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -3140,11 +2807,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",
@@ -3163,11 +2826,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
         </tr>
         <tr
           className=""
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
           style={
             Object {
               "cursor": "pointer",

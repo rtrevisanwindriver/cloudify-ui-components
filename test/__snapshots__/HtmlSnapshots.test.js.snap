@@ -1003,19 +1003,174 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             68
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
+          <td>
+            hello-world-openstack
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            62
+          </td>
+          <td>
+            hello-world
+          </td>
+          <td>
+            hello-world-azure
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            8
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
+            nodecellar-gcp
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            55
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
+            nodecellar-aws
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            14
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
+            nodecellar-local
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Data/DataTable Col Span 1`] = `
+<div
+  className="gridTable "
+>
+  <div>
+    <table
+      className="ui sortable very compact table"
+    >
+      <thead
+        className=""
+      >
+        <tr
+          className=""
+        >
+          <th
+            className="disabled"
+            onClick={[Function]}
+            style={Object {}}
           >
+            ID
+          </th>
+          <th
+            className=""
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Blueprint
+          </th>
+          <th
+            className=""
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Deployment
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className=""
+      >
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            68
+          </td>
+          <td>
+            hello-world
+          </td>
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -1033,18 +1188,31 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
           }
         >
           <td
-            className=""
+            colSpan={3}
           >
+            This row spans all columns
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -1062,18 +1230,31 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
           }
         >
           <td
-            className=""
+            colSpan={3}
           >
+            This row spans all columns
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
             8
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -1091,18 +1272,31 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
           }
         >
           <td
-            className=""
+            colSpan={3}
           >
+            This row spans all columns
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -1120,18 +1314,223 @@ exports[`Storyshots Data/DataTable Action Buttons 1`] = `
           }
         >
           <td
-            className=""
+            colSpan={3}
           >
+            This row spans all columns
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
+          <td>
+            nodecellar-local
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
           <td
-            className=""
+            colSpan={3}
           >
+            This row spans all columns
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Data/DataTable Column Tooltips 1`] = `
+<div
+  className="gridTable "
+>
+  <div>
+    <table
+      className="ui sortable very compact table"
+    >
+      <thead
+        className=""
+      >
+        <tr
+          className=""
+        >
+          <th
+            className="disabled"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={Object {}}
+          >
+            ID
+          </th>
+          <th
+            className=""
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={Object {}}
+          >
+            Blueprint
+          </th>
+          <th
+            className=""
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={Object {}}
+          >
+            Deployment
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className=""
+      >
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            68
+          </td>
+          <td>
+            hello-world
+          </td>
+          <td>
+            hello-world-openstack
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            62
+          </td>
+          <td>
+            hello-world
+          </td>
+          <td>
+            hello-world-azure
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            8
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
+            nodecellar-gcp
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            55
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
+            nodecellar-aws
+          </td>
+        </tr>
+        <tr
+          className=""
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <td>
+            14
+          </td>
+          <td>
+            nodecellar
+          </td>
+          <td>
             nodecellar-local
           </td>
         </tr>
@@ -1276,19 +1675,13 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             Drupal application
           </td>
-          <td
-            className=""
-          >
+          <td>
             2016-03-04
           </td>
-          <td
-            className=""
-          >
+          <td>
             description for portal
           </td>
         </tr>
@@ -1305,19 +1698,13 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             Wordpress blog
           </td>
-          <td
-            className=""
-          >
+          <td>
             2016-01-05
           </td>
-          <td
-            className=""
-          >
+          <td>
             description for blog
           </td>
         </tr>
@@ -1334,19 +1721,13 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             Joomla website
           </td>
-          <td
-            className=""
-          >
+          <td>
             2015-08-14
           </td>
-          <td
-            className=""
-          >
+          <td>
             description for website
           </td>
         </tr>
@@ -1363,19 +1744,13 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             Prestashop store
           </td>
-          <td
-            className=""
-          >
+          <td>
             2017-01-05
           </td>
-          <td
-            className=""
-          >
+          <td>
             description for e-commerce solution
           </td>
         </tr>
@@ -1483,19 +1858,13 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             68
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -1512,19 +1881,13 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -1541,19 +1904,13 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             8
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -1570,19 +1927,13 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -1599,19 +1950,13 @@ exports[`Storyshots Data/DataTable Filter Inputs 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-local
           </td>
         </tr>
@@ -1674,19 +2019,13 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             68
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -1703,19 +2042,13 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -1732,19 +2065,13 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             8
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -1761,19 +2088,13 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -1790,19 +2111,13 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-local
           </td>
         </tr>
@@ -2127,7 +2442,6 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           }
         >
           <td
-            className=""
             style={
               Object {
                 "fontWeight": "bold",
@@ -2137,14 +2451,11 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
             68
           </td>
           <td
-            className=""
             rowSpan={2}
           >
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -2162,7 +2473,6 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           }
         >
           <td
-            className=""
             style={
               Object {
                 "fontWeight": "bold",
@@ -2171,9 +2481,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           >
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -2191,7 +2499,6 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           }
         >
           <td
-            className=""
             style={
               Object {
                 "fontWeight": "bold",
@@ -2201,14 +2508,11 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
             8
           </td>
           <td
-            className=""
             rowSpan={3}
           >
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -2226,7 +2530,6 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           }
         >
           <td
-            className=""
             style={
               Object {
                 "fontWeight": "bold",
@@ -2235,9 +2538,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           >
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -2255,7 +2556,6 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           }
         >
           <td
-            className=""
             style={
               Object {
                 "fontWeight": "bold",
@@ -2264,9 +2564,7 @@ exports[`Storyshots Data/DataTable Row Span And Style 1`] = `
           >
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-local
           </td>
         </tr>
@@ -2362,19 +2660,13 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             68
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -2391,19 +2683,13 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -2420,19 +2706,13 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             8
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -2449,19 +2729,13 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -2478,19 +2752,13 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-local
           </td>
         </tr>
@@ -2814,19 +3082,13 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             68
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-openstack
           </td>
         </tr>
@@ -2843,19 +3105,13 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             62
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world
           </td>
-          <td
-            className=""
-          >
+          <td>
             hello-world-azure
           </td>
         </tr>
@@ -2872,19 +3128,13 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             8
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-gcp
           </td>
         </tr>
@@ -2901,19 +3151,13 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             55
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-aws
           </td>
         </tr>
@@ -2930,19 +3174,13 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             }
           }
         >
-          <td
-            className=""
-          >
+          <td>
             14
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar
           </td>
-          <td
-            className=""
-          >
+          <td>
             nodecellar-local
           </td>
         </tr>

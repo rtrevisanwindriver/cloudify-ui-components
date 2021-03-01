@@ -1,17 +1,28 @@
-const moduleResolverPlugin = [
-    'module-resolver',
-    {
-        root: ['./src']
-    }
-];
+module.exports = api => {
+    const env = api.env();
+    const testEnvironment = env === 'test';
 
-module.exports = {
-    plugins: [moduleResolverPlugin],
-    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-    env: {
-        test: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-            plugins: [moduleResolverPlugin, 'require-context-hook']
-        }
-    }
+    return {
+        plugins: [
+            [
+                'module-resolver',
+                {
+                    root: ['./src']
+                }
+            ],
+            testEnvironment && 'require-context-hook'
+        ].filter(Boolean),
+        presets: [
+            [
+                '@babel/preset-env',
+                {
+                    // Disables transpiling modules to CommonJS outside of tests
+                    // https://babeljs.io/docs/en/babel-preset-env#modules
+                    modules: testEnvironment ? 'auto' : false
+                }
+            ],
+            '@babel/preset-react',
+            '@babel/preset-typescript'
+        ]
+    };
 };

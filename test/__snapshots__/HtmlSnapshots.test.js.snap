@@ -1350,6 +1350,89 @@ exports[`Storyshots Data/DataTable Empty 1`] = `
 </div>
 `;
 
+exports[`Storyshots Data/DataTable Empty with a custom message 1`] = `
+<div
+  className="gridTable "
+>
+  <div>
+    <table
+      className="ui sortable very compact table"
+    >
+      <thead
+        className=""
+      >
+        <tr
+          className=""
+        >
+          <th
+            className=" center aligned"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": "40%",
+              }
+            }
+          >
+            Name
+          </th>
+          <th
+            className=" center aligned"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": "30%",
+              }
+            }
+          >
+            Date
+          </th>
+          <th
+            className="disabled center aligned"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": "30%",
+              }
+            }
+          >
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className=""
+      >
+        <tr
+          className="noDataRow"
+        >
+          <td
+            className="center aligned"
+            colSpan={3}
+          >
+            <span>
+              <div
+                style={
+                  Object {
+                    "margin": "2rem",
+                  }
+                }
+              >
+                <p>
+                  No Results found.
+                </p>
+                <p>
+                  Try changing the filter or the search phrase.
+                </p>
+              </div>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Data/DataTable Expandable Row 1`] = `
 <div
   className="gridTable "

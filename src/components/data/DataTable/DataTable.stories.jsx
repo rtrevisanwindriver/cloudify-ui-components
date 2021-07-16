@@ -269,3 +269,20 @@ export const empty = () => (
         <DataTable.Column label="Description" width="30%" centerAligned />
     </DataTable>
 );
+
+export const emptyWithCustomMessage = () => (
+    <DataTable
+        totalSize={0}
+        noDataMessage={
+            <div style={{ margin: '2rem' }}>
+                <p>No Results found.</p>
+                <p>Try changing the filter or the search phrase.</p>
+            </div>
+        }
+    >
+        <DataTable.Column label="Name" name="id" width="40%" centerAligned />
+        <DataTable.Column label="Date" name="date" width="30%" centerAligned />
+        <DataTable.Column label="Description" width="30%" centerAligned />
+    </DataTable>
+);
+emptyWithCustomMessage.storyName = 'Empty with a custom message';

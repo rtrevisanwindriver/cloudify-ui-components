@@ -282,7 +282,7 @@ DataTable.propTypes = {
     /**
      * message displayed when there's no data
      */
-    noDataMessage: PropTypes.string
+    noDataMessage: PropTypes.node
 };
 
 DataTable.defaultProps = {

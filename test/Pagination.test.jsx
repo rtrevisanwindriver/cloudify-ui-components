@@ -198,4 +198,16 @@ describe('<Pagination />', () => {
 
         expect(wrapper.state().showWarningPopup).toEqual(true);
     });
+
+    it('shows pagination when the current page size is smaller than the total size despite sizeMultiplier', () => {
+        const fetchDataMock = jest.fn();
+        const wrapper = mount(
+            <Pagination fetchData={fetchDataMock} pageSize={5} sizeMultiplier={50} totalSize={20}>
+                <div />
+            </Pagination>
+        );
+
+        // NOTE: use RegExp as there is unstable whitespace in the rendered HTML
+        expect(wrapper.findWhere(w => w.text().match(/1.*to.*5.*of.*20.*entries/)).exists()).toBe(true);
+    });
 });

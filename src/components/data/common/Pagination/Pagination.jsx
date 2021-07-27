@@ -80,12 +80,14 @@ export default class Pagination extends Component {
     render() {
         const { children, totalSize, sizeMultiplier } = this.props;
         const { currentPage, pageSize: pageSizeState, showWarningPopup } = this.state;
+        const showPagination =
+            totalSize > Pagination.PAGE_SIZE_LIST(sizeMultiplier)[0] || totalSize > pageSizeState || currentPage > 1;
 
         return (
             <div>
                 {children}
 
-                {(totalSize > Pagination.PAGE_SIZE_LIST(sizeMultiplier)[0] || currentPage > 1) && (
+                {showPagination && (
                     <Grid columns={2} className="gridPagination">
                         <Grid.Column>
                             <Popup open={showWarningPopup} wide="very">

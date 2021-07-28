@@ -5,5 +5,5 @@
         "baseUrl": "../src"
     },
     "include": ["**/*"],
-    "files": ["../src/index.js"]
+    "references": [{ "path": "../src/tsconfig.json" }]
 }

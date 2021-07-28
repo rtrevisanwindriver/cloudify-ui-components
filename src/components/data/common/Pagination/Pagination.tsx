@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, ReactElement } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { isEmpty } from 'lodash';
 
 import { Icon, Grid, Message, Pagination as PaginationNavigation } from 'semantic-ui-react';
 import Popup from 'components/popups/Popup';
@@ -8,9 +8,38 @@ import PaginationInfo from './PaginationInfo';
 
 import './Pagination.css';
 
-export default class Pagination extends Component {
-    constructor(props, context) {
-        super(props, context);
+interface PaginationProps {
+    fetchData: () => void;
+    totalSize: number;
+    pageSize: number;
+    sizeMultiplier: number;
+}
+
+interface PaginationState {
+    pageSize: number;
+    currentPage: number;
+    showWarningPopup: boolean;
+}
+
+export default class Pagination extends Component<PaginationProps, PaginationState> {
+    // eslint-disable-next-line react/static-property-placement
+    static propTypes = {
+        children: PropTypes.node.isRequired,
+        fetchData: PropTypes.func.isRequired,
+        totalSize: PropTypes.number,
+        pageSize: PropTypes.number,
+        sizeMultiplier: PropTypes.number
+    };
+
+    // eslint-disable-next-line react/static-property-placement
+    static defaultProps = {
+        totalSize: 0,
+        pageSize: PaginationInfo.pageSizes(5)[0],
+        sizeMultiplier: 5
+    };
+
+    constructor(props: PaginationProps) {
+        super(props);
 
         this.state = {
             pageSize: props.pageSize,
@@ -22,11 +51,11 @@ export default class Pagination extends Component {
         this.changePageSize = this.changePageSize.bind(this);
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: PaginationProps): void {
         const { pageSize, totalSize } = this.props;
         const { currentPage } = this.state;
 
-        const changedProps = {};
+        const changedProps: { pageSize?: number; currentPage?: number } = {};
 
         if (prevProps.pageSize !== pageSize) {
             changedProps.pageSize = pageSize;
@@ -39,12 +68,12 @@ export default class Pagination extends Component {
             }
         }
 
-        if (!_.isEmpty(changedProps)) {
+        if (!isEmpty(changedProps)) {
             this.changePage(changedProps.currentPage || currentPage, changedProps.pageSize);
         }
     }
 
-    changePageSize(size) {
+    changePageSize(size: string): void {
         const minPageSize = 1;
         const maxPageSize = 500;
         const popupShowTimeout = 3000;
@@ -54,7 +83,7 @@ export default class Pagination extends Component {
         let showWarningPopup = false;
 
         if (Number.isNaN(pageSize) || pageSize < minPageSize || pageSize > maxPageSize) {
-            [pageSize] = Pagination.PAGE_SIZE_LIST(sizeMultiplier);
+            [pageSize] = PaginationInfo.pageSizes(sizeMultiplier);
             showWarningPopup = true;
         }
 
@@ -66,22 +95,22 @@ export default class Pagination extends Component {
         });
     }
 
-    changePage(page, pageSize) {
+    changePage(page: number, pageSize?: number): void {
         const { fetchData } = this.props;
         const { pageSize: pageSizeState } = this.props;
 
         this.setState({ currentPage: page, pageSize: pageSize || pageSizeState }, () => fetchData());
     }
 
-    reset(callback) {
+    reset(callback: () => void): void {
         this.setState({ currentPage: 1 }, callback);
     }
 
-    render() {
+    render(): ReactElement {
         const { children, totalSize, sizeMultiplier } = this.props;
         const { currentPage, pageSize: pageSizeState, showWarningPopup } = this.state;
         const showPagination =
-            totalSize > Pagination.PAGE_SIZE_LIST(sizeMultiplier)[0] || totalSize > pageSizeState || currentPage > 1;
+            totalSize > PaginationInfo.pageSizes(sizeMultiplier)[0] || totalSize > pageSizeState || currentPage > 1;
 
         return (
             <div>
@@ -113,7 +142,8 @@ export default class Pagination extends Component {
                                 <PaginationNavigation
                                     activePage={currentPage}
                                     totalPages={Math.ceil(totalSize / pageSizeState)}
-                                    onPageChange={(e, { activePage }) => this.changePage(activePage)}
+                                    // NOTE: assume the `activePage` is always a number
+                                    onPageChange={(_e, { activePage }) => this.changePage(activePage as number)}
                                     siblingRange={0}
                                     ellipsisItem={{ content: <Icon name="ellipsis horizontal" />, icon: true }}
                                     firstItem={{ content: <Icon name="angle double left" />, icon: true }}
@@ -130,18 +160,6 @@ export default class Pagination extends Component {
     }
 }
 
-Pagination.PAGE_SIZE_LIST = PaginationInfo.pageSizes;
-
-Pagination.propTypes = {
-    children: PropTypes.node.isRequired,
-    fetchData: PropTypes.func.isRequired,
-    totalSize: PropTypes.number,
-    pageSize: PropTypes.number,
-    sizeMultiplier: PropTypes.number
-};
-
-Pagination.defaultProps = {
-    totalSize: 0,
-    pageSize: Pagination.PAGE_SIZE_LIST(5)[0],
-    sizeMultiplier: 5
-};
+// NOTE: build-storybook throws an error if is added as a static property in the class
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(Pagination as any).PAGE_SIZE_LIST = PaginationInfo.pageSizes;

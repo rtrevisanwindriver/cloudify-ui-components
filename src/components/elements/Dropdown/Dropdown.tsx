@@ -1,5 +1,5 @@
-import React from 'react';
-import _ from 'lodash';
+import React, { ComponentProps, ReactElement } from 'react';
+import { map } from 'lodash';
 import { Dropdown as SemanticUiReactDropdown } from 'semantic-ui-react';
 
 /**
@@ -9,9 +9,9 @@ import { Dropdown as SemanticUiReactDropdown } from 'semantic-ui-react';
  * See [Dropdown](https://react.semantic-ui.com/modules/dropdown) component from Semantic-UI-React framework for details about props and usage details.
  */
 export default class Dropdown extends SemanticUiReactDropdown {
-    render() {
-        const addOptionValueAttribute = options => {
-            return _.map(options, option => ({ ...option, 'option-value': String(option.value) || 'empty-option' }));
+    render(): ReactElement {
+        const addOptionValueAttribute = (options: ComponentProps<typeof SemanticUiReactDropdown>['options']) => {
+            return map(options, option => ({ ...option, 'option-value': String(option.value) || 'empty-option' }));
         };
         const props = { ...this.props };
         if (props.options) {

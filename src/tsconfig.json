@@ -1,7 +1,9 @@
 {
     "extends": "../node_modules/cloudify-ui-common/configs/tsconfig.composite.json",
     "compilerOptions": {
-        "declarationDir": "../typings",
-        "baseUrl": "."
+        "outDir": "../typings",
+        "types": [],
+        "baseUrl": ".",
+        "composite": true
     }
 }

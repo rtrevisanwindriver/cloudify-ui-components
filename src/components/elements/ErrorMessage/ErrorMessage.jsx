@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { isObject, isEqual, isEmpty, isArray } from 'lodash';
 import { Message } from 'semantic-ui-react';
 
 /**
@@ -42,21 +42,19 @@ export default function ErrorMessage(props) {
 
     let errorMessage = error;
     let errorHeader = header;
-    if (_.isObject(error)) {
+    if (isObject(error)) {
         errorMessage = error.message;
-        if (_.isEqual(header, ErrorMessage.defaultProps.header) && error.header) {
+        if (isEqual(header, ErrorMessage.defaultProps.header) && error.header) {
             errorHeader = error.header;
         }
     }
 
-    return (
-        !_.isEmpty(error) && (
-            <Message error className={className} hidden={hidden} onDismiss={handleDismiss}>
-                <Message.Header>{errorHeader}</Message.Header>
-                {_.isArray(error) ? <Message.List items={error} /> : <Message.Content>{errorMessage}</Message.Content>}
-            </Message>
-        )
-    );
+    return !isEmpty(error) ? (
+        <Message error className={className} hidden={hidden} onDismiss={handleDismiss}>
+            <Message.Header>{errorHeader}</Message.Header>
+            {isArray(error) ? <Message.List items={error} /> : <Message.Content>{errorMessage}</Message.Content>}
+        </Message>
+    ) : null;
 }
 
 ErrorMessage.propTypes = {

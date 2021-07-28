@@ -10,7 +10,8 @@ module.exports = api => {
                     root: ['./src']
                 }
             ],
-            testEnvironment && 'require-context-hook'
+            testEnvironment && 'require-context-hook',
+            '@babel/proposal-class-properties'
         ].filter(Boolean),
         presets: [
             [

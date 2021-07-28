@@ -1,12 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import React, { CSSProperties, PropsWithChildren, ReactElement, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import { Form as FormSemanticUiReact, Radio, Ref } from 'semantic-ui-react';
+import { Form as FormSemanticUiReact, Radio, Ref, StrictFormProps } from 'semantic-ui-react';
 
 import ErrorMessage from 'components/elements/ErrorMessage';
-import FormDropdown from 'components/elements/Dropdown';
+import FormDropdown from '../../elements/Dropdown';
 import Checkbox from '../Checkbox';
 import ColorPicker from '../ColorPicker';
 import DateInput from '../DateInput';
@@ -20,6 +19,15 @@ import TimeInput from '../TimeInput';
 import UrlOrFileInput from '../UrlOrFileInput';
 
 import './Form.css';
+
+interface FormProps extends Omit<StrictFormProps, 'error'> {
+    errors?: unknown;
+    errorMessageHeader?: string;
+    onErrorsDismiss?: () => void;
+    /** if set, then on error change screen will be scrolled to (see ErrorMessage) */
+    scrollToError?: boolean;
+    style?: CSSProperties;
+}
 
 /**
  * `Form` is a component to present HTML forms
@@ -81,13 +89,12 @@ import './Form.css';
 export default function Form({
     children,
     errors,
-    errorMessageHeader,
-    onErrorsDismiss,
-    onSubmit,
-    scrollToError,
+    errorMessageHeader = 'Errors in the form',
+    onErrorsDismiss = () => {},
+    scrollToError = false,
     ...formProps
-}) {
-    const formRef = useRef();
+}: PropsWithChildren<FormProps>): ReactElement | null {
+    const formRef = useRef<HTMLElement>(null);
     useEffect(() => {
         if (scrollToError && !_.isEmpty(errors)) {
             formRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
@@ -104,15 +111,16 @@ export default function Form({
     return (
         <Ref innerRef={formRef}>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-            <FormSemanticUiReact {...formProps} onSubmit={onSubmit} error={!_.isEmpty(errors)}>
-                <ErrorMessage header={errorMessageHeader} error={formattedErrors} onDismiss={onErrorsDismiss} />
+            <FormSemanticUiReact {...formProps} error={!_.isEmpty(errors)}>
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                <ErrorMessage header={errorMessageHeader} error={formattedErrors as any} onDismiss={onErrorsDismiss} />
                 {children}
             </FormSemanticUiReact>
         </Ref>
     );
 }
 
-Form.fieldNameValue = field => {
+Form.fieldNameValue = (field: { name: string; value: unknown; type: string; checked?: string }) => {
     const { name } = field;
     let { value } = field;
 
@@ -121,8 +129,8 @@ Form.fieldNameValue = field => {
     }
 
     if (field.type === 'number') {
-        const isFloat = n => Number(n) % 1 !== 0;
-        value = isFloat(field.value) ? parseFloat(field.value) : parseInt(field.value, 10);
+        const isFloat = (n: unknown) => Number(n) % 1 !== 0;
+        value = isFloat(field.value) ? parseFloat(field.value as string) : parseInt(field.value as string, 10);
     }
 
     if (_.isEmpty(name)) {
@@ -180,12 +188,4 @@ Form.propTypes = {
      * if set, then on error change screen will be scrolled to (seeErrorMessage)
      */
     scrollToError: PropTypes.bool
-};
-
-Form.defaultProps = {
-    errors: null,
-    errorMessageHeader: 'Errors in the form',
-    onSubmit: () => {},
-    onErrorsDismiss: () => {},
-    scrollToError: false
 };

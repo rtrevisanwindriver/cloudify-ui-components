@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { ComponentProps, ReactElement } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 import Form from 'components/form/Form';
+import { DropdownItemProps } from 'semantic-ui-react';
 
-/**
- * @return {null}
- */
+interface PaginationInfoProps {
+    pageSize: number;
+    onPageSizeChange: (pageSize: string) => void;
+    totalSize: number;
+    currentPage: number;
+    sizeMultiplier: number;
+}
 
-export default function PaginationInfo({ pageSize, onPageSizeChange, currentPage, totalSize, sizeMultiplier }) {
-    const handleChange = (e, { value }) => {
-        onPageSizeChange(value);
+export default function PaginationInfo({
+    pageSize,
+    onPageSizeChange,
+    currentPage,
+    totalSize,
+    sizeMultiplier
+}: PaginationInfoProps): ReactElement | null {
+    const handleChange: ComponentProps<typeof Form.Dropdown>['onChange'] = (_e, { value }) => {
+        // NOTE: assumes the values are all strings
+        onPageSizeChange(value as string);
     };
 
     if (totalSize <= 0 && currentPage === 1) {
@@ -26,10 +37,8 @@ export default function PaginationInfo({ pageSize, onPageSizeChange, currentPage
 
     const pageSizes = PaginationInfo.pageSizes(sizeMultiplier);
 
-    const options = _.map(pageSizes, item => {
-        return { text: item, value: item };
-    });
-    if (_.indexOf(pageSizes, pageSize) < 0) {
+    const options = pageSizes.map((item): DropdownItemProps => ({ text: item, value: item }));
+    if (!pageSizes.includes(pageSize)) {
         options.unshift({ text: pageSize, value: pageSize });
     }
 
@@ -55,7 +64,7 @@ export default function PaginationInfo({ pageSize, onPageSizeChange, currentPage
     );
 }
 
-PaginationInfo.pageSizes = multiplier => [1, 2, 3, 5, 10].map(item => multiplier * item);
+PaginationInfo.pageSizes = (multiplier: number) => [1, 2, 3, 5, 10].map(item => multiplier * item);
 
 PaginationInfo.propTypes = {
     pageSize: PropTypes.number.isRequired,

@@ -16,6 +16,13 @@
                     }
                 ]
             }
+        },
+        // TODO(RD-2949) Remove this override once "react/prop-types" is disabled for .tsx files in common configuration
+        {
+            "files": ["**/*.tsx"],
+            "rules": {
+                "react/prop-types": "off"
+            }
         }
     ]
 }

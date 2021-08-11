@@ -4253,7 +4253,7 @@ exports[`Storyshots Data/HighlightText YAML 1`] = `
 </pre>
 `;
 
-exports[`Storyshots Data/KeyIndicator Executions 1`] = `
+exports[`Storyshots Data/KeyIndicator External Image 1`] = `
 <div
   style={
     Object {
@@ -4290,25 +4290,31 @@ exports[`Storyshots Data/KeyIndicator Executions 1`] = `
       <div
         className="value"
       >
-        <i
-          aria-hidden="true"
-          className="cogs icon"
-          onClick={[Function]}
+        <img
+          className="ui inline image"
+          src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
+          style={
+            Object {
+              "marginBottom": "0.25rem",
+              "maxHeight": "4rem",
+              "verticalAlign": "bottom",
+            }
+          }
         />
          
-        6
+        3
       </div>
       <div
         className="label"
       >
-        Running Executions
+        Team members
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots Data/KeyIndicator Plugins 1`] = `
+exports[`Storyshots Data/KeyIndicator Icon With Label 1`] = `
 <div
   style={
     Object {
@@ -4351,7 +4357,6 @@ exports[`Storyshots Data/KeyIndicator Plugins 1`] = `
           onClick={[Function]}
         />
          
-        3
       </div>
       <div
         className="label"
@@ -4363,7 +4368,7 @@ exports[`Storyshots Data/KeyIndicator Plugins 1`] = `
 </div>
 `;
 
-exports[`Storyshots Data/KeyIndicator User Stars 1`] = `
+exports[`Storyshots Data/KeyIndicator Icon With Label And Number 1`] = `
 <div
   style={
     Object {

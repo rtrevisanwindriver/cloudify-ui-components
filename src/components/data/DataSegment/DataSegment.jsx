@@ -65,7 +65,16 @@ export default class DataSegment extends Component {
     }
 
     render() {
-        const { children, totalSize, pageSize, searchable, className, sizeMultiplier, noDataMessage } = this.props;
+        const {
+            children,
+            totalSize,
+            pageSize,
+            searchable,
+            className,
+            sizeMultiplier,
+            noDataMessage,
+            style
+        } = this.props;
         const { searchText, searching } = this.state;
         let segmentAction = null;
         const segments = [];
@@ -81,7 +90,7 @@ export default class DataSegment extends Component {
         });
 
         return (
-            <div className={`segmentList ${className}`}>
+            <div className={`segmentList ${className}`} style={style}>
                 {(segmentAction || searchable) && (
                     <Form size="small" as="div">
                         <Form.Group inline>
@@ -162,7 +171,12 @@ DataSegment.propTypes = {
     /**
      * message displayed when there's no data
      */
-    noDataMessage: PropTypes.string
+    noDataMessage: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 DataSegment.defaultProps = {
@@ -172,5 +186,6 @@ DataSegment.defaultProps = {
     pageSize: 0,
     sizeMultiplier: 3,
     searchable: false,
-    noDataMessage: 'No data available'
+    noDataMessage: 'No data available',
+    style: undefined
 };

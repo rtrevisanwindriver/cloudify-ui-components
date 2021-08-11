@@ -24,7 +24,6 @@ export default function Confirm(props) {
                 lineHeight: '1.28571429em',
                 fontWeight: 700
             }}
-            /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...rest}
         />
     );

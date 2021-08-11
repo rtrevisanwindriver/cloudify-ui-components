@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
 /**
- * Defines filter bar including filter fields which are displayed above the table
+ * Defines filter bar including filter fields which are displayed above the table.
+ *
+ * All props are passed to the underlaying `Form.Field` component.
  *
  * ```
  *  <DataTable>
@@ -23,8 +25,8 @@ import { Form } from 'semantic-ui-react';
  *  </DataTable>
  * ```
  */
-export default function TableFilter({ children, className }) {
-    return <Form.Field className={className}>{children}</Form.Field>;
+export default function TableFilter({ children, ...formFieldProps }) {
+    return <Form.Field {...formFieldProps}>{children}</Form.Field>;
 }
 
 TableFilter.propTypes = {

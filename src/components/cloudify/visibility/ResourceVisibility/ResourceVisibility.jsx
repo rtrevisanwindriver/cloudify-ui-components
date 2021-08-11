@@ -10,9 +10,10 @@ import { visibilities, visibilityPropType } from '../consts';
 /**
  * ResourceVisibility - an icon representing resource visibility. If allowed setting different visibility than current,
  * clicking the icon will show a popup with the visibility options. To approve the visibility change a confirm modal is shown.
+ * All props except `onSetVisibility` and `allowedSettingTo` are passed down to the underlaying `VisibilityIcon` component.
  */
 export default function ResourceVisibility(props) {
-    const { visibility, onSetVisibility, allowedSettingTo, className } = props;
+    const { visibility, onSetVisibility, allowedSettingTo, ...otherVisibilityIconProps } = props;
 
     const [openConfirm, setOpenConfirm] = useState(false);
     const [newVisibility, setNewVisibility] = useState(null);
@@ -27,12 +28,12 @@ export default function ResourceVisibility(props) {
     const icon = (
         <VisibilityIcon
             visibility={visibility}
-            className={className}
             link={setGlobalAllowed}
             onClick={e => e.stopPropagation()}
             bordered
             disabled={!canChangeVisibility}
             showTitle={!popupOpened}
+            {...otherVisibilityIconProps}
         />
     );
 

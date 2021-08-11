@@ -14,11 +14,12 @@ const hoursOptions = generateOptions(0, 24, 1, 2);
 const minutesOptions = generateOptions(0, 60, 1, 2);
 
 /**
- * InputTime is a component showing time picker in form of hours/minutes input field
+ * InputTime is a component showing time picker in form of hours/minutes input field. It uses `Table` component for
+ * layout - all props supported by the `Table` component are passed down to it.
  *
  * Accessible as `Form.Time`.
  */
-export default function TimeInput({ name, value, onChange }) {
+export default function TimeInput({ name, value, onChange, ...tableProps }) {
     const [hours, minutes] = _.split(value, ':');
 
     const handleMinutesChange = (event, { value: minutesValue }) => {
@@ -36,7 +37,7 @@ export default function TimeInput({ name, value, onChange }) {
     };
 
     return (
-        <Table compact basic="very">
+        <Table compact basic="very" {...tableProps}>
             <Table.Body>
                 <Table.Row>
                     <Table.Cell textAlign="left">

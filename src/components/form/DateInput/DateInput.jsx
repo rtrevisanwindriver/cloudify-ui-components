@@ -8,7 +8,8 @@ import Popup from 'components/popups/Popup';
 import DatePicker from '../DatePicker';
 
 /**
- * `DateInput` is a component showing calendar input with datetime picker in popup
+ * `DateInput` is a component showing calendar input with datetime picker in popup.
+ * All props supported by the `DatePicker` component are passed down to it.
  *
  * Accessible as `Form.Date`.
  */
@@ -65,7 +66,7 @@ export default class DateInput extends React.PureComponent {
     }
 
     render() {
-        const { value, placeholder, minDate, maxDate, timeIntervals } = this.props;
+        const { value, placeholder, ...datePickerProps } = this.props;
         const { dateError, dateValue, dirty, isOpen } = this.state;
 
         return (
@@ -94,12 +95,10 @@ export default class DateInput extends React.PureComponent {
                 </Popup.Trigger>
 
                 <DatePicker
+                    {...datePickerProps}
                     name="dateValue"
                     value={dateValue}
                     onChange={this.handleDataPickerChange}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    timeIntervals={timeIntervals}
                 />
             </Popup>
         );

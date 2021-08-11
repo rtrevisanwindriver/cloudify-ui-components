@@ -128,7 +128,7 @@ export default class JsonInput extends React.PureComponent {
     }
 
     render() {
-        const { name, value, error } = this.props;
+        const { name, value, error, className, style: wrapperStyle } = this.props;
         const { isRawView, isParsableToJson, isMouseOver } = this.state;
 
         const stringValue = types.getStringValue(value);
@@ -143,7 +143,8 @@ export default class JsonInput extends React.PureComponent {
 
         return (
             <div
-                style={{ position: 'relative' }}
+                style={{ position: 'relative', ...wrapperStyle }}
+                className={className}
                 onMouseEnter={() => this.setState({ isMouseOver: true })}
                 onMouseLeave={() => this.setState({ isMouseOver: false })}
             >
@@ -214,11 +215,23 @@ JsonInput.propTypes = {
     /**
      * function to be called on value change
      */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+
+    /**
+     * CSS class
+     */
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 JsonInput.defaultProps = {
     value: '{}',
     error: false,
-    onChange: _.noop
+    onChange: _.noop,
+    className: undefined,
+    style: {}
 };

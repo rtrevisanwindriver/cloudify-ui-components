@@ -9,17 +9,14 @@ import './NodesTree.css';
 /**
  * NodesTree is a tree component, it wraps [rc-tree](http://react-component.github.io/tree/) component.
  *
+ * All props supported by the rc-tree component are passed down to it.
+ *
  * See [rc-tree](http://react-component.github.io/tree/) component for details about props and detailed usage information.
  */
 export default function NodesTree(props) {
-    const { children, className, treeData, ...restProps } = props;
+    const { children, treeData, ...treeProps } = props;
     if (!_.isEmpty(children)) {
-        return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <Tree {...restProps} className={className}>
-                {_.compact(_.castArray(children))}
-            </Tree>
-        );
+        return <Tree {...treeProps}>{_.compact(_.castArray(children))}</Tree>;
     }
     const loop = data => {
         return _.compact(data).map(item => {
@@ -34,14 +31,7 @@ export default function NodesTree(props) {
         });
     };
 
-    return treeData.length ? (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <Tree {...restProps} className={className}>
-            {loop(treeData)}
-        </Tree>
-    ) : (
-        <Loading />
-    );
+    return treeData.length ? <Tree {...treeProps}>{loop(treeData)}</Tree> : <Loading />;
 }
 
 NodesTree.Node = TreeNode;

@@ -4,14 +4,13 @@ import MenuItem from './MenuItem';
 
 /**
  * Menu is a component which extends [Menu](https://react.semantic-ui.com/collections/menu/) component from Semantic-UI-React framework.
- * It has added 'option-value' to every Menu.Item.
+ * It has added 'option-value' to every Menu.Item. All props supported by the `Menu` component are passed down to it.
  *
  * See [Menu](https://react.semantic-ui.com/collections/menu/) component from Semantic-UI-React framework for details about props and usage details.
  */
 export default class Menu extends SemanticUiReactMenu {
     render() {
         const props = { ...this.props };
-        // eslint-disable-next-line react/jsx-props-no-spreading
         return <SemanticUiReactMenu {...props} />;
     }
 }

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement, ReactNode } from 'react';
+import React, { CSSProperties, FunctionComponent, ReactElement, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
 import Popup from 'components/popups/Popup';
@@ -35,6 +35,16 @@ export interface TableColumnProps {
      * if true then column label is center aligned
      */
     centerAligned?: boolean;
+
+    /**
+     * CSS class
+     */
+    className?: string;
+
+    /**
+     * CSS style
+     */
+    style?: CSSProperties;
 }
 
 /**
@@ -50,7 +60,9 @@ const TableColumn: FunctionComponent<TableColumnProps> = ({
     width,
     show = true,
     tooltip,
-    centerAligned
+    centerAligned,
+    className = '',
+    style
 }) => {
     if (!show) {
         return null;
@@ -68,8 +80,18 @@ const TableColumn: FunctionComponent<TableColumnProps> = ({
             cssClass += ' center aligned';
         }
 
+        if (className) {
+            cssClass += ' ';
+            cssClass += className;
+        }
+
         return cssClass;
     };
+
+    const computedStyle = { ...style };
+    if (width) {
+        computedStyle.width = width;
+    }
 
     return (
         <DataTableContext.Consumer>
@@ -77,7 +99,7 @@ const TableColumn: FunctionComponent<TableColumnProps> = ({
                 <OptionalPopup tooltip={tooltip}>
                     <th
                         className={getClassName(sortColumn, sortAscending)}
-                        style={width ? { width } : {}}
+                        style={computedStyle}
                         onClick={() => name && setSortColumn(name)}
                     >
                         {label}
@@ -95,7 +117,9 @@ TableColumn.propTypes = {
     width: PropTypes.string,
     show: PropTypes.bool,
     tooltip: PropTypes.node,
-    centerAligned: PropTypes.bool
+    centerAligned: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.shape({})
 };
 
 // NOTE: This component is only used internally, and its propTypes are validated by the parent component

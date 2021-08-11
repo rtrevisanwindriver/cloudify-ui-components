@@ -120,7 +120,8 @@ export default class DataTable extends Component {
             className,
             noDataAvailable,
             sizeMultiplier,
-            noDataMessage
+            noDataMessage,
+            style
         } = this.props;
         const { searchText, searching, sortColumn, sortAscending } = this.state;
         const headerColumns = [];
@@ -159,7 +160,7 @@ export default class DataTable extends Component {
         });
 
         return (
-            <div className={`gridTable ${className}`}>
+            <div className={`gridTable ${className}`} style={style}>
                 {(searchable || !_.isEmpty(gridFilters) || gridAction) && (
                     <Form size="small" as="div">
                         <Form.Group inline>
@@ -282,7 +283,12 @@ DataTable.propTypes = {
     /**
      * message displayed when there's no data
      */
-    noDataMessage: PropTypes.node
+    noDataMessage: PropTypes.node,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 DataTable.defaultProps = {
@@ -296,5 +302,6 @@ DataTable.defaultProps = {
     className: '',
     noDataAvailable: false,
     sizeMultiplier: 5,
-    noDataMessage: 'No data available'
+    noDataMessage: 'No data available',
+    style: undefined
 };

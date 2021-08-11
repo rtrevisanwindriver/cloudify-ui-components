@@ -6,13 +6,14 @@ import FieldLabel from '../FieldLabel';
 
 /**
  * Checkbox is just a wrapper of Semantic-UI-React's Checkbox component to add help description near Checkbox label.
+ * All props supported by the `Checkbox` component are passed down to it.
+ *
  * See [Checkbox](https://react.semantic-ui.com/modules/checkbox)
  *
  * Accessible as `Checkbox` or `Form.Checkbox`.
  *
  */
 export default function Checkbox({ label, help, ...checkboxProps }) {
-    // eslint-disable-next-line react/jsx-props-no-spreading
     return <SemanticUiReactCheckbox {...checkboxProps} label={<FieldLabel label={label} help={help} />} />;
 }
 

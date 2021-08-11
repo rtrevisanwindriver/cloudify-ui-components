@@ -13,7 +13,6 @@ import { Header } from 'semantic-ui-react';
  */
 export default function FormDivider({ children, className, ...headerProps }) {
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <Header as="h4" dividing className={className} {...headerProps}>
             {children}
         </Header>

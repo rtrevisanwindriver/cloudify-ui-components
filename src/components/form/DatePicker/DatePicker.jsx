@@ -7,11 +7,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
 
 /**
- * `DatePicker` is a component showing calendar picker using [react-datepicker library](https://github.com/Hacker0x01/react-datepicker)
+ * `DatePicker` is a component showing calendar picker using [react-datepicker library](https://github.com/Hacker0x01/react-datepicker).
+ * All props supported by the underlaying picker component are passed down to it.
  *
  * Accessible as `DatePicker` or `Form.DatePicker`.
  */
-export function DatePickerWithoutMemo({ name, value, onChange, minDate, maxDate, startDate, endDate, timeIntervals }) {
+export function DatePickerWithoutMemo({ name, value, onChange, minDate, maxDate, ...otherProps }) {
     const handleSelectedDateChange = date => onChange(date, { name, value: date });
 
     const getMinMaxTime = (minMaxDate, defaultValue) => {
@@ -28,18 +29,16 @@ export function DatePickerWithoutMemo({ name, value, onChange, minDate, maxDate,
         <ReactDatePicker
             selected={value}
             onChange={handleSelectedDateChange}
-            startDate={startDate}
-            endDate={endDate}
             minDate={minDate}
             maxDate={maxDate}
             minTime={getMinTime()}
             maxTime={getMaxTime()}
             timeFormat="HH:mm"
             showTimeSelect
-            timeIntervals={timeIntervals}
             inline
             calendarClassName="input-time-filter"
             fixedHeight
+            {...otherProps}
         />
     );
 }
@@ -96,7 +95,7 @@ DatePickerWithoutMemo.defaultProps = {
     timeIntervals: 60
 };
 
-// eslint-disable-next-line react/display-name,react/jsx-props-no-spreading
+// eslint-disable-next-line react/display-name
 const DatePicker = React.memo(props => <DatePickerWithoutMemo {...props} />);
 DatePicker.displayName = 'DatePicker';
 export default DatePicker;

@@ -9,7 +9,6 @@ import { Button } from 'semantic-ui-react';
  * so all properties of that component (eg. onClick, disabled, ...) can be used here.
  */
 export default function CancelButton(props) {
-    // eslint-disable-next-line react/jsx-props-no-spreading
     return <Button {...props} />;
 }
 

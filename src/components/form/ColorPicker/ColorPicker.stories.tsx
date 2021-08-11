@@ -14,7 +14,6 @@ export default {
     }
 };
 
-// eslint-disable-next-line react/jsx-props-no-spreading
 export const basic: Story<Required<ColorPickerProps>> = args => <Form.ColorPicker {...args} />;
 basic.storyName = 'Default';
 basic.args = {

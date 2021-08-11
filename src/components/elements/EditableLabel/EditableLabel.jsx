@@ -16,7 +16,8 @@ export default function EditableLabel({
     onError,
     labelSize,
     inputSize,
-    className
+    className,
+    style
 }) {
     const [editing, setEditing] = useState();
     const [currentValue, setCurrentValue] = useState();
@@ -65,7 +66,7 @@ export default function EditableLabel({
             }}
             onBlur={submitChange}
             size={inputSize}
-            style={{ verticalAlign: 'top' }}
+            style={{ verticalAlign: 'top', ...style }}
             input={
                 <input
                     // eslint-disable-next-line jsx-a11y/no-autofocus
@@ -77,7 +78,7 @@ export default function EditableLabel({
     ) : (
         <Label
             size={labelSize}
-            style={{ background: 'none', cursor: enabled ? 'pointer' : 'inherit' }}
+            style={{ background: 'none', cursor: enabled ? 'pointer' : 'inherit', ...style }}
             onClick={() => {
                 if (enabled) setEditing(true);
             }}
@@ -133,7 +134,12 @@ EditableLabel.propTypes = {
     /**
      * Name of the style class to be added
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 EditableLabel.defaultProps = {
@@ -145,5 +151,6 @@ EditableLabel.defaultProps = {
     invalidValues: [],
     labelSize: null,
     inputSize: null,
-    placeholder: ''
+    placeholder: '',
+    style: null
 };

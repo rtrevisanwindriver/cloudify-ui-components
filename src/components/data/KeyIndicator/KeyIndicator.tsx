@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { CSSProperties, FunctionComponent } from 'react';
 import { Icon, Image, Statistic, SemanticICONS } from 'semantic-ui-react';
 
 export interface KeyIndicatorProps {
@@ -21,6 +21,16 @@ export interface KeyIndicatorProps {
      * Numerical value to be displayed
      */
     number?: number;
+
+    /**
+     * CSS class
+     */
+    className?: string;
+
+    /**
+     * CSS style
+     */
+    style?: CSSProperties;
 }
 
 /**
@@ -29,7 +39,7 @@ export interface KeyIndicatorProps {
  *
  * List of available icons can be found [here](https://react.semantic-ui.com/elements/icon)
  */
-const KeyIndicator: FunctionComponent<KeyIndicatorProps> = ({ title, icon, imageSrc, number }) => {
+const KeyIndicator: FunctionComponent<KeyIndicatorProps> = ({ title, icon, imageSrc, number, className, style }) => {
     return (
         <div
             style={{
@@ -38,8 +48,10 @@ const KeyIndicator: FunctionComponent<KeyIndicatorProps> = ({ title, icon, image
                 right: 0,
                 top: 0,
                 bottom: 0,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                ...style
             }}
+            className={className}
         >
             <Statistic
                 style={{

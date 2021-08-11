@@ -14,7 +14,6 @@ import FieldLabel from '../FieldLabel/FieldLabel';
  */
 export function FormFieldWithoutMemo({ children, error, help, label, required, ...fieldProps }) {
     const getFieldWrapper = () => (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <Form.Field {...fieldProps} required={required} error={!!error}>
             <FieldLabel help={help} label={label} />
             {children}
@@ -63,6 +62,6 @@ FormFieldWithoutMemo.defaultProps = {
     required: false
 };
 
-// eslint-disable-next-line react/jsx-props-no-spreading,react/display-name
+// eslint-disable-next-line react/display-name
 const FormField = memo(props => <FormFieldWithoutMemo {...props} />);
 export default FormField;

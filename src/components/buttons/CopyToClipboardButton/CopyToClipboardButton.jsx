@@ -4,23 +4,24 @@ import { Button, Icon } from 'semantic-ui-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 /**
- * CopyToClipboardButton component shows a simple copy icon and on click action it copies prop - text to clipboard
+ * CopyToClipboardButton component shows a simple copy icon and on click action it copies prop - text to clipboard.
+ * All other props are passed to the underlaying Button component.
  */
 export default function CopyToClipboardButton(props) {
-    const { content, className, text } = props;
+    const { content, text, ...otherButtonProps } = props;
     const stopPropagation = event => event.stopPropagation();
 
     return (
         <CopyToClipboard text={text}>
             {content ? (
-                <Button animated="vertical" basic className={className} onClick={stopPropagation}>
+                <Button animated="vertical" basic onClick={stopPropagation} {...otherButtonProps}>
                     <Button.Content visible>{content}</Button.Content>
                     <Button.Content hidden>
                         <Icon name="copy" />
                     </Button.Content>
                 </Button>
             ) : (
-                <Button basic compact icon="copy" className={className} onClick={stopPropagation} />
+                <Button basic compact icon="copy" onClick={stopPropagation} {...otherButtonProps} />
             )}
         </CopyToClipboard>
     );

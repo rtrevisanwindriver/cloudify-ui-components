@@ -110,7 +110,6 @@ export default function Form({
 
     return (
         <Ref innerRef={formRef}>
-            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <FormSemanticUiReact {...formProps} error={!_.isEmpty(errors)}>
                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 <ErrorMessage header={errorMessageHeader} error={formattedErrors as any} onDismiss={onErrorsDismiss} />

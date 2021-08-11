@@ -8,36 +8,17 @@ import './PopupMenu.css';
 /**
  * PopupMenu is a component which uses [Popup](https://react.semantic-ui.com/modules/popup) component to create
  * dropdown menu triggered by [Icon](https://react.semantic-ui.com/elements/icon) button.
+ * All props supported by the `Icon` component are passed down to it.
  */
-export default function PopupMenu({
-    className,
-    children,
-    position,
-    offset,
-    icon,
-    disabled,
-    bordered,
-    help,
-    defaultOpen
-}) {
+export default function PopupMenu({ children, position, offset, icon, disabled, help, defaultOpen, ...iconProps }) {
     const [opened, setOpened] = useState(defaultOpen);
 
     const trigger = _.isEmpty(help) ? (
-        <Icon
-            link={!disabled}
-            disabled={disabled}
-            name={icon}
-            bordered={bordered}
-            className={className}
-            onClick={e => e.stopPropagation()}
-        />
+        <Icon link={!disabled} disabled={disabled} name={icon} onClick={e => e.stopPropagation()} {...iconProps} />
     ) : (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
         <span onClick={e => e.stopPropagation()}>
-            <Popup
-                trigger={<Icon name={icon} bordered={bordered} link={!disabled} className={className} />}
-                content={help}
-            />
+            <Popup trigger={<Icon name={icon} link={!disabled} {...iconProps} />} content={help} />
         </span>
     );
 

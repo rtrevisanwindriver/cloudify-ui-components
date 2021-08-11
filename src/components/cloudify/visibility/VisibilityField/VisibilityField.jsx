@@ -9,10 +9,12 @@ import { visibilities, visibilityPropType } from '../consts';
 /**
  * VisibilityField - allowing the user to choose visibilities for resources by showing the visibility icon and clicking on it to switch.
  *
- * The component accepts a callback function to be called with the current visibility on change.
+ * The component accepts a callback function called when visibility is changed (the `onVisibilityChange` prop).
+ *
+ * All props except `onVisibilityChange`, `disallowGlobal` and `allowChange` are passed down to the underlaying `VisibilityIcon` component.
  */
 export default function VisibilityField(props) {
-    const { visibility, onVisibilityChange, disallowGlobal, allowChange, className } = props;
+    const { visibility, onVisibilityChange, disallowGlobal, allowChange, ...otherVisibilityIconProps } = props;
 
     const visibilitiesOrder = [visibilities.TENANT.name, visibilities.PRIVATE.name, visibilities.GLOBAL.name];
 
@@ -45,8 +47,8 @@ export default function VisibilityField(props) {
                     disabled={!allowChange}
                     showTitle={false}
                     title={null}
-                    className={className}
                     onClick={onClick}
+                    {...otherVisibilityIconProps}
                 />
             </Popup.Trigger>
             <Popup.Header>Visibility</Popup.Header>

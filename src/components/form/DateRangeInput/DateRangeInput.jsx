@@ -208,7 +208,7 @@ export default class DateRangeInput extends React.PureComponent {
     }
 
     render() {
-        const { placeholder, ranges } = this.props;
+        const { placeholder, ranges, className, style } = this.props;
         const { dirty, range, start, end, isOpen, startDate, startError, endDate, endError } = this.state;
         const from = start ? `from [${start}] ` : '';
         const until = end ? ` until [${end}]` : '';
@@ -222,6 +222,8 @@ export default class DateRangeInput extends React.PureComponent {
                 2017-09-21 10:10
             </div>
         );
+        const gridStyle = { ...style };
+        if (!_.isEmpty(ranges)) gridStyle.width = 1090;
 
         return (
             <Popup basic hoverable={false} flowing open={isOpen}>
@@ -235,7 +237,7 @@ export default class DateRangeInput extends React.PureComponent {
                         onFocus={() => this.setState({ isOpen: true, startError: false, endError: false })}
                     />
                 </Popup.Trigger>
-                <Grid style={_.isEmpty(ranges) ? {} : { width: 1090 }}>
+                <Grid style={gridStyle} className={className}>
                     <Grid.Row columns={_.isEmpty(ranges) ? 2 : 3}>
                         {!_.isEmpty(ranges) && (
                             <Grid.Column width={4}>
@@ -409,10 +411,22 @@ DateRangeInput.propTypes = {
     /**
      * function (event, data) called on Cancel button click, timeFilter object value is sent as data.value
      */
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+
+    /**
+     * CSS class
+     */
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 DateRangeInput.defaultProps = {
+    className: undefined,
+    style: {},
     defaultValue: DateRangeInput.EMPTY_VALUE,
     value: DateRangeInput.EMPTY_VALUE,
     defaultOpen: false,

@@ -6,13 +6,13 @@ import { Menu } from 'semantic-ui-react';
  * MenusBar is a styled component wrapper for Menu component. It is dedicated to be used inside `HeaderBar` components.
  * Children can be components created with use of `HeaderMenu` components.
  */
-export default function MenusBar({ className, children }) {
+export default function MenusBar({ className, children, style }) {
     return (
         <Menu
             inverted
             secondary
             className={`menusBar ${className}`}
-            style={{ marginLeft: 'auto', height: '100%' }}
+            style={{ marginLeft: 'auto', height: '100%', ...style }}
             floated="right"
         >
             {children}
@@ -29,9 +29,15 @@ MenusBar.propTypes = {
     /**
      * name of the style class to be added to Menu component
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 MenusBar.defaultProps = {
-    className: ''
+    className: '',
+    style: null
 };

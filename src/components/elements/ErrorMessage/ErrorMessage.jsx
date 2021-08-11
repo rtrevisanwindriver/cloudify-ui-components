@@ -5,10 +5,10 @@ import { Message } from 'semantic-ui-react';
 
 /**
  * ErrorMessage is a component which uses [Message](https://react.semantic-ui.com/elements/message) component from Semantic-UI-React
- * to display error message.
+ * to display error message. All props supported by the `Message` component are passed down to it.
  */
 export default function ErrorMessage(props) {
-    const { autoHide, className, error, header, onDismiss } = props;
+    const { autoHide, error, header, onDismiss, ...messageProps } = props;
     const messageVisibilityTimeoutMs = 10000;
     let messageVisibilityTimeout = null;
 
@@ -50,7 +50,7 @@ export default function ErrorMessage(props) {
     }
 
     return !isEmpty(error) ? (
-        <Message error className={className} hidden={hidden} onDismiss={handleDismiss}>
+        <Message error {...messageProps} hidden={hidden} onDismiss={handleDismiss}>
             <Message.Header>{errorHeader}</Message.Header>
             {isArray(error) ? <Message.List items={error} /> : <Message.Content>{errorMessage}</Message.Content>}
         </Message>

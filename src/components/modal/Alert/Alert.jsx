@@ -6,11 +6,12 @@ import Modal from '../Modal';
 
 /**
  * Alert is component to present simple message in modal window with OK button.
+ * All props supported by the `Modal` component are passed down to it.
  */
 export default function Alert(props) {
-    const { open, content, onDismiss } = props;
+    const { content, onDismiss, ...modalProps } = props;
     return (
-        <Modal open={open} size="small">
+        <Modal size="small" {...modalProps}>
             <Modal.Header>{content}</Modal.Header>
             <Modal.Actions>
                 <ApproveButton onClick={onDismiss} content="OK" color="green" />

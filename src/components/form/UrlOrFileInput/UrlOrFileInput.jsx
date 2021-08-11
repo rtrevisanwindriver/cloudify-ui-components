@@ -12,7 +12,7 @@ import './UrlOrFileInput.css';
  *
  * Accessible as `UrlOrFileInput` or `Form.UrlOrFile`.
  */
-export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurUrl, onChangeFile }) {
+export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurUrl, onChangeFile, className, style }) {
     const [fileValue, setFileValue] = useState();
     const [value, setValue] = useState('');
 
@@ -41,7 +41,8 @@ export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurU
             onBlur={onBlurUrl}
             action
             labelPosition="left"
-            className="fileOrUrl"
+            className={`fileOrUrl ${className}`.trim()}
+            style={style}
         >
             <Label>{fileValue ? 'File' : 'URL'}</Label>
             <input />
@@ -80,9 +81,21 @@ UrlOrFileInput.propTypes = {
     /**
      * function to be called on file change
      */
-    onChangeFile: PropTypes.func.isRequired
+    onChangeFile: PropTypes.func.isRequired,
+
+    /**
+     * CSS class
+     */
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 UrlOrFileInput.defaultProps = {
-    onBlurUrl: _.noop
+    onBlurUrl: _.noop,
+    className: '',
+    style: undefined
 };

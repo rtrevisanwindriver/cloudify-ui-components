@@ -8,7 +8,7 @@ import Modal from '../Modal';
  * ReadmeModal is a component to present HTML content in Modal component.
  */
 export default function ReadmeModal(props) {
-    const { className, content, open, onHide } = props;
+    const { className, content, open, onHide, style } = props;
     const onCancel = () => {
         onHide();
         return true;
@@ -25,6 +25,7 @@ export default function ReadmeModal(props) {
             closeIcon="close"
             className={`readmeModal unlimited ${className}`}
             size="fullscreen"
+            style={style}
         >
             <Modal.Content style={{ padding: '50px' }}>
                 {/* eslint-disable-next-line react/no-danger */}
@@ -50,9 +51,14 @@ ReadmeModal.propTypes = {
     /**
      * Modal's classname
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 ReadmeModal.defaultProps = {
-    className: ''
+    className: '',
+    style: undefined
 };

@@ -65,7 +65,6 @@ export default function FileInput({
             onClick={openFileSelection}
             loading={loading}
             disabled={disabled}
-            /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...openButtonParams}
         />
     );

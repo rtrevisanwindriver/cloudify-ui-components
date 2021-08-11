@@ -5,14 +5,15 @@ import _ from 'lodash';
 import PopupHelp from 'components/popups/PopupHelp';
 
 /**
- * FieldLabel creates input field description with help popup (PopupHelp component)
+ * FieldLabel creates input field description with help popup (PopupHelp component).
+ * All props supported by the `label` element are passed down to it.
  *
  * @return {null}
  */
-export default function FieldLabel({ label, help }) {
+export default function FieldLabel({ label, help, ...labelProps }) {
     return !_.isEmpty(label) ? (
         // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label>
+        <label {...labelProps}>
             {label}{' '}
             {!_.isEmpty(help) && (
                 <span>

@@ -16,10 +16,25 @@ import TableDataCell from './TableDataCell';
  * ```
  */
 
-export default function TableRow({ id, children, selected, onClick, onMouseOver, onMouseOut, showCols, className }) {
+export default function TableRow({
+    id,
+    children,
+    selected,
+    onClick,
+    onMouseOver,
+    onMouseOut,
+    showCols,
+    className,
+    style
+}) {
     const showData = index => (index < showCols.length ? showCols[index] : true);
     const computedClassName = className + (selected ? ' active' : '');
     const computedChildren = [];
+
+    const computedStyle = { ...style };
+    if (_.isFunction(onClick)) {
+        computedStyle.cursor = 'pointer';
+    }
 
     React.Children.forEach(children, (child, index) => {
         if (child && child.type === TableDataCell && showData(index)) {
@@ -36,7 +51,7 @@ export default function TableRow({ id, children, selected, onClick, onMouseOver,
             onMouseOut={onMouseOut}
             onFocus={onMouseOver}
             onBlur={onMouseOut}
-            style={_.isFunction(onClick) ? { cursor: 'pointer' } : {}}
+            style={computedStyle}
         >
             {computedChildren}
         </tr>
@@ -82,7 +97,12 @@ TableRow.propTypes = {
     /**
      * name of the style class to be added
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 TableRow.defaultProps = {
@@ -92,5 +112,6 @@ TableRow.defaultProps = {
     onMouseOver: undefined,
     onMouseOut: undefined,
     showCols: [],
-    className: ''
+    className: '',
+    style: {}
 };

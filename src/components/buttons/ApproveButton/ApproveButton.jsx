@@ -9,7 +9,6 @@ import { Button } from 'semantic-ui-react';
  * so all properties of that component (eg. onClick, disabled, ...) can be used here.
  */
 export default function ApproveButton(props) {
-    // eslint-disable-next-line react/jsx-props-no-spreading
     return <Button {...props} />;
 }
 

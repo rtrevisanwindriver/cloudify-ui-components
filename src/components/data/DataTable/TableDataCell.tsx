@@ -38,6 +38,5 @@ TableDataCell.propTypes = {
     className: PropTypes.string,
     rowSpan: PropTypes.number,
     colSpan: PropTypes.number,
-    // eslint-disable-next-line react/forbid-prop-types
-    style: PropTypes.object
+    style: PropTypes.shape({})
 };

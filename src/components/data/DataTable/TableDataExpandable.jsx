@@ -6,12 +6,14 @@ import { CSSTransition } from 'react-transition-group';
 import './TableDataExpandable.css';
 
 /**
- * Defines content of expandable row in data table. See `TableRowExpandable`
+ * Defines content of expandable row in data table. See `TableRowExpandable`.
+ *
+ * All props are passed to the underlaying `td` element.
  */
-export default function TableDataExpandable({ children, className, numberOfColumns }) {
+export default function TableDataExpandable({ children, numberOfColumns, ...tdProps }) {
     return (
         <tr className="active">
-            <td className={className} colSpan={numberOfColumns}>
+            <td {...tdProps} colSpan={numberOfColumns}>
                 <CSSTransition
                     classNames="dataExpandable"
                     appear

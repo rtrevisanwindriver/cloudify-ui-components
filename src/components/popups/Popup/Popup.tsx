@@ -14,6 +14,8 @@ interface AdditionalPopupProperties {
  * Popup is a component which wraps [Popup](https://react.semantic-ui.com/modules/popup) used to
  * display additional information popup.
  *
+ * All props supported by the undelaying `Popup` component are passed down to it.
+ *
  * See [Popup](https://react.semantic-ui.com/modules/popup) component from Semantic-UI-React for details about props.
  */
 const Popup: FunctionComponent<PopupProps> & AdditionalPopupProperties = props => {
@@ -29,7 +31,6 @@ const Popup: FunctionComponent<PopupProps> & AdditionalPopupProperties = props =
     });
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <PopupSemanticUiReact {...rest} trigger={trigger}>
             {children}
         </PopupSemanticUiReact>

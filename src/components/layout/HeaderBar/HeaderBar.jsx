@@ -20,18 +20,20 @@ const StyledDiv = styled.div`
  *
  * Other components in most cases can fit here as well.
  *
+ * It uses a `div` element as a wrapper - all props supported by the `div` element are passed down to it.
+ *
  * It supports theming:
  *
  * * `mainColor` parameter is used as a background color, if not specified then `blueNormal` from default colors is chosen
  * * `headerTextColor` parameter is used as a text color, if not specified then `white` from default colors is chosen
  */
-export default function HeaderBar({ height, children, className }) {
+export default function HeaderBar({ children, className, ...divProps }) {
     const theme = useContext(ThemeContext) || {};
     const backgroundColor = theme.mainColor || colors.blueNormal;
     const color = theme.headerTextColor || colors.white;
 
     return (
-        <StyledDiv height={height} backgroundColor={backgroundColor} color={color} className={`headerBar ${className}`}>
+        <StyledDiv backgroundColor={backgroundColor} color={color} className={`headerBar ${className}`} {...divProps}>
             {children}
         </StyledDiv>
     );

@@ -15,7 +15,7 @@ const StyledDropdown = styled(Dropdown)`
  * HeaderMenu is a styled component wrapper for Dropdown.Menu. It is dedicated to be used in header bars,
  * inside `HeaderBar` or `MenusBar` components.
  */
-export default function HeaderMenu({ trigger, className, children, onClose }) {
+export default function HeaderMenu({ trigger, className, children, onClose, style }) {
     return (
         <StyledDropdown
             item
@@ -25,7 +25,8 @@ export default function HeaderMenu({ trigger, className, children, onClose }) {
             onClose={onClose}
             style={{
                 padding: '5px 10px',
-                height: '100%'
+                height: '100%',
+                ...style
             }}
         >
             <Dropdown.Menu>{children}</Dropdown.Menu>
@@ -52,10 +53,16 @@ HeaderMenu.propTypes = {
     /**
      * function to be called on header menu close
      */
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 HeaderMenu.defaultProps = {
     className: '',
-    onClose: _.noop
+    onClose: _.noop,
+    style: null
 };

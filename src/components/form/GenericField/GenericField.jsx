@@ -79,7 +79,9 @@ export default class GenericField extends React.PureComponent {
             placeholder,
             required,
             type,
-            value
+            value,
+            className,
+            style
         } = this.props;
         const { options } = this.state;
         let field = null;
@@ -142,14 +144,20 @@ export default class GenericField extends React.PureComponent {
                     name={name}
                     value={_.isUndefined(value) ? defaultValue : value}
                     onChange={this.handleInputChange}
-                    /* eslint-disable-next-line react/jsx-props-no-spreading */
                     {...componentProps}
                 />
             );
         }
 
         return (
-            <FormField className={name} help={description} label={label} required={required} error={error}>
+            <FormField
+                className={`${name} ${className}`.trim()}
+                style={style}
+                help={description}
+                label={label}
+                required={required}
+                error={error}
+            >
                 {field}
             </FormField>
         );
@@ -340,10 +348,22 @@ GenericField.propTypes = {
      * specifies the value of the field
      */
     // eslint-disable-next-line react/forbid-prop-types
-    value: PropTypes.any
+    value: PropTypes.any,
+
+    /**
+     * CSS class
+     */
+    className: PropTypes.string,
+
+    /**
+     * CSS style
+     */
+    style: PropTypes.shape({})
 };
 
 GenericField.defaultProps = {
+    className: '',
+    style: undefined,
     component: null,
     default: '',
     description: '',

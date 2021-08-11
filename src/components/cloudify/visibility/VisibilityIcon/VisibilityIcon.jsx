@@ -8,21 +8,16 @@ import { visibilities, visibilityPropType } from '../consts';
 
 /**
  * VisibilityIcon - a component showing an visibility icon depending on resource visibility.
+ *
+ * All props supported by the `Icon` component are passed down to it.
  */
 export default function VisibilityIcon(props) {
     const { visibility, showTitle, ...restProps } = props;
     const data = _.find(visibilities, { name: visibility }) || visibilities.UNKNOWN;
 
     return showTitle ? (
-        <Popup
-            trigger={
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                <Icon name={data.icon} color={data.color} {...restProps} />
-            }
-            content={data.title}
-        />
+        <Popup trigger={<Icon name={data.icon} color={data.color} {...restProps} />} content={data.title} />
     ) : (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <Icon name={data.icon} color={data.color} {...restProps} />
     );
 }

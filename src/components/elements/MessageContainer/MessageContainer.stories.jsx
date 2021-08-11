@@ -18,6 +18,6 @@ export const small = () => <MessageContainer size="small">Message</MessageContai
 
 export const wide = () => <MessageContainer wide>Message</MessageContainer>;
 
-export const alignedLeft = () => <MessageContainer testAlign="left">Message</MessageContainer>;
+export const alignedLeft = () => <MessageContainer>Message</MessageContainer>;
 
 export const withMargin = () => <MessageContainer margin={50}>Message</MessageContainer>;

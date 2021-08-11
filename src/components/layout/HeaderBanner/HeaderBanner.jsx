@@ -26,7 +26,8 @@ export default function HeaderBanner({
     logoUrl,
     productName,
     productVersion,
-    showVersionDetails
+    showVersionDetails,
+    style
 }) {
     const theme = useContext(ThemeContext) || {};
     const color = theme.headerTextColor || colors.white;
@@ -43,7 +44,8 @@ export default function HeaderBanner({
                     margin: '9px 0',
                     padding: 0,
                     height: '100%',
-                    color
+                    color,
+                    ...style
                 }}
                 className={`headerBanner ${className}`}
             >
@@ -64,6 +66,11 @@ HeaderBanner.propTypes = {
      * name of the style class to be added to header div block
      */
     className: PropTypes.string,
+
+    /**
+     * CSS style to be added to header div block
+     */
+    style: PropTypes.shape({}),
 
     /**
      * product license edition, displayed after the product name
@@ -93,6 +100,7 @@ HeaderBanner.propTypes = {
 
 HeaderBanner.defaultProps = {
     className: '',
+    style: null,
     licenseEdition: '',
     logoUrl: '',
     productName: '',

@@ -23,7 +23,7 @@
     "buildDev": "babel ./src/components --ignore '**/*.stories.{jsx,tsx}' --copy-files --delete-dir-on-start --extensions '.ts,.tsx,.js,.jsx' --out-dir es --watch",
     "check-types": "tsc -b",
     "generate-type-declarations": "tsc -b src",
-    "lint": "eslint --cache --ignore-path .gitignore --ext js,jsx,ts,tsx --max-warnings 10 .",
+    "lint": "eslint --cache --ignore-path .gitignore --ext js,jsx,ts,tsx .",
     "test:jest": "jest test --coverage --maxWorkers=2",
     "test:loki": "loki --diffingEngine gm --chromeTolerance 0.9 --requireReference --reactUri file:./storybook-static",
     "test": "npm run lint && npm run test:jest",

@@ -1,7 +1,7 @@
 import { Input, Label } from 'semantic-ui-react';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import _, { noop } from 'lodash';
 
 /**
  * EditableLabel component shows an editable label.
@@ -12,7 +12,9 @@ export default function EditableLabel({
     value,
     placeholder,
     enabled,
+    editing: editingProp,
     onChange,
+    onCancel,
     onError,
     labelSize,
     inputSize,
@@ -26,6 +28,7 @@ export default function EditableLabel({
     function submitChange() {
         if (currentValue === value) {
             setEditing(false);
+            onCancel();
             return;
         }
 
@@ -45,7 +48,7 @@ export default function EditableLabel({
 
     const calculatedClassName = `${className} ${_.isEmpty(value) ? 'editPlaceholder' : ''}`;
 
-    return editing ? (
+    return editing || editingProp ? (
         <Input
             value={currentValue}
             error={isError}
@@ -59,6 +62,7 @@ export default function EditableLabel({
                     setError(false);
                     setEditing(false);
                     setCurrentValue(value);
+                    onCancel();
                 }
                 if (e.key === 'Enter' && currentValue) {
                     submitChange();
@@ -80,7 +84,7 @@ export default function EditableLabel({
             size={labelSize}
             style={{ background: 'none', cursor: enabled ? 'pointer' : 'inherit', ...style }}
             onClick={() => {
-                if (enabled) setEditing(true);
+                if (enabled && editingProp === null) setEditing(true);
             }}
             className={calculatedClassName}
         >
@@ -106,9 +110,19 @@ EditableLabel.propTypes = {
     enabled: PropTypes.bool,
 
     /**
+     * Allows the editing state to be externally controlled, disables entering editing state on label click
+     */
+    editing: PropTypes.bool,
+
+    /**
      * Function to call when value has changed (receives input's value as argument)
      */
     onChange: PropTypes.func,
+
+    /**
+     * Function to be called on edit cancel (or edit submission with no change)
+     */
+    onCancel: PropTypes.func,
 
     /**
      * Function to call when invalid value is entered (i.e. one of values specified by invalidValues prop)
@@ -146,8 +160,10 @@ EditableLabel.defaultProps = {
     value: '',
     className: null,
     enabled: true,
-    onChange: _.noop,
-    onError: _.noop,
+    editing: null,
+    onChange: noop,
+    onCancel: noop,
+    onError: noop,
     invalidValues: [],
     labelSize: null,
     inputSize: null,

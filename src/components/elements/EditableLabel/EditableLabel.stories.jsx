@@ -13,3 +13,5 @@ export const basic = () => <EditableLabel placeholder="Enter your text here..." 
 basic.storyName = 'Default';
 
 export const readOnly = () => <EditableLabel enabled={false} value="Sample Text" />;
+
+export const externallyControlled = () => <EditableLabel editing value="Sample Text" />;

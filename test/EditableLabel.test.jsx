@@ -8,10 +8,15 @@ describe('<EditableLabel />', () => {
         expect(wrapper.exists('Input')).toEqual(editMode);
     }
 
-    describe('in edit mode', () => {
+    describe('in enabled mode', () => {
         it('renders', () => {
             const wrapper = shallow(<EditableLabel value="Text" enabled placeholder="Enter something" />);
             expect(wrapper.exists()).toEqual(true);
+        });
+
+        it('renders when externally controlled', () => {
+            const wrapper = shallow(<EditableLabel editing value="Text" enabled placeholder="Enter something" />);
+            expectEditMode(wrapper, true);
         });
 
         // eslint-disable-next-line jest/expect-expect
@@ -76,7 +81,7 @@ describe('<EditableLabel />', () => {
         });
     });
 
-    describe('in non edit mode', () => {
+    describe('in non enabled mode', () => {
         it('renders', () => {
             const wrapper = shallow(<EditableLabel value="Text" enabled={false} placeholder="Enter something" />);
             expect(wrapper.exists()).toEqual(true);

@@ -5336,6 +5336,25 @@ exports[`Storyshots Elements/EditableLabel Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Elements/EditableLabel Externally Controlled 1`] = `
+<div
+  className="ui input null "
+  style={
+    Object {
+      "verticalAlign": "top",
+    }
+  }
+>
+  <input
+    autoFocus={true}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
+</div>
+`;
+
 exports[`Storyshots Elements/EditableLabel Read Only 1`] = `
 <div
   className="ui label null "

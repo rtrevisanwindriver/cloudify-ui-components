@@ -59,7 +59,7 @@ General guidelines for adding new components:
 - use [prettier](https://prettier.io/) and [eslint](https://eslint.org/) during development
 - document your code by providing general description for component at the top of the component definition and description for all component props ([StoryBook](https://storybook.js.org/) recognize [react-docgen](https://github.com/reactjs/react-docgen) format)
 - write [StoryBook](https://storybook.js.org/) stories for every newly added component
-- follow [Cloudify Brandbook](https://drive.google.com/file/d/1KimyHFey_AoK2nKopRoo_CK-emZs7Pr_/view) containing Cloudify Brand Guidelines
+- follow [Cloudify Brandbook](https://drive.google.com/drive/folders/1ELapf6idy50n5R2uqWzhWXJrvL4mx6e3) containing Cloudify Brand Guidelines
 
 ## Testing
 

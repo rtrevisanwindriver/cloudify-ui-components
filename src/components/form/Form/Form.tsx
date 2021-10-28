@@ -130,6 +130,10 @@ Form.fieldNameValue = (field: { name: string; value: unknown; type: string; chec
     if (field.type === 'number') {
         const isFloat = (n: unknown) => Number(n) % 1 !== 0;
         value = isFloat(field.value) ? parseFloat(field.value as string) : parseInt(field.value as string, 10);
+
+        if (Number.isNaN(value as number)) {
+            value = undefined;
+        }
     }
 
     if (_.isEmpty(name)) {

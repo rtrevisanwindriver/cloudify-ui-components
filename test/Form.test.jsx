@@ -82,6 +82,9 @@ describe('<Form />', () => {
 
         wrapper.find('input').simulate('change', { target: { value: '3.14' } });
         expect(fieldNameValue).toEqual({ count: 3.14 });
+
+        wrapper.find('input').simulate('change', { target: { value: '' } });
+        expect(fieldNameValue).toEqual({ count: undefined });
     });
 
     it('provides Form.fieldNameValue function handling field without name set', () => {

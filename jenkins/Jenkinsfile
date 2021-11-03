@@ -70,7 +70,7 @@ pipeline {
               apt-get update && apt-get -y install graphicsmagick
               google-chrome --version
             '''
-            catchError {
+            catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
               sh 'npm run test:loki'
             }
 

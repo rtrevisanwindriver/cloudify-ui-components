@@ -8,6 +8,8 @@ def secrets = [
     [envVar: 'NPM_TOKEN', vaultKey: 'token']]],
 ]
 
+@Library('pipeline-shared-library') _
+
 def configuration = [vaultUrl: "${env.VAULT_URL}",  vaultCredentialId: 'vault-app-role', engineVersion: 2]
 
 def getPublishVersion(String branch){
@@ -36,35 +38,72 @@ pipeline {
     timestamps()
   }
   stages {
-    stage('Build') {
-      steps {
-        container('node'){
-          dir("${env.WORKSPACE}/${env.PROJECT}") {
-            echo "Install dependencies"
-            sh 'npm ci --prefer-offline'
-
-            echo "Build UI components"
-            sh 'npm run build'
-
-            echo "Build Storybook"
-            sh 'npm run build-storybook'
+    stage('Install & Audit'){
+      parallel{
+        stage('Audit'){
+          steps {
+            catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE'){
+              container('node'){
+                dir("${env.WORKSPACE}/${env.PROJECT}") {
+                  echo 'Run npm production dependencies security audit'
+                  sh 'npm run audit'
+                }
+              }
+            }
+          }
+        }
+        stage('Clean Install') {
+          steps {
+            container('node'){
+              dir("${env.WORKSPACE}/${env.PROJECT}") {
+                restoreArchiveFolder('~/.npm', "${env.WORKSPACE}/${env.PROJECT}/package-lock.json", 'components-mb', 'npm_dir', '/mnt/data')
+                echo "Install dependencies"
+                sh 'npm ci --prefer-offline'
+                archiveFolder('~/.npm', "${env.WORKSPACE}/${env.PROJECT}/package-lock.json", 'components-mb', 'npm_dir', '/mnt/data')
+              }
+            }
           }
         }
       }
     }
-    stage('Test') {
+    stage('Build & Tests'){
+      parallel{
+        stage('Build & Storybook'){
+          steps{
+            container('node'){
+              dir("${env.WORKSPACE}/${env.PROJECT}") {
+                echo "Build UI components"
+                sh 'npm run build'
+
+                echo "Build Storybook"
+                sh 'npm run build-storybook'
+              }
+            }
+          }
+        }
+
+        stage('Static analysis & Unit tests'){
+          steps{
+            container('node'){
+              dir("${env.WORKSPACE}/${env.PROJECT}") {
+                echo "Run static analysis and check code style"
+                sh 'npm run lint'
+
+                echo "Check TypeScript types"
+                sh "npm run check-types"
+
+                echo "Run Jest tests"
+                sh 'npm run test:jest'
+              }
+            }
+          }
+        }
+      }
+    }
+    stage('Visual Tests') {
       steps {
         container('node'){
           dir("${env.WORKSPACE}/${env.PROJECT}") {
-            echo "Run static analysis and check code style"
-            sh 'npm run lint'
-
-            echo "Run Jest tests"
-            sh 'npm run test:jest'
-
-            echo "Check TypeScript types"
-            sh "npm run check-types"
-
             echo "Run Loki tests"
             sh '''
               apt-get update && apt-get -y install graphicsmagick
@@ -133,18 +172,6 @@ pipeline {
 
               echo "Deploy to S3"
               sh "aws s3 sync storybook-static s3://docs.cloudify.co/ui-components/${getPublishVersion(BRANCH)} --delete --acl public-read"
-            }
-          }
-        }
-      }
-    }
-    stage('Audit'){
-      steps {
-        catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE'){
-          container('node'){
-            dir("${env.WORKSPACE}/${env.PROJECT}") {
-              echo 'Run npm production dependencies security audit'
-              sh 'npm run audit'
             }
           }
         }

@@ -15992,6 +15992,20 @@ exports[`Storyshots Layout/MenusBar No Theme 1`] = `
 </div>
 `;
 
+exports[`Storyshots Layout/ProductVersion Basic 1`] = `
+<span
+  style={
+    Object {
+      "color": undefined,
+      "verticalAlign": "middle",
+    }
+  }
+>
+   
+  6.3
+</span>
+`;
+
 exports[`Storyshots Modal/Alert Basic 1`] = `
 <div>
   <button

@@ -6,5 +6,5 @@ coverage
 es
 node_modules
 storybook-static
-typings
+/typings
 *.tsbuildinfo

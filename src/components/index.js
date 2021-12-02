@@ -46,6 +46,7 @@ export { default as HeaderBar } from './layout/HeaderBar';
 export { default as HeaderMenu } from './layout/HeaderMenu';
 export { default as Logo } from './layout/Logo';
 export { default as MenusBar } from './layout/MenusBar';
+export { default as ProductVersion } from './layout/ProductVersion';
 
 /* Modals */
 export { default as Alert } from './modal/Alert';

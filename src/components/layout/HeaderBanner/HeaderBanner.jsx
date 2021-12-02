@@ -7,7 +7,7 @@ import colors from 'cloudify-ui-common/styles/_colors.scss';
 
 import Logo from '../Logo';
 import ProductName from './ProductName';
-import ProductVersion from './ProductVersion';
+import ProductVersion from '../ProductVersion';
 import LicenseEdition from './LicenseEdition';
 
 /**

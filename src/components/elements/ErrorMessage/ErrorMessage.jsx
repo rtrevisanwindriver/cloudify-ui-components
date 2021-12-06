@@ -42,7 +42,7 @@ export default function ErrorMessage(props) {
 
     let errorMessage = error;
     let errorHeader = header;
-    if (isObject(error)) {
+    if (isObject(error) && !React.isValidElement(error)) {
         errorMessage = error.message;
         if (isEqual(header, ErrorMessage.defaultProps.header) && error.header) {
             errorHeader = error.header;
@@ -74,6 +74,7 @@ ErrorMessage.propTypes = {
     error: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.array,
+        PropTypes.element,
         PropTypes.shape({ header: PropTypes.string, message: PropTypes.string })
     ]),
 

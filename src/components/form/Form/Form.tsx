@@ -104,7 +104,7 @@ export default function Form({
     let formattedErrors = errors;
     if (_.isString(errors)) {
         formattedErrors = [errors];
-    } else if (_.isObject(errors)) {
+    } else if (_.isObject(errors) && !React.isValidElement(errors)) {
         formattedErrors = _.valuesIn(errors);
     }
 

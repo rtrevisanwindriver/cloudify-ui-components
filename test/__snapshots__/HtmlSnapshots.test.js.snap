@@ -5390,6 +5390,55 @@ exports[`Storyshots Elements/ErrorMessage Auto Hide 1`] = `
 </div>
 `;
 
+exports[`Storyshots Elements/ErrorMessage Custom Component Error 1`] = `
+<div
+  className="ui error message"
+>
+  <i
+    aria-hidden="true"
+    className="close icon"
+    onClick={[Function]}
+  />
+  <div
+    className="header"
+  >
+    Missing Secrets Error
+  </div>
+  <div
+    className="content"
+  >
+    <button
+      className="ui right floated button"
+      onClick={[Function]}
+    >
+      Add missing secrets
+    </button>
+    <p>
+      The following required secrets are missing in this tenant:
+    </p>
+    <div
+      className="ui bulleted list"
+      role="list"
+    >
+      <div
+        className="item"
+        onClick={[Function]}
+        role="listitem"
+      >
+        secret key 1
+      </div>
+      <div
+        className="item"
+        onClick={[Function]}
+        role="listitem"
+      >
+        secret key 2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Elements/ErrorMessage Custom Header 1`] = `
 <div
   className="ui error message"

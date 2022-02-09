@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { CSSProperties, useMemo } from 'react';
+import type { FunctionComponent } from 'react';
 import colors from 'cloudify-ui-common/styles/_colors.scss';
 
 export interface ProductVersionProps {
@@ -16,7 +17,7 @@ export interface ProductVersionProps {
 /**
  * Formats and displays short version label (major.minor) based on passed full Cloudify version string.
  */
-export default function ProductVersion({ version, style }: ProductVersionProps) {
+const ProductVersion: FunctionComponent<ProductVersionProps> = ({ version, style }) => {
     const shortVersion = useMemo(() => {
         const versionMatches = version.match(/^(\d+)\.(\d+).*$/);
         const major = !!versionMatches && _.size(versionMatches) >= 2 ? versionMatches[1] : '';
@@ -27,4 +28,6 @@ export default function ProductVersion({ version, style }: ProductVersionProps) 
     if (_.isEmpty(shortVersion)) return null;
 
     return <span style={{ color: colors.greyNormal, verticalAlign: 'middle', ...style }}> {shortVersion}</span>;
-}
+};
+
+export default ProductVersion;

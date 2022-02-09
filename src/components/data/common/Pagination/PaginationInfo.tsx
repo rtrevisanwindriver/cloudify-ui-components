@@ -1,8 +1,8 @@
 import React, { ComponentProps, ReactElement } from 'react';
 import PropTypes from 'prop-types';
-
-import Form from 'components/form/Form';
 import { DropdownItemProps } from 'semantic-ui-react';
+
+import Form from '../../../form/Form';
 
 interface PaginationInfoProps {
     pageSize: number;

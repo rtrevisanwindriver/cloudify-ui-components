@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-import PopupHelp from 'components/popups/PopupHelp';
+import PopupHelp from '../../popups/PopupHelp';
 
 /**
  * FieldLabel creates input field description with help popup (PopupHelp component).

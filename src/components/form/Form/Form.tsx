@@ -1,8 +1,9 @@
-import React, { CSSProperties, PropsWithChildren, ReactElement, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react';
+import type { CSSProperties, ReactElement } from 'react';
 import _ from 'lodash';
 
-import { Form as FormSemanticUiReact, Radio, Ref, StrictFormProps } from 'semantic-ui-react';
+import { Form as FormSemanticUiReact, Radio, Ref } from 'semantic-ui-react';
+import type { StrictFormProps } from 'semantic-ui-react';
 
 import ErrorMessage from 'components/elements/ErrorMessage';
 import FormDropdown from '../../elements/Dropdown';
@@ -21,9 +22,21 @@ import UrlOrFileInput from '../UrlOrFileInput';
 import './Form.css';
 
 interface FormProps extends Omit<StrictFormProps, 'error'> {
-    errors?: unknown;
+    /**
+     * string with error message or object with fields error messages (syntax described above)
+     */
+    errors?: string | [] | JSX.Element | { header: string; message: string };
+
+    /**
+     * string with error message header
+     */
     errorMessageHeader?: string;
+
+    /**
+     * function called when errors are dismissed (see ErrorMessage)
+     */
     onErrorsDismiss?: () => void;
+
     /** if set, then on error change screen will be scrolled to (see ErrorMessage) */
     scrollToError?: boolean;
     style?: CSSProperties;
@@ -86,14 +99,14 @@ interface FormProps extends Omit<StrictFormProps, 'error'> {
  *
  */
 
-export default function Form({
+function Form({
     children,
     errors,
     errorMessageHeader = 'Errors in the form',
     onErrorsDismiss = () => {},
     scrollToError = false,
     ...formProps
-}: PropsWithChildren<FormProps>): ReactElement | null {
+}: FormProps): ReactElement | null {
     const formRef = useRef<HTMLElement>(null);
     useEffect(() => {
         if (scrollToError && !_.isEmpty(errors)) {
@@ -101,18 +114,19 @@ export default function Form({
         }
     }, [errors]);
 
-    let formattedErrors = errors;
+    let formattedErrors: undefined | Array<string> | JSX.Element;
     if (_.isString(errors)) {
         formattedErrors = [errors];
     } else if (_.isObject(errors) && !React.isValidElement(errors)) {
         formattedErrors = _.valuesIn(errors);
+    } else {
+        formattedErrors = errors;
     }
 
     return (
         <Ref innerRef={formRef}>
             <FormSemanticUiReact {...formProps} error={!_.isEmpty(errors)}>
-                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                <ErrorMessage header={errorMessageHeader} error={formattedErrors as any} onDismiss={onErrorsDismiss} />
+                <ErrorMessage header={errorMessageHeader} error={formattedErrors} onDismiss={onErrorsDismiss} />
                 {children}
             </FormSemanticUiReact>
         </Ref>
@@ -157,34 +171,4 @@ Form.TextArea = FormSemanticUiReact.TextArea;
 Form.UrlOrFile = UrlOrFileInput;
 Form.Time = TimeInput;
 
-Form.propTypes = {
-    /**
-     * primary content
-     */
-    children: PropTypes.node.isRequired,
-
-    /**
-     * string with error message or object with fields error messages (syntax described above)
-     */
-    errors: ErrorMessage.propTypes.error,
-
-    /**
-     * string with error message header
-     */
-    errorMessageHeader: PropTypes.string,
-
-    /**
-     * function called on form submission
-     */
-    onSubmit: PropTypes.func,
-
-    /**
-     * function called when errors are dismissed (see ErrorMessage)
-     */
-    onErrorsDismiss: PropTypes.func,
-
-    /**
-     * if set, then on error change screen will be scrolled to (seeErrorMessage)
-     */
-    scrollToError: PropTypes.bool
-};
+export default Form;

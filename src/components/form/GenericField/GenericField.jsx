@@ -6,7 +6,7 @@ import { Input } from 'semantic-ui-react';
 import Dropdown from 'components/elements/Dropdown';
 import ErrorMessage from 'components/elements/ErrorMessage';
 import Checkbox from 'components/form/Checkbox';
-import FormField from 'components/form/Form/FormField';
+import FormField from '../Form/FormField';
 
 /**
  * `GenericField` is a generic component which can be used as different input fields in Form component

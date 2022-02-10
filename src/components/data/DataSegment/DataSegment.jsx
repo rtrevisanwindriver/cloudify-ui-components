@@ -65,16 +65,8 @@ export default class DataSegment extends Component {
     }
 
     render() {
-        const {
-            children,
-            totalSize,
-            pageSize,
-            searchable,
-            className,
-            sizeMultiplier,
-            noDataMessage,
-            style
-        } = this.props;
+        const { children, totalSize, pageSize, searchable, className, sizeMultiplier, noDataMessage, style } =
+            this.props;
         const { searchText, searching } = this.state;
         let segmentAction = null;
         const segments = [];

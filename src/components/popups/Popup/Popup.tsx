@@ -1,4 +1,4 @@
-import React, { FunctionComponent, isValidElement, ReactNodeArray } from 'react';
+import React, { FunctionComponent, isValidElement, ReactNode } from 'react';
 import _ from 'lodash';
 import { Popup as PopupSemanticUiReact, PopupProps as SemanticUiPopupProps } from 'semantic-ui-react';
 import Wrapper from './Wrapper';
@@ -26,7 +26,7 @@ const Popup: FunctionComponent<PopupProps> & AdditionalPopupProperties = props =
     React.Children.forEach(children, child => {
         if (isValidElement(child) && child.type === Wrapper) {
             trigger = child.props.children;
-            children = _.without(props.children as ReactNodeArray, child);
+            children = _.without(childrenFromProps as ReactNode[], child);
         }
     });
 

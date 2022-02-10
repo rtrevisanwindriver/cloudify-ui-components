@@ -4,6 +4,7 @@ const path = require('path');
 const stubLink = path.resolve(__dirname, '.jest/stub.js');
 
 module.exports = {
+    testEnvironment: 'jsdom',
     collectCoverageFrom: ['./src/**/*.{js,jsx,ts,tsx}', '!./src/**/*.stories.{jsx,tsx}', '!./src/decorators/**'],
     coverageThreshold: {
         global: {

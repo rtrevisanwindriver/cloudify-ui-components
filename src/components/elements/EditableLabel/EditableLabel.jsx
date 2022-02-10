@@ -1,5 +1,5 @@
 import { Input, Label } from 'semantic-ui-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import _, { noop } from 'lodash';
 
@@ -25,7 +25,7 @@ export default function EditableLabel({
     const [currentValue, setCurrentValue] = useState();
     const [isError, setError] = useState();
 
-    function submitChange() {
+    const submitChange = useCallback(() => {
         if (currentValue === value) {
             setEditing(false);
             onCancel();
@@ -40,7 +40,7 @@ export default function EditableLabel({
 
         setEditing(false);
         onChange(currentValue);
-    }
+    }, [currentValue, value, onCancel, invalidValues, onError, onChange]);
 
     useEffect(() => {
         setCurrentValue(value);

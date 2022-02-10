@@ -7561,6 +7561,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
           }
         >
           <input
+            id="rc-editable-input-1"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -7580,7 +7581,8 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
             value="#000000"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-1"
             onMouseDown={[Function]}
             style={
               Object {
@@ -7589,7 +7591,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
           >
             hex
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -7604,6 +7606,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
           }
         >
           <input
+            id="rc-editable-input-2"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -7623,7 +7626,8 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
             value="0"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-2"
             onMouseDown={[Function]}
             style={
               Object {
@@ -7638,7 +7642,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
           >
             r
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -7653,6 +7657,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
           }
         >
           <input
+            id="rc-editable-input-3"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -7672,7 +7677,8 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
             value="0"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-3"
             onMouseDown={[Function]}
             style={
               Object {
@@ -7687,7 +7693,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
           >
             g
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -7702,6 +7708,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
           }
         >
           <input
+            id="rc-editable-input-4"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -7721,7 +7728,8 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
             value="0"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-4"
             onMouseDown={[Function]}
             style={
               Object {
@@ -7736,7 +7744,7 @@ exports[`Storyshots Form/ColorPicker Default 1`] = `
             }
           >
             b
-          </span>
+          </label>
         </div>
       </div>
     </div>
@@ -15263,7 +15271,7 @@ exports[`Storyshots Layout/HeaderBanner No Version Details 1`] = `
 
 exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
 <div
-  className="sc-bdfBwQ fcwrdz headerBar "
+  className="sc-bdvvtL glxhWS headerBar "
   color="white"
   height="100px"
 >
@@ -15319,7 +15327,7 @@ exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+      className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -15366,7 +15374,7 @@ exports[`Storyshots Layout/HeaderBar Custom Height 1`] = `
 
 exports[`Storyshots Layout/HeaderBar Default 1`] = `
 <div
-  className="sc-bdfBwQ klpcPr headerBar "
+  className="sc-bdvvtL bVtFni headerBar "
   color="white"
   height="55px"
 >
@@ -15422,7 +15430,7 @@ exports[`Storyshots Layout/HeaderBar Default 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+      className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -15469,7 +15477,7 @@ exports[`Storyshots Layout/HeaderBar Default 1`] = `
 
 exports[`Storyshots Layout/HeaderBar No Theme 1`] = `
 <div
-  className="sc-bdfBwQ hqstez headerBar "
+  className="sc-bdvvtL lkOmDC headerBar "
   height="55px"
 >
   <div
@@ -15524,7 +15532,7 @@ exports[`Storyshots Layout/HeaderBar No Theme 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+      className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -15590,7 +15598,7 @@ exports[`Storyshots Layout/HeaderMenu Custom Trigger 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+      className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -15661,7 +15669,7 @@ exports[`Storyshots Layout/HeaderMenu Default 1`] = `
   >
     <div
       aria-expanded={false}
-      className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+      className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -15861,7 +15869,7 @@ exports[`Storyshots Layout/MenusBar Default 1`] = `
     >
       <div
         aria-expanded={false}
-        className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+        className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -15909,7 +15917,7 @@ exports[`Storyshots Layout/MenusBar Default 1`] = `
       </div>
       <div
         aria-expanded={false}
-        className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+        className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -15990,7 +15998,7 @@ exports[`Storyshots Layout/MenusBar No Theme 1`] = `
     >
       <div
         aria-expanded={false}
-        className="ui item top right pointing dropdown sc-gsTCUz dvyEOA"
+        className="ui item top right pointing dropdown sc-gsDKAQ kkLpzA"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}

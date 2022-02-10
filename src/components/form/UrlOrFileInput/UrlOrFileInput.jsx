@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -16,20 +16,26 @@ export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurU
     const [fileValue, setFileValue] = useState();
     const [value, setValue] = useState('');
 
-    function handleUrlChange(url) {
-        setValue(url);
-        onChangeUrl(url);
-    }
+    const handleUrlChange = useCallback(
+        url => {
+            setValue(url);
+            onChangeUrl(url);
+        },
+        [onChangeUrl]
+    );
 
-    function handleFileChange(file) {
-        setFileValue(file);
-        onChangeFile(file);
-    }
+    const handleFileChange = useCallback(
+        file => {
+            setFileValue(file);
+            onChangeFile(file);
+        },
+        [onChangeFile]
+    );
 
-    function reset() {
+    const reset = useCallback(() => {
         handleFileChange(null);
         handleUrlChange('');
-    }
+    }, [handleUrlChange, handleFileChange]);
 
     return (
         <Input

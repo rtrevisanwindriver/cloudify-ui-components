@@ -23,9 +23,16 @@ import './Form.css';
 
 interface FormProps extends Omit<StrictFormProps, 'error'> {
     /**
-     * string with error message or object with fields error messages (syntax described above)
+     * string with error message or React component or object with the following syntax
+     * ```
+     * {
+     *      field1: 'errorMessage1',
+     *      field2: 'errorMessage2',
+     *      ...
+     * }
+     * ```
      */
-    errors?: string | [] | JSX.Element | { header: string; message: string };
+    errors?: string | Record<string, string> | JSX.Element;
 
     /**
      * string with error message header
@@ -84,18 +91,6 @@ interface FormProps extends Omit<StrictFormProps, 'error'> {
  * - `Form.TextArea` = Form text area input, see [TextArea](https://react.semantic-ui.com/addons/text-area)
  * - `Form.Time` = Time picker input, see `TimeInput`
  * - `Form.UrlOrFile` = Form URL or file input, see `UrlOrFileInput`
- *
- * ## Errors
- *
- * `errors` prop can be just a string containing error message or an object with the following syntax:
- *
- * ```
- * {
- *      field1: 'errorMessage1',
- *      field2: 'errorMessage2',
- *      ...
- * }
- * ```
  *
  */
 

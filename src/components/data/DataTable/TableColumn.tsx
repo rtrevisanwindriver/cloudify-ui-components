@@ -122,8 +122,6 @@ TableColumn.propTypes = {
     style: PropTypes.shape({})
 };
 
-// NOTE: This component is only used internally, and its propTypes are validated by the parent component
-// eslint-disable-next-line react/prop-types
 const OptionalPopup: FunctionComponent<{ tooltip?: ReactNode; children: ReactElement }> = ({ children, tooltip }) => {
     if (!tooltip) {
         return children;

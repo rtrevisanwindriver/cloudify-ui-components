@@ -26,7 +26,7 @@ export const stringField = () => {
                 required
                 label="String"
                 value={value}
-                onChange={(event, { value: newValue }) => setValue(newValue)}
+                onChange={(_event, { value: newValue }) => setValue(newValue)}
                 type={GenericField.STRING_TYPE}
                 icon="rocket"
                 placeholder="Write text..."
@@ -44,7 +44,7 @@ export const passwordField = () => {
                 name="passwordTest"
                 label="Password"
                 value={value}
-                onChange={(event, { value: newValue }) => setValue(newValue)}
+                onChange={(_event, { value: newValue }) => setValue(newValue)}
                 type={GenericField.PASSWORD_TYPE}
                 icon="key"
             />
@@ -61,7 +61,7 @@ export const numberField = () => {
                 name="numberTest"
                 label="Number"
                 value={value}
-                onChange={(event, { value: newValue }) => setValue(newValue)}
+                onChange={(_event, { value: newValue }) => setValue(newValue)}
                 type={GenericField.NUMBER_TYPE}
                 min={1}
                 max={10}
@@ -79,7 +79,7 @@ export const booleanField = () => {
                 name="booleanTest"
                 label="Boolean Test"
                 value={value}
-                onChange={(event, { checked: newValue }) => setValue(newValue)}
+                onChange={(_event, { checked: newValue }) => setValue(newValue)}
                 type={GenericField.BOOLEAN_TYPE}
             />
         </Form>
@@ -95,7 +95,7 @@ export const booleanListField = () => {
                 name="booleanListTest"
                 label="Boolean List"
                 value={value}
-                onChange={(event, { value: newValue }) => setValue(newValue)}
+                onChange={(_event, { value: newValue }) => setValue(newValue)}
                 type={GenericField.BOOLEAN_LIST_TYPE}
             />
         </Form>
@@ -113,7 +113,7 @@ export const listField = () => {
                     name="listTest"
                     label="List"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.LIST_TYPE}
                     items={['a', 'b', 'c']}
                 />
@@ -133,7 +133,7 @@ export const numberListField = () => {
                     name="numberListTest"
                     label="Number List"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.NUMBER_LIST_TYPE}
                     items={[1, 2, 3]}
                 />
@@ -153,7 +153,7 @@ export const multiSelectListField = () => {
                     name="multiSelectListTest"
                     label="Multiselect List"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.MULTI_SELECT_LIST_TYPE}
                     items={[1, 2, 3, { value: 4, name: 'four' }, { value: 5, name: 'five' }]}
                 />
@@ -173,7 +173,7 @@ export const editableListField = () => {
                     name="editableListTest"
                     label="Editable List"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.EDITABLE_LIST_TYPE}
                     items={['a', 'b', 'c']}
                 />
@@ -193,7 +193,7 @@ export const numberEditableListField = () => {
                     name="numberEditableListTest"
                     label="Number Editable List"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.NUMBER_EDITABLE_LIST_TYPE}
                     items={[1, 2, 3]}
                 />
@@ -213,7 +213,7 @@ export const customField = () => {
                     name="timeFilterTest"
                     label="Time Filter"
                     value={value}
-                    onChange={(event, { value: newValue }) => setValue(newValue)}
+                    onChange={(_event, { value: newValue }) => setValue(newValue)}
                     type={GenericField.CUSTOM_TYPE}
                     component={Form.Date}
                 />

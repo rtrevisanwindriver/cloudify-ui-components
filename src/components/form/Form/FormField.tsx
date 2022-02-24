@@ -3,11 +3,11 @@ import type { FunctionComponent } from 'react';
 import _ from 'lodash';
 
 import { Form } from 'semantic-ui-react';
-import type { StrictFormFieldProps } from 'semantic-ui-react';
+import type { FormFieldProps as FormFieldPropsSemanticReact } from 'semantic-ui-react';
 import PopupHelp from '../../popups/PopupHelp';
 import FieldLabel from '../FieldLabel/FieldLabel';
 
-export interface FormFieldProps extends StrictFormFieldProps {
+export interface FormFieldProps extends FormFieldPropsSemanticReact {
     /**
      * if not empty, then help description is shown in popup on field's hover and focus
      */

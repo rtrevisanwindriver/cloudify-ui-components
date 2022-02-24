@@ -5,5 +5,9 @@ module.exports = {
         process.env.NODE_ENV !== 'test' && '../src/**/*.stories.mdx',
         '../src/components/**/*.stories.{jsx,tsx}'
     ]),
+    features: {
+        // postcss loader deprecated: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
+        postcss: false,
+    },
     addons: ['@storybook/addon-docs/preset', '@storybook/preset-scss']
 };

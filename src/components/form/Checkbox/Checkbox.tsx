@@ -8,7 +8,7 @@ export interface CheckboxProps extends FormCheckboxProps {
     /**
      * checkbox label
      */
-    label: string;
+    label: ReactNode;
     /**
      * help description
      */

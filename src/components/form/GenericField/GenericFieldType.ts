@@ -1,58 +1,58 @@
-enum GenericFieldEnum {
+enum GenericFieldType {
     /**
      * alphanumeric input field
      */
-    STRING_TYPE = 'string',
+    STRING = 'string',
 
     /**
      * password input field
      */
-    PASSWORD_TYPE = 'password',
+    PASSWORD = 'password',
 
     /**
      * numeric input field
      */
-    NUMBER_TYPE = 'number',
+    NUMBER = 'number',
 
     /**
      * two-state input field
      */
-    BOOLEAN_TYPE = 'boolean',
+    BOOLEAN = 'boolean',
 
     /**
      * boolean with no default
      */
-    BOOLEAN_LIST_TYPE = 'booleanList',
+    BOOLEAN_LIST = 'booleanList',
 
     /**
      * dropdown alphanumeric list field
      */
-    LIST_TYPE = 'list',
+    LIST = 'list',
 
     /**
      * dropdown numeric list field
      */
-    NUMBER_LIST_TYPE = 'numberList',
+    NUMBER_LIST = 'numberList',
 
     /**
      * dropdown multiselection list
      */
-    MULTI_SELECT_LIST_TYPE = 'multiSelectList',
+    MULTI_SELECT_LIST = 'multiSelectList',
 
     /**
      * dropdown editable list
      */
-    EDITABLE_LIST_TYPE = 'editableList',
+    EDITABLE_LIST = 'editableList',
 
     /**
      * dropdown editable numeric list
      */
-    NUMBER_EDITABLE_LIST_TYPE = 'numberEditableList',
+    NUMBER_EDITABLE_LIST = 'numberEditableList',
 
     /**
      * custom input field
      */
-    CUSTOM_TYPE = 'custom'
+    CUSTOM = 'custom'
 }
 
-export default GenericFieldEnum;
+export default GenericFieldType;

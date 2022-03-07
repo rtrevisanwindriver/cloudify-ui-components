@@ -8,7 +8,7 @@ import ErrorMessage from 'components/elements/ErrorMessage';
 import Checkbox from 'components/form/Checkbox';
 import FormField from '../Form/FormField';
 
-import GenericFieldEnum from './GenericFieldEnum';
+import GenericFieldType from './GenericFieldType';
 
 type GenericFieldItemType = {
     value: boolean | number | string;
@@ -16,15 +16,28 @@ type GenericFieldItemType = {
     name?: string | number;
 };
 
-export type onChange = (proxy: SyntheticEvent<HTMLElement, Event>, field: Record<string, any>) => void;
+export type onChange = (
+    proxy: SyntheticEvent<HTMLElement, Event> | undefined,
+    field: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        value: any;
+        name?: string;
+        checked?: boolean;
+    }
+) => void;
 
 export interface ComponentProps {
     name: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: any;
     onChange: onChange;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    widgetlessToolbox: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any;
 }
 
-interface GenericFieldProps {
+export interface GenericFieldProps {
     /**
      * field's label to show above the field
      */
@@ -46,6 +59,7 @@ interface GenericFieldProps {
     /**
      * default value of the field
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default?: any;
 
     /**
@@ -104,11 +118,12 @@ interface GenericFieldProps {
     /**
      * specifies type of the field
      */
-    type: GenericFieldEnum;
+    type: GenericFieldType;
 
     /**
      * specifies the value of the field
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value?: any;
 
     /**
@@ -120,24 +135,20 @@ interface GenericFieldProps {
      * CSS style
      */
     style?: CSSProperties;
-    [x: string]: any;
-}
 
-interface GenericFieldState {
-    options?: GenericFieldItemType[];
+    // The following statement is neccesery because we use spread operator to pass the rest of props.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any;
 }
 
 /**
  * `GenericField` is a generic component which can be used as different input fields in Form component
  */
-class GenericField extends React.PureComponent<GenericFieldProps, GenericFieldState> {
+class GenericField extends React.PureComponent<GenericFieldProps> {
     // eslint-disable-next-line react/static-property-placement
     static defaultProps = {
         className: '',
-        style: undefined,
         component: null,
-        default: '',
-        description: '',
         error: false,
         icon: null,
         items: [],
@@ -146,201 +157,184 @@ class GenericField extends React.PureComponent<GenericFieldProps, GenericFieldSt
         onChange: _.noop,
         placeholder: '',
         required: false,
-        type: GenericFieldEnum.STRING_TYPE,
+        type: GenericFieldType.STRING,
         value: ''
     };
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static STRING_TYPE: GenericFieldEnum.STRING_TYPE = GenericFieldEnum.STRING_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static STRING_TYPE: GenericFieldType.STRING = GenericFieldType.STRING;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static PASSWORD_TYPE: GenericFieldEnum.PASSWORD_TYPE = GenericFieldEnum.PASSWORD_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static PASSWORD_TYPE: GenericFieldType.PASSWORD = GenericFieldType.PASSWORD;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static NUMBER_TYPE: GenericFieldEnum.NUMBER_TYPE = GenericFieldEnum.NUMBER_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static NUMBER_TYPE: GenericFieldType.NUMBER = GenericFieldType.NUMBER;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static BOOLEAN_TYPE: GenericFieldEnum.BOOLEAN_TYPE = GenericFieldEnum.BOOLEAN_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static BOOLEAN_TYPE: GenericFieldType.BOOLEAN = GenericFieldType.BOOLEAN;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static BOOLEAN_LIST_TYPE: GenericFieldEnum.BOOLEAN_LIST_TYPE = GenericFieldEnum.BOOLEAN_LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static BOOLEAN_LIST_TYPE: GenericFieldType.BOOLEAN_LIST = GenericFieldType.BOOLEAN_LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static LIST_TYPE: GenericFieldEnum.LIST_TYPE = GenericFieldEnum.LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static LIST_TYPE: GenericFieldType.LIST = GenericFieldType.LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static NUMBER_LIST_TYPE: GenericFieldEnum.NUMBER_LIST_TYPE = GenericFieldEnum.NUMBER_LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static NUMBER_LIST_TYPE: GenericFieldType.NUMBER_LIST = GenericFieldType.NUMBER_LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static MULTI_SELECT_LIST_TYPE: GenericFieldEnum.MULTI_SELECT_LIST_TYPE =
-        GenericFieldEnum.MULTI_SELECT_LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static MULTI_SELECT_LIST_TYPE: GenericFieldType.MULTI_SELECT_LIST = GenericFieldType.MULTI_SELECT_LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static EDITABLE_LIST_TYPE: GenericFieldEnum.EDITABLE_LIST_TYPE = GenericFieldEnum.EDITABLE_LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static EDITABLE_LIST_TYPE: GenericFieldType.EDITABLE_LIST = GenericFieldType.EDITABLE_LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static NUMBER_EDITABLE_LIST_TYPE: GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE =
-        GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static NUMBER_EDITABLE_LIST_TYPE: GenericFieldType.NUMBER_EDITABLE_LIST =
+        GenericFieldType.NUMBER_EDITABLE_LIST;
 
-    /** deprecated. The GenericFieldEnum should be used directly instead */
-    public static CUSTOM_TYPE: GenericFieldEnum.CUSTOM_TYPE = GenericFieldEnum.CUSTOM_TYPE;
+    /** deprecated. The GenericFieldType should be used directly instead */
+    public static CUSTOM_TYPE: GenericFieldType.CUSTOM = GenericFieldType.CUSTOM;
 
-    static formatValue = (type: GenericFieldEnum, value: any): boolean | string[] | number => {
-        if (type === GenericFieldEnum.MULTI_SELECT_LIST_TYPE) {
-            return _.split(value, ',');
+    static formatValue = (type: GenericFieldType, value: boolean | string): boolean | string | string[] | number => {
+        if (type === GenericFieldType.MULTI_SELECT_LIST) {
+            return _.split(String(value), ',');
         }
-        if (type === GenericFieldEnum.BOOLEAN_TYPE) {
-            return (_.isBoolean(value) && value) || (_.isString(value) && value === 'true');
+        if (type === GenericFieldType.BOOLEAN) {
+            return (_.isBoolean(value) && value) || (typeof value === 'string' && value === 'true');
         }
         if (
-            type === GenericFieldEnum.NUMBER_TYPE ||
-            type === GenericFieldEnum.NUMBER_LIST_TYPE ||
-            type === GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE
+            type === GenericFieldType.NUMBER ||
+            type === GenericFieldType.NUMBER_LIST ||
+            type === GenericFieldType.NUMBER_EDITABLE_LIST
         ) {
-            return parseInt(value, 10) || 0;
+            return parseInt(String(value), 10) || 0;
         }
 
         return value;
     };
 
-    static isListType = (type: GenericFieldEnum): boolean => {
+    static isListType = (type: GenericFieldType): boolean => {
         return (
-            type === GenericFieldEnum.LIST_TYPE ||
-            type === GenericFieldEnum.NUMBER_LIST_TYPE ||
-            type === GenericFieldEnum.MULTI_SELECT_LIST_TYPE ||
-            type === GenericFieldEnum.BOOLEAN_LIST_TYPE ||
-            type === GenericFieldEnum.EDITABLE_LIST_TYPE ||
-            type === GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE
+            type === GenericFieldType.LIST ||
+            type === GenericFieldType.NUMBER_LIST ||
+            type === GenericFieldType.MULTI_SELECT_LIST ||
+            type === GenericFieldType.BOOLEAN_LIST ||
+            type === GenericFieldType.EDITABLE_LIST ||
+            type === GenericFieldType.NUMBER_EDITABLE_LIST
         );
     };
 
-    constructor(props: GenericFieldProps) {
-        super(props);
+    getOptionsForListType(): GenericFieldItemType[] {
+        const { type, items } = this.props;
 
-        this.state = GenericField.isListType(props.type) ? { options: [] } : {};
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-    componentDidMount(): void {
-        this.initOptions(this.props);
-    }
-
-    componentDidUpdate(prevProps: GenericFieldProps): void {
-        const { items } = this.props;
-        if (items !== prevProps.items) {
-            this.initOptions(this.props);
+        if (type === GenericFieldType.BOOLEAN_LIST) {
+            return [
+                { text: 'false', value: false },
+                { text: 'true', value: true }
+            ];
         }
-    }
 
-    handleInputChange: onChange = (proxy, field) => {
-        const { onChange = GenericField.defaultProps.onChange, type } = this.props;
-        onChange(proxy, { ...field, genericType: type });
-    };
-
-    initOptions(props: GenericFieldProps): void {
-        if (props.type === GenericFieldEnum.BOOLEAN_LIST_TYPE) {
-            this.setState({
-                options: [
-                    { text: 'false', value: false },
-                    { text: 'true', value: true }
-                ]
-            });
-        } else if (GenericField.isListType(props.type) && props.items && _.isObject(props.items)) {
-            const options = _.map(props.items, item =>
-                !_.isObject(item) ? { text: item, value: item } : { text: item.name, value: item.value }
+        if (items && _.isObject(items)) {
+            return _.uniqBy(
+                _.map(items, item =>
+                    !_.isObject(item) ? { text: item, value: item } : { text: item.name, value: item.value }
+                ),
+                'value'
             );
-
-            this.setState({ options: _.uniqBy(options, 'value') });
         }
+
+        return [];
     }
 
-    render(): ReactNode {
+    renderGenericField(): ReactNode {
         const {
             component: Component,
-            default: defaultValue,
-            description,
-            error,
-            icon,
-            label,
             max,
             min,
             name,
             placeholder,
-            required,
             type,
             value,
-            className,
-            style
+            onChange = GenericField.defaultProps.onChange
         } = this.props;
-        const { options } = this.state;
-        let field = null;
 
         if (
-            type === GenericFieldEnum.STRING_TYPE ||
-            type === GenericFieldEnum.NUMBER_TYPE ||
-            type === GenericFieldEnum.PASSWORD_TYPE
+            type === GenericFieldType.STRING ||
+            type === GenericFieldType.NUMBER ||
+            type === GenericFieldType.PASSWORD
         ) {
-            field = (
+            const { icon = null } = this.props;
+
+            return (
                 <Input
                     icon={icon}
                     name={name}
-                    type={type === GenericFieldEnum.STRING_TYPE ? 'text' : type}
+                    type={type === GenericFieldType.STRING ? 'text' : type}
                     placeholder={placeholder}
                     value={value === null ? '' : value}
-                    onChange={this.handleInputChange}
-                    max={type === GenericFieldEnum.NUMBER_TYPE ? max : null}
-                    min={type === GenericFieldEnum.NUMBER_TYPE ? min : null}
+                    onChange={onChange}
+                    max={type === GenericFieldType.NUMBER ? max : null}
+                    min={type === GenericFieldType.NUMBER ? min : null}
                 />
             );
-        } else if (type === GenericFieldEnum.BOOLEAN_TYPE) {
-            field = (
+        }
+        if (type === GenericFieldType.BOOLEAN) {
+            return (
                 <Checkbox
                     label=" "
                     name={name}
                     toggle
                     checked={(_.isBoolean(value) && value) || (_.isString(value) && value === 'true')}
-                    onChange={this.handleInputChange}
+                    onChange={onChange}
                 />
             );
-        } else if (GenericField.isListType(type)) {
-            field = (
+        }
+        if (GenericField.isListType(type)) {
+            const options = this.getOptionsForListType();
+
+            return (
                 <Dropdown
                     fluid
                     selection
                     value={value}
                     name={name}
-                    multiple={type === GenericFieldEnum.MULTI_SELECT_LIST_TYPE}
+                    multiple={type === GenericFieldType.MULTI_SELECT_LIST}
                     allowAdditions={
-                        type === GenericFieldEnum.EDITABLE_LIST_TYPE ||
-                        type === GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE
+                        type === GenericFieldType.EDITABLE_LIST || type === GenericFieldType.NUMBER_EDITABLE_LIST
                     }
-                    search={
-                        type === GenericFieldEnum.EDITABLE_LIST_TYPE ||
-                        type === GenericFieldEnum.NUMBER_EDITABLE_LIST_TYPE
-                    }
+                    search={type === GenericFieldType.EDITABLE_LIST || type === GenericFieldType.NUMBER_EDITABLE_LIST}
                     placeholder={placeholder || 'Please select'}
                     options={options}
-                    onChange={this.handleInputChange}
+                    onChange={onChange}
                     clearable={false}
                 />
             );
-        } else if (type === GenericFieldEnum.CUSTOM_TYPE) {
+        }
+        if (type === GenericFieldType.CUSTOM) {
+            const { default: defaultValue, widgetlessToolbox } = this.props;
             const optionalProps = _.keys(GenericField.defaultProps);
             const requiredProps = ['name', 'label', 'component'];
-            const componentProps = _.omit(this.props, [...optionalProps, ...requiredProps]);
+            const componentProps = _.omit(this.props, ['widgetlessToolbox', ...optionalProps, ...requiredProps]);
 
             if (Component === null || Component === undefined) {
                 return <ErrorMessage error={`\`component\` prop have to be provided when \`${type}\` type is set.`} />;
             }
-            field = (
+            return (
                 <Component
                     name={name}
                     value={_.isUndefined(value) ? defaultValue : value}
-                    onChange={this.handleInputChange}
+                    onChange={onChange}
+                    widgetlessToolbox={widgetlessToolbox}
                     {...componentProps}
                 />
             );
         }
+
+        return null;
+    }
+
+    render(): ReactNode {
+        const { description, error, label, name, required, className, style } = this.props;
 
         return (
             <FormField
@@ -351,7 +345,7 @@ class GenericField extends React.PureComponent<GenericFieldProps, GenericFieldSt
                 required={required}
                 error={error}
             >
-                {field}
+                {this.renderGenericField()}
             </FormField>
         );
     }

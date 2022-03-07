@@ -115,7 +115,6 @@ describe('<GenericField />', () => {
 
         wrapper.find('input').simulate('change', { target: { value: 'Test' } });
         expect(onChangeMock).toHaveBeenCalledWith(expect.any(Object), {
-            genericType: 'string',
             name: 'test',
             value: 'Test',
             icon: null,

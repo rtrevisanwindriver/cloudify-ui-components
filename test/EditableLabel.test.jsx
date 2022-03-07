@@ -14,6 +14,7 @@ describe('<EditableLabel />', () => {
             expect(wrapper.exists()).toEqual(true);
         });
 
+        // eslint-disable-next-line jest/expect-expect
         it('renders when externally controlled', () => {
             const wrapper = shallow(<EditableLabel editing value="Text" enabled placeholder="Enter something" />);
             expectEditMode(wrapper, true);

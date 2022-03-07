@@ -3,7 +3,10 @@ import React from 'react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import DivContainer from 'decorators/DivContainer';
+import type { Story } from '@storybook/react';
 import GenericField from './GenericField';
+import type { GenericFieldProps } from './GenericField';
+
 import Form from '../Form';
 
 /*
@@ -16,7 +19,7 @@ export default {
     decorators: [LiveEditDecorator({ DivContainer, GenericField, Form })]
 };
 
-export const stringField = () => {
+export const stringField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState('');
 
     return (
@@ -35,7 +38,7 @@ export const stringField = () => {
     );
 };
 
-export const passwordField = () => {
+export const passwordField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState('');
 
     return (
@@ -52,7 +55,7 @@ export const passwordField = () => {
     );
 };
 
-export const numberField = () => {
+export const numberField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState(5);
 
     return (
@@ -70,7 +73,7 @@ export const numberField = () => {
     );
 };
 
-export const booleanField = () => {
+export const booleanField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState(true);
 
     return (
@@ -79,14 +82,14 @@ export const booleanField = () => {
                 name="booleanTest"
                 label="Boolean Test"
                 value={value}
-                onChange={(_event, { checked: newValue }) => setValue(newValue)}
+                onChange={(_event, { checked: newValue }) => setValue(!!newValue)}
                 type={GenericField.BOOLEAN_TYPE}
             />
         </Form>
     );
 };
 
-export const booleanListField = () => {
+export const booleanListField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState('true');
 
     return (
@@ -103,7 +106,7 @@ export const booleanListField = () => {
 };
 booleanListField.parameters = { storyshots: false };
 
-export const listField = () => {
+export const listField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState('b');
 
     return (
@@ -123,7 +126,7 @@ export const listField = () => {
 };
 listField.parameters = { storyshots: false };
 
-export const numberListField = () => {
+export const numberListField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState(2);
 
     return (
@@ -143,7 +146,7 @@ export const numberListField = () => {
 };
 numberListField.parameters = { storyshots: false };
 
-export const multiSelectListField = () => {
+export const multiSelectListField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState([2, 3, 4]);
 
     return (
@@ -163,7 +166,7 @@ export const multiSelectListField = () => {
 };
 multiSelectListField.parameters = { storyshots: false };
 
-export const editableListField = () => {
+export const editableListField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState('b');
 
     return (
@@ -183,7 +186,7 @@ export const editableListField = () => {
 };
 editableListField.parameters = { storyshots: false };
 
-export const numberEditableListField = () => {
+export const numberEditableListField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState(2);
 
     return (
@@ -203,7 +206,7 @@ export const numberEditableListField = () => {
 };
 numberEditableListField.parameters = { storyshots: false };
 
-export const customField = () => {
+export const customField: Story<Required<GenericFieldProps>> = () => {
     const [value, setValue] = React.useState();
 
     return (
@@ -214,6 +217,7 @@ export const customField = () => {
                     label="Time Filter"
                     value={value}
                     onChange={(_event, { value: newValue }) => setValue(newValue)}
+                    widgetlessToolbox={{}}
                     type={GenericField.CUSTOM_TYPE}
                     component={Form.Date}
                 />
@@ -222,6 +226,6 @@ export const customField = () => {
     );
 };
 
-export const noCustomTypeField = () => (
+export const noCustomTypeField: Story<Required<GenericFieldProps>> = () => (
     <GenericField name="timeFilterTest" label="No component prop specified" type={GenericField.CUSTOM_TYPE} />
 );

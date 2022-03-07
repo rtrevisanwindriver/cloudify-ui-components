@@ -11861,22 +11861,30 @@ exports[`Storyshots Form/GenericField Custom Field 1`] = `
 
 exports[`Storyshots Form/GenericField No Custom Type Field 1`] = `
 <div
-  className="ui error message"
+  className="field timeFilterTest"
 >
-  <i
-    aria-hidden="true"
-    className="close icon"
-    onClick={[Function]}
-  />
+  <label>
+    No component prop specified
+     
+  </label>
   <div
-    className="header"
+    className="ui error message"
   >
-    Error Occured
-  </div>
-  <div
-    className="content"
-  >
-    \`component\` prop have to be provided when \`custom\` type is set.
+    <i
+      aria-hidden="true"
+      className="close icon"
+      onClick={[Function]}
+    />
+    <div
+      className="header"
+    >
+      Error Occured
+    </div>
+    <div
+      className="content"
+    >
+      \`component\` prop have to be provided when \`custom\` type is set.
+    </div>
   </div>
 </div>
 `;

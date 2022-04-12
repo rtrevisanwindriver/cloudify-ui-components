@@ -41,5 +41,7 @@ export const FormFieldWithoutMemo: FunctionComponent<FormFieldProps> = ({ help =
         <FieldWrapper {...fieldProps} help={help} label={label} />
     );
 
-const FormField = memo((props: FormFieldProps) => <FormFieldWithoutMemo {...props} />);
+const FormField = memo(function FormField(props: FormFieldProps) {
+    return <FormFieldWithoutMemo {...props} />;
+});
 export default FormField;

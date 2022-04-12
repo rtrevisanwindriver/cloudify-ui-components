@@ -1,5 +1,8 @@
 {
-    "extends": ["plugin:react/recommended", "./node_modules/cloudify-ui-common/configs/eslint-common-react.json"],
+    "extends": [
+        "./node_modules/cloudify-ui-common/configs/eslint-common-react.json",
+        "plugin:react/recommended"
+    ],
     "settings": {
         "import/resolver": {
             "babel-module": {}
@@ -9,12 +12,20 @@
         {
             "files": "**/*.stories.{jsx,tsx}",
             "rules": {
-                "import/no-extraneous-dependencies": [
-                    "error",
-                    {
-                        "devDependencies": true
-                    }
-                ]
+                "import/no-extraneous-dependencies": [ "error", { "devDependencies": true } ]
+            }
+        },
+        {
+            "files": "**/*.test.{js,jsx,ts,tsx}",
+            // TODO(RD-2856): Use common Jest configuration
+            "plugins": [
+                "jest"
+            ],
+            "extends": [
+                "plugin:jest/recommended"
+            ],
+            "env": {
+                "jest": true
             }
         }
     ]

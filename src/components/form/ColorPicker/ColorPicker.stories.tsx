@@ -1,8 +1,8 @@
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 import React from 'react';
 
 import Form from '../Form/Form';
-import { ColorPickerProps } from './ColorPicker';
+import type { ColorPickerProps } from './ColorPicker';
 
 export default {
     title: 'Form/ColorPicker',

@@ -1,9 +1,10 @@
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 import React from 'react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import KeyIndicator, { KeyIndicatorProps } from './KeyIndicator';
+import type { KeyIndicatorProps } from './KeyIndicator';
+import KeyIndicator from './KeyIndicator';
 
 export default {
     title: 'Data/KeyIndicator',

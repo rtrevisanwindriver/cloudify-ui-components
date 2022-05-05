@@ -1,5 +1,7 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { Grid, GridProps, Segment, SegmentProps, SemanticWIDTHS } from 'semantic-ui-react';
+import type { FunctionComponent } from 'react';
+import React, { useEffect } from 'react';
+import type { GridProps, SegmentProps, SemanticWIDTHS } from 'semantic-ui-react';
+import { Grid, Segment } from 'semantic-ui-react';
 
 interface MessageContainerProps extends Omit<GridProps, 'textAlign'> {
     /**

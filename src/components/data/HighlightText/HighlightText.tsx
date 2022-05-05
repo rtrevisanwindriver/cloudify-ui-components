@@ -1,6 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
+import React from 'react';
 
-import { SyntaxHighlighterProps, Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import type { SyntaxHighlighterProps } from 'react-syntax-highlighter';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import idea from 'react-syntax-highlighter/dist/esm/styles/hljs/idea';
 import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
 import javascript from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';

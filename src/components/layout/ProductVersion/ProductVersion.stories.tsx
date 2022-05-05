@@ -1,7 +1,8 @@
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 import React from 'react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import ProductVersion, { ProductVersionProps } from './ProductVersion';
+import type { ProductVersionProps } from './ProductVersion';
+import ProductVersion from './ProductVersion';
 
 export default {
     title: 'Layout/ProductVersion',

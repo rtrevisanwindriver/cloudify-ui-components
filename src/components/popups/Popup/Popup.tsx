@@ -1,6 +1,8 @@
-import React, { FunctionComponent, isValidElement, ReactNode } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
+import React, { isValidElement } from 'react';
 import _ from 'lodash';
-import { Popup as PopupSemanticUiReact, PopupProps as SemanticUiPopupProps } from 'semantic-ui-react';
+import type { PopupProps as SemanticUiPopupProps } from 'semantic-ui-react';
+import { Popup as PopupSemanticUiReact } from 'semantic-ui-react';
 import Wrapper from './Wrapper';
 
 export type PopupProps = SemanticUiPopupProps;

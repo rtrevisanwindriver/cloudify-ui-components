@@ -1,6 +1,7 @@
-import React, { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps, ReactElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { DropdownItemProps } from 'semantic-ui-react';
+import type { DropdownItemProps } from 'semantic-ui-react';
 
 import Form from '../../../form/Form';
 

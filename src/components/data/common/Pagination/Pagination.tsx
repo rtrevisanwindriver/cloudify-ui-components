@@ -1,4 +1,5 @@
-import React, { Component, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 

@@ -1,5 +1,7 @@
-import React, { CSSProperties, FunctionComponent } from 'react';
-import { Icon, Image, Statistic, SemanticICONS } from 'semantic-ui-react';
+import type { CSSProperties, FunctionComponent } from 'react';
+import React from 'react';
+import type { SemanticICONS } from 'semantic-ui-react';
+import { Icon, Image, Statistic } from 'semantic-ui-react';
 
 export interface KeyIndicatorProps {
     /**

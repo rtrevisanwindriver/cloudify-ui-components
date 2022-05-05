@@ -1,5 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { Dimmer, DimmerProps, Loader } from 'semantic-ui-react';
+import type { FunctionComponent } from 'react';
+import React from 'react';
+import type { DimmerProps } from 'semantic-ui-react';
+import { Dimmer, Loader } from 'semantic-ui-react';
 
 interface LoadingOverlayProps extends DimmerProps {
     /**

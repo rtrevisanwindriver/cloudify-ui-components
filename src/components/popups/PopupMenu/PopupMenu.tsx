@@ -1,6 +1,8 @@
-import React, { FunctionComponent, useState } from 'react';
+import type { FunctionComponent } from 'react';
+import React, { useState } from 'react';
 import _ from 'lodash';
-import { Icon, IconProps, PopupProps, SemanticICONS } from 'semantic-ui-react';
+import type { IconProps, PopupProps, SemanticICONS } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 import Popup from '../Popup';
 import './PopupMenu.css';
 

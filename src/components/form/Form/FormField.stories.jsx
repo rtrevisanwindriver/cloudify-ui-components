@@ -41,3 +41,11 @@ export const help = () => (
         </Form.Field>
     </Form>
 );
+
+export const requiredWithHelp = () => (
+    <Form>
+        <Form.Field label="Username" help="Use only alphanumeric characters" required>
+            <Form.Input placeholder="Provide username" />
+        </Form.Field>
+    </Form>
+);

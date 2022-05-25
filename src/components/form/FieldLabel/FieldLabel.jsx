@@ -12,15 +12,19 @@ import PopupHelp from '../../popups/PopupHelp';
  */
 export default function FieldLabel({ label, help, ...labelProps }) {
     return !_.isEmpty(label) ? (
-        // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label {...labelProps}>
-            {label}{' '}
+        <>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label {...labelProps} style={{ display: 'inline-block' }}>
+                {label}
+            </label>
             {!_.isEmpty(help) && (
                 <span>
+                    {' '}
                     <PopupHelp content={help} />
                 </span>
             )}
-        </label>
+            <div />
+        </>
     ) : null;
 }
 

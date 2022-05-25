@@ -5852,21 +5852,28 @@ exports[`Storyshots Form/Checkbox Basic 1`] = `
     tabIndex={0}
     type="checkbox"
   />
-  <label>
+  <label
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
     Notifications
-     
-    <span>
-      <i
-        aria-hidden="true"
-        className="help circle icon"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      />
-    </span>
   </label>
+  <span>
+     
+    <i
+      aria-hidden="true"
+      className="help circle icon"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    />
+  </span>
+  <div />
 </div>
 `;
 
@@ -5885,10 +5892,16 @@ exports[`Storyshots Form/Checkbox Toggle 1`] = `
     tabIndex={0}
     type="checkbox"
   />
-  <label>
+  <label
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
     Newsletter
-     
   </label>
+  <div />
 </div>
 `;
 
@@ -5907,10 +5920,16 @@ exports[`Storyshots Form/Checkbox Without Help 1`] = `
     tabIndex={0}
     type="checkbox"
   />
-  <label>
+  <label
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
     Notifications
-     
   </label>
+  <div />
 </div>
 `;
 
@@ -11210,10 +11229,16 @@ exports[`Storyshots Form/File Basic 1`] = `
   <div
     className="field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       File
-       
     </label>
+    <div />
     <div
       className="ui action input"
     >
@@ -11359,10 +11384,16 @@ exports[`Storyshots Form/File No Reset 1`] = `
   <div
     className="field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       File
-       
     </label>
+    <div />
     <div
       className="ui action input"
     >
@@ -11415,21 +11446,28 @@ exports[`Storyshots Form/Form Default 1`] = `
   <div
     className="required field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Username
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
     </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11449,21 +11487,28 @@ exports[`Storyshots Form/Form Default 1`] = `
   <div
     className="required field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       E-mail
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
     </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11483,21 +11528,28 @@ exports[`Storyshots Form/Form Default 1`] = `
   <div
     className="required field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Password
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
     </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11517,21 +11569,28 @@ exports[`Storyshots Form/Form Default 1`] = `
   <div
     className="required field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Confirm Password
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
     </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11570,21 +11629,28 @@ exports[`Storyshots Form/Form Default 1`] = `
         tabIndex={0}
         type="checkbox"
       />
-      <label>
+      <label
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
         Newsletter
-         
-        <span>
-          <i
-            aria-hidden="true"
-            className="help circle icon"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          />
-        </span>
       </label>
+      <span>
+         
+        <i
+          aria-hidden="true"
+          className="help circle icon"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        />
+      </span>
+      <div />
     </div>
   </div>
   <div
@@ -11604,21 +11670,28 @@ exports[`Storyshots Form/Form Default 1`] = `
         tabIndex={0}
         type="checkbox"
       />
-      <label>
+      <label
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
         Notifications
-         
-        <span>
-          <i
-            aria-hidden="true"
-            className="help circle icon"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          />
-        </span>
       </label>
+      <span>
+         
+        <i
+          aria-hidden="true"
+          className="help circle icon"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        />
+      </span>
+      <div />
     </div>
   </div>
 </form>
@@ -11666,21 +11739,28 @@ exports[`Storyshots Form/FormField Help 1`] = `
   <div
     className="field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Username
-       
-      <span>
-        <i
-          aria-hidden="true"
-          className="help circle icon"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        />
-      </span>
     </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11707,10 +11787,16 @@ exports[`Storyshots Form/FormField Label 1`] = `
   <div
     className="field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Username
-       
     </label>
+    <div />
     <div
       className="field"
     >
@@ -11737,10 +11823,64 @@ exports[`Storyshots Form/FormField Required 1`] = `
   <div
     className="required field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Username
-       
     </label>
+    <div />
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          aria-describedby={null}
+          onChange={[Function]}
+          placeholder="Provide username"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form/FormField Required With Help 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="required field"
+  >
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
+      Username
+    </label>
+    <span>
+       
+      <i
+        aria-hidden="true"
+        className="help circle icon"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </span>
+    <div />
     <div
       className="field"
     >
@@ -11767,10 +11907,16 @@ exports[`Storyshots Form/GenericField Boolean Field 1`] = `
   <div
     className="field booleanTest"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Boolean Test
-       
     </label>
+    <div />
     <div
       className="ui checked toggle checkbox"
       onChange={[Function]}
@@ -11786,87 +11932,35 @@ exports[`Storyshots Form/GenericField Boolean Field 1`] = `
         tabIndex={0}
         type="checkbox"
       />
-      <label>
-         
+      <label
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
          
       </label>
+      <div />
     </div>
   </div>
 </form>
-`;
-
-exports[`Storyshots Form/GenericField Custom Field 1`] = `
-<div
-  style={
-    Object {
-      "backgroundColor": "white",
-      "height": 200,
-      "position": "relative",
-    }
-  }
->
-  <form
-    className="ui form"
-    onSubmit={[Function]}
-  >
-    <div
-      className="field timeFilterTest"
-    >
-      <label>
-        Time Filter
-         
-      </label>
-      <div
-        className="ui fluid action input"
-      >
-        <input
-          name="value"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          placeholder="YYYY-MM-DD HH:mm"
-          type="text"
-          value=""
-        />
-        <button
-          className="ui icon button"
-          onClick={[Function]}
-        >
-          <i
-            aria-hidden="true"
-            className="calendar icon"
-            onClick={[Function]}
-          />
-        </button>
-        <button
-          className="ui icon disabled button"
-          disabled={true}
-          onClick={[Function]}
-          tabIndex={-1}
-        >
-          <i
-            aria-hidden="true"
-            className="cancel icon"
-            onClick={[Function]}
-          />
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
 `;
 
 exports[`Storyshots Form/GenericField No Custom Type Field 1`] = `
 <div
   className="field timeFilterTest"
 >
-  <label>
+  <label
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
     No component prop specified
-     
   </label>
+  <div />
   <div
     className="ui error message"
   >
@@ -11897,10 +11991,16 @@ exports[`Storyshots Form/GenericField Number Field 1`] = `
   <div
     className="field numberTest"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Number
-       
     </label>
+    <div />
     <div
       className="ui input"
     >
@@ -11926,10 +12026,16 @@ exports[`Storyshots Form/GenericField Password Field 1`] = `
   <div
     className="field passwordTest"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       Password
-       
     </label>
+    <div />
     <div
       className="ui icon input"
     >
@@ -11960,10 +12066,16 @@ exports[`Storyshots Form/GenericField String Field 1`] = `
   <div
     className="required field stringTest"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       String
-       
     </label>
+    <div />
     <div
       className="ui icon input"
     >
@@ -14805,10 +14917,16 @@ exports[`Storyshots Form/UrlOrFile Basic 1`] = `
   <div
     className="field"
   >
-    <label>
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
       File or URL
-       
     </label>
+    <div />
     <div
       className="ui action left labeled input fileOrUrl"
     >

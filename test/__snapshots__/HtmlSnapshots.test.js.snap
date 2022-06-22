@@ -5380,7 +5380,7 @@ exports[`Storyshots Elements/ErrorMessage Auto Hide 1`] = `
   <div
     className="header"
   >
-    Error Occured
+    Error Occurred
   </div>
   <div
     className="content"
@@ -5473,7 +5473,7 @@ exports[`Storyshots Elements/ErrorMessage Default 1`] = `
   <div
     className="header"
   >
-    Error Occured
+    Error Occurred
   </div>
   <div
     className="content"
@@ -11972,7 +11972,7 @@ exports[`Storyshots Form/GenericField No Custom Type Field 1`] = `
     <div
       className="header"
     >
-      Error Occured
+      Error Occurred
     </div>
     <div
       className="content"

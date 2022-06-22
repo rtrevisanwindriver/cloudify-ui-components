@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import type { FocusEvent } from 'react';
 import _ from 'lodash';
 
 import { Input, Label } from 'semantic-ui-react';
@@ -7,12 +7,57 @@ import FileInput from '../FileInput';
 
 import './UrlOrFileInput.css';
 
+export interface UrlOrFileInputProps {
+    /**
+     * basename of the field => URL field will be named `<name>Url` and file field will be named `<name>File`
+     */
+    name: string;
+
+    /**
+     * input field placeholder
+     */
+    placeholder: string;
+
+    /**
+     * function to be called on URL change
+     */
+    onChangeUrl: (url: string) => void;
+
+    /**
+     * function to be called on URL input blur
+     */
+    onBlurUrl: (e: FocusEvent<HTMLInputElement>) => void;
+
+    /**
+     * function to be called on file change
+     */
+    onChangeFile: (file: File) => void;
+
+    /**
+     * CSS class
+     */
+    className?: string;
+
+    /**
+     * CSS style
+     */
+    style?: React.CSSProperties;
+}
+
 /**
  * UrlOrFileInput is a component showing URL and file input field
  *
  * Accessible as `UrlOrFileInput` or `Form.UrlOrFile`.
  */
-export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurUrl, onChangeFile, className, style }) {
+export default function UrlOrFileInput({
+    name,
+    placeholder,
+    onChangeUrl,
+    onBlurUrl = _.noop,
+    onChangeFile,
+    className = '',
+    style
+}: UrlOrFileInputProps) {
     const [fileValue, setFileValue] = useState();
     const [value, setValue] = useState('');
 
@@ -21,7 +66,7 @@ export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurU
             setValue(url);
             onChangeUrl(url);
         },
-        [onChangeUrl]
+        [onChangeUrl, setValue]
     );
 
     const handleFileChange = useCallback(
@@ -37,13 +82,15 @@ export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurU
         handleUrlChange('');
     }, [handleUrlChange, handleFileChange]);
 
+    const onFocus = useCallback(() => fileValue && reset(), [fileValue, reset]);
+
     return (
         <Input
             value={_.get(fileValue, 'name', value)}
             name={`${name}Url`}
             placeholder={placeholder}
-            onChange={(e, data) => handleUrlChange(data.value)}
-            onFocus={() => fileValue && reset()}
+            onChange={(_e, data) => handleUrlChange(data.value)}
+            onFocus={onFocus}
             onBlur={onBlurUrl}
             action
             labelPosition="left"
@@ -62,46 +109,3 @@ export default function UrlOrFileInput({ name, placeholder, onChangeUrl, onBlurU
         </Input>
     );
 }
-
-UrlOrFileInput.propTypes = {
-    /*
-     * basename of the field => URL field will be named `<name>Url` and file field will be named `<name>File`
-     */
-    name: PropTypes.string.isRequired,
-
-    /**
-     * input field placeholder
-     */
-    placeholder: PropTypes.string.isRequired,
-
-    /**
-     * function to be called on URL change
-     */
-    onChangeUrl: PropTypes.func.isRequired,
-
-    /**
-     * function to be called on URL input blur
-     */
-    onBlurUrl: PropTypes.func,
-
-    /**
-     * function to be called on file change
-     */
-    onChangeFile: PropTypes.func.isRequired,
-
-    /**
-     * CSS class
-     */
-    className: PropTypes.string,
-
-    /**
-     * CSS style
-     */
-    style: PropTypes.shape({})
-};
-
-UrlOrFileInput.defaultProps = {
-    onBlurUrl: _.noop,
-    className: '',
-    style: undefined
-};

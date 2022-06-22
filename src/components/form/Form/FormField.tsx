@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import type { FunctionComponent } from 'react';
 import _ from 'lodash';
 
-import { Form } from 'semantic-ui-react';
+import { Form, Label } from 'semantic-ui-react';
 import type { FormFieldProps as FormFieldPropsSemanticReact } from 'semantic-ui-react';
 import PopupHelp from '../../popups/PopupHelp';
 import FieldLabel from '../FieldLabel/FieldLabel';
@@ -21,12 +21,32 @@ const FieldWrapper: FunctionComponent<FormFieldProps> = ({
     label,
     required = false,
     ...fieldProps
-}) => (
-    <Form.Field {...fieldProps} required={required} error={!!error}>
-        <FieldLabel help={help} label={label} />
-        {children}
-    </Form.Field>
-);
+}) => {
+    const errorPointing = _.get(error, 'pointing', '');
+    const errorContent = _.get(error, 'content', '');
+    const errorLabel = (
+        <Label
+            content={errorContent}
+            pointing={errorPointing}
+            prompt
+            ariaAtomic
+            id={fieldProps.id ? `${fieldProps.id}-error-message` : undefined}
+            role="alert"
+        />
+    );
+
+    const errorLabelBefore = (errorPointing === 'below' || errorPointing === 'right') && errorLabel;
+    const errorLabelAfter = (errorPointing === 'above' || errorPointing === 'left') && errorLabel;
+
+    return (
+        <Form.Field {...fieldProps} required={required} error={!!error}>
+            {errorLabelBefore}
+            <FieldLabel help={help} label={label} />
+            {children}
+            {errorLabelAfter}
+        </Form.Field>
+    );
+};
 
 /**
  * `Form.Field` is a component to present field and is used in Form component.

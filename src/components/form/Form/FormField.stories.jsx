@@ -26,6 +26,14 @@ export const error = () => (
     </Form>
 );
 
+export const errorWithContent = () => (
+    <Form>
+        <Form.Field label="Label" required error={{ content: 'Error message', pointing: 'above' }}>
+            <Form.UrlOrFile name="name" placeholder="placeholder" onChangeUrl={() => {}} onChangeFile={() => {}} />
+        </Form.Field>
+    </Form>
+);
+
 export const label = () => (
     <Form>
         <Form.Field label="Username">

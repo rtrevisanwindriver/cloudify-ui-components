@@ -92,6 +92,6 @@ ErrorMessage.defaultProps = {
     autoHide: false,
     className: '',
     error: null,
-    header: 'Error Occured',
+    header: 'Error Occurred',
     onDismiss: () => {}
 };

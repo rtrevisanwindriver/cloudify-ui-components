@@ -11731,6 +11731,88 @@ exports[`Storyshots Form/FormField Error 1`] = `
 </form>
 `;
 
+exports[`Storyshots Form/FormField Error With Content 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="error required field"
+  >
+    <label
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
+      Label
+    </label>
+    <div />
+    <div
+      className="ui action left labeled input fileOrUrl"
+    >
+      <div
+        className="ui label"
+        onClick={[Function]}
+      >
+        URL
+      </div>
+      <input
+        name="nameUrl"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="placeholder"
+        type="text"
+        value=""
+      />
+      <button
+        className="ui icon button"
+        onClick={[Function]}
+      >
+        <i
+          aria-hidden="true"
+          className="folder open icon"
+          onClick={[Function]}
+        />
+      </button>
+      <button
+        className="ui icon disabled button"
+        disabled={true}
+        onClick={[Function]}
+        tabIndex={-1}
+      >
+        <i
+          aria-hidden="true"
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </button>
+      <input
+        multiple={false}
+        name="nameFile"
+        onChange={[Function]}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file"
+      />
+    </div>
+    <div
+      ariaAtomic={true}
+      className="ui pointing above prompt label"
+      onClick={[Function]}
+      role="alert"
+    >
+      Error message
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Storyshots Form/FormField Help 1`] = `
 <form
   className="ui form"
@@ -11945,6 +12027,76 @@ exports[`Storyshots Form/GenericField Boolean Field 1`] = `
     </div>
   </div>
 </form>
+`;
+
+exports[`Storyshots Form/GenericField Custom Field 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "height": 200,
+      "position": "relative",
+    }
+  }
+>
+  <form
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="field timeFilterTest"
+    >
+      <label
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        Time Filter
+      </label>
+      <div />
+      <div
+        className="ui fluid action input"
+      >
+        <input
+          name="value"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          placeholder="YYYY-MM-DD HH:mm"
+          type="text"
+          value=""
+        />
+        <button
+          className="ui icon button"
+          onClick={[Function]}
+        >
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+            onClick={[Function]}
+          />
+        </button>
+        <button
+          className="ui icon disabled button"
+          disabled={true}
+          onClick={[Function]}
+          tabIndex={-1}
+        >
+          <i
+            aria-hidden="true"
+            className="cancel icon"
+            onClick={[Function]}
+          />
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 `;
 
 exports[`Storyshots Form/GenericField No Custom Type Field 1`] = `

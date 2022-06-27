@@ -23,7 +23,8 @@ import './Form.css';
 
 interface FormProps extends Omit<StrictFormProps, 'error'> {
     /**
-     * string with error message or React component or object with the following syntax
+     * string with error message or array of strings or React component
+     *     or object with the following syntax:
      * ```
      * {
      *      field1: 'errorMessage1',
@@ -32,7 +33,7 @@ interface FormProps extends Omit<StrictFormProps, 'error'> {
      * }
      * ```
      */
-    errors?: string | Record<string, string> | JSX.Element;
+    errors?: string | string[] | Record<string, string> | JSX.Element;
 
     /**
      * string with error message header
@@ -44,8 +45,20 @@ interface FormProps extends Omit<StrictFormProps, 'error'> {
      */
     onErrorsDismiss?: () => void;
 
-    /** if set, then on error change screen will be scrolled to (see ErrorMessage) */
+    /**
+     * if set to true
+     *     then view will be scrolled to either
+     *         the ErrorMessage at the top of the Form OR
+     *         to the first erroneous Form.Field
+     *     on every passed errors prop change
+     * if there is existing error inside of Form.Field child component
+     *     then the view will be scrolled to the first one with the highest priority
+     */
     scrollToError?: boolean;
+
+    /**
+     * CSS style
+     */
     style?: CSSProperties;
 }
 
@@ -104,8 +117,14 @@ function Form({
 }: FormProps): ReactElement | null {
     const formRef = useRef<HTMLElement>(null);
     useEffect(() => {
-        if (scrollToError && !_.isEmpty(errors)) {
-            formRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+        if (scrollToError && formRef.current instanceof Element) {
+            const errorElement = formRef.current.querySelector('.error.field');
+
+            if (errorElement) {
+                errorElement.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+            } else if (!_.isEmpty(errors)) {
+                formRef.current.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+            }
         }
     }, [errors]);
 

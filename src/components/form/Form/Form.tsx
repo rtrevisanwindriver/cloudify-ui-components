@@ -53,6 +53,9 @@ interface FormProps extends Omit<StrictFormProps, 'error'> {
      *     on every passed errors prop change
      * if there is existing error inside of Form.Field child component
      *     then the view will be scrolled to the first one with the highest priority
+     * if set to true
+     *     and there is an error present inside of folded accordion
+     *     then the accordion will be unfolded before scrolling
      */
     scrollToError?: boolean;
 
@@ -121,7 +124,17 @@ function Form({
             const errorElement = formRef.current.querySelector('.error.field');
 
             if (errorElement) {
-                errorElement.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+                const insideFoldedAccordionSegment = errorElement?.closest('.segment .content:not(.active)');
+                if (insideFoldedAccordionSegment) {
+                    const accordionSegmentTitle = errorElement
+                        ?.closest('.segment')
+                        ?.querySelector('.title:not(.active)');
+                    (accordionSegmentTitle as HTMLElement)?.click();
+                }
+                // setTimeout is used to postpone scrollIntoView event to take place after accordion unfolding
+                setTimeout(() => {
+                    errorElement.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+                }, 0);
             } else if (!_.isEmpty(errors)) {
                 formRef.current.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
             }

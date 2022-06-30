@@ -19,7 +19,8 @@ module.exports = api => {
                 {
                     // Disables transpiling modules to CommonJS outside of tests
                     // https://babeljs.io/docs/en/babel-preset-env#modules
-                    modules: testEnvironment ? 'auto' : false
+                    modules: testEnvironment ? 'auto' : false,
+                    loose: true
                 }
             ],
             '@babel/preset-react',

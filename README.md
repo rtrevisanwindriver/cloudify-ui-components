@@ -68,7 +68,11 @@ There are few different types of tests in this package:
 1. Static analysis and code style checks - `npm run lint`)
 1. Unit tests - `npm run test:jest` (checks components logic)
 1. Snapshot tests - `jest ./test/HtmlSnapshots.test.js` (checks components HTML structure)
-1. Visual regression tests - `npm run test:loki` (run only in Jenkins and download artifacts generated during execution to update screenshots)
+1. Visual regression tests - `npm run test:loki` (takes screenshots of every story and compares them to reference images)
+
+NOTE: Visual regression tests depends on the environment - OS and browser used. Reliable results matching reference images can be gather only using Jenkins. In order to update screenshots: 
+* download and decompress `current.tar.gz` file taken from the Jenkins job artifacts
+* replace relevant screenshots in `.loki/reference` directory
 
 ## Debugging
 

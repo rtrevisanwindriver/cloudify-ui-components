@@ -2,7 +2,7 @@
 
 exports[`Storyshots Buttons/ApproveButton Custom content 1`] = `
 <button
-  className="ui green button ok"
+  className="ui positive button ok"
   onClick={[Function]}
 >
   <i
@@ -16,7 +16,7 @@ exports[`Storyshots Buttons/ApproveButton Custom content 1`] = `
 
 exports[`Storyshots Buttons/ApproveButton Default 1`] = `
 <button
-  className="ui button ok"
+  className="ui positive button ok"
   onClick={[Function]}
 >
   <i

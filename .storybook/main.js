@@ -7,7 +7,7 @@ module.exports = {
     ]),
     features: {
         // postcss loader deprecated: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
-        postcss: false,
+        postcss: false
     },
-    addons: ['@storybook/addon-docs/preset', '@storybook/preset-scss']
+    addons: ['@storybook/addon-docs', '@storybook/preset-scss']
 };

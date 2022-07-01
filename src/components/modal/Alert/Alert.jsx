@@ -14,7 +14,7 @@ export default function Alert(props) {
         <Modal size="small" {...modalProps}>
             <Modal.Header>{content}</Modal.Header>
             <Modal.Actions>
-                <ApproveButton onClick={onDismiss} content="OK" color="green" />
+                <ApproveButton onClick={onDismiss} content="OK" />
             </Modal.Actions>
         </Modal>
     );

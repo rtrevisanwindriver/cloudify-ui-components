@@ -38,14 +38,18 @@ export const button = () => (
 );
 
 export const controlled = () => {
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState('');
 
     return (
         <>
             <Form.File
                 name="file3"
                 value={value ? `Selected file: ${value}` : ''}
-                onChange={(file, fileName) => setValue(fileName)}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore `react-live` package does not support TypeScript
+                //            https://github.com/FormidableLabs/react-live/issues/222
+                //            should be fixed as part of RD-2849
+                onChange={(_file, fileName) => setValue(fileName)}
             />{' '}
             <Button onClick={_.ary(setValue, 0)}>Reset</Button>
         </>

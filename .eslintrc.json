@@ -17,16 +17,7 @@
         },
         {
             "files": "**/*.test.{js,jsx,ts,tsx}",
-            // TODO(RD-2856): Use common Jest configuration
-            "plugins": [
-                "jest"
-            ],
-            "extends": [
-                "plugin:jest/recommended"
-            ],
-            "env": {
-                "jest": true
-            }
+            "extends": "./node_modules/cloudify-ui-common/configs/eslint-common-jest.json"
         }
     ]
 }

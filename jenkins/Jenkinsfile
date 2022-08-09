@@ -106,7 +106,7 @@ pipeline {
           dir("${env.WORKSPACE}/${env.PROJECT}") {
             echo "Run Loki tests"
             sh '''
-              apt-get update && apt-get -y install graphicsmagick
+              apt-get update --allow-insecure-repositories && apt-get -y install graphicsmagick
               google-chrome --version
             '''
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {

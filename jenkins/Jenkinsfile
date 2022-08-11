@@ -38,6 +38,16 @@ pipeline {
     timestamps()
   }
   stages {
+    stage('Set working dir ownership'){
+      steps {
+        container('node'){
+          dir("${env.WORKSPACE}/${env.PROJECT}") {
+            // Workaround for https://github.com/cypress-io/cypress/issues/20286
+            sh "chown -R `whoami` ."
+          }
+        }
+      }
+    }
     stage('Install & Audit'){
       parallel{
         stage('Audit'){
@@ -113,12 +123,10 @@ pipeline {
               sh 'npm run test:loki'
             }
 
-            dir(".loki") {
-              echo "Saving Loki generated files"
-              sh 'tar czf current.tar.gz current'
-              archiveArtifacts artifacts: 'current.tar.gz'
-              archiveArtifacts artifacts: 'difference/*.png', allowEmptyArchive: true
-            }
+            echo "Saving Loki generated files"
+            sh 'tar czf current.tar.gz .loki/current'
+            archiveArtifacts artifacts: 'current.tar.gz'
+            archiveArtifacts artifacts: './loki/difference/*.png', allowEmptyArchive: true
           }
         }
       }

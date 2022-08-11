@@ -18,7 +18,7 @@
   "module": "es/index.js",
   "types": "typings/components/index.d.ts",
   "scripts": {
-    "audit": "npm audit --production",
+    "audit": "npm audit --omit=dev --omit=optional",
     "build": "bash scripts/build-components.sh && npm run generate-type-declarations",
     "buildDev": "babel ./src/components --ignore '**/*.stories.{jsx,tsx}' --copy-files --delete-dir-on-start --extensions '.ts,.tsx,.js,.jsx' --out-dir es --watch",
     "check-types": "tsc -b",
@@ -102,7 +102,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "cloudify-ui-common": "^7.3.0",
+    "cloudify-ui-common": "^7.3.2",
     "rc-tree": "^2.1.4",
     "react-color": "^2.19.3",
     "react-copy-to-clipboard": "^5.0.4",
@@ -122,6 +122,9 @@
     "semantic-ui-css-offline": "^1.0.4-2.4.2",
     "semantic-ui-react": "^2.0.1",
     "styled-components": "^5.2.1"
+  },
+  "overrides": {
+    "ink": "~3.1.0"
   },
   "loki": {
     "verboseRenderer": true,

@@ -7,6 +7,7 @@ export { default as CopyToClipboardButton } from './buttons/CopyToClipboardButto
 export { default as ResourceVisibility } from './cloudify/visibility/ResourceVisibility';
 export { default as VisibilityField } from './cloudify/visibility/VisibilityField';
 export { default as VisibilityIcon } from './cloudify/visibility/VisibilityIcon';
+export { default as LabelsList } from './cloudify/LabelsList';
 
 /* Data */
 export { default as DataSegment } from './data/DataSegment';

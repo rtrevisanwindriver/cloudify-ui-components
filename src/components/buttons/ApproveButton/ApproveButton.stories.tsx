@@ -1,5 +1,4 @@
 import React from 'react';
-
 import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';

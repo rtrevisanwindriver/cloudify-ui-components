@@ -1,18 +1,19 @@
 {
-    "extends": [
-        "./node_modules/cloudify-ui-common/configs/eslint-common-react.json",
-        "plugin:react/recommended"
-    ],
+    "extends": ["./node_modules/cloudify-ui-common/configs/eslint-common-react.json", "plugin:react/recommended"],
     "settings": {
         "import/resolver": {
-            "babel-module": {}
+            "babel-module": {},
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "moduleDirectory": ["node_modules", "src/"]
+            }
         }
     },
     "overrides": [
         {
             "files": "**/*.stories.{jsx,tsx}",
             "rules": {
-                "import/no-extraneous-dependencies": [ "error", { "devDependencies": true } ]
+                "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
             }
         },
         {

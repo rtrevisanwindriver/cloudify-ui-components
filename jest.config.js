@@ -19,6 +19,7 @@ module.exports = {
         '\\.scss$': stubLink,
         '\\.png$': stubLink
     },
+    moduleDirectories: ['node_modules', 'src'],
     transformIgnorePatterns: ['node_modules/(?!react-syntax-highlighter)'],
     setupFiles: [path.resolve(__dirname, '.jest/register-context.js')],
     setupFilesAfterEnv: [path.resolve(__dirname, '.jest/enzyme.js')]

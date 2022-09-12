@@ -5,6 +5,7 @@ import PopupConfirm from '../src/components/popups/PopupConfirm';
 describe('<PopupConfirm />', () => {
     it('renders', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; content: string; }' is m... Remove this comment to see the full error message
             <PopupConfirm trigger={<button type="button">Delete</button>} content="Delete this file?" />
         );
         expect(wrapper.exists()).toEqual(true);
@@ -13,6 +14,7 @@ describe('<PopupConfirm />', () => {
     it('allows to click OK button', () => {
         const confirmCallback = jest.fn();
         const wrapper = mount(
+            // @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; content: string; onConfi... Remove this comment to see the full error message
             <PopupConfirm
                 trigger={<button type="button">Delete</button>}
                 content="Delete this file?"
@@ -35,6 +37,7 @@ describe('<PopupConfirm />', () => {
     it('allows to click Cancel button', () => {
         const cancelCallback = jest.fn();
         const wrapper = mount(
+            // @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; content: string; onCance... Remove this comment to see the full error message
             <PopupConfirm
                 trigger={<button type="button">Delete</button>}
                 content="Delete this file?"
@@ -56,6 +59,7 @@ describe('<PopupConfirm />', () => {
 
     it('allows to hide Cancel button', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; onCanConfirm: () => stri... Remove this comment to see the full error message
             <PopupConfirm trigger={<button type="button">Delete</button>} onCanConfirm={() => 'Delete this file?'} />
         );
 

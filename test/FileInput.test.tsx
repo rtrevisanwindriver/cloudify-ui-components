@@ -23,6 +23,7 @@ describe('<FileInput />', () => {
     it('allows changing file', () => {
         const wrapper = mount(<FileInput name="file" />);
 
+        // @ts-expect-error TS(2722) FIXME: Cannot invoke an object which is possibly 'undefin... Remove this comment to see the full error message
         wrapper
             .find('input')
             .filterWhere(input => input.prop('name') === 'file')
@@ -39,9 +40,11 @@ describe('<FileInput />', () => {
     it('allows resetting file selection', () => {
         const wrapper = mount(<FileInput name="file" />);
 
+        // @ts-expect-error TS(2722) FIXME: Cannot invoke an object which is possibly 'undefin... Remove this comment to see the full error message
         wrapper
             .find('Button')
             .filterWhere(button => button.prop('icon') === 'remove')
+            // @ts-expect-error TS(2345) FIXME: Argument of type '{ preventDefault: () => void; }'... Remove this comment to see the full error message
             .prop('onClick')({ preventDefault: () => {} });
 
         expect(

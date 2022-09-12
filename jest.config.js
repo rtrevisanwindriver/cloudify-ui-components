@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
-const stubLink = path.resolve(__dirname, '.jest/stub.js');
+const stubLink = path.resolve(__dirname, '.jest/stub.ts');
 
 module.exports = {
     testEnvironment: 'jsdom',
@@ -21,6 +21,6 @@ module.exports = {
     },
     moduleDirectories: ['node_modules', 'src'],
     transformIgnorePatterns: ['node_modules/(?!react-syntax-highlighter)'],
-    setupFiles: [path.resolve(__dirname, '.jest/register-context.js')],
-    setupFilesAfterEnv: [path.resolve(__dirname, '.jest/enzyme.js')]
+    setupFiles: [path.resolve(__dirname, '.jest/register-context.ts')],
+    setupFilesAfterEnv: [path.resolve(__dirname, '.jest/enzyme.ts')]
 };

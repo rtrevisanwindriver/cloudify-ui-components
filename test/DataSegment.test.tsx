@@ -9,14 +9,17 @@ describe('<DataSegment />', () => {
     const selectItemMock = jest.fn();
     const content = [{ k: 1 }, { k: 2 }, { k: 3, s: true }, { k: 4 }, { k: 5 }].map(item => {
         return (
+            // @ts-expect-error TS(2339) FIXME: Property 'Item' does not exist on type 'typeof Dat... Remove this comment to see the full error message
             <DataSegment.Item key={item.k} selected={item.s} onClick={item.s ? selectItemMock : null}>
                 <div>Data {item.k}</div>
+                {/* @ts-expect-error TS(2339) FIXME: Property 'Item' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
             </DataSegment.Item>
         );
     });
 
     it('renders', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; pageSize: number; sor... Remove this comment to see the full error message
             <DataSegment pageSize={25} sortColumn="col1" sortAscending={false}>
                 {content}
             </DataSegment>
@@ -26,6 +29,7 @@ describe('<DataSegment />', () => {
 
     it('renders data segments', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; pageSize: number; sor... Remove this comment to see the full error message
             <DataSegment pageSize={25} sortColumn="col1" sortAscending={false}>
                 {content}
             </DataSegment>
@@ -37,6 +41,7 @@ describe('<DataSegment />', () => {
 
     it('allows selecting segment', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; pageSize: number; sor... Remove this comment to see the full error message
             <DataSegment pageSize={25} sortColumn="col1" sortAscending={false}>
                 {content}
             </DataSegment>
@@ -48,6 +53,7 @@ describe('<DataSegment />', () => {
 
     it('allows to handle segment click', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; pageSize: number; sor... Remove this comment to see the full error message
             <DataSegment pageSize={25} sortColumn="col1" sortAscending={false}>
                 {content}
             </DataSegment>
@@ -60,6 +66,7 @@ describe('<DataSegment />', () => {
     it('allows to handle data fetching', () => {
         const fetchDataMock = jest.fn();
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; fetchData: Mock<any, ... Remove this comment to see the full error message
             <DataSegment fetchData={fetchDataMock} pageSize={25} sortColumn="col1" sortAscending={false}>
                 {content}
             </DataSegment>
@@ -75,9 +82,11 @@ describe('<DataSegment />', () => {
 
     it('renders search filter', () => {
         const fetchDataMock = jest.fn();
+        // @ts-expect-error TS(2345) FIXME: Argument of type '(f: (...args: any) => any) => (.... Remove this comment to see the full error message
         const debounceSpy = jest.spyOn(_, 'debounce').mockImplementation(f => f);
 
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; fetchData: Mock<any, ... Remove this comment to see the full error message
             <DataSegment fetchData={fetchDataMock} pageSize={25} sortColumn="col1" sortAscending={false} searchable>
                 {content}
             </DataSegment>
@@ -96,9 +105,12 @@ describe('<DataSegment />', () => {
 
     it('renders action items', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; totalSi... Remove this comment to see the full error message
             <DataSegment totalSize={0} pageSize={25} sortColumn="col1" sortAscending={false} searchable>
+                {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 <DataSegment.Action>
                     <Button icon="rocket" />
+                    {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 </DataSegment.Action>
                 {content}
             </DataSegment>
@@ -109,6 +121,7 @@ describe('<DataSegment />', () => {
 
     it('renders no data message if empty', () => {
         const wrapper = mount(
+            // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; totalSize: number; pa... Remove this comment to see the full error message
             <DataSegment totalSize={0} pageSize={25} sortColumn="col1" sortAscending={false} searchable>
                 {content}
             </DataSegment>

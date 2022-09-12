@@ -53,7 +53,7 @@ Development environment is set up to enforce good practices in JS development (s
 General guidelines for adding new components:
 - add new code to `src/components` folder
 - every exported component should be in separate folder 
-- remember to export new files using `index.js`
+- remember to export new files using `index.ts`
 - build: `npm run build` (production build) or `npm run storybook` (run [StoryBook](https://storybook.js.org/) with automatic rebuilding)
 - test: `npm test` (static analysis, code style check, unit testing with [Jest](https://jestjs.io/en/) testing framework and coverage check) 
 - use [prettier](https://prettier.io/) and [eslint](https://eslint.org/) during development
@@ -67,7 +67,7 @@ There are few different types of tests in this package:
 
 1. Static analysis and code style checks - `npm run lint`)
 1. Unit tests - `npm run test:jest` (checks components logic)
-1. Snapshot tests - `jest ./test/HtmlSnapshots.test.js` (checks components HTML structure)
+1. Snapshot tests - `jest ./test/HtmlSnapshots.test.ts` (checks components HTML structure)
 1. Visual regression tests - `npm run test:loki` (takes screenshots of every story and compares them to reference images)
 
 NOTE: Visual regression tests depends on the environment - OS and browser used. Reliable results matching reference images can be gather only using Jenkins. In order to update screenshots: 

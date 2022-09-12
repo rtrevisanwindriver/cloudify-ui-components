@@ -192,10 +192,13 @@ describe('<Pagination />', () => {
                 <div />
             </Pagination>
         );
+        // @ts-expect-error TS(2339) FIXME: Property 'showWarningPopup' does not exist on type... Remove this comment to see the full error message
         expect(wrapper.state().showWarningPopup).toEqual(false);
 
+        // @ts-expect-error TS(2571) FIXME: Object is of type 'unknown'.
         wrapper.find('PaginationInfo').prop('onPageSizeChange')('invalid');
 
+        // @ts-expect-error TS(2339) FIXME: Property 'showWarningPopup' does not exist on type... Remove this comment to see the full error message
         expect(wrapper.state().showWarningPopup).toEqual(true);
     });
 
@@ -208,6 +211,7 @@ describe('<Pagination />', () => {
         );
 
         // NOTE: use RegExp as there is unstable whitespace in the rendered HTML
+        // @ts-expect-error TS(2322) FIXME: Type 'RegExpMatchArray | null' is not assignable t... Remove this comment to see the full error message
         expect(wrapper.findWhere(w => w.text().match(/1.*to.*5.*of.*20.*entries/)).exists()).toBe(true);
     });
 });

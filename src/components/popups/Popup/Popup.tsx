@@ -6,7 +6,7 @@ import { Popup as PopupSemanticUiReact } from 'semantic-ui-react';
 import Wrapper from './Wrapper';
 
 export type PopupProps = SemanticUiPopupProps;
-interface AdditionalPopupProperties {
+export interface AdditionalPopupProperties {
     Header: typeof PopupSemanticUiReact.Header;
     Content: typeof PopupSemanticUiReact.Content;
     Trigger: typeof Wrapper;

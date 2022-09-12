@@ -5,7 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import Popup from '../Popup';
 import type { PopupProps } from '../Popup';
 
-interface PopupHelpProps extends PopupProps {
+export interface PopupHelpProps extends PopupProps {
     /**
      * force Popup open
      */

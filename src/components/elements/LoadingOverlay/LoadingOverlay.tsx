@@ -3,7 +3,7 @@ import React from 'react';
 import type { DimmerProps } from 'semantic-ui-react';
 import { Dimmer, Loader } from 'semantic-ui-react';
 
-interface LoadingOverlayProps extends DimmerProps {
+export interface LoadingOverlayProps extends DimmerProps {
     /**
      * text message to display under loading icon
      */

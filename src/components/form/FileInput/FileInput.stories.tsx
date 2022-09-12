@@ -46,9 +46,9 @@ export const controlled = () => {
                 name="file3"
                 value={value ? `Selected file: ${value}` : ''}
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore `react-live` package does not support TypeScript
                 //            https://github.com/FormidableLabs/react-live/issues/222
                 //            should be fixed as part of RD-2849
+                // @ts-expect-error TS(2345) FIXME: Argument of type 'string | undefined' is not assig... Remove this comment to see the full error message
                 onChange={(_file, fileName) => setValue(fileName)}
             />{' '}
             <Button onClick={_.ary(setValue, 0)}>Reset</Button>

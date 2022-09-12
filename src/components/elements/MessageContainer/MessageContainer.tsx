@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import type { GridProps, SegmentProps, SemanticWIDTHS } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 
-interface MessageContainerProps extends Omit<GridProps, 'textAlign'> {
+export interface MessageContainerProps extends Omit<GridProps, 'textAlign'> {
     /**
      * primary content
      */

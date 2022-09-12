@@ -1,0 +1,27 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Icon } from 'semantic-ui-react';
+
+/**
+ * Checkmark component shows a simple checkbox (read only).
+ *
+ * All props except `value` are passed down to the underlaying `Icon` component.
+ */
+// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
+function Checkmark(props) {
+    const { value, ...iconProps } = props;
+    return <Icon title={value ? 'Yes' : 'No'} name={value ? 'checkmark box' : 'square outline'} {...iconProps} />;
+}
+
+Checkmark.propTypes = {
+    /**
+     * If true the component will be marked as checked
+     */
+    value: PropTypes.bool
+};
+
+Checkmark.defaultProps = {
+    value: false
+};
+
+export default Checkmark;

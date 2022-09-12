@@ -34,7 +34,7 @@ const TableDataCell: FunctionComponent<TableDataCellProps> = ({ children, classN
 export default TableDataCell;
 
 TableDataCell.propTypes = {
-    // @ts-expect-error Children props is provided by default
+    // @ts-expect-error TS(2322) FIXME: Type '{ children: PropTypes.Requireable<PropTypes.... Remove this comment to see the full error message
     children: PropTypes.node,
     className: PropTypes.string,
     rowSpan: PropTypes.number,

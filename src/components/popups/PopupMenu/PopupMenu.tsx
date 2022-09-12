@@ -6,7 +6,7 @@ import { Icon } from 'semantic-ui-react';
 import Popup from '../Popup';
 import './PopupMenu.css';
 
-interface PopupMenuProps extends Omit<IconProps, 'name'> {
+export interface PopupMenuProps extends Omit<IconProps, 'name'> {
     /**
      * primary content
      */

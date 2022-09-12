@@ -17,7 +17,7 @@ SyntaxHighlighter.registerLanguage('json', json);
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('yaml', yaml);
 
-interface HighlightTextProps extends Omit<SyntaxHighlighterProps, 'language'> {
+export interface HighlightTextProps extends Omit<SyntaxHighlighterProps, 'language'> {
     /**
      * Language name to be used as a base for syntax highlighter
      */

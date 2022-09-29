@@ -107,13 +107,11 @@ export default function ResourceVisibility(props) {
                 <Confirm
                     content={`Are you sure you want to change resource visibility to ${newVisibility}?`}
                     open={openConfirm}
-                    // @ts-expect-error TS(2322) FIXME: Type '{ content: string; open: boolean; onCancel: ... Remove this comment to see the full error message
                     onCancel={e => {
                         e.stopPropagation();
                         setOpenConfirm(false);
                         setNewVisibility(null);
                     }}
-                    // @ts-expect-error TS(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
                     onConfirm={e => {
                         e.stopPropagation();
                         onSetVisibility(newVisibility);

@@ -1,16 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { ReactNode } from 'react';
+import type { ModalProps } from 'semantic-ui-react';
 
 import ApproveButton from 'components/buttons/ApproveButton';
+import type { ApproveButtonProps } from 'components/buttons/ApproveButton/ApproveButton';
 import Modal from '../Modal';
+
+export interface AlertProps extends ModalProps {
+    /**
+     * alert header content
+     */
+    content: ReactNode | string;
+    /**
+     * action executed on OK button click
+     */
+    onDismiss?: ApproveButtonProps['onClick'];
+}
 
 /**
  * Alert is component to present simple message in modal window with OK button.
  * All props supported by the `Modal` component are passed down to it.
  */
-// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-export default function Alert(props) {
-    const { content, onDismiss, ...modalProps } = props;
+export default function Alert({ content, onDismiss, ...modalProps }: AlertProps) {
     return (
         <Modal size="small" {...modalProps}>
             <Modal.Header>{content}</Modal.Header>
@@ -20,22 +31,3 @@ export default function Alert(props) {
         </Modal>
     );
 }
-
-Alert.propTypes = {
-    /**
-     * display alert modal window
-     */
-    open: PropTypes.bool.isRequired,
-    /**
-     * alert header content
-     */
-    content: PropTypes.node.isRequired,
-    /**
-     * action executed on OK button click
-     */
-    onDismiss: PropTypes.func
-};
-
-Alert.defaultProps = {
-    onDismiss: () => {}
-};

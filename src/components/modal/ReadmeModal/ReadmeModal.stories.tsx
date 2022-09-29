@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import type { Story } from '@storybook/react';
 
 // @ts-expect-error TS(2307) FIXME: Cannot find module 'raw-loader!./example-content.h... Remove this comment to see the full error message
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import exampleReadme from 'raw-loader!./example-content.html';
 import ReadmeModal from './ReadmeModal';
+import type { ReadmeModalProps } from './ReadmeModal';
 
 export default {
     title: 'Modal/ReadmeModal',
@@ -19,8 +20,10 @@ export default {
     }
 };
 
-// @ts-expect-error TS(7031) FIXME: Binding element 'content' implicitly has an 'any' ... Remove this comment to see the full error message
-const Template = ({ content, className }) => {
+type ReadmeModalStory = Story<Required<ReadmeModalProps>>;
+
+type TemplateProps = Pick<ReadmeModalProps, 'content' | 'className'>;
+const Template = ({ content, className = '' }: TemplateProps) => {
     const [open, setOpen] = React.useState(false);
 
     return (
@@ -31,23 +34,12 @@ const Template = ({ content, className }) => {
     );
 };
 
-Template.propTypes = {
-    content: PropTypes.string.isRequired,
-    className: PropTypes.string
-};
-
-Template.defaultProps = {
-    className: ''
-};
-
-export const Basic = Template.bind({});
-// @ts-expect-error TS(2339) FIXME: Property 'args' does not exist on type '{ ({ conte... Remove this comment to see the full error message
+export const Basic: ReadmeModalStory = Template.bind({});
 Basic.args = {
     content: exampleReadme
 };
 
-export const LongContent = Template.bind({});
-// @ts-expect-error TS(2339) FIXME: Property 'args' does not exist on type '{ ({ conte... Remove this comment to see the full error message
+export const LongContent: ReadmeModalStory = Template.bind({});
 LongContent.args = {
     content: Array.from({ length: 3 })
         .map(

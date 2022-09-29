@@ -1,15 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { ModalProps } from 'semantic-ui-react';
 
 import './ReadmeModal.css';
 import Modal from '../Modal';
 
+export interface ReadmeModalProps extends Pick<ModalProps, 'open' | 'className' | 'style'> {
+    /**
+     * HTML content of the modal
+     */
+    content: string;
+    /**
+     * A function called when the modal is closed
+     */
+    onHide: () => void;
+}
+
 /**
  * ReadmeModal is a component to present HTML content in Modal component.
  */
-// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-export default function ReadmeModal(props) {
-    const { className, content, open, onHide, style } = props;
+export default function ReadmeModal({ className = '', content, onHide, ...modalProps }: ReadmeModalProps) {
     const onCancel = () => {
         onHide();
         return true;
@@ -21,12 +30,11 @@ export default function ReadmeModal(props) {
 
     return (
         <Modal
-            open={open}
             onClose={onCancel}
             closeIcon="close"
             className={`readmeModal unlimited ${className}`}
             size="fullscreen"
-            style={style}
+            {...modalProps}
         >
             <Modal.Content style={{ padding: '50px' }}>
                 {/* eslint-disable-next-line react/no-danger */}
@@ -35,31 +43,3 @@ export default function ReadmeModal(props) {
         </Modal>
     );
 }
-
-ReadmeModal.propTypes = {
-    /**
-     * HTML content of the modal
-     */
-    content: PropTypes.string.isRequired,
-    /**
-     * Modal's open state
-     */
-    open: PropTypes.bool.isRequired,
-    /**
-     * A function called when the modal is closed
-     */
-    onHide: PropTypes.func.isRequired,
-    /**
-     * Modal's classname
-     */
-    className: PropTypes.string,
-    /**
-     * CSS style
-     */
-    style: PropTypes.shape({})
-};
-
-ReadmeModal.defaultProps = {
-    className: '',
-    style: undefined
-};

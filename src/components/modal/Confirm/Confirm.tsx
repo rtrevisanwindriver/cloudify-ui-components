@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Confirm as ConfirmSemanticUiReact } from 'semantic-ui-react';
+import type { ConfirmProps } from 'semantic-ui-react';
 
 /**
  * Confirm is a wrapper component to present simple Yes/No confirmation modal window.
@@ -9,51 +8,17 @@ import { Confirm as ConfirmSemanticUiReact } from 'semantic-ui-react';
  * It wraps [Semantic UI-React's Confirm component](https://react.semantic-ui.com/addons/confirm),
  * so all properties of that component (eg. content, header, ...) can be used here.
  */
-// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-export default function Confirm(props) {
-    const { content, open, confirmButton, cancelButton, className, ...rest } = props;
-
+export default function Confirm({ confirmButton = 'Yes', cancelButton = 'No', ...confirmProps }: ConfirmProps) {
     return (
         <ConfirmSemanticUiReact
-            content={content}
-            open={open}
             confirmButton={confirmButton}
             cancelButton={cancelButton}
-            className={className}
             style={{
                 fontSize: '1.3em',
                 lineHeight: '1.28571429em',
                 fontWeight: 700
             }}
-            {...rest}
+            {...confirmProps}
         />
     );
 }
-
-Confirm.propTypes = {
-    /**
-     * confirm modal message
-     */
-    content: PropTypes.node.isRequired,
-    /**
-     * display confirm modal window
-     */
-    open: PropTypes.bool.isRequired,
-    /**
-     * confirm button content
-     */
-    confirmButton: PropTypes.string,
-    /**
-     * cancel button content
-     */
-    cancelButton: PropTypes.string,
-    /**
-     * confirm modal classname
-     */
-    className: PropTypes.string
-};
-Confirm.defaultProps = {
-    className: '',
-    confirmButton: 'Yes',
-    cancelButton: 'No'
-};

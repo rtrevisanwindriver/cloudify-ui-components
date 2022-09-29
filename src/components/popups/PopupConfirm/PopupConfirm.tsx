@@ -1,6 +1,30 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Popup, Button, Header } from 'semantic-ui-react';
+import type { PopupProps, ButtonProps } from 'semantic-ui-react';
+import { noop } from 'lodash';
+
+export interface PopupConfirmProps extends PopupProps {
+    /**
+     * popup content
+     */
+    content?: string;
+    /**
+     * function called on Cancel button click
+     */
+    onCancel?: () => void;
+    /**
+     * function called on OK button click
+     */
+    onConfirm?: () => void;
+    /**
+     * function called to determine if Cancel button should be displayed
+     */
+    onCanConfirm?: () => string;
+    /**
+     * if set then the component renders initially open
+     */
+    defaultOpen?: boolean;
+}
 
 /**
  * PopupConfirm is a component which uses [Popup](https://react.semantic-ui.com/modules/popup) component to display
@@ -8,8 +32,14 @@ import { Popup, Button, Header } from 'semantic-ui-react';
  *
  * All props supported by the underlaying `Popup` component are passed down to it.
  */
-// @ts-expect-error TS(7031) FIXME: Binding element 'content' implicitly has an 'any' ... Remove this comment to see the full error message
-export default function PopupConfirm({ content, onCancel, onCanConfirm, onConfirm, defaultOpen, ...popupProps }) {
+export default function PopupConfirm({
+    content = '',
+    onCancel = noop,
+    onConfirm = noop,
+    onCanConfirm = () => '',
+    defaultOpen = false,
+    ...popupProps
+}: PopupConfirmProps) {
     const [showPopup, setShowPopup] = useState(defaultOpen);
     const [canConfirm, setCanConfirm] = useState('');
     const openPopup = () => {
@@ -21,15 +51,13 @@ export default function PopupConfirm({ content, onCancel, onCanConfirm, onConfir
         setShowPopup(false);
     };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
-    const handleCancel = e => {
+    const handleCancel: ButtonProps['onClick'] = e => {
         e.stopPropagation();
         closePopup();
         onCancel();
     };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'e' implicitly has an 'any' type.
-    const handleConfirm = e => {
+    const handleConfirm: ButtonProps['onClick'] = e => {
         e.stopPropagation();
         closePopup();
         onConfirm();
@@ -60,39 +88,3 @@ export default function PopupConfirm({ content, onCancel, onCanConfirm, onConfir
         </Popup>
     );
 }
-
-PopupConfirm.propTypes = {
-    /**
-     * popup trigger
-     */
-    trigger: PropTypes.node,
-    /**
-     * popup content
-     */
-    content: PropTypes.string,
-    /**
-     * function called on Cancel button click
-     */
-    onCancel: PropTypes.func,
-    /**
-     * function called on OK button click
-     */
-    onConfirm: PropTypes.func,
-    /**
-     * function called to determine if Cancel button should be displayed
-     */
-    onCanConfirm: PropTypes.func,
-    /**
-     * if set then the component renders initially open
-     */
-    defaultOpen: PropTypes.bool
-};
-
-PopupConfirm.defaultProps = {
-    trigger: null,
-    content: '',
-    onCancel: () => {},
-    onConfirm: () => {},
-    onCanConfirm: () => {},
-    defaultOpen: false
-};

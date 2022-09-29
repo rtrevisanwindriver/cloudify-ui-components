@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FunctionComponent } from 'react';
-import _ from 'lodash';
+import { isEmpty } from 'lodash';
 import { Icon } from 'semantic-ui-react';
 import Popup from '../Popup';
 import type { PopupProps } from '../Popup';
@@ -25,7 +25,7 @@ const PopupHelp: FunctionComponent<PopupHelpProps> = ({
     ...popupProps
 }) => (
     <Popup on={['hover', 'focus']} hoverable wide="very" {...popupProps}>
-        {!_.isEmpty(header) && <Popup.Header>{header}</Popup.Header>}
+        {!isEmpty(header) && <Popup.Header>{header}</Popup.Header>}
         <Popup.Trigger>{trigger}</Popup.Trigger>
         <Popup.Content>{content}</Popup.Content>
     </Popup>

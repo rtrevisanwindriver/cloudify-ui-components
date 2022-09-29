@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import React, { useState } from 'react';
-import _ from 'lodash';
+import { isEmpty } from 'lodash';
 import type { IconProps, PopupProps, SemanticICONS } from 'semantic-ui-react';
 import { Icon } from 'semantic-ui-react';
 import Popup from '../Popup';
@@ -56,7 +56,7 @@ const PopupMenu: FunctionComponent<PopupMenuProps> = ({
 }) => {
     const [opened, setOpened] = useState(defaultOpen);
 
-    const trigger = _.isEmpty(help) ? (
+    const trigger = isEmpty(help) ? (
         <Icon
             link={!disabled}
             disabled={disabled}

@@ -1,8 +1,10 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import Menu from 'components/elements/Menu';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupMenu from './PopupMenu';
+import type { PopupMenuProps } from './PopupMenu';
 
 export default {
     title: 'Popups/PopupMenu',
@@ -10,7 +12,9 @@ export default {
     decorators: [LiveEditDecorator({ PopupMenu })]
 };
 
-export const basic = () => (
+type PopupMenuStory = Story<Required<PopupMenuProps>>;
+
+export const basic: PopupMenuStory = () => (
     <PopupMenu>
         <Menu pointing vertical>
             <Menu.Item icon="users" content="Edit group's users" name="users" onClick={() => {}} />
@@ -21,7 +25,7 @@ export const basic = () => (
 );
 basic.storyName = 'Default';
 
-export const helpPopup = () => (
+export const helpPopup: PopupMenuStory = () => (
     <PopupMenu help="Choose your favourite fruit">
         <Menu pointing vertical>
             <Menu.Item content="Orange" name="orange" onClick={() => {}} />
@@ -31,7 +35,7 @@ export const helpPopup = () => (
     </PopupMenu>
 );
 
-export const customIcon = () => (
+export const customIcon: PopupMenuStory = () => (
     <PopupMenu icon="arrow down" bordered>
         <Menu pointing vertical>
             <Menu.Item content="Orange" name="orange" onClick={() => {}} />
@@ -40,7 +44,7 @@ export const customIcon = () => (
         </Menu>
     </PopupMenu>
 );
-export const customPosition = () => (
+export const customPosition: PopupMenuStory = () => (
     <PopupMenu position="top center" offset={[50, 50]}>
         <Menu pointing vertical>
             <Menu.Item content="Orange" name="orange" onClick={() => {}} />
@@ -49,7 +53,7 @@ export const customPosition = () => (
         </Menu>
     </PopupMenu>
 );
-export const initiallyOpen = () => (
+export const initiallyOpen: PopupMenuStory = () => (
     <div style={{ paddingBottom: 120 }}>
         <PopupMenu defaultOpen>
             <Menu pointing vertical>

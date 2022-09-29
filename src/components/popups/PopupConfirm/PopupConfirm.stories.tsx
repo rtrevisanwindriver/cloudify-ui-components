@@ -1,7 +1,9 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupConfirm from './PopupConfirm';
+import type { PopupConfirmProps } from './PopupConfirm';
 
 export default {
     title: 'Popups/PopupConfirm',
@@ -9,18 +11,19 @@ export default {
     decorators: [LiveEditDecorator({ PopupConfirm })]
 };
 
-// @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; content: string; }' is m... Remove this comment to see the full error message
-export const basic = () => <PopupConfirm trigger={<button type="button">Delete</button>} content="Delete this file?" />;
+type PopupConfirmStory = Story<Required<PopupConfirmProps>>;
+
+export const basic: PopupConfirmStory = () => (
+    <PopupConfirm trigger={<button type="button">Delete</button>} content="Delete this file?" />
+);
 basic.storyName = 'Default';
 
-export const noCancelButton = () => (
-    // @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; onCanConfirm: () => stri... Remove this comment to see the full error message
+export const noCancelButton: PopupConfirmStory = () => (
     <PopupConfirm trigger={<button type="button">Delete</button>} onCanConfirm={() => 'Delete this file?'} />
 );
 
-export const initiallyOpen = () => (
+export const initiallyOpen: PopupConfirmStory = () => (
     <div style={{ paddingTop: 80 }}>
-        {/* @ts-expect-error TS(2739) FIXME: Type '{ trigger: Element; defaultOpen: true; conte... Remove this comment to see the full error message */}
         <PopupConfirm trigger={<button type="button">Delete</button>} defaultOpen content="Delete this file?" />
     </div>
 );

@@ -1,7 +1,11 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Popup from './Popup';
+import type { PopupProps } from './Popup';
+
+type PopupStory = Story<Required<PopupProps>>;
 
 export default {
     title: 'Popups/Popup',
@@ -9,7 +13,7 @@ export default {
     decorators: [LiveEditDecorator({ Popup })]
 };
 
-export const basic = () => (
+export const basic: PopupStory = () => (
     <Popup>
         <Popup.Trigger>
             <span>Hover over me to see popup</span>
@@ -20,7 +24,7 @@ export const basic = () => (
 );
 basic.storyName = 'Default';
 
-export const forceOpen = () => (
+export const forceOpen: PopupStory = () => (
     <div style={{ paddingTop: 100 }}>
         <Popup open>
             <Popup.Trigger>

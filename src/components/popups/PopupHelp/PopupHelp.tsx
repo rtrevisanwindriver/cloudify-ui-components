@@ -12,6 +12,8 @@ export interface PopupHelpProps extends PopupProps {
     open?: boolean;
 }
 
+const defaultPopupOffset: PopupProps['offset'] = [-12, 0];
+
 /**
  * PopupHelp is a component which uses [Popup](https://react.semantic-ui.com/modules/popup) component to display
  * help popup.
@@ -24,7 +26,7 @@ const PopupHelp: FunctionComponent<PopupHelpProps> = ({
     trigger = <Icon name="help circle" />,
     ...popupProps
 }) => (
-    <Popup on={['hover', 'focus']} hoverable wide="very" {...popupProps}>
+    <Popup on={['hover', 'focus']} hoverable wide="very" offset={defaultPopupOffset} {...popupProps}>
         {!isEmpty(header) && <Popup.Header>{header}</Popup.Header>}
         <Popup.Trigger>{trigger}</Popup.Trigger>
         <Popup.Content>{content}</Popup.Content>

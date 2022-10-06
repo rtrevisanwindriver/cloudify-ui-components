@@ -1,10 +1,11 @@
 import React from 'react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
+import type { Story } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import HeaderBanner from './HeaderBanner';
+import type { HeaderBannerProps } from './HeaderBanner';
 
 export default {
     title: 'Layout/HeaderBanner',
@@ -12,14 +13,16 @@ export default {
     decorators: [LiveEditDecorator({ HeaderBanner, DivContainer, ThemeProvider })]
 };
 
-export const basic = () => (
+type HeaderBannerStory = Story<Required<HeaderBannerProps>>;
+
+export const basic: HeaderBannerStory = () => (
     <DivContainer height={55} backgroundColor="black">
         <HeaderBanner productName="My Product" productVersion="2.3.5" licenseEdition="Premium" showVersionDetails />
     </DivContainer>
 );
 basic.storyName = 'Default';
 
-export const customLogo = () => (
+export const customLogo: HeaderBannerStory = () => (
     <DivContainer height={55} backgroundColor="black">
         <HeaderBanner
             logoUrl="https://upload.wikimedia.org/wikipedia/commons/a/a7/Wikipedia_logo_v3.svg"
@@ -29,7 +32,7 @@ export const customLogo = () => (
     </DivContainer>
 );
 
-export const noVersionDetails = () => (
+export const noVersionDetails: HeaderBannerStory = () => (
     <DivContainer height={55} backgroundColor="black">
         <HeaderBanner
             productName="My Product"
@@ -40,7 +43,7 @@ export const noVersionDetails = () => (
     </DivContainer>
 );
 
-export const dataFromTheme = () => (
+export const dataFromTheme: HeaderBannerStory = () => (
     <ThemeProvider
         theme={{
             headerTextColor: 'red',
@@ -55,7 +58,7 @@ export const dataFromTheme = () => (
     </ThemeProvider>
 );
 
-export const dataFromPropsOverridingTheme = () => (
+export const dataFromPropsOverridingTheme: HeaderBannerStory = () => (
     <ThemeProvider
         theme={{
             headerTextColor: 'red',

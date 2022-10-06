@@ -10,4 +10,6 @@ export default {
     decorators: [LiveEditDecorator({ ProductVersion })]
 };
 
-export const basic: Story<Required<ProductVersionProps>> = () => <ProductVersion version="6.3.0-dev" />;
+type ProductVersionStory = Story<Required<ProductVersionProps>>;
+
+export const basic: ProductVersionStory = () => <ProductVersion version="6.3.0-dev" />;

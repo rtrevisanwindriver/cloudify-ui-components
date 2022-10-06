@@ -1,10 +1,11 @@
 import React from 'react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
 import { ThemeProvider } from 'styled-components';
+import type { Story } from '@storybook/react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Logo from './Logo';
+import type { LogoProps } from './Logo';
 
 export default {
     title: 'Layout/Logo',
@@ -12,14 +13,16 @@ export default {
     decorators: [LiveEditDecorator({ Logo, DivContainer, ThemeProvider })]
 };
 
-export const basic = () => (
+type LogoStory = Story<Required<LogoProps>>;
+
+export const basic: LogoStory = () => (
     <DivContainer height={250} backgroundColor="blue">
         <Logo />
     </DivContainer>
 );
 basic.storyName = 'Default';
 
-export const logoFromTheme = () => (
+export const logoFromTheme: LogoStory = () => (
     <ThemeProvider
         theme={{
             logoUrl:
@@ -32,7 +35,7 @@ export const logoFromTheme = () => (
     </ThemeProvider>
 );
 
-export const logoFromUrl = () => (
+export const logoFromUrl: LogoStory = () => (
     <ThemeProvider
         theme={{
             logoUrl:
@@ -45,7 +48,7 @@ export const logoFromUrl = () => (
     </ThemeProvider>
 );
 
-export const customStyle = () => (
+export const customStyle: LogoStory = () => (
     <DivContainer height={250} backgroundColor="blue">
         <Logo style={{ height: '100%', width: '100%', backgroundPositionX: 'center' }} />
     </DivContainer>

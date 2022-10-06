@@ -1,9 +1,16 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
+import type { FunctionComponent, CSSProperties } from 'react';
 import { Segment } from 'semantic-ui-react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
+import type { SegmentProps } from 'semantic-ui-react';
 import { ThemeContext } from 'styled-components';
 import colors from 'cloudify-ui-common/styles/_colors.scss';
+
+export interface FullScreenSegmentProps extends Pick<SegmentProps, 'className'> {
+    /**
+     * style to be assigned to Segment component
+     */
+    style?: CSSProperties;
+}
 
 /**
  * FullScreenSegment is a block component which can be used as a single color background.
@@ -12,10 +19,8 @@ import colors from 'cloudify-ui-common/styles/_colors.scss';
  *
  * * `mainColor` parameter is used as a background color, if not specified then `blueNormal` from default colors is chosen
  */
-// @ts-expect-error TS(7031) FIXME: Binding element 'children' implicitly has an 'any'... Remove this comment to see the full error message
-export default function FullScreenSegment({ children, className, style }) {
+const FullScreenSegment: FunctionComponent<FullScreenSegmentProps> = ({ children, className = '', style }) => {
     const theme = useContext(ThemeContext) || {};
-    // @ts-expect-error TS(2571) FIXME: Object is of type 'unknown'.
     const backgroundColor = theme.mainColor || colors.blueNormal;
 
     return (
@@ -39,24 +44,6 @@ export default function FullScreenSegment({ children, className, style }) {
             {children}
         </Segment>
     );
-}
-
-FullScreenSegment.propTypes = {
-    /**
-     * elements displayed inside the Segment
-     */
-    children: PropTypes.node.isRequired,
-    /**
-     * class name to be assigned to Segment component
-     */
-    className: PropTypes.string,
-    /**
-     * style to be assigned to Segment component
-     */
-    style: PropTypes.shape({})
 };
 
-FullScreenSegment.defaultProps = {
-    className: '',
-    style: {}
-};
+export default FullScreenSegment;

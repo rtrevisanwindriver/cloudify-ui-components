@@ -1,10 +1,11 @@
 import React from 'react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
+import type { Story } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import FullScreenSegment from './FullScreenSegment';
+import type { FullScreenSegmentProps } from './FullScreenSegment';
 
 export default {
     title: 'Layout/FullScreenSegment',
@@ -12,14 +13,16 @@ export default {
     decorators: [LiveEditDecorator({ FullScreenSegment, DivContainer, ThemeProvider })]
 };
 
-export const basic = () => (
+type FullScreenSegmentStory = Story<Required<FullScreenSegmentProps>>;
+
+export const basic: FullScreenSegmentStory = () => (
     <DivContainer height={250}>
         <FullScreenSegment>Test</FullScreenSegment>
     </DivContainer>
 );
 basic.storyName = 'Default';
 
-export const colored = () => (
+export const colored: FullScreenSegmentStory = () => (
     <DivContainer height={250}>
         <ThemeProvider theme={{ mainColor: 'green' }}>
             <FullScreenSegment>Test</FullScreenSegment>
@@ -27,7 +30,7 @@ export const colored = () => (
     </DivContainer>
 );
 
-export const styled = () => (
+export const styled: FullScreenSegmentStory = () => (
     <DivContainer height={250}>
         <FullScreenSegment style={{ borderRadius: 10, textAlign: 'center' }}>Test</FullScreenSegment>
     </DivContainer>

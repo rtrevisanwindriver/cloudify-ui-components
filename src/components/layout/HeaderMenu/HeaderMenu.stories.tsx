@@ -1,9 +1,11 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 import { Dropdown, Icon } from 'semantic-ui-react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import HeaderMenu from './HeaderMenu';
+import type { HeaderMenuProps } from './HeaderMenu';
 
 export default {
     title: 'Layout/HeaderMenu',
@@ -11,7 +13,9 @@ export default {
     decorators: [LiveEditDecorator({ HeaderMenu, Icon, Dropdown, DivContainer })]
 };
 
-export const basic = () => (
+type HeaderMenuStory = Story<Required<HeaderMenuProps>>;
+
+export const basic: HeaderMenuStory = () => (
     <DivContainer height={250}>
         <DivContainer height={30}>
             <HeaderMenu trigger="Options">
@@ -23,7 +27,7 @@ export const basic = () => (
 );
 basic.storyName = 'Default';
 
-export const customTrigger = () => (
+export const customTrigger: HeaderMenuStory = () => (
     <DivContainer height={250}>
         <DivContainer height={30}>
             <HeaderMenu

@@ -1,11 +1,12 @@
 import React from 'react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
+import type { Story } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { Dropdown, Icon } from 'semantic-ui-react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import MenusBar from './MenusBar';
+import type { MenusBarProps } from './MenusBar';
 import HeaderMenu from '../HeaderMenu';
 
 export default {
@@ -14,7 +15,9 @@ export default {
     decorators: [LiveEditDecorator({ MenusBar, HeaderMenu, Icon, Dropdown, DivContainer, ThemeProvider })]
 };
 
-export const basic = () => (
+type MenusBarStory = Story<Required<MenusBarProps>>;
+
+export const basic: MenusBarStory = () => (
     <DivContainer height={250}>
         <DivContainer height={55} backgroundColor="black">
             <ThemeProvider theme={{ headerTextColor: 'red' }}>
@@ -46,7 +49,7 @@ export const basic = () => (
 );
 basic.storyName = 'Default';
 
-export const noTheme = () => (
+export const noTheme: MenusBarStory = () => (
     <DivContainer height={250}>
         <DivContainer height={55} backgroundColor="black">
             <MenusBar>

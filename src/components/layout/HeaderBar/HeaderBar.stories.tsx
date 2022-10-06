@@ -1,5 +1,5 @@
 import React from 'react';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
+import type { Story } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { Dropdown } from 'semantic-ui-react';
 
@@ -9,6 +9,7 @@ import HeaderBanner from '../HeaderBanner';
 import HeaderBar from './HeaderBar';
 import HeaderMenu from '../HeaderMenu';
 import MenusBar from '../MenusBar';
+import type { HeaderBarProps } from './HeaderBar';
 
 export default {
     title: 'Layout/HeaderBar',
@@ -16,9 +17,10 @@ export default {
     decorators: [LiveEditDecorator({ HeaderBar, HeaderBanner, HeaderMenu, MenusBar, DivContainer, ThemeProvider })]
 };
 
-export const basic = () => (
+type HeaderBarStory = Story<Required<HeaderBarProps>>;
+
+export const basic: HeaderBarStory = () => (
     <ThemeProvider theme={{ mainColor: 'green', headerTextColor: 'white' }}>
-        {/* @ts-expect-error TS(2741) FIXME: Property 'className' is missing in type '{ childre... Remove this comment to see the full error message */}
         <HeaderBar>
             <HeaderBanner productName="Product" />
             <MenusBar>
@@ -32,9 +34,8 @@ export const basic = () => (
 );
 basic.storyName = 'Default';
 
-export const customHeight = () => (
+export const customHeight: HeaderBarStory = () => (
     <ThemeProvider theme={{ mainColor: 'green', headerTextColor: 'white' }}>
-        {/* @ts-expect-error TS(2741) FIXME: Property 'className' is missing in type '{ childre... Remove this comment to see the full error message */}
         <HeaderBar height="100px">
             <HeaderBanner productName="Product" />
             <MenusBar>
@@ -47,8 +48,7 @@ export const customHeight = () => (
     </ThemeProvider>
 );
 
-export const noTheme = () => (
-    // @ts-expect-error TS(2741) FIXME: Property 'className' is missing in type '{ childre... Remove this comment to see the full error message
+export const noTheme: HeaderBarStory = () => (
     <HeaderBar>
         <HeaderBanner productName="Product" />
         <MenusBar>

@@ -1,16 +1,10 @@
-import _ from 'lodash';
-import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
 import React from 'react';
 
-// @ts-expect-error TS(7031) FIXME: Binding element 'edition' implicitly has an 'any' ... Remove this comment to see the full error message
-export default function LicenseEdition({ edition }) {
-    return !_.isEmpty(edition) && <span style={{ verticalAlign: 'middle' }}> {edition}</span>;
+interface LicenseEditionProps {
+    edition?: string;
 }
 
-LicenseEdition.propTypes = {
-    edition: PropTypes.string
-};
-
-LicenseEdition.defaultProps = {
-    edition: ''
-};
+export default function LicenseEdition({ edition = '' }: LicenseEditionProps) {
+    return !isEmpty(edition) ? <span style={{ verticalAlign: 'middle' }}> {edition}</span> : null;
+}

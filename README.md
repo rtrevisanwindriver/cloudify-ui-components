@@ -17,7 +17,7 @@ This repository contains React components reusable across Cloudify UI applicatio
   * [Debugging](#debugging)
     + [Internal](#internal)
     + [External](#external)
-  * [Deployment](#deployment)
+  * [Publishing](#publishing)
     + [Useful links](#useful-links)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
@@ -88,14 +88,16 @@ If you want to develop/debug `cloudify-ui-components` from the package user side
  1. Run package user project and see changes applied locally in `cloudify-ui-components`.   
 
 
-## Deployment
+## Publishing
 
 Cloudify UI Components library is published in [NPM](https://www.npmjs.com) registry. See [cloudify-ui-components@npm](https://www.npmjs.com/package/cloudify-ui-components).
 
-Cloudify UI Components uses the same mechanism as Cloudify UI Common repository for deployment. Check [Deployment section @ cloudify-ui-common](https://github.com/cloudify-cosmo/cloudify-ui-common#deployment) for details.
+Cloudify UI Components uses the same mechanism as Cloudify UI Common repository for package publishing. 
+Check [Publishing section @ cloudify-ui-common](https://github.com/cloudify-cosmo/cloudify-ui-common#publishing) 
+for details.
 
 ### Useful links
 
-- [cloudify-ui-components @ Jenkins](https://jenkins.eks.cloudify.co/blue/organizations/jenkins/Component-Multibranch)
+- [cloudify-ui-components @ Jenkins](https://jenkins.cloudify.co/blue/organizations/jenkins/Component-UI-Multibranch/)
 - [cloudify-ui-components @ NPM](https://www.npmjs.com/package/cloudify-ui-components)
 - [cloudify-ui-components releases](https://github.com/cloudify-cosmo/cloudify-ui-components/releases)

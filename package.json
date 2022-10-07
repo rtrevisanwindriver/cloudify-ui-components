@@ -26,12 +26,10 @@
     "lint": "eslint --cache --ignore-path .gitignore --ext js,jsx,ts,tsx .",
     "test:jest": "jest test --coverage --maxWorkers=2",
     "test:loki": "loki --diffingEngine gm --chromeTolerance 0.9 --requireReference --reactUri file:./storybook-static",
-    "test": "npm run lint && npm run test:jest",
+    "test": "npm run test:jest",
     "storybook": "start-storybook --docs -p 9001",
     "build-storybook": "build-storybook --docs -c .storybook --quiet",
-    "publish:major": "bash scripts/publish-version.sh major",
-    "publish:minor": "bash scripts/publish-version.sh minor",
-    "publish:patch": "bash scripts/publish-version.sh patch"
+    "publish-version": "bash node_modules/cloudify-ui-common-scripts/create-version.sh"
   },
   "keywords": [
     "react",
@@ -71,6 +69,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "browserslist": "^4.21.1",
+    "cloudify-ui-common-scripts": "^0.0.2-pre.1",
     "cross-env": "^6.0.3",
     "css-loader": "^3.6.0",
     "enzyme": "^3.11.0",

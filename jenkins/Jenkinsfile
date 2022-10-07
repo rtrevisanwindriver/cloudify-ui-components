@@ -133,7 +133,7 @@ pipeline {
     }
     stage('Publish') {
       when {
-        expression { return env.BRANCH =~ /^publish-v.*/ }
+        expression { return env.BRANCH =~ /^publish_v.*/ }
       }
       steps {
         container('node'){

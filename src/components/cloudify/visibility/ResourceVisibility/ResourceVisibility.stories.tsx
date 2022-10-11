@@ -1,7 +1,10 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import ResourceVisibility from './ResourceVisibility';
+import type { ResourceVisibilityProps } from './ResourceVisibility';
+import type { Visibility } from '../types';
 
 export default {
     title: 'Cloudify/ResourceVisibility',
@@ -9,9 +12,11 @@ export default {
     decorators: [LiveEditDecorator({ ResourceVisibility })]
 };
 
-export const unchangeable = () => <ResourceVisibility visibility="tenant" />;
-export const changeable = () => {
-    const [visibility, setVisibility] = React.useState('private');
+type ResourceVisibilityStory = Story<Required<ResourceVisibilityProps>>;
+
+export const unchangeable: ResourceVisibilityStory = () => <ResourceVisibility visibility="tenant" />;
+export const changeable: ResourceVisibilityStory = () => {
+    const [visibility, setVisibility] = React.useState<Visibility>('private');
 
     return (
         <ResourceVisibility

@@ -1,4 +1,3 @@
-import type { FunctionComponent } from 'react';
 import React from 'react';
 
 import type { SyntaxHighlighterProps } from 'react-syntax-highlighter';
@@ -37,13 +36,13 @@ export interface HighlightTextProps extends Omit<SyntaxHighlighterProps, 'langua
  *
  * All props supported by [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-highlighter#props) can be specified.
  */
-const HighlightText: FunctionComponent<HighlightTextProps> = ({
+const HighlightText = ({
     children = '',
     codeTagProps,
     language = 'json',
     style = idea,
     ...otherProps
-}) => {
+}: HighlightTextProps) => {
     return (
         <SyntaxHighlighter
             language={language}

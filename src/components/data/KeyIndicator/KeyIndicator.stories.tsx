@@ -1,7 +1,6 @@
 import type { Story } from '@storybook/react';
 import React from 'react';
 
-import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import type { KeyIndicatorProps } from './KeyIndicator';
 import KeyIndicator from './KeyIndicator';
@@ -9,27 +8,21 @@ import KeyIndicator from './KeyIndicator';
 export default {
     title: 'Data/KeyIndicator',
     component: KeyIndicator,
-    decorators: [LiveEditDecorator({ KeyIndicator, DivContainer })]
+    decorators: [LiveEditDecorator({ KeyIndicator })]
 };
 
-export const iconWithLabelAndNumber: Story<Required<KeyIndicatorProps>> = () => (
-    <DivContainer>
-        <KeyIndicator title="User Stars" icon="star" number={54} />
-    </DivContainer>
+type KeyIndicatorStory = Story<Required<KeyIndicatorProps>>;
+
+export const iconWithLabelAndNumber: KeyIndicatorStory = () => (
+    <KeyIndicator title="User Stars" icon="star" number={54} />
 );
 
-export const iconWithLabel: Story<Required<KeyIndicatorProps>> = () => (
-    <DivContainer>
-        <KeyIndicator title="Plugins" icon="plug" />
-    </DivContainer>
-);
+export const iconWithLabel: KeyIndicatorStory = () => <KeyIndicator title="Plugins" icon="plug" />;
 
-export const externalImage: Story<Required<KeyIndicatorProps>> = () => (
-    <DivContainer>
-        <KeyIndicator
-            title="Team members"
-            imageSrc="https://react.semantic-ui.com/images/avatar/small/matthew.png"
-            number={3}
-        />
-    </DivContainer>
+export const externalImage: KeyIndicatorStory = () => (
+    <KeyIndicator
+        title="Team members"
+        imageSrc="https://react.semantic-ui.com/images/avatar/small/matthew.png"
+        number={3}
+    />
 );

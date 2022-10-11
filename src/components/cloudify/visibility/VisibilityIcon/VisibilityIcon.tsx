@@ -1,40 +1,38 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { find } from 'lodash';
 import { Icon } from 'semantic-ui-react';
+import type { IconProps } from 'semantic-ui-react';
 
 import Popup from 'components/popups/Popup';
-import { visibilities, visibilityPropType } from '../consts';
+import { defaultVisibility, visibilities } from '../consts';
+import type { Visibility } from '../types';
+
+export interface VisibilityIconProps extends IconProps {
+    /**
+     * visibility, one from ['private', 'tenant', 'global', 'unknown']
+     */
+    visibility?: Visibility;
+    /**
+     * if set to true, then on hovering icon title will be shown in popup
+     */
+    showTitle?: boolean;
+}
 
 /**
  * VisibilityIcon - a component showing an visibility icon depending on resource visibility.
  *
  * All props supported by the `Icon` component are passed down to it.
  */
-// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-export default function VisibilityIcon(props) {
-    const { visibility, showTitle, ...restProps } = props;
-    const data = _.find(visibilities, { name: visibility }) || visibilities.UNKNOWN;
+export default function VisibilityIcon({
+    visibility = defaultVisibility,
+    showTitle = true,
+    ...iconProps
+}: VisibilityIconProps) {
+    const data = find(visibilities, { name: visibility }) || visibilities.UNKNOWN;
 
     return showTitle ? (
-        <Popup trigger={<Icon name={data.icon} color={data.color} {...restProps} />} content={data.title} />
+        <Popup trigger={<Icon name={data.icon} color={data.color} {...iconProps} />} content={data.title} />
     ) : (
-        <Icon name={data.icon} color={data.color} {...restProps} />
+        <Icon name={data.icon} color={data.color} {...iconProps} />
     );
 }
-
-VisibilityIcon.propTypes = {
-    /**
-     * visibility, one from ['private', 'tenant', 'global', 'unknown']
-     */
-    visibility: visibilityPropType,
-    /**
-     * if set to true, then on hovering icon title will be shown in popup
-     */
-    showTitle: PropTypes.bool
-};
-
-VisibilityIcon.defaultProps = {
-    showTitle: true,
-    visibility: visibilities.UNKNOWN.name
-};

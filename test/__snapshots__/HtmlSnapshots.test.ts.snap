@@ -226,18 +226,6 @@ exports[`Storyshots Cloudify/VisibilityIcon Global Visibility 1`] = `
 />
 `;
 
-exports[`Storyshots Cloudify/VisibilityIcon Invalid Visibility 1`] = `
-<i
-  aria-hidden="true"
-  className="grey question icon"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-/>
-`;
-
 exports[`Storyshots Cloudify/VisibilityIcon Private Visibility 1`] = `
 <i
   aria-hidden="true"
@@ -4315,58 +4303,48 @@ exports[`Storyshots Data/KeyIndicator External Image 1`] = `
 <div
   style={
     {
-      "backgroundColor": "white",
-      "height": 150,
-      "position": "relative",
+      "bottom": 0,
+      "left": 0,
+      "overflow": "hidden",
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
     }
   }
 >
   <div
+    className="ui statistic"
     style={
       {
-        "bottom": 0,
-        "left": 0,
-        "overflow": "hidden",
+        "left": "50%",
         "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "whiteSpace": "nowrap",
       }
     }
   >
     <div
-      className="ui statistic"
-      style={
-        {
-          "left": "50%",
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
-          "whiteSpace": "nowrap",
-        }
-      }
+      className="value"
     >
-      <div
-        className="value"
-      >
-        <img
-          className="ui inline image"
-          src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
-          style={
-            {
-              "marginBottom": "0.25rem",
-              "maxHeight": "4rem",
-              "verticalAlign": "bottom",
-            }
+      <img
+        className="ui inline image"
+        src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
+        style={
+          {
+            "marginBottom": "0.25rem",
+            "maxHeight": "4rem",
+            "verticalAlign": "bottom",
           }
-        />
-         
-        3
-      </div>
-      <div
-        className="label"
-      >
-        Team members
-      </div>
+        }
+      />
+       
+      3
+    </div>
+    <div
+      className="label"
+    >
+      Team members
     </div>
   </div>
 </div>
@@ -4376,51 +4354,41 @@ exports[`Storyshots Data/KeyIndicator Icon With Label 1`] = `
 <div
   style={
     {
-      "backgroundColor": "white",
-      "height": 150,
-      "position": "relative",
+      "bottom": 0,
+      "left": 0,
+      "overflow": "hidden",
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
     }
   }
 >
   <div
+    className="ui statistic"
     style={
       {
-        "bottom": 0,
-        "left": 0,
-        "overflow": "hidden",
+        "left": "50%",
         "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "whiteSpace": "nowrap",
       }
     }
   >
     <div
-      className="ui statistic"
-      style={
-        {
-          "left": "50%",
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
-          "whiteSpace": "nowrap",
-        }
-      }
+      className="value"
     >
-      <div
-        className="value"
-      >
-        <i
-          aria-hidden="true"
-          className="plug icon"
-          onClick={[Function]}
-        />
-         
-      </div>
-      <div
-        className="label"
-      >
-        Plugins
-      </div>
+      <i
+        aria-hidden="true"
+        className="plug icon"
+        onClick={[Function]}
+      />
+       
+    </div>
+    <div
+      className="label"
+    >
+      Plugins
     </div>
   </div>
 </div>
@@ -4430,52 +4398,42 @@ exports[`Storyshots Data/KeyIndicator Icon With Label And Number 1`] = `
 <div
   style={
     {
-      "backgroundColor": "white",
-      "height": 150,
-      "position": "relative",
+      "bottom": 0,
+      "left": 0,
+      "overflow": "hidden",
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
     }
   }
 >
   <div
+    className="ui statistic"
     style={
       {
-        "bottom": 0,
-        "left": 0,
-        "overflow": "hidden",
+        "left": "50%",
         "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "whiteSpace": "nowrap",
       }
     }
   >
     <div
-      className="ui statistic"
-      style={
-        {
-          "left": "50%",
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
-          "whiteSpace": "nowrap",
-        }
-      }
+      className="value"
     >
-      <div
-        className="value"
-      >
-        <i
-          aria-hidden="true"
-          className="star icon"
-          onClick={[Function]}
-        />
-         
-        54
-      </div>
-      <div
-        className="label"
-      >
-        User Stars
-      </div>
+      <i
+        aria-hidden="true"
+        className="star icon"
+        onClick={[Function]}
+      />
+       
+      54
+    </div>
+    <div
+      className="label"
+    >
+      User Stars
     </div>
   </div>
 </div>
@@ -5113,7 +5071,7 @@ exports[`Storyshots Elements/Dropdown Default 1`] = `
   style={
     {
       "backgroundColor": "white",
-      "height": 150,
+      "height": "150",
       "position": "relative",
     }
   }
@@ -5251,7 +5209,7 @@ exports[`Storyshots Elements/Dropdown With Empty Option 1`] = `
   style={
     {
       "backgroundColor": "white",
-      "height": 150,
+      "height": "150",
       "position": "relative",
     }
   }

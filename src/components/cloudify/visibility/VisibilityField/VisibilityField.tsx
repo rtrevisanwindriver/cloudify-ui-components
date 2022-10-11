@@ -1,10 +1,38 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { dropRight, noop } from 'lodash';
 
 import Popup from 'components/popups/Popup';
 import VisibilityIcon from '../VisibilityIcon';
-import { visibilities, visibilityPropType } from '../consts';
+import { defaultVisibility, visibilities, visibilityTitle } from '../consts';
+import type { Visibility } from '../types';
+
+export interface VisibilityFieldProps {
+    /**
+     * the current visibility, one from ['tenant', 'private', 'global', 'unknown']
+     */
+    visibility?: Visibility;
+
+    /**
+     * the callback to be called with the new visibility
+     */
+    onVisibilityChange?: (visibility: Visibility) => void;
+
+    /**
+     * should the component not allow changing the global
+     */
+    disallowGlobal?: boolean;
+
+    /**
+     * should the component allow changing visibility
+     */
+    allowChange?: boolean;
+
+    /**
+ 
+      * name of the style class to be added
+      */
+    className?: string;
+}
 
 /**
  * VisibilityField - allowing the user to choose visibilities for resources by showing the visibility icon and clicking on it to switch.
@@ -13,25 +41,17 @@ import { visibilities, visibilityPropType } from '../consts';
  *
  * All props except `onVisibilityChange`, `disallowGlobal` and `allowChange` are passed down to the underlaying `VisibilityIcon` component.
  */
-// @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-export default function VisibilityField(props) {
-    const { visibility, onVisibilityChange, disallowGlobal, allowChange, ...otherVisibilityIconProps } = props;
-
+export default function VisibilityField({
+    visibility = defaultVisibility,
+    onVisibilityChange = noop,
+    disallowGlobal,
+    allowChange = true,
+    ...visibilityIconProps
+}: VisibilityFieldProps) {
     const visibilitiesOrder = [visibilities.TENANT.name, visibilities.PRIVATE.name, visibilities.GLOBAL.name];
 
-    const visibilityTitle = _.reduce(
-        visibilities,
-        (result, visibilityObject) => {
-            // @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
-            // eslint-disable-next-line no-param-reassign
-            result[visibilityObject.name] = visibilityObject.title;
-            return result;
-        },
-        {}
-    );
-
     const onClick = () => {
-        const allowedVisibilities = disallowGlobal ? _.dropRight(visibilitiesOrder) : visibilitiesOrder;
+        const allowedVisibilities = disallowGlobal ? dropRight(visibilitiesOrder) : visibilitiesOrder;
         const index = allowedVisibilities.indexOf(visibility);
         if (index >= 0 && index < allowedVisibilities.length - 1) {
             onVisibilityChange(allowedVisibilities[index + 1]);
@@ -50,48 +70,11 @@ export default function VisibilityField(props) {
                     showTitle={false}
                     title={null}
                     onClick={onClick}
-                    {...otherVisibilityIconProps}
+                    {...visibilityIconProps}
                 />
             </Popup.Trigger>
             <Popup.Header>Visibility</Popup.Header>
-            {/* @ts-expect-error TS(7053) FIXME: Element implicitly has an 'any' type because expre... Remove this comment to see the full error message */}
             <Popup.Content>{visibilityTitle[visibility]}</Popup.Content>
         </Popup>
     );
 }
-
-VisibilityField.propTypes = {
-    /**
-     * the current visibility, one from ['tenant', 'private', 'global', 'unknown']
-     */
-    visibility: visibilityPropType,
-
-    /**
-     * the callback to be called with the new visibility
-     */
-    onVisibilityChange: PropTypes.func,
-
-    /**
-     * should the component not allow changing the global
-     */
-    disallowGlobal: PropTypes.bool,
-
-    /**
-     * should the component allow changing visibility
-     */
-    allowChange: PropTypes.bool,
-
-    /**
-
-     * name of the style class to be added
-     */
-    className: PropTypes.string
-};
-
-VisibilityField.defaultProps = {
-    visibility: visibilities.UNKNOWN.name,
-    onVisibilityChange: () => {},
-    disallowGlobal: false,
-    allowChange: true,
-    className: ''
-};

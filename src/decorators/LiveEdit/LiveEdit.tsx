@@ -1,17 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, Segment } from 'semantic-ui-react';
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from '@homemx/react-live';
+import type { LiveProviderProps } from '@homemx/react-live';
 import './LiveEdit.css';
 
-// @ts-expect-error TS(7031) FIXME: Binding element 'source' implicitly has an 'any' t... Remove this comment to see the full error message
-export default function LiveEdit({ source, scope }) {
+export interface LiveEditProps extends Pick<LiveProviderProps, 'scope'> {
+    source: LiveProviderProps['code'];
+}
+
+export default function LiveEdit({ source, scope }: LiveEditProps) {
     const [open, setOpen] = React.useState(false);
     const [reset, setReset] = React.useState(false);
     const key = String(reset);
 
     return (
-        <LiveProvider key={key} code={source} scope={scope}>
+        <LiveProvider key={key} code={source} scope={scope} language="tsx">
             <LivePreview />
 
             <div style={{ marginTop: 20, textAlign: 'left' }}>
@@ -64,10 +67,3 @@ export default function LiveEdit({ source, scope }) {
         </LiveProvider>
     );
 }
-LiveEdit.propTypes = {
-    source: PropTypes.string.isRequired,
-    scope: PropTypes.shape({})
-};
-LiveEdit.defaultProps = {
-    scope: {}
-};

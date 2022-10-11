@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming';
 
-import typography from 'cloudify-ui-common/styles/_typography.scss';
-import colors from 'cloudify-ui-common/styles/_colors.scss';
+import typography from 'cloudify-ui-common-frontend/styles/_typography.scss';
+import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 import 'semantic-ui-css-offline/semantic.min.css';
 
 export default create({

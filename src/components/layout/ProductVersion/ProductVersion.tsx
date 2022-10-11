@@ -1,7 +1,7 @@
 import { size, isEmpty } from 'lodash';
 import React, { useMemo } from 'react';
 import type { FunctionComponent, CSSProperties } from 'react';
-import colors from 'cloudify-ui-common/styles/_colors.scss';
+import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
 export interface ProductVersionProps {
     /**

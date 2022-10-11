@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { types } from 'cloudify-ui-common';
+import { types } from 'cloudify-ui-common-frontend';
 
 import ReactJsonView from 'react-json-view';
 import { Icon, Label, TextArea, List } from 'semantic-ui-react';

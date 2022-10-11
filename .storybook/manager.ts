@@ -1,7 +1,7 @@
 import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming';
 
-import 'cloudify-ui-common/styles/font-Roboto-Regular.css';
+import 'cloudify-ui-common-frontend/styles/font-Roboto-Regular.css';
 
 addons.setConfig({
     theme: create({

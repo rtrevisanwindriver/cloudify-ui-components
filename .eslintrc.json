@@ -1,5 +1,5 @@
 {
-    "extends": ["./node_modules/cloudify-ui-common/configs/eslint-common-react.json", "plugin:react/recommended"],
+    "extends": ["./node_modules/cloudify-ui-common-configs/eslint-common-react.json", "plugin:react/recommended"],
     "settings": {
         "import/resolver": {
             "babel-module": {},
@@ -18,7 +18,7 @@
         },
         {
             "files": "**/*.test.{js,jsx,ts,tsx}",
-            "extends": "./node_modules/cloudify-ui-common/configs/eslint-common-jest.json"
+            "extends": "./node_modules/cloudify-ui-common-configs/eslint-common-jest.json"
         }
     ]
 }

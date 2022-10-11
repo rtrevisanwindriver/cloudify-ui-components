@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import type { CSSProperties } from 'react';
 import { Header } from 'semantic-ui-react';
 import { ThemeContext } from 'styled-components';
-import colors from 'cloudify-ui-common/styles/_colors.scss';
+import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
 import Logo from '../Logo';
 import ProductName from './ProductName';

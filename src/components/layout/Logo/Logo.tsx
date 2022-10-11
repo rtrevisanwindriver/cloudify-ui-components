@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import type { CSSProperties } from 'react';
 import { ThemeContext } from 'styled-components';
-import logo from 'cloudify-ui-common/images/logo.png';
+import logo from 'cloudify-ui-common-frontend/images/logo.png';
 
 export interface LogoProps {
     /**

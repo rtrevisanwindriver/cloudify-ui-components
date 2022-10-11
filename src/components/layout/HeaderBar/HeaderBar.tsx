@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import type { FunctionComponent, CSSProperties } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import colors from 'cloudify-ui-common/styles/_colors.scss';
+import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
 interface StyledDivProps {
     backgroundColor: CSSProperties['backgroundColor'];

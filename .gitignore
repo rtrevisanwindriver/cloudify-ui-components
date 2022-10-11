@@ -9,3 +9,4 @@ node_modules
 storybook-static
 /typings
 *.tsbuildinfo
+cloudify-ui-components-*.tgz

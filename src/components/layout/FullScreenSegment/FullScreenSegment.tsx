@@ -3,7 +3,7 @@ import type { FunctionComponent, CSSProperties } from 'react';
 import { Segment } from 'semantic-ui-react';
 import type { SegmentProps } from 'semantic-ui-react';
 import { ThemeContext } from 'styled-components';
-import colors from 'cloudify-ui-common/styles/_colors.scss';
+import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
 export interface FullScreenSegmentProps extends Pick<SegmentProps, 'className'> {
     /**

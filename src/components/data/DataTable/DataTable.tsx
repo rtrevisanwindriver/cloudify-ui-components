@@ -30,13 +30,27 @@ import './DataTable.css';
  * ## Sub-components
  * - `DataTable.Row` = data row
  * - `DataTable.Column` = header column;
- * - `DataTable.Data` = data cell
+ * - `DataTable.Data` = data cell, passes props to semantic-ui data cell
  * - `DataTable.Action` = table action area
  * - `DataTable.Filter` = table filter
  * - `DataTable.RowExpandable` = expandable data row;
  * - `DataTable.DataExpandable` = expandable data content;
  */
-export default class DataTable extends Component {
+class DataTable extends Component {
+    public static Row = TableRow;
+
+    public static Column = TableColumn;
+
+    public static Data = TableDataCell;
+
+    public static Action = DataAction;
+
+    public static Filter = TableFilter;
+
+    public static RowExpandable = TableRowExpandable;
+
+    public static DataExpandable = TableDataExpandable;
+
     // @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
     constructor(props, context) {
         super(props, context);
@@ -263,21 +277,6 @@ export default class DataTable extends Component {
     }
 }
 
-// @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
-DataTable.Row = TableRow;
-// @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message
-DataTable.Column = TableColumn;
-// @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message
-DataTable.Data = TableDataCell;
-// @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message
-DataTable.Action = DataAction;
-// @ts-expect-error TS(2339) FIXME: Property 'Filter' does not exist on type 'typeof D... Remove this comment to see the full error message
-DataTable.Filter = TableFilter;
-// @ts-expect-error TS(2339) FIXME: Property 'RowExpandable' does not exist on type 't... Remove this comment to see the full error message
-DataTable.RowExpandable = TableRowExpandable;
-// @ts-expect-error TS(2339) FIXME: Property 'DataExpandable' does not exist on type '... Remove this comment to see the full error message
-DataTable.DataExpandable = TableDataExpandable;
-
 // @ts-expect-error TS(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
 DataTable.propTypes = {
     /**
@@ -361,3 +360,5 @@ DataTable.defaultProps = {
     noDataMessage: 'No data available',
     style: undefined
 };
+
+export default DataTable;

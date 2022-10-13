@@ -1,43 +1,33 @@
-import type { CSSProperties, FunctionComponent } from 'react';
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import type { FunctionComponent } from 'react';
+import type { TableCellProps } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 
-export interface TableDataCellProps {
-    /**
-     * additional CSS classes for td element
-     */
-    className?: string;
+const VerticallyAlignedCell = styled.div`
+    td & {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+`;
 
-    /**
-     * rowSpan prop passed to td element
-     */
-    rowSpan?: number;
+export type TableDataCellProps = { verticalAlign?: 'flexMiddle' | TableCellProps['verticalAlign'] } & Omit<
+    TableCellProps,
+    'verticalAlign'
+>;
 
-    /**
-     * colSpan prop passed to td element
-     */
-    colSpan?: number;
+const TableDataCell: FunctionComponent<TableDataCellProps> = props => {
+    const { verticalAlign, children, ...restOfProps } = props;
+    if (verticalAlign !== 'flexMiddle') {
+        return <Table.Cell {...props} verticalAlign={verticalAlign} />;
+    }
 
-    /**
-     * style prop passed to td element
-     */
-    style?: CSSProperties;
-}
-
-const TableDataCell: FunctionComponent<TableDataCellProps> = ({ children, className, rowSpan, colSpan, style }) => {
     return (
-        <td className={className} rowSpan={rowSpan} colSpan={colSpan} style={style}>
-            {children}
-        </td>
+        <Table.Cell {...restOfProps} verticalAlign="middle">
+            <VerticallyAlignedCell>{children}</VerticallyAlignedCell>
+        </Table.Cell>
     );
 };
-export default TableDataCell;
 
-TableDataCell.propTypes = {
-    // @ts-expect-error TS(2322) FIXME: Type '{ children: PropTypes.Requireable<PropTypes.... Remove this comment to see the full error message
-    children: PropTypes.node,
-    className: PropTypes.string,
-    rowSpan: PropTypes.number,
-    colSpan: PropTypes.number,
-    style: PropTypes.shape({})
-};
+export default TableDataCell;

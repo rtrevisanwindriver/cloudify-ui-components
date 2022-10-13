@@ -8,23 +8,15 @@ import DataTable from '../src/components/data/DataTable';
 describe('<DataTable />', () => {
     const clickRowMock = jest.fn();
     const tableContent = [
-        // @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message
         <DataTable.Column key="col1" label="Column one" name="col1" width="60%" />,
-        // @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message
         <DataTable.Column key="col2" label="Column two" width="40%" />,
-        // @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message
         <DataTable.Column key="col3" label="Column three" show={false} />,
         [{ k: 1 }, { k: 2 }, { k: 3, s: true }, { k: 4 }, { k: 5 }].map(item => {
             return (
-                // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
                 <DataTable.Row key={item.k} selected={item.s} onClick={item.s ? clickRowMock : null}>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>Data {item.k}.1</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>Data {item.k}.2</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>Data {item.k}.3</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                 </DataTable.Row>
             );
         })
@@ -161,15 +153,11 @@ describe('<DataTable />', () => {
         const wrapper = mount(
             // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | (Element | Element[])... Remove this comment to see the full error message
             <DataTable totalSize={0} pageSize={25} sortColumn="col1" sortAscending={false}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 <DataTable.Action>
                     <Button icon="rocket" />
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 </DataTable.Action>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Filter' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 <DataTable.Filter>
                     <Input placeholder="Column 1" />
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Filter' does not exist on type 'typeof D... Remove this comment to see the full error message */}
                 </DataTable.Filter>
                 {tableContent}
             </DataTable>

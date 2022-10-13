@@ -59,22 +59,14 @@ export const pagination = () => {
             totalSize={logs.metadata.pagination.total}
             pageSize={pageSize}
         >
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="ID" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Blueprint" name="blueprint_id" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Deployment" name="deployment_id" />
             {logs.items.map(item => (
-                // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
                 <DataTable.Row key={item.id}>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                 </DataTable.Row>
             ))}
         </DataTable>
@@ -86,22 +78,14 @@ export const selectable = () => {
     return (
         // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; totalSi... Remove this comment to see the full error message
         <DataTable totalSize={logs.metadata.pagination.total} pageSize={logs.metadata.pagination.size}>
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="ID" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Blueprint" name="blueprint_id" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Deployment" name="deployment_id" />
             {logs.items.map(item => (
-                // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
                 <DataTable.Row key={item.id} selected={selected === item.id} onClick={() => setSelected(item.id)}>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                 </DataTable.Row>
             ))}
         </DataTable>
@@ -111,22 +95,14 @@ export const selectable = () => {
 export const searchFilter = () => (
     // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; totalSi... Remove this comment to see the full error message
     <DataTable totalSize={logs.metadata.pagination.total} pageSize={logs.metadata.pagination.size} searchable>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="ID" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Blueprint" name="blueprint_id" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Deployment" name="deployment_id" />
         {logs.items.map(item => (
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={item.id}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
         ))}
     </DataTable>
@@ -134,29 +110,19 @@ export const searchFilter = () => (
 
 export const actionButtons = () => (
     <DataTable>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Action>
             <Button color="green" content="Deploy" icon="rocket" />
             <Button color="red" content="Remove" icon="remove" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Action' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         </DataTable.Action>
 
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="ID" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Blueprint" name="blueprint_id" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Deployment" name="deployment_id" />
         {logs.items.map(item => (
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={item.id}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
         ))}
     </DataTable>
@@ -164,29 +130,19 @@ export const actionButtons = () => (
 
 export const filterInputs = () => (
     <DataTable>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Filter' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Filter>
             <Input placeholder="Blueprint" />
             <Input placeholder="Deployment" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Filter' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         </DataTable.Filter>
 
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="ID" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Blueprint" name="blueprint_id" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Deployment" name="deployment_id" />
         {logs.items.map(item => (
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={item.id}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
         ))}
     </DataTable>
@@ -199,23 +155,15 @@ export const rowSpanAndStyle = () => {
 
     return (
         <DataTable>
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="ID" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Blueprint" name="blueprint_id" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Deployment" name="deployment_id" />
             {_.map(grouped, ({ items, blueprintId }) =>
                 _.map(items, ({ id, deployment_id: deploymentId }, index) => (
-                    // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
                     <DataTable.Row key={id}>
-                        {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                         <DataTable.Data style={{ fontWeight: 'bold' }}>{id}</DataTable.Data>
-                        {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                         {index === 0 && <DataTable.Data rowSpan={items.length}>{blueprintId}</DataTable.Data>}
-                        {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                         <DataTable.Data>{deploymentId}</DataTable.Data>
-                        {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                     </DataTable.Row>
                 ))
             )}
@@ -225,28 +173,17 @@ export const rowSpanAndStyle = () => {
 
 export const colSpan = () => (
     <DataTable>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="ID" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Blueprint" name="blueprint_id" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Deployment" name="deployment_id" />
         {logs.items.flatMap(item => [
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={item.id}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>,
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={`${item.id}-additional`}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data colSpan={3}>This row spans all columns</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
         ])}
     </DataTable>
@@ -254,9 +191,8 @@ export const colSpan = () => (
 
 export const columnTooltips = () => (
     <DataTable>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="ID" tooltip="The ID of the deployment" />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
+
         <DataTable.Column
             label="Blueprint"
             name="blueprint_id"
@@ -266,7 +202,7 @@ export const columnTooltips = () => (
                 </>
             }
         />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
+
         <DataTable.Column
             label="Deployment"
             name="deployment_id"
@@ -277,15 +213,10 @@ export const columnTooltips = () => (
             }
         />
         {logs.items.map(item => (
-            // @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message
             <DataTable.Row key={item.id}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.blueprint_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>{item.deployment_id}</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
         ))}
     </DataTable>
@@ -296,68 +227,44 @@ export const expandableRow = () => {
 
     return (
         <DataTable>
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Name" name="id" width="40%" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Date" name="date" width="30%" />
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
             <DataTable.Column label="Description" width="30%" />
 
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             <DataTable.Row key="drupal" selected={selected === 'drupal'} onClick={() => setSelected('drupal')}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>Drupal application</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>2016-03-04</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>description for portal</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
 
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             <DataTable.Row key="wordpress" selected={selected === 'wordpress'} onClick={() => setSelected('wordpress')}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>Wordpress blog</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>2016-01-05</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>description for blog</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
 
-            {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             <DataTable.Row key="joomla" selected={selected === 'joomla'} onClick={() => setSelected('joomla')}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>Joomla website</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>2015-08-14</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                 <DataTable.Data>description for website</DataTable.Data>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
             </DataTable.Row>
 
             {/* @ts-expect-error TS(2339) FIXME: Property 'RowExpandable' does not exist on type 't... Remove this comment to see the full error message */}
             <DataTable.RowExpandable expanded={selected === 'prestashop'}>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                 <DataTable.Row
                     key="prestashop"
                     selected={selected === 'prestashop'}
                     onClick={() => setSelected('prestashop')}
                 >
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
                     <DataTable.Data>Prestashop store</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
+
                     <DataTable.Data>2017-01-05</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Data' does not exist on type 'typeof Dat... Remove this comment to see the full error message */}
+
                     <DataTable.Data>description for e-commerce solution</DataTable.Data>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'Row' does not exist on type 'typeof Data... Remove this comment to see the full error message */}
                 </DataTable.Row>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'DataExpandable' does not exist on type '... Remove this comment to see the full error message */}
-                <DataTable.DataExpandable key="prestashop">
+                <DataTable.DataExpandable numberOfColumns={0} key="prestashop">
                     <Segment>Additional info when row becomes expanded</Segment>
-                    {/* @ts-expect-error TS(2339) FIXME: Property 'DataExpandable' does not exist on type '... Remove this comment to see the full error message */}
                 </DataTable.DataExpandable>
-                {/* @ts-expect-error TS(2339) FIXME: Property 'RowExpandable' does not exist on type 't... Remove this comment to see the full error message */}
             </DataTable.RowExpandable>
         </DataTable>
     );
@@ -366,11 +273,8 @@ export const expandableRow = () => {
 export const empty = () => (
     // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; totalSize: number; }'... Remove this comment to see the full error message
     <DataTable totalSize={0}>
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Name" name="id" width="40%" centerAligned />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Date" name="date" width="30%" centerAligned />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Description" width="30%" centerAligned />
     </DataTable>
 );
@@ -386,12 +290,68 @@ export const emptyWithCustomMessage = () => (
             </div>
         }
     >
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Name" name="id" width="40%" centerAligned />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Date" name="date" width="30%" centerAligned />
-        {/* @ts-expect-error TS(2339) FIXME: Property 'Column' does not exist on type 'typeof D... Remove this comment to see the full error message */}
         <DataTable.Column label="Description" width="30%" centerAligned />
     </DataTable>
 );
 emptyWithCustomMessage.storyName = 'Empty with a custom message';
+
+export const verticalAlignment = () => (
+    <DataTable>
+        <DataTable.Column label="Name" name="id" width="40%" centerAligned />
+        <DataTable.Column label="Date" name="date" width="30%" centerAligned />
+        <DataTable.Column label="Description" width="30%" centerAligned />
+        <DataTable.Row>
+            <DataTable.Data verticalAlign="top">vertical Top</DataTable.Data>
+            <DataTable.Data>
+                vertical Mid <img height="30px" width="10px" alt="" />
+            </DataTable.Data>
+            <DataTable.Data verticalAlign="top">
+                Notes
+                <br />
+                1<br />
+                2<br />
+            </DataTable.Data>
+        </DataTable.Row>
+        <DataTable.Row>
+            <DataTable.Data verticalAlign="bottom">vertical bottom</DataTable.Data>
+            <DataTable.Data verticalAlign="flexMiddle">
+                vertical flex Mid <img height="30px" width="10px" alt="" />
+            </DataTable.Data>
+            <DataTable.Data verticalAlign="top">
+                Notes
+                <br />
+                1<br />
+                2<br />
+            </DataTable.Data>
+        </DataTable.Row>
+        <DataTable.Row>
+            <DataTable.Data>Jamie</DataTable.Data>
+            <DataTable.Data verticalAlign="bottom">Approved</DataTable.Data>
+            <DataTable.Data>
+                Notes
+                <br />
+                1<br />
+                2<br />
+            </DataTable.Data>
+        </DataTable.Row>
+        <DataTable.Row>
+            <DataTable.Data>John</DataTable.Data>
+            <DataTable.Data>Approved</DataTable.Data>
+            <DataTable.Data textAlign="left">None</DataTable.Data>
+        </DataTable.Row>
+        <DataTable.Row>
+            <DataTable.Data>Jamie</DataTable.Data>
+            <DataTable.Data>Approved</DataTable.Data>
+            <DataTable.Data textAlign="center">Requires call</DataTable.Data>
+        </DataTable.Row>
+        <DataTable.Row>
+            <DataTable.Data>Jill</DataTable.Data>
+            <DataTable.Data>Denied</DataTable.Data>
+            <DataTable.Data textAlign="right">None</DataTable.Data>
+        </DataTable.Row>
+    </DataTable>
+);
+
+verticalAlignment.storyName = 'Vertical align and text align';

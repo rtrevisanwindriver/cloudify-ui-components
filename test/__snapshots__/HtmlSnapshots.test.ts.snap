@@ -10475,7 +10475,6 @@ exports[`Storyshots Form/DateRange Basic 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    placeholder=""
     type="text"
     value=""
   />
@@ -10498,7 +10497,6 @@ exports[`Storyshots Form/DateRange Custom Ranges 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    placeholder=""
     type="text"
     value=""
   />
@@ -10521,7 +10519,6 @@ exports[`Storyshots Form/DateRange Default Value 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    placeholder=""
     type="text"
     value="Custom default value range text"
   />
@@ -11690,7 +11687,6 @@ exports[`Storyshots Form/DateRange Initially Open 1`] = `
       onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      placeholder=""
       type="text"
       value=""
     />

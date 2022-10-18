@@ -19,7 +19,7 @@ export interface PopupConfirmProps extends PopupProps {
     /**
      * function called to determine if Cancel button should be displayed
      */
-    onCanConfirm?: () => string | undefined;
+    onCanConfirm?: () => string | void;
     /**
      * if set then the component renders initially open
      */
@@ -36,12 +36,12 @@ export default function PopupConfirm({
     content = '',
     onCancel = noop,
     onConfirm = noop,
-    onCanConfirm = () => undefined,
+    onCanConfirm = () => {},
     defaultOpen = false,
     ...popupProps
 }: PopupConfirmProps) {
     const [showPopup, setShowPopup] = useState(defaultOpen);
-    const [canConfirm, setCanConfirm] = useState<undefined | string>(undefined);
+    const [canConfirm, setCanConfirm] = useState<string | void>('');
     const openPopup = () => {
         setCanConfirm(onCanConfirm());
         setShowPopup(true);

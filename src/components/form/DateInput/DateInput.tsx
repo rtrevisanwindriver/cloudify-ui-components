@@ -1,11 +1,77 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
-import _ from 'lodash';
+import type { Moment } from 'moment';
+import { isEmpty, isEqual, noop } from 'lodash';
 
 import { Button, Input } from 'semantic-ui-react';
+import type { ButtonProps, InputProps } from 'semantic-ui-react';
 import Popup from 'components/popups/Popup';
+import type { DatePickerProps } from '../DatePicker/DatePicker';
 import DatePicker from '../DatePicker';
+
+type OnChangeEvent =
+    | Parameters<Required<DatePickerProps>['onChange']>[0]
+    | Parameters<Required<InputProps>['onChange']>[0]
+    | Parameters<Required<ButtonProps>['onClick']>[0];
+
+export interface DateInputOnChangeData {
+    name: string;
+    value: string;
+}
+
+export interface DateInputProps {
+    /**
+     * name of the field
+     */
+    name: string;
+
+    /**
+     * string data value
+     */
+    value: string;
+
+    /**
+     * string data value to be set when Reset button is clicked
+     */
+    defaultValue?: string;
+
+    /**
+     * if set then the component renders initially open
+     */
+    defaultOpen?: boolean;
+
+    /**
+     * moment object for minimal date available in picker
+     */
+    minDate?: Moment;
+
+    /**
+     * moment object for maximal date available in picker
+     */
+    maxDate?: Moment;
+
+    /**
+     * function called on data picker change
+     */
+    onChange?: (event: OnChangeEvent, data: DateInputOnChangeData) => void;
+
+    /**
+     * input field placeholder
+     */
+    placeholder?: string;
+
+    /**
+     * time interval between available time options (in minutes)
+     */
+    timeIntervals?: number;
+}
+
+interface DateInputState {
+    isOpen?: DateInputProps['defaultOpen'];
+    dateValue?: null | Moment;
+    dateError: boolean;
+    dirty: boolean;
+}
 
 /**
  * `DateInput` is a component showing calendar input with datetime picker in popup.
@@ -13,74 +79,79 @@ import DatePicker from '../DatePicker';
  *
  * Accessible as `Form.Date`.
  */
-export default class DateInput extends React.PureComponent {
-    // @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-    constructor(props, context) {
-        super(props, context);
+export default class DateInput extends React.PureComponent<DateInputProps, DateInputState> {
+    static TIME_FORMAT = 'HH:mm';
 
-        // @ts-expect-error TS(2339) FIXME: Property 'initialState' does not exist on type 'ty... Remove this comment to see the full error message
+    static DATE_FORMAT = 'YYYY-MM-DD';
+
+    static DATETIME_FORMAT = `${DateInput.DATE_FORMAT} ${DateInput.TIME_FORMAT}`;
+
+    // eslint-disable-next-line react/static-property-placement
+    static defaultProps = {
+        defaultValue: '',
+        defaultOpen: false,
+        minDate: undefined,
+        maxDate: undefined,
+        onChange: noop,
+        placeholder: DateInput.DATETIME_FORMAT,
+        timeIntervals: 5
+    };
+
+    static initialState: DateInputState = {
+        dateError: false,
+        dateValue: null,
+        dirty: false
+    };
+
+    constructor(props: DateInputProps) {
+        super(props);
         this.state = { ...DateInput.initialState, isOpen: props.defaultOpen };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleResetButtonClick = this.handleResetButtonClick.bind(this);
-        this.handleDataPickerChange = this.handleDataPickerChange.bind(this);
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'momentDate' implicitly has an 'any' typ... Remove this comment to see the full error message
-    static getDateString(momentDate) {
-        // @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
+    static getDateString(momentDate: Moment) {
         return moment(momentDate).format(DateInput.DATETIME_FORMAT);
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'nextProps' implicitly has an 'any' type... Remove this comment to see the full error message
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.value !== DateInput.getDateString(prevState.dateValue)) {
+    static getDerivedStateFromProps(nextProps: DateInputProps, prevState: DateInputState) {
+        if (nextProps.value !== DateInput.getDateString(prevState.dateValue as Moment)) {
             return DateInput.getDateState(nextProps.value, nextProps.defaultValue);
         }
         return null;
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'newStringDate' implicitly has an 'any' ... Remove this comment to see the full error message
-    static getDateState(newStringDate, stringDefaultDate) {
-        if (_.isEmpty(newStringDate)) {
-            return { dirty: !_.isEqual(stringDefaultDate, ''), dateError: false, dateValue: undefined };
+    static getDateState(newStringDate: string, stringDefaultDate?: string) {
+        if (isEmpty(newStringDate)) {
+            return { dirty: !isEqual(stringDefaultDate, ''), dateError: false, dateValue: undefined };
         }
 
         const newMomentDate = moment(newStringDate);
         if (newMomentDate.isValid()) {
-            return { dirty: !_.isEqual(stringDefaultDate, newStringDate), dateError: false, dateValue: newMomentDate };
+            return { dirty: !isEqual(stringDefaultDate, newStringDate), dateError: false, dateValue: newMomentDate };
         }
 
         return { dirty: true, dateError: true, dateValue: undefined };
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
-    handleDateChange(event, newValue) {
-        // @ts-expect-error TS(2339) FIXME: Property 'name' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+    handleDateChange(event: OnChangeEvent, newValue: string) {
         const { name, onChange } = this.props;
-        onChange(event, { name, value: newValue });
+        onChange?.(event, { name, value: newValue });
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'proxy' implicitly has an 'any' type.
-    handleDataPickerChange(proxy, field) {
+    handleDataPickerChange: DatePickerProps['onChange'] = (proxy, field) => {
         this.handleDateChange(proxy, DateInput.getDateString(field.value));
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'proxy' implicitly has an 'any' type.
-    handleInputChange(proxy, field) {
+    handleInputChange: InputProps['onChange'] = (proxy, field) => {
         this.handleDateChange(proxy, field.value);
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'proxy' implicitly has an 'any' type.
-    handleResetButtonClick(proxy) {
-        // @ts-expect-error TS(2339) FIXME: Property 'defaultValue' does not exist on type 'Re... Remove this comment to see the full error message
+    handleResetButtonClick: ButtonProps['onClick'] = proxy => {
         const { defaultValue } = this.props;
-        this.handleDateChange(proxy, defaultValue);
-    }
+        this.handleDateChange(proxy, defaultValue as string);
+    };
 
     render() {
-        // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'Readonly<... Remove this comment to see the full error message
         const { value, placeholder, ...datePickerProps } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'dateError' does not exist on type 'Reado... Remove this comment to see the full error message
         const { dateError, dateValue, dirty, isOpen } = this.state;
 
         return (
@@ -110,7 +181,6 @@ export default class DateInput extends React.PureComponent {
 
                 <DatePicker
                     {...datePickerProps}
-                    // @ts-expect-error TS(2322) FIXME: Type '{ name: string; value: any; onChange: (proxy... Remove this comment to see the full error message
                     name="dateValue"
                     value={dateValue}
                     onChange={this.handleDataPickerChange}
@@ -119,79 +189,3 @@ export default class DateInput extends React.PureComponent {
         );
     }
 }
-
-// @ts-expect-error TS(2339) FIXME: Property 'TIME_FORMAT' does not exist on type 'typ... Remove this comment to see the full error message
-DateInput.TIME_FORMAT = 'HH:mm';
-// @ts-expect-error TS(2339) FIXME: Property 'DATE_FORMAT' does not exist on type 'typ... Remove this comment to see the full error message
-DateInput.DATE_FORMAT = 'YYYY-MM-DD';
-// @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
-DateInput.DATETIME_FORMAT = `${DateInput.DATE_FORMAT} ${DateInput.TIME_FORMAT}`;
-
-// @ts-expect-error TS(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
-DateInput.propTypes = {
-    /**
-     * name of the field
-     */
-    name: PropTypes.string.isRequired,
-
-    /**
-     * string data value
-     */
-    value: PropTypes.string.isRequired,
-
-    /**
-     * string data value to be set when Reset button is clicked
-     */
-    defaultValue: PropTypes.string,
-
-    /**
-     * if set then the component renders initially open
-     */
-    defaultOpen: PropTypes.bool,
-
-    /**
-     * moment object for minimal date available in picker
-     */
-    // @ts-expect-error TS(2345) FIXME: Argument of type 'typeof moment' is not assignable... Remove this comment to see the full error message
-    minDate: PropTypes.instanceOf(moment),
-
-    /**
-     * moment object for maximal date available in picker
-     */
-    // @ts-expect-error TS(2345) FIXME: Argument of type 'typeof moment' is not assignable... Remove this comment to see the full error message
-    maxDate: PropTypes.instanceOf(moment),
-
-    /**
-     * function called on data picker change
-     */
-    onChange: PropTypes.func,
-
-    /**
-     * input field placeholder
-     */
-    placeholder: PropTypes.string,
-
-    /**
-     * time interval between available time options (in minutes)
-     */
-    timeIntervals: PropTypes.number
-};
-
-// @ts-expect-error TS(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
-DateInput.defaultProps = {
-    defaultValue: '',
-    defaultOpen: false,
-    minDate: undefined,
-    maxDate: undefined,
-    onChange: _.noop,
-    // @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
-    placeholder: DateInput.DATETIME_FORMAT,
-    timeIntervals: 5
-};
-
-// @ts-expect-error TS(2339) FIXME: Property 'initialState' does not exist on type 'ty... Remove this comment to see the full error message
-DateInput.initialState = {
-    dateError: false,
-    dateValue: null,
-    dirty: false
-};

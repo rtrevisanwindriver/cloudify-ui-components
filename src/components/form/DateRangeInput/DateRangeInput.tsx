@@ -1,14 +1,114 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import type { CSSProperties } from 'react';
+import { isEmpty, isEqual, get, map, extend, pick } from 'lodash';
 import moment from 'moment';
+import type { Moment } from 'moment';
 
 import { Button, Grid, Input, Label, List, Segment } from 'semantic-ui-react';
+import type { ButtonProps, InputProps } from 'semantic-ui-react';
 import ApproveButton from 'components/buttons/ApproveButton';
 import CancelButton from 'components/buttons/CancelButton';
 import Popup from 'components/popups/Popup';
+import type { ApproveButtonProps } from 'components/buttons/ApproveButton/ApproveButton';
 import DateInput from '../DateInput';
 import DatePicker from '../DatePicker';
+import type { DatePickerProps } from '../DatePicker/DatePicker';
+
+interface Range {
+    start: string;
+    end: string;
+}
+
+export interface DateRange extends Range {
+    range: string;
+}
+
+export type Ranges = Record<string, Range>;
+
+interface StartDate {
+    startError: boolean;
+    startDate?: Moment;
+}
+
+interface EndDate {
+    endError: boolean;
+    endDate?: Moment;
+}
+
+export interface DateRangeInputOnChangeData {
+    name: string;
+    value: DateRange;
+}
+
+export interface DateRangeInputProps {
+    /**
+     * name of the field
+     */
+    name: string;
+
+    /**
+     * timeFilter object ({range:'', start:'', end:''}) to be set when Reset button is clicked
+     */
+    defaultValue?: DateRange;
+
+    /**
+     * timeFilter object ({range:'', start:'', end:''}) to set input values
+     */
+    value?: DateRange;
+
+    /**
+     * if set then the component renders initially open
+     */
+    defaultOpen?: boolean;
+
+    /**
+     * text to be displayed in the input field when there's no range set
+     */
+    placeholder?: string;
+
+    /**
+     * ranges object containing dict of named custom ranges with start/end string dates "YYYY-MM-DD HH:mm"
+     */
+    ranges?: Ranges;
+
+    /**
+     * function (event, data) called on Apply button click, timeFilter object value is sent as data.value
+     */
+    onChange?: (
+        event: Parameters<Required<ApproveButtonProps>['onClick']>[0],
+        data: DateRangeInputOnChangeData
+    ) => void;
+
+    /**
+     * function (event, data) called on Cancel button click, timeFilter object value is sent as data.value
+     */
+    onCancel?: (event: Parameters<Required<ButtonProps>['onClick']>[0], data: DateRangeInputOnChangeData) => void;
+
+    /**
+     * CSS class
+     */
+    className?: string;
+
+    /**
+     * CSS style
+     */
+    style?: CSSProperties;
+}
+
+export interface DateRangeInputState
+    extends Pick<DateRangeInputProps, 'defaultValue' | 'value'>,
+        StartDate,
+        EndDate,
+        Range {
+    isOpen?: boolean;
+    dirty: boolean;
+    range?: string;
+}
+
+const emptyRange: Range = {
+    start: '',
+    end: ''
+};
 
 /**
  * `DateRangeInput` is a component showing time range
@@ -25,121 +125,126 @@ import DatePicker from '../DatePicker';
  *
  * Accessible as `Form.DateRange`.
  */
-export default class DateRangeInput extends React.PureComponent {
-    // @ts-expect-error TS(7006) FIXME: Parameter 'dateTimeString' implicitly has an 'any'... Remove this comment to see the full error message
-    static isValidDate(dateTimeString) {
+class DateRangeInput extends React.PureComponent<DateRangeInputProps, DateRangeInputState, unknown> {
+    static EMPTY_VALUE: DateRange = {
+        range: '',
+        start: '',
+        end: ''
+    };
+
+    static TIME_FORMAT = DateInput.TIME_FORMAT;
+
+    static DATE_FORMAT = DateInput.DATE_FORMAT;
+
+    static DATETIME_FORMAT = DateInput.DATETIME_FORMAT;
+
+    static CUSTOM_RANGE = 'Custom Range';
+
+    static isValidDate(dateTimeString?: string) {
         return moment(dateTimeString || {}).isValid();
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'start' implicitly has an 'any' type.
-    static getStartDateState(start) {
+    static getStartDateState(start: DateRange['start']): StartDate {
         const startDate = { startError: false };
         if (DateRangeInput.isValidDate(start)) {
             const startMoment = moment(start || {});
-            _.extend(startDate, { startDate: startMoment });
+            extend(startDate, { startDate: startMoment });
         }
         return startDate;
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'end' implicitly has an 'any' type.
-    static getEndDateState(end) {
+    static getEndDateState(end: DateRange['end']): EndDate {
         const endDate = { endError: false };
         if (DateRangeInput.isValidDate(end)) {
             const endMoment = moment(end || {});
-            _.extend(endDate, { endDate: endMoment });
+            extend(endDate, { endDate: endMoment });
         }
         return endDate;
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'startDate' implicitly has an 'any' type... Remove this comment to see the full error message
-    static getStartState(startDate) {
-        // @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
+    static getStartState(startDate: DateRange['start']) {
         return { startError: false, start: moment(startDate).format(DateRangeInput.DATETIME_FORMAT) };
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'endDate' implicitly has an 'any' type.
-    static getEndState(endDate) {
-        // @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
+    static getEndState(endDate: DateRange['end']) {
         return { endError: false, end: moment(endDate).format(DateRangeInput.DATETIME_FORMAT) };
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-    constructor(props, context) {
-        super(props, context);
+    // eslint-disable-next-line react/static-property-placement
+    static defaultProps = {
+        defaultValue: DateRangeInput.EMPTY_VALUE,
+        value: DateRangeInput.EMPTY_VALUE,
+        defaultOpen: false,
+        ranges: {},
+        onChange: () => {},
+        onCancel: () => {}
+    };
 
-        // @ts-expect-error TS(2339) FIXME: Property 'initialState' does not exist on type 'ty... Remove this comment to see the full error message
+    static initialState = (props: DateRangeInputProps): DateRangeInputState => ({
+        ...emptyRange,
+        ...props.defaultValue,
+        ...props.value,
+        ...DateRangeInput.getStartDateState(props.value!.start),
+        ...DateRangeInput.getEndDateState(props.value!.end),
+        isOpen: props.defaultOpen,
+        dirty: false
+    });
+
+    constructor(props: DateRangeInputProps) {
+        super(props);
         this.state = DateRangeInput.initialState(props);
-
-        this.handleRangeButtonClick = this.handleRangeButtonClick.bind(this);
-        this.handleCustomRangeButtonClick = this.handleCustomRangeButtonClick.bind(this);
-        this.handleCustomInputChange = this.handleCustomInputChange.bind(this);
-        this.handleResetButtonClick = this.handleResetButtonClick.bind(this);
-        this.handleCancelButtonClick = this.handleCancelButtonClick.bind(this);
-        this.handleApplyButtonClick = this.handleApplyButtonClick.bind(this);
     }
 
     componentDidMount() {
-        // @ts-expect-error TS(2339) FIXME: Property 'initialState' does not exist on type 'ty... Remove this comment to see the full error message
         const state = DateRangeInput.initialState(this.props);
         this.setState(state);
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'prevProps' implicitly has an 'any' type... Remove this comment to see the full error message
-    componentDidUpdate(prevProps, prevState) {
-        // @ts-expect-error TS(2339) FIXME: Property 'defaultValue' does not exist on type 'Re... Remove this comment to see the full error message
+    componentDidUpdate(prevProps: DateRangeInputProps, prevState: DateRangeInputState) {
         const { defaultValue } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'EMPTY_VALUE' does not exist on type 'typ... Remove this comment to see the full error message
-        const dirty = !_.isEqual(_.pick(this.state, Object.keys(DateRangeInput.EMPTY_VALUE)), defaultValue);
-        // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'Readonly<... Remove this comment to see the full error message
+        const dirty = !isEqual(pick(this.state, Object.keys(DateRangeInput.EMPTY_VALUE)), defaultValue);
         const { value } = this.props;
-        const newState = {};
+        const newState: Partial<DateRangeInputState> = {};
         if (prevState.dirty !== dirty) {
-            // @ts-expect-error TS(2339) FIXME: Property 'dirty' does not exist on type '{}'.
             newState.dirty = dirty;
         }
         if (prevProps.value !== value) {
-            _.extend(
+            extend(
                 newState,
                 { ...value },
-                DateRangeInput.getStartDateState(value.start),
-                DateRangeInput.getEndDateState(value.end)
+                DateRangeInput.getStartDateState(value?.start || ''),
+                DateRangeInput.getEndDateState(value?.end || '')
             );
         }
-        if (!_.isEmpty(newState)) {
+        if (!isEmpty(newState)) {
             // eslint-disable-next-line react/no-did-update-set-state
-            this.setState(newState);
+            this.setState(newState as DateRangeInputState);
         }
     }
 
-    // @ts-expect-error TS(6133) FIXME: 'proxy' is declared but its value is never read.
-    handleInputChange(proxy, field, onStateUpdate) {
-        this.setState({ [field.name]: field.value }, onStateUpdate);
-    }
+    handleInputChange = (field: Parameters<Required<DatePickerProps>['onChange']>[1], onStateUpdate: () => void) => {
+        this.setState(prevState => ({ ...prevState, [field.name]: field.value }), onStateUpdate);
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'proxy' implicitly has an 'any' type.
-    handleCustomInputChange(proxy, field) {
-        this.handleInputChange(proxy, field, () => {
-            // @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
+    handleCustomInputChange: DatePickerProps['onChange'] = (_proxy, field) => {
+        this.handleInputChange(field, () => {
             const newState = { range: DateRangeInput.CUSTOM_RANGE };
-            if (_.isEqual(field.name, 'startDate')) {
-                _.extend(newState, DateRangeInput.getStartState(field.value));
-            } else if (_.isEqual(field.name, 'endDate')) {
-                _.extend(newState, DateRangeInput.getEndState(field.value));
-            } else if (_.isEqual(field.name, 'start')) {
-                _.extend(newState, DateRangeInput.getStartDateState(field.value));
-            } else if (_.isEqual(field.name, 'end')) {
-                _.extend(newState, DateRangeInput.getEndDateState(field.value));
+            if (isEqual(field.name, 'startDate')) {
+                extend(newState, DateRangeInput.getStartState(field.value.toString()));
+            } else if (isEqual(field.name, 'endDate')) {
+                extend(newState, DateRangeInput.getEndState(field.value.toString()));
+            } else if (isEqual(field.name, 'start')) {
+                extend(newState, DateRangeInput.getStartDateState(field.value.toString()));
+            } else if (isEqual(field.name, 'end')) {
+                extend(newState, DateRangeInput.getEndDateState(field.value.toString()));
             }
             this.setState(newState);
         });
-    }
+    };
 
-    // @ts-expect-error TS(6133) FIXME: 'proxy' is declared but its value is never read.
-    handleRangeButtonClick(proxy, field) {
-        // @ts-expect-error TS(2339) FIXME: Property 'ranges' does not exist on type 'Readonly... Remove this comment to see the full error message
+    handleRangeButtonClick: ButtonProps['onClick'] = (_proxy, field) => {
         const { ranges } = this.props;
-        const { start } = ranges[field.name];
-        const { end } = ranges[field.name];
+        const { start, end } = ranges?.[field.name] || emptyRange;
         const startDate = DateRangeInput.getStartDateState(start);
         const endDate = DateRangeInput.getEndDateState(end);
 
@@ -150,28 +255,23 @@ export default class DateRangeInput extends React.PureComponent {
             ...startDate,
             ...endDate
         });
-    }
+    };
 
-    // @ts-expect-error TS(6133) FIXME: 'proxy' is declared but its value is never read.
-    handleCustomRangeButtonClick(proxy, field) {
-        // @ts-expect-error TS(2339) FIXME: Property 'startDate' does not exist on type 'Reado... Remove this comment to see the full error message
-        const { startDate, endDate } = this.state;
+    handleCustomRangeButtonClick: ButtonProps['onClick'] = (_proxy, field) => {
+        const { startDate = '', endDate = '' } = this.state;
         const newState = { range: field.name };
-        _.extend(newState, DateRangeInput.getStartState(startDate));
-        _.extend(newState, DateRangeInput.getEndState(endDate));
+        extend(newState, DateRangeInput.getStartState(startDate.toString()));
+        extend(newState, DateRangeInput.getEndState(endDate.toString()));
         this.setState(newState);
-    }
+    };
 
-    handleResetButtonClick() {
+    handleResetButtonClick = () => {
         const resetState = this.getResetState(true);
         this.setState(resetState);
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
-    handleApplyButtonClick(event) {
-        // @ts-expect-error TS(2339) FIXME: Property 'name' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+    handleApplyButtonClick: ApproveButtonProps['onClick'] = event => {
         const { name, onChange } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'start' does not exist on type 'Readonly<... Remove this comment to see the full error message
         const { start, end } = this.state;
         const isStartValidDate = DateRangeInput.isValidDate(start);
         const isEndValidDate = DateRangeInput.isValidDate(end);
@@ -185,74 +285,62 @@ export default class DateRangeInput extends React.PureComponent {
 
         this.setState(newState, () => {
             if (isValid) {
-                onChange(event, { name, value: this.getTimeFilterObject() });
+                onChange?.(event, { name, value: this.getTimeFilterObject() });
             }
         });
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
-    handleCancelButtonClick(event) {
-        // @ts-expect-error TS(2339) FIXME: Property 'name' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+    handleCancelButtonClick: ButtonProps['onClick'] = event => {
         const { name, onCancel } = this.props;
         const resetState = this.getResetState(false);
         this.setState({ ...resetState, isOpen: false }, () =>
-            onCancel(event, { name, value: this.getTimeFilterObject() })
+            onCancel?.(event, { name, value: this.getTimeFilterObject() })
         );
-    }
+    };
 
-    getTimeFilterObject() {
-        // @ts-expect-error TS(2339) FIXME: Property 'ranges' does not exist on type 'Readonly... Remove this comment to see the full error message
+    getTimeFilterObject = (): DateRange => {
         const { ranges } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'range' does not exist on type 'Readonly<... Remove this comment to see the full error message
-        const { range, start, end } = this.state;
+        const { range = '', start, end } = this.state;
 
-        const timeFilter = { range };
+        const timeFilter: Partial<DateRange> = { range };
 
-        // @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
-        if (_.isEqual(range, DateRangeInput.CUSTOM_RANGE)) {
-            // @ts-expect-error TS(2339) FIXME: Property 'start' does not exist on type '{ range: ... Remove this comment to see the full error message
+        if (isEqual(range, DateRangeInput.CUSTOM_RANGE)) {
             timeFilter.start = start;
-            // @ts-expect-error TS(2339) FIXME: Property 'end' does not exist on type '{ range: an... Remove this comment to see the full error message
             timeFilter.end = end;
         } else {
-            // @ts-expect-error TS(2339) FIXME: Property 'start' does not exist on type '{ range: ... Remove this comment to see the full error message
-            timeFilter.start = _.get(ranges[range], 'start', '');
-            // @ts-expect-error TS(2339) FIXME: Property 'end' does not exist on type '{ range: an... Remove this comment to see the full error message
-            timeFilter.end = _.get(ranges[range], 'end', '');
+            timeFilter.start = get(ranges?.[range], 'start', '');
+            timeFilter.end = get(ranges?.[range], 'end', '');
         }
 
-        return timeFilter;
-    }
+        return timeFilter as DateRange;
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'toDefaults' implicitly has an 'any' typ... Remove this comment to see the full error message
-    getResetState(toDefaults) {
-        // @ts-expect-error TS(2339) FIXME: Property 'defaultValue' does not exist on type 'Re... Remove this comment to see the full error message
+    getResetState = (toDefaults: boolean): DateRangeInputState => {
         const { defaultValue, value } = this.props;
         const newValue = toDefaults ? defaultValue : value;
         const date = moment();
 
         return {
+            ...emptyRange,
             ...newValue,
             startDate: date,
-            endDate: date
+            endDate: date,
+            startError: false,
+            endError: false,
+            dirty: false
         };
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'checkedRange' implicitly has an 'any' t... Remove this comment to see the full error message
-    isRangeSelected(checkedRange) {
-        // @ts-expect-error TS(2339) FIXME: Property 'range' does not exist on type 'Readonly<... Remove this comment to see the full error message
+    isRangeSelected = (checkedRange: string) => {
         const { range } = this.state;
-        return _.isEqual(range, checkedRange);
-    }
+        return isEqual(range, checkedRange);
+    };
 
     render() {
-        // @ts-expect-error TS(2339) FIXME: Property 'placeholder' does not exist on type 'Rea... Remove this comment to see the full error message
         const { placeholder, ranges, className, style } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'dirty' does not exist on type 'Readonly<... Remove this comment to see the full error message
         const { dirty, range, start, end, isOpen, startDate, startError, endDate, endError } = this.state;
         const from = start ? `from [${start}] ` : '';
         const until = end ? ` until [${end}]` : '';
-        // @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
         const inputValue = this.isRangeSelected(DateRangeInput.CUSTOM_RANGE) ? `${from}${until}` : range;
         const inputFieldHint = (
             <div>
@@ -264,7 +352,7 @@ export default class DateRangeInput extends React.PureComponent {
             </div>
         );
         const gridStyle = { ...style };
-        if (!_.isEmpty(ranges)) gridStyle.width = 1090;
+        if (!isEmpty(ranges)) gridStyle.width = 1090;
 
         return (
             <Popup basic hoverable={false} flowing open={isOpen}>
@@ -279,14 +367,13 @@ export default class DateRangeInput extends React.PureComponent {
                     />
                 </Popup.Trigger>
                 <Grid style={gridStyle} className={className}>
-                    <Grid.Row columns={_.isEmpty(ranges) ? 2 : 3}>
-                        {!_.isEmpty(ranges) && (
+                    <Grid.Row columns={isEmpty(ranges) ? 2 : 3}>
+                        {!isEmpty(ranges) && (
                             <Grid.Column width={4}>
                                 <Segment padded>
                                     <Label attached="top">Range:</Label>
                                     <List>
-                                        {/* @ts-expect-error TS(6133) FIXME: 'obj' is declared but its value is never read. */}
-                                        {_.map(ranges, (obj, name) => (
+                                        {map(ranges, (_obj, name) => (
                                             <List.Item key={name}>
                                                 <Button
                                                     active={this.isRangeSelected(name)}
@@ -301,14 +388,11 @@ export default class DateRangeInput extends React.PureComponent {
                                         ))}
                                         <List.Item>
                                             <Button
-                                                // @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
                                                 active={this.isRangeSelected(DateRangeInput.CUSTOM_RANGE)}
-                                                // @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
                                                 name={DateRangeInput.CUSTOM_RANGE}
                                                 fluid
                                                 onClick={this.handleCustomRangeButtonClick}
                                             >
-                                                {/* @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message */}
                                                 {DateRangeInput.CUSTOM_RANGE}
                                             </Button>
                                         </List.Item>
@@ -316,7 +400,7 @@ export default class DateRangeInput extends React.PureComponent {
                                 </Segment>
                             </Grid.Column>
                         )}
-                        <Grid.Column width={_.isEmpty(ranges) ? 8 : 6}>
+                        <Grid.Column width={isEmpty(ranges) ? 8 : 6}>
                             <Segment padded className="start-date">
                                 <Label attached="top">From:</Label>
 
@@ -331,7 +415,7 @@ export default class DateRangeInput extends React.PureComponent {
                                                     value={start}
                                                     placeholder="Start date/time"
                                                     error={startError}
-                                                    onChange={this.handleCustomInputChange}
+                                                    onChange={this.handleCustomInputChange as InputProps['onChange']}
                                                 />
                                             </Popup.Trigger>
                                             {inputFieldHint}
@@ -339,7 +423,6 @@ export default class DateRangeInput extends React.PureComponent {
                                     </List.Item>
                                     <List.Item>
                                         <DatePicker
-                                            // @ts-expect-error TS(2322) FIXME: Type '{ name: string; value: any; onChange: (proxy... Remove this comment to see the full error message
                                             name="startDate"
                                             value={startDate}
                                             onChange={this.handleCustomInputChange}
@@ -351,7 +434,7 @@ export default class DateRangeInput extends React.PureComponent {
                                 </List>
                             </Segment>
                         </Grid.Column>
-                        <Grid.Column width={_.isEmpty(ranges) ? 8 : 6}>
+                        <Grid.Column width={isEmpty(ranges) ? 8 : 6}>
                             <Segment padded className="end-date">
                                 <Label attached="top">To:</Label>
 
@@ -366,7 +449,7 @@ export default class DateRangeInput extends React.PureComponent {
                                                     value={end}
                                                     placeholder="End date/time"
                                                     error={endError}
-                                                    onChange={this.handleCustomInputChange}
+                                                    onChange={this.handleCustomInputChange as InputProps['onChange']}
                                                 />
                                             </Popup.Trigger>
                                             {inputFieldHint}
@@ -374,7 +457,6 @@ export default class DateRangeInput extends React.PureComponent {
                                     </List.Item>
                                     <List.Item>
                                         <DatePicker
-                                            // @ts-expect-error TS(2322) FIXME: Type '{ name: string; value: any; onChange: (proxy... Remove this comment to see the full error message
                                             name="endDate"
                                             value={endDate}
                                             onChange={this.handleCustomInputChange}
@@ -398,106 +480,4 @@ export default class DateRangeInput extends React.PureComponent {
     }
 }
 
-// @ts-expect-error TS(2339) FIXME: Property 'EMPTY_VALUE' does not exist on type 'typ... Remove this comment to see the full error message
-DateRangeInput.EMPTY_VALUE = {
-    range: '',
-    start: '',
-    end: ''
-};
-// @ts-expect-error TS(2339) FIXME: Property 'TIME_FORMAT' does not exist on type 'typ... Remove this comment to see the full error message
-DateRangeInput.TIME_FORMAT = DateInput.TIME_FORMAT;
-// @ts-expect-error TS(2339) FIXME: Property 'DATE_FORMAT' does not exist on type 'typ... Remove this comment to see the full error message
-DateRangeInput.DATE_FORMAT = DateInput.DATE_FORMAT;
-// @ts-expect-error TS(2339) FIXME: Property 'DATETIME_FORMAT' does not exist on type ... Remove this comment to see the full error message
-DateRangeInput.DATETIME_FORMAT = DateInput.DATETIME_FORMAT;
-// @ts-expect-error TS(2339) FIXME: Property 'CUSTOM_RANGE' does not exist on type 'ty... Remove this comment to see the full error message
-DateRangeInput.CUSTOM_RANGE = 'Custom Range';
-
-// @ts-expect-error TS(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
-DateRangeInput.propTypes = {
-    /**
-     * name of the field
-     */
-    name: PropTypes.string.isRequired,
-
-    /**
-     * timeFilter object ({range:'', start:'', end:''}) to be set when Reset button is clicked
-     */
-    defaultValue: PropTypes.shape({
-        range: PropTypes.string.isRequired,
-        start: PropTypes.string.isRequired,
-        end: PropTypes.string.isRequired
-    }),
-
-    /**
-     * timeFilter object ({range:'', start:'', end:''}) to set input values
-     */
-    value: PropTypes.shape({
-        range: PropTypes.string.isRequired,
-        start: PropTypes.string.isRequired,
-        end: PropTypes.string.isRequired
-    }),
-
-    /**
-     * if set then the component renders initially open
-     */
-    // eslint-disable-next-line react/no-unused-prop-types
-    defaultOpen: PropTypes.bool,
-
-    /**
-     * text to be displayed in the input field when there's no range set
-     */
-    placeholder: PropTypes.string,
-
-    /**
-     * ranges object containing dict of named custom ranges with start/end string dates "YYYY-MM-DD HH:mm"
-     */
-    ranges: PropTypes.objectOf(
-        PropTypes.shape({ start: PropTypes.string.isRequired, end: PropTypes.string.isRequired })
-    ),
-
-    /**
-     * function (event, data) called on Apply button click, timeFilter object value is sent as data.value
-     */
-    onChange: PropTypes.func,
-
-    /**
-     * function (event, data) called on Cancel button click, timeFilter object value is sent as data.value
-     */
-    onCancel: PropTypes.func,
-
-    /**
-     * CSS class
-     */
-    className: PropTypes.string,
-
-    /**
-     * CSS style
-     */
-    style: PropTypes.shape({})
-};
-
-// @ts-expect-error TS(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
-DateRangeInput.defaultProps = {
-    className: undefined,
-    style: {},
-    // @ts-expect-error TS(2339) FIXME: Property 'EMPTY_VALUE' does not exist on type 'typ... Remove this comment to see the full error message
-    defaultValue: DateRangeInput.EMPTY_VALUE,
-    // @ts-expect-error TS(2339) FIXME: Property 'EMPTY_VALUE' does not exist on type 'typ... Remove this comment to see the full error message
-    value: DateRangeInput.EMPTY_VALUE,
-    defaultOpen: false,
-    placeholder: '',
-    ranges: {},
-    onChange: () => {},
-    onCancel: () => {}
-};
-
-// @ts-expect-error TS(2339) FIXME: Property 'initialState' does not exist on type 'ty... Remove this comment to see the full error message
-DateRangeInput.initialState = props => ({
-    ...props.defaultValue, // { range, start, end }
-    ...props.value, // { range, start, end }
-    ...DateRangeInput.getStartDateState(props.value.start), // { startError, startDate }
-    ...DateRangeInput.getEndDateState(props.value.end), // { endError, endDate }
-    isOpen: props.defaultOpen,
-    dirty: false
-});
+export default DateRangeInput;

@@ -11,7 +11,7 @@
     },
     "overrides": [
         {
-            "files": "**/*.stories.{jsx,tsx}",
+            "files": ["**/*.stories.{jsx,tsx}", "src/decorators/**"],
             "rules": {
                 "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
             }

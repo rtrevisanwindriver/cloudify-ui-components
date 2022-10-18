@@ -219,7 +219,6 @@ export const customField: Story<Required<GenericFieldProps>> = () => {
                     onChange={(_event, { value: newValue }) => setValue(newValue)}
                     widgetlessToolbox={{}}
                     type={GenericField.CUSTOM_TYPE}
-                    // @ts-expect-error TS(2769) FIXME: No overload matches this call.
                     component={Form.Date}
                 />
             </Form>

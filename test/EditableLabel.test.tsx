@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import type { ReactWrapper, ShallowWrapper } from 'enzyme';
 import EditableLabel from '../src/components/elements/EditableLabel';
 
 describe('<EditableLabel />', () => {
-    // @ts-expect-error TS(7006) FIXME: Parameter 'wrapper' implicitly has an 'any' type.
-    function expectEditMode(wrapper, editMode = true) {
+    function expectEditMode(wrapper: ReactWrapper | ShallowWrapper, editMode = true) {
         expect(wrapper.exists('Label')).toEqual(!editMode);
         expect(wrapper.exists('Input')).toEqual(editMode);
     }

@@ -1,7 +1,9 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
+import type { DropdownProps } from 'semantic-ui-react';
 import Dropdown from './Dropdown';
 
 export default {
@@ -9,8 +11,9 @@ export default {
     component: Dropdown,
     decorators: [LiveEditDecorator({ Dropdown, DivContainer })]
 };
+type DropdownStory = Story<Required<DropdownProps>>;
 
-export const basic = () => {
+export const basic: DropdownStory = () => {
     const options = [
         { text: 'Blue', value: 'blue' },
         { text: 'Red', value: 'red' },
@@ -25,15 +28,14 @@ export const basic = () => {
                 selection
                 options={options}
                 value={value}
-                // @ts-expect-error TS(6133) FIXME: 'event' is declared but its value is never read.
-                onChange={(event, { value: v }) => setValue(v)}
+                onChange={(_event, { value: v }) => setValue(v as string)}
             />
         </DivContainer>
     );
 };
 basic.storyName = 'Default';
 
-export const withEmptyOption = () => {
+export const withEmptyOption: DropdownStory = () => {
     const options = [
         { text: 'Blue', value: 'blue' },
         { text: 'Red', value: 'red' },
@@ -49,11 +51,10 @@ export const withEmptyOption = () => {
                 selection
                 options={options}
                 value={value}
-                // @ts-expect-error TS(6133) FIXME: 'event' is declared but its value is never read.
-                onChange={(event, { value: v }) => setValue(v)}
+                onChange={(_event, { value: v }) => setValue(v as string)}
             />
         </DivContainer>
     );
 };
 
-export const empty = () => <Dropdown />;
+export const empty: DropdownStory = () => <Dropdown />;

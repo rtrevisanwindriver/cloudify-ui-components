@@ -10,7 +10,7 @@ import type { ReactElement } from 'react';
  *
  * See [Dropdown](https://react.semantic-ui.com/modules/dropdown) component from Semantic-UI-React framework for details about props and usage details.
  */
-export default class Dropdown extends SemanticUiReactDropdown {
+class Dropdown extends SemanticUiReactDropdown {
     render(): ReactElement {
         const props = { ...this.props };
 
@@ -25,3 +25,5 @@ export default class Dropdown extends SemanticUiReactDropdown {
         return <SemanticUiReactDropdown clearable {...props} />;
     }
 }
+
+export default Dropdown;

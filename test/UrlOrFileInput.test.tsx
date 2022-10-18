@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import _ from 'lodash';
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { act } from 'react-dom/test-utils';
 import UrlOrFileInput from '../src/components/form/UrlOrFileInput';
 

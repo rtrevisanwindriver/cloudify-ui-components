@@ -7,7 +7,7 @@ export interface MessageContainerProps extends Omit<GridProps, 'textAlign'> {
     /**
      * primary content
      */
-    children: SegmentProps['children'];
+    children?: SegmentProps['children'];
 
     /**
      * if set to true show its content is being loaded

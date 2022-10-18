@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, List } from 'semantic-ui-react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
+import type { ErrorMessageProps } from './ErrorMessage';
 import ErrorMessage from './ErrorMessage';
 
 export default {
@@ -9,24 +11,25 @@ export default {
     component: ErrorMessage,
     decorators: [LiveEditDecorator({ ErrorMessage, Button, List })]
 };
+type ErrorMessageStory = Story<Required<ErrorMessageProps>>;
 
-export const basic = () => <ErrorMessage error="Invalid Blueprint ID provided" />;
+export const basic: ErrorMessageStory = () => <ErrorMessage error="Invalid Blueprint ID provided" />;
 basic.storyName = 'Default';
 
-export const autoHide = () => <ErrorMessage autoHide error="This error will disappear soon." />;
+export const autoHide: ErrorMessageStory = () => <ErrorMessage autoHide error="This error will disappear soon." />;
 
-export const customHeader = () => (
+export const customHeader: ErrorMessageStory = () => (
     <ErrorMessage header="Invalid input" error="Please provide value according to blueprint naming rules." />
 );
 
-export const errorsList = () => (
+export const errorsList: ErrorMessageStory = () => (
     <ErrorMessage
         header="Errors in the form"
         error={['Please provide deployment name', 'Please provide agent_private_key_path']}
     />
 );
 
-export const errorObject = () => (
+export const errorObject: ErrorMessageStory = () => (
     <ErrorMessage error={{ header: 'Input error', message: 'Please provide agent_private_key_path' }} />
 );
 

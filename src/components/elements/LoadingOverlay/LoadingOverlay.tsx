@@ -1,4 +1,4 @@
-import type { FunctionComponent } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
 import React from 'react';
 import type { DimmerProps } from 'semantic-ui-react';
 import { Dimmer, Loader } from 'semantic-ui-react';
@@ -7,7 +7,7 @@ export interface LoadingOverlayProps extends DimmerProps {
     /**
      * text message to display under loading icon
      */
-    message?: string;
+    message?: ReactNode;
 }
 
 /**

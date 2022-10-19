@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import type { FunctionComponent } from 'react';
-import _ from 'lodash';
+import { get, isEmpty } from 'lodash';
 
 import { Form, Label } from 'semantic-ui-react';
 import type { FormFieldProps as FormFieldPropsSemanticReact } from 'semantic-ui-react';
@@ -22,8 +22,8 @@ const FieldWrapper: FunctionComponent<FormFieldProps> = ({
     required = false,
     ...fieldProps
 }) => {
-    const errorPointing = _.get(error, 'pointing', '');
-    const errorContent = _.get(error, 'content', '');
+    const errorPointing = get(error, 'pointing', '');
+    const errorContent = get(error, 'content', '');
     const errorLabel = (
         <Label
             content={errorContent}
@@ -55,7 +55,7 @@ const FieldWrapper: FunctionComponent<FormFieldProps> = ({
  * so all properties of that component can be used here.
  */
 export const FormFieldWithoutMemo: FunctionComponent<FormFieldProps> = ({ help = '', label = '', ...fieldProps }) =>
-    _.isEmpty(label) && !_.isEmpty(help) ? (
+    isEmpty(label) && !isEmpty(help) ? (
         <PopupHelp trigger={<FieldWrapper {...fieldProps} help={help} label={label} />} content={help} />
     ) : (
         <FieldWrapper {...fieldProps} help={help} label={label} />

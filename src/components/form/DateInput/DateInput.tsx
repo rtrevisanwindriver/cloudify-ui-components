@@ -7,17 +7,13 @@ import { Button, Input } from 'semantic-ui-react';
 import type { ButtonProps, InputProps } from 'semantic-ui-react';
 import Popup from 'components/popups/Popup';
 import type { DatePickerProps } from '../DatePicker/DatePicker';
+import type { OnChangeInputData } from '../types';
 import DatePicker from '../DatePicker';
 
 type OnChangeEvent =
     | Parameters<Required<DatePickerProps>['onChange']>[0]
     | Parameters<Required<InputProps>['onChange']>[0]
     | Parameters<Required<ButtonProps>['onClick']>[0];
-
-export interface DateInputOnChangeData {
-    name: string;
-    value: string;
-}
 
 export interface DateInputProps {
     /**
@@ -53,7 +49,7 @@ export interface DateInputProps {
     /**
      * function called on data picker change
      */
-    onChange?: (event: OnChangeEvent, data: DateInputOnChangeData) => void;
+    onChange?: (event: OnChangeEvent, data: OnChangeInputData) => void;
 
     /**
      * input field placeholder

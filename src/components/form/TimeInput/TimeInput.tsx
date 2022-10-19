@@ -1,8 +1,8 @@
 import React from 'react';
 import { range, padStart, split } from 'lodash';
-
 import { Table, Dropdown } from 'semantic-ui-react';
 import type { DropdownProps, TableProps } from 'semantic-ui-react';
+import type { OnChangeInputData } from '../types';
 
 const generateOptions = (start: number, end: number, step: number, padding: number) => {
     return range(start, end, step).map(num => {
@@ -12,11 +12,6 @@ const generateOptions = (start: number, end: number, step: number, padding: numb
 };
 const hoursOptions = generateOptions(0, 24, 1, 2);
 const minutesOptions = generateOptions(0, 60, 1, 2);
-
-export interface TimeInputOnChangeData {
-    name: string;
-    value: string;
-}
 
 export interface TimeInputProps extends TableProps {
     /**
@@ -32,7 +27,7 @@ export interface TimeInputProps extends TableProps {
     /**
      * function called on hours/minutes input change
      */
-    onChange: (event: Parameters<Required<DropdownProps>['onChange']>[0], field: TimeInputOnChangeData) => void;
+    onChange: (event: Parameters<Required<DropdownProps>['onChange']>[0], field: OnChangeInputData) => void;
 }
 
 /**

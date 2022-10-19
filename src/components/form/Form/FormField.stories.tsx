@@ -1,8 +1,10 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Form from './Form';
 import { FormFieldWithoutMemo } from './FormField';
+import type { FormFieldProps } from './FormField';
 
 export default {
     title: 'Form/FormField',
@@ -10,7 +12,9 @@ export default {
     decorators: [LiveEditDecorator({ Form })]
 };
 
-export const required = () => (
+type FormFieldStory = Story<Required<FormFieldProps>>;
+
+export const required: FormFieldStory = () => (
     <Form>
         <Form.Field label="Username" required>
             <Form.Input placeholder="Provide username" />
@@ -18,7 +22,7 @@ export const required = () => (
     </Form>
 );
 
-export const error = () => (
+export const error: FormFieldStory = () => (
     <Form>
         <Form.Field error>
             <Form.Input placeholder="Provide username" />
@@ -26,16 +30,21 @@ export const error = () => (
     </Form>
 );
 
-export const errorWithContent = () => (
+export const errorWithContent: FormFieldStory = () => (
     <Form>
         <Form.Field label="Label" required error={{ content: 'Error message', pointing: 'above' }}>
-            {/* @ts-expect-error TS(2741) FIXME: Property 'onBlurUrl' is missing in type '{ name: s... Remove this comment to see the full error message */}
-            <Form.UrlOrFile name="name" placeholder="placeholder" onChangeUrl={() => {}} onChangeFile={() => {}} />
+            <Form.UrlOrFile
+                name="name"
+                placeholder="placeholder"
+                onChangeUrl={() => {}}
+                onChangeFile={() => {}}
+                onBlurUrl={() => {}}
+            />
         </Form.Field>
     </Form>
 );
 
-export const label = () => (
+export const label: FormFieldStory = () => (
     <Form>
         <Form.Field label="Username">
             <Form.Input placeholder="Provide username" />
@@ -43,7 +52,7 @@ export const label = () => (
     </Form>
 );
 
-export const help = () => (
+export const help: FormFieldStory = () => (
     <Form>
         <Form.Field label="Username" help="Use only alphanumeric characters">
             <Form.Input placeholder="Provide username" />
@@ -51,7 +60,7 @@ export const help = () => (
     </Form>
 );
 
-export const requiredWithHelp = () => (
+export const requiredWithHelp: FormFieldStory = () => (
     <Form>
         <Form.Field label="Username" help="Use only alphanumeric characters" required>
             <Form.Input placeholder="Provide username" />

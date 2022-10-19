@@ -1,9 +1,11 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import Form from '../Form/Form';
 import JsonInput from './JsonInput';
+import type { JsonInputProps } from './JsonInput';
 
 export default {
     title: 'Form/Json',
@@ -11,35 +13,34 @@ export default {
     decorators: [LiveEditDecorator({ Form })]
 };
 
-export const JSONValue = () => {
+type JsonInputStory = Story<Required<JsonInputProps>>;
+
+export const JSONValue: JsonInputStory = () => {
     const [value, setValue] = React.useState('{"webserver_port2":6,"webserver_port1":5}');
 
     return (
         <Form>
-            {/* @ts-expect-error TS(2322) FIXME: Type '{ name: string; value: string; onChange: (ev... Remove this comment to see the full error message */}
-            <Form.Json name="port_conf" value={value} onChange={(event, { value: v }) => setValue(v)} />
+            <Form.Json name="port_conf" value={value} onChange={(_event, { value: v }) => setValue(v)} />
         </Form>
     );
 };
 
-export const textValue = () => {
+export const textValue: JsonInputStory = () => {
     const [value, setValue] = React.useState('Text\nScript\nSomething');
 
     return (
         <Form>
-            {/* @ts-expect-error TS(2322) FIXME: Type '{ name: string; value: string; onChange: (ev... Remove this comment to see the full error message */}
-            <Form.Json name="port_conf" value={value} onChange={(event, { value: v }) => setValue(v)} />
+            <Form.Json name="port_conf" value={value} onChange={(_event, { value: v }) => setValue(v)} />
         </Form>
     );
 };
 
-export const markedAsError = () => {
+export const markedAsError: JsonInputStory = () => {
     const [value, setValue] = React.useState('{"webserver_port2":6,"webserver_port1":5}');
 
     return (
         <Form>
-            {/* @ts-expect-error TS(2322) FIXME: Type '{ name: string; error: true; value: string; ... Remove this comment to see the full error message */}
-            <Form.Json name="port_conf" error value={value} onChange={(event, { value: v }) => setValue(v)} />
+            <Form.Json name="port_conf" error value={value} onChange={(_event, { value: v }) => setValue(v)} />
         </Form>
     );
 };

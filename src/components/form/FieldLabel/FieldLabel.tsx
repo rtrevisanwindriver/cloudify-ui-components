@@ -1,8 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import type { ReactNode, DetailedHTMLProps, LabelHTMLAttributes } from 'react';
+import { isEmpty } from 'lodash';
+import type { SemanticShorthandItem } from 'semantic-ui-react';
 
 import PopupHelp from '../../popups/PopupHelp';
+
+type HTMLLabelProps = DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+
+export interface FieldLabelProps extends HTMLLabelProps {
+    /**
+     * field label
+     */
+    label?: string | SemanticShorthandItem<HTMLLabelProps> | null;
+    /**
+     * help description
+     */
+    help?: ReactNode;
+}
 
 /**
  * FieldLabel creates input field description with help popup (PopupHelp component).
@@ -10,15 +24,14 @@ import PopupHelp from '../../popups/PopupHelp';
  *
  * @return {null}
  */
-// @ts-expect-error TS(7031) FIXME: Binding element 'label' implicitly has an 'any' ty... Remove this comment to see the full error message
-export default function FieldLabel({ label, help, ...labelProps }) {
-    return !_.isEmpty(label) ? (
+export default function FieldLabel({ label, help, ...labelProps }: FieldLabelProps) {
+    return !isEmpty(label) ? (
         <>
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label {...labelProps} style={{ display: 'inline-block' }}>
                 {label}
             </label>
-            {!_.isEmpty(help) && (
+            {!isEmpty(help) && (
                 <span>
                     {' '}
                     <PopupHelp content={help} />
@@ -28,19 +41,3 @@ export default function FieldLabel({ label, help, ...labelProps }) {
         </>
     ) : null;
 }
-
-FieldLabel.propTypes = {
-    /**
-     * field label
-     */
-    label: PropTypes.string,
-    /**
-     * help description
-     */
-    help: PropTypes.node
-};
-
-FieldLabel.defaultProps = {
-    label: '',
-    help: ''
-};

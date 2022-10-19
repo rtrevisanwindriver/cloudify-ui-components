@@ -3,8 +3,7 @@ import { mount } from 'enzyme';
 import Confirm from '../src/components/modal/Confirm';
 
 describe('<Confirm />', () => {
-    // @ts-expect-error TS(2322) FIXME: Type '() => void' is not assignable to type '(call... Remove this comment to see the full error message
-    global.requestAnimationFrame = () => {};
+    global.requestAnimationFrame = () => 0;
     global.cancelAnimationFrame = () => {};
 
     it('renders', () => {

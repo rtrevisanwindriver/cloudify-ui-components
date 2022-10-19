@@ -1,7 +1,9 @@
 import React from 'react';
+import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Form from './Form';
+import type { FormProps } from './Form';
 
 export default {
     title: 'Form/Form',
@@ -9,7 +11,9 @@ export default {
     decorators: [LiveEditDecorator({ Form })]
 };
 
-export const basic = () => (
+type FormStory = Story<Required<FormProps>>;
+
+export const basic: FormStory = () => (
     <Form onSubmit={() => {}} errors={[]}>
         <Form.Divider>User Data</Form.Divider>
 

@@ -3,6 +3,8 @@ import type { FunctionComponent } from 'react';
 import { Header } from 'semantic-ui-react';
 import type { HeaderProps } from 'semantic-ui-react';
 
+export type FormDividerProps = HeaderProps;
+
 /**
  * `Form.Divider` is a component to divide form fields in Form component, to create sections.
  *
@@ -11,6 +13,6 @@ import type { HeaderProps } from 'semantic-ui-react';
  *
  * Accessible as `Form.Divider`.
  */
-const FormDivider: FunctionComponent<HeaderProps> = props => <Header as="h4" dividing {...props} />;
+const FormDivider: FunctionComponent<FormDividerProps> = props => <Header as="h4" dividing {...props} />;
 
 export default FormDivider;

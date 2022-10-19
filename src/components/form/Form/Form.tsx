@@ -21,7 +21,7 @@ import UrlOrFileInput from '../UrlOrFileInput';
 
 import './Form.css';
 
-interface FormProps extends Omit<StrictFormProps, 'error'> {
+export interface FormProps extends Omit<StrictFormProps, 'error'> {
     /**
      * string with error message or array of strings or React component
      *     or object with the following syntax:
@@ -160,7 +160,7 @@ function Form({
     );
 }
 
-Form.fieldNameValue = (field: { name: string; value: unknown; type: string; checked?: string }) => {
+Form.fieldNameValue = (field: { name: string; value: unknown; type: string; checked?: boolean }) => {
     const { name } = field;
     let { value } = field;
 

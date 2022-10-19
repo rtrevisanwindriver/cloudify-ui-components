@@ -1,6 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import type { FormCheckboxProps, FormInputProps } from 'semantic-ui-react';
 import Form from '../src/components/form/Form';
+
+type OnInputChangeData = FormInputProps & HTMLInputElement;
+type OnCheckboxChangeData = FormCheckboxProps & HTMLInputElement;
 
 describe('<Form />', () => {
     it('renders', () => {
@@ -17,8 +21,7 @@ describe('<Form />', () => {
     });
 
     it('scrolls to errors automatically', () => {
-        // @ts-expect-error TS(2322) FIXME: Type 'null' is not assignable to type 'string | El... Remove this comment to see the full error message
-        const wrapper = mount(<Form errors={null} scrollToError />);
+        const wrapper = mount(<Form errors={{}} scrollToError />);
         const formElement = wrapper.getDOMNode();
 
         expect(formElement).toBeDefined();
@@ -34,10 +37,8 @@ describe('<Form />', () => {
         const wrapper = mount(
             <Form.Input
                 name="username"
-                // @ts-expect-error TS(6133) FIXME: 'e' is declared but its value is never read.
-                onChange={(e, f) => {
-                    // @ts-expect-error TS(2345) FIXME: Argument of type 'InputOnChangeData' is not assign... Remove this comment to see the full error message
-                    fieldNameValue = Form.fieldNameValue(f);
+                onChange={(_e, data) => {
+                    fieldNameValue = Form.fieldNameValue(data as OnInputChangeData);
                 }}
             />
         );
@@ -53,10 +54,8 @@ describe('<Form />', () => {
             <Form.Checkbox
                 label="Newsletter"
                 name="newsletter"
-                // @ts-expect-error TS(6133) FIXME: 'e' is declared but its value is never read.
-                onChange={(e, f) => {
-                    // @ts-expect-error TS(2345) FIXME: Argument of type 'CheckboxProps' is not assignable... Remove this comment to see the full error message
-                    fieldNameValue = Form.fieldNameValue(f);
+                onChange={(_e, data) => {
+                    fieldNameValue = Form.fieldNameValue(data as OnCheckboxChangeData);
                 }}
             />
         );
@@ -76,10 +75,8 @@ describe('<Form />', () => {
             <Form.Input
                 type="number"
                 name="count"
-                // @ts-expect-error TS(6133) FIXME: 'e' is declared but its value is never read.
-                onChange={(e, f) => {
-                    // @ts-expect-error TS(2345) FIXME: Argument of type 'InputOnChangeData' is not assign... Remove this comment to see the full error message
-                    fieldNameValue = Form.fieldNameValue(f);
+                onChange={(_e, data) => {
+                    fieldNameValue = Form.fieldNameValue(data as OnInputChangeData);
                 }}
             />
         );
@@ -92,8 +89,7 @@ describe('<Form />', () => {
     });
 
     it('provides Form.fieldNameValue function handling field without name set', () => {
-        // @ts-expect-error TS(6133) FIXME: 'e' is declared but its value is never read.
-        const wrapper = mount(<Form.Input onChange={(e, f) => Form.fieldNameValue(f)} />);
+        const wrapper = mount(<Form.Input onChange={(_e, data) => Form.fieldNameValue(data as OnInputChangeData)} />);
 
         expect.assertions(1);
         expect(() =>

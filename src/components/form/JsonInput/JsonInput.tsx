@@ -1,63 +1,72 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import type { CSSProperties, ChangeEvent } from 'react';
+import { isEqual, isString, noop } from 'lodash';
 import { types } from 'cloudify-ui-common-frontend';
 
-import ReactJsonView from 'react-json-view';
 import { Icon, Label, TextArea, List } from 'semantic-ui-react';
+import type { TextAreaProps } from 'semantic-ui-react';
 import Popup from 'components/popups/Popup';
+import ReactJsonViewWrapper from './ReactJsonViewWrapper';
+import type { ReactJsonViewWrapperProps } from './ReactJsonViewWrapper';
+import type { OnChangeInputData } from '../types';
 import './JsonInput.css';
 
-// @ts-expect-error TS(7031) FIXME: Binding element 'value' implicitly has an 'any' ty... Remove this comment to see the full error message
-function ReactJsonViewWrapper({ value, divStyle, onChange }) {
-    return (
-        <div style={divStyle}>
-            <ReactJsonView
-                src={value}
-                name={null}
-                enableClipboard={false}
-                defaultValue=""
-                onAdd={onChange}
-                onEdit={onChange}
-                onDelete={onChange}
-            />
-        </div>
-    );
+export interface JsonInputProps {
+    /**
+     * name of the field
+     */
+    name: string;
+
+    /**
+     * value of the field
+     */
+    value?: string;
+
+    /**
+     * is field invalid
+     */
+    error?: boolean;
+
+    /**
+     * function to be called on value change
+     */
+    onChange: (event: ChangeEvent<HTMLTextAreaElement> | null, data: OnChangeInputData) => void;
+
+    /**
+     * CSS class
+     */
+    className?: string;
+
+    /**
+     * CSS style
+     */
+    style: CSSProperties;
 }
 
-ReactJsonViewWrapper.propTypes = {
-    /**
-     * JSON value
-     */
-    // eslint-disable-next-line react/forbid-prop-types
-    value: PropTypes.object,
+type JsonInputPropsWithDefaults = Required<JsonInputProps>;
 
-    /**
-     * React style object passed to ReactJsonView component
-     */
-    // eslint-disable-next-line react/forbid-prop-types
-    divStyle: PropTypes.object,
-
-    /**
-     * Function called on value change
-     */
-    onChange: PropTypes.func
-};
-
-ReactJsonViewWrapper.defaultProps = {
-    value: {},
-    divStyle: {},
-    onChange: _.noop
-};
+interface JsonInputState {
+    isRawView: boolean;
+    isParsableToJson: boolean;
+    isMouseOver: boolean;
+}
 
 /**
  * `JsonInput` is a component providing text or rich editor for JSON-like data
  *
  * Accessible as `Form.Json`.
  */
-export default class JsonInput extends React.PureComponent {
-    // @ts-expect-error TS(7006) FIXME: Parameter 'props' implicitly has an 'any' type.
-    constructor(props, context) {
+export default class JsonInput extends React.PureComponent<JsonInputPropsWithDefaults, JsonInputState> {
+    // eslint-disable-next-line react/static-property-placement
+    static defaultProps = {
+        value: '{}',
+        error: false,
+        onChange: noop,
+        className: undefined,
+        style: {}
+    };
+
+    constructor(props: JsonInputPropsWithDefaults, context: unknown) {
         super(props, context);
 
         this.state = {
@@ -65,10 +74,6 @@ export default class JsonInput extends React.PureComponent {
             isParsableToJson: false,
             isMouseOver: false
         };
-
-        this.onChangeJson = this.onChangeJson.bind(this);
-        this.onChangeString = this.onChangeString.bind(this);
-        this.switchView = this.switchView.bind(this);
     }
 
     componentDidMount() {
@@ -76,14 +81,11 @@ export default class JsonInput extends React.PureComponent {
         this.setState({ isParsableToJson, isRawView: !isParsableToJson });
     }
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'prevProps' implicitly has an 'any' type... Remove this comment to see the full error message
-    componentDidUpdate(prevProps) {
-        // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'Readonly<... Remove this comment to see the full error message
+    componentDidUpdate(prevProps: JsonInputProps) {
         const { value } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'isRawView' does not exist on type 'Reado... Remove this comment to see the full error message
         const { isRawView } = this.state;
 
-        if (!_.isEqual(value, prevProps.value)) {
+        if (!isEqual(value, prevProps.value)) {
             const isParsableToJson = this.isParsableToJson();
             // eslint-disable-next-line react/no-did-update-set-state
             this.setState({
@@ -93,37 +95,33 @@ export default class JsonInput extends React.PureComponent {
         }
     }
 
-    // @ts-expect-error TS(7031) FIXME: Binding element 'value' implicitly has an 'any' ty... Remove this comment to see the full error message
-    onChangeJson({ updated_src: value }) {
-        // @ts-expect-error TS(2339) FIXME: Property 'name' does not exist on type 'Readonly<{... Remove this comment to see the full error message
+    onChangeJson: ReactJsonViewWrapperProps['onChange'] = ({ updated_src: value }) => {
         const { name, onChange } = this.props;
 
         onChange(null, {
             name,
             value: types.getStringValue(value)
         });
-    }
+    };
 
-    // @ts-expect-error TS(7006) FIXME: Parameter 'event' implicitly has an 'any' type.
-    onChangeString(event, { name, value }) {
-        // @ts-expect-error TS(2339) FIXME: Property 'onChange' does not exist on type 'Readon... Remove this comment to see the full error message
+    onChangeString: TextAreaProps['onChange'] = (event, data) => {
         const { onChange } = this.props;
-        onChange(event, { name, value });
-    }
+        const { name, value = '' } = data as OnChangeInputData;
 
-    switchView() {
-        // @ts-expect-error TS(2339) FIXME: Property 'isRawView' does not exist on type 'Reado... Remove this comment to see the full error message
+        onChange(event, { name, value });
+    };
+
+    switchView = () => {
         const { isRawView } = this.state;
         this.setState({ isRawView: !isRawView });
-    }
+    };
 
     // See: https://stackoverflow.com/questions/9804777/how-to-test-if-a-string-is-json-or-not
-    isParsableToJson() {
-        // @ts-expect-error TS(2339) FIXME: Property 'value' does not exist on type 'Readonly<... Remove this comment to see the full error message
+    isParsableToJson = () => {
         const { value } = this.props;
         let isParsableToJson = true;
 
-        if (!_.isString(value)) {
+        if (!isString(value)) {
             isParsableToJson = false;
         } else {
             try {
@@ -136,12 +134,10 @@ export default class JsonInput extends React.PureComponent {
         }
 
         return isParsableToJson;
-    }
+    };
 
     render() {
-        // @ts-expect-error TS(2339) FIXME: Property 'name' does not exist on type 'Readonly<{... Remove this comment to see the full error message
         const { name, value, error, className, style: wrapperStyle } = this.props;
-        // @ts-expect-error TS(2339) FIXME: Property 'isRawView' does not exist on type 'Reado... Remove this comment to see the full error message
         const { isRawView, isParsableToJson, isMouseOver } = this.state;
 
         const stringValue = types.getStringValue(value);
@@ -162,7 +158,6 @@ export default class JsonInput extends React.PureComponent {
                 onMouseLeave={() => this.setState({ isMouseOver: false })}
             >
                 {isRawView ? (
-                    // @ts-expect-error TS(2769) FIXME: No overload matches this call.
                     <TextArea name={name} value={stringValue} onChange={this.onChangeString} style={style} />
                 ) : (
                     <ReactJsonViewWrapper value={jsonValue} divStyle={style} onChange={this.onChangeJson} />
@@ -175,7 +170,7 @@ export default class JsonInput extends React.PureComponent {
                                 link={isParsableToJson}
                                 disabled={!isParsableToJson}
                                 style={{ position: 'absolute', top: 10, right: 30 }}
-                                onClick={isParsableToJson ? this.switchView : _.noop}
+                                onClick={isParsableToJson ? this.switchView : noop}
                             />
                         </Popup.Trigger>
                         <Popup.Content>
@@ -209,45 +204,3 @@ export default class JsonInput extends React.PureComponent {
         );
     }
 }
-
-// @ts-expect-error TS(2339) FIXME: Property 'propTypes' does not exist on type 'typeo... Remove this comment to see the full error message
-JsonInput.propTypes = {
-    /**
-     * name of the field
-     */
-    name: PropTypes.string.isRequired,
-
-    /**
-     * value of the field
-     */
-    value: PropTypes.string,
-
-    /**
-     * is field invalid
-     */
-    error: PropTypes.bool,
-
-    /**
-     * function to be called on value change
-     */
-    onChange: PropTypes.func,
-
-    /**
-     * CSS class
-     */
-    className: PropTypes.string,
-
-    /**
-     * CSS style
-     */
-    style: PropTypes.shape({})
-};
-
-// @ts-expect-error TS(2339) FIXME: Property 'defaultProps' does not exist on type 'ty... Remove this comment to see the full error message
-JsonInput.defaultProps = {
-    value: '{}',
-    error: false,
-    onChange: _.noop,
-    className: undefined,
-    style: {}
-};

@@ -1,8 +1,57 @@
+import type { FunctionComponent, ReactElement, ReactNode } from 'react';
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { isFunction } from 'lodash';
 
 import TableDataCell from './TableDataCell';
+
+type TRProps = React.HTMLAttributes<HTMLTableRowElement>;
+
+export interface TableRowProps {
+    /**
+     * row content
+     */
+    children: ReactNode;
+
+    /**
+     * row id
+     */
+    id?: string;
+
+    /**
+     * if true, then row will be marked as selected
+     */
+    selected?: boolean;
+
+    /**
+     * array of column's names to be shown
+     */
+    showCols?: boolean[];
+
+    /**
+     * name of the style class to be added
+     */
+    className?: string;
+
+    /**
+     * action to be executed on mouse over event and focus
+     */
+    onMouseOver?: TRProps['onMouseOver'] & TRProps['onFocus'];
+
+    /**
+     * action to be executed on mouse out event and blur
+     */
+    onMouseOut?: TRProps['onMouseOut'] & TRProps['onBlur'];
+
+    /**
+     * CSS style
+     */
+    style?: Partial<CSSStyleDeclaration> & TRProps['style'];
+
+    /**
+     * On click handler
+     */
+    onClick?: TRProps['onClick'];
+}
 
 /**
  * Defines table rows, renders <tr> elements.
@@ -15,40 +64,29 @@ import TableDataCell from './TableDataCell';
  * </DataTable.Row>
  * ```
  */
-
-export default function TableRow({
-    // @ts-expect-error TS(7031) FIXME: Binding element 'id' implicitly has an 'any' type.
+const TableRow: FunctionComponent<TableRowProps> = ({
     id,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'children' implicitly has an 'any'... Remove this comment to see the full error message
     children,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'selected' implicitly has an 'any'... Remove this comment to see the full error message
-    selected,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'onClick' implicitly has an 'any' ... Remove this comment to see the full error message
-    onClick,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'onMouseOver' implicitly has an 'a... Remove this comment to see the full error message
+    selected = false,
+    // eslint-disable-next-line react/prop-types
+    onClick, // This is defined in TRProps
     onMouseOver,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'onMouseOut' implicitly has an 'an... Remove this comment to see the full error message
     onMouseOut,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'showCols' implicitly has an 'any'... Remove this comment to see the full error message
-    showCols,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'className' implicitly has an 'any... Remove this comment to see the full error message
-    className,
-    // @ts-expect-error TS(7031) FIXME: Binding element 'style' implicitly has an 'any' ty... Remove this comment to see the full error message
-    style
-}) {
-    // @ts-expect-error TS(7006) FIXME: Parameter 'index' implicitly has an 'any' type.
-    const showData = index => (index < showCols.length ? showCols[index] : true);
+    showCols = [],
+    className = '',
+    style = {}
+}) => {
+    const showData = (index: number) => (index < showCols.length ? showCols[index] : true);
     const computedClassName = className + (selected ? ' active' : '');
-    // @ts-expect-error TS(7034) FIXME: Variable 'computedChildren' implicitly has type 'a... Remove this comment to see the full error message
-    const computedChildren = [];
+    const computedChildren: ReactNode[] = [];
 
     const computedStyle = { ...style };
-    if (_.isFunction(onClick)) {
+    if (isFunction(onClick)) {
         computedStyle.cursor = 'pointer';
     }
 
     React.Children.forEach(children, (child, index) => {
-        if (child && child.type === TableDataCell && showData(index)) {
+        if (child && (child as ReactElement)?.type === TableDataCell && showData(index)) {
             computedChildren.push(child);
         }
     });
@@ -64,66 +102,9 @@ export default function TableRow({
             onBlur={onMouseOut}
             style={computedStyle}
         >
-            {/* @ts-expect-error TS(7005) FIXME: Variable 'computedChildren' implicitly has an 'any... Remove this comment to see the full error message */}
             {computedChildren}
         </tr>
     );
-}
-
-TableRow.propTypes = {
-    /**
-     * row content
-     */
-    children: PropTypes.node.isRequired,
-
-    /**
-     * row id
-     */
-    id: PropTypes.string,
-
-    /**
-     * if true, then row will be marked as selected
-     */
-    selected: PropTypes.bool,
-
-    /**
-     * action to be executed on click event
-     */
-    onClick: PropTypes.func,
-
-    /**
-     * action to be executed on mouse over event
-     */
-    onMouseOver: PropTypes.func,
-
-    /**
-     * action to be executed on mouse out event
-     */
-    onMouseOut: PropTypes.func,
-
-    /**
-     * array of column's names to be shown
-     */
-    showCols: PropTypes.arrayOf(PropTypes.bool),
-
-    /**
-     * name of the style class to be added
-     */
-    className: PropTypes.string,
-
-    /**
-     * CSS style
-     */
-    style: PropTypes.shape({})
 };
 
-TableRow.defaultProps = {
-    id: undefined,
-    selected: false,
-    onClick: undefined,
-    onMouseOver: undefined,
-    onMouseOut: undefined,
-    showCols: [],
-    className: '',
-    style: {}
-};
+export default TableRow;

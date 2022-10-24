@@ -1,6 +1,5 @@
 import type { CSSProperties, FunctionComponent, ReactElement, ReactNode } from 'react';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Popup from 'components/popups/Popup';
 
@@ -111,17 +110,6 @@ const TableColumn: FunctionComponent<TableColumnProps> = ({
     );
 };
 export default TableColumn;
-
-TableColumn.propTypes = {
-    label: PropTypes.node,
-    name: PropTypes.string,
-    width: PropTypes.string,
-    show: PropTypes.bool,
-    tooltip: PropTypes.node,
-    centerAligned: PropTypes.bool,
-    className: PropTypes.string,
-    style: PropTypes.shape({})
-};
 
 const OptionalPopup: FunctionComponent<{ tooltip?: ReactNode; children: ReactElement }> = ({ children, tooltip }) => {
     if (!tooltip) {

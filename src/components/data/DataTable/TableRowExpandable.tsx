@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import type { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 /**
  * Defines expandable row in data table. Two <tr> elements are rendered by DataTable component from one DataTable.ExpandableRow component.
@@ -16,19 +17,22 @@ import PropTypes from 'prop-types';
  * </DataTable.RowExpandable>
  * ```
  */
-export default function TableRowExpandable() {}
-
-TableRowExpandable.propTypes = {
+export interface TableRowExpandableProps {
     /**
      * expanded row content
      */
-    children: PropTypes.node.isRequired,
+    children: ReactNode[];
 
     /**
      * if true, then expandable part of the row will be shown
      */
-    expanded: PropTypes.bool
+    expanded: boolean;
+}
+const TableRowExpandable: FunctionComponent<TableRowExpandableProps> = () => {
+    return <></>;
 };
+
+export default TableRowExpandable;
 
 TableRowExpandable.defaultProps = {
     expanded: false

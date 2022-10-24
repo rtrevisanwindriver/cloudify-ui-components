@@ -1,9 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import { Button, Input, Segment } from 'semantic-ui-react';
-
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-
+import type { Story } from '@storybook/react';
 import DataTable from './DataTable';
 
 const logs = {
@@ -49,12 +48,11 @@ export default {
     decorators: [LiveEditDecorator({ Button, Input, Segment, DataTable, logs })]
 };
 
-export const pagination = () => {
+export const pagination: Story = () => {
     const [pageSize, setPageSize] = React.useState(5);
 
     return (
         <DataTable
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; fetchDa... Remove this comment to see the full error message
             fetchData={({ gridParams: { pageSize: ps } }) => setPageSize(ps)}
             totalSize={logs.metadata.pagination.total}
             pageSize={pageSize}
@@ -73,10 +71,9 @@ export const pagination = () => {
     );
 };
 
-export const selectable = () => {
+export const selectable: Story = () => {
     const [selected, setSelected] = React.useState(logs.items[0].id);
     return (
-        // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; totalSi... Remove this comment to see the full error message
         <DataTable totalSize={logs.metadata.pagination.total} pageSize={logs.metadata.pagination.size}>
             <DataTable.Column label="ID" />
             <DataTable.Column label="Blueprint" name="blueprint_id" />
@@ -92,8 +89,7 @@ export const selectable = () => {
     );
 };
 
-export const searchFilter = () => (
-    // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; totalSi... Remove this comment to see the full error message
+export const searchFilter: Story = () => (
     <DataTable totalSize={logs.metadata.pagination.total} pageSize={logs.metadata.pagination.size} searchable>
         <DataTable.Column label="ID" />
         <DataTable.Column label="Blueprint" name="blueprint_id" />
@@ -108,7 +104,7 @@ export const searchFilter = () => (
     </DataTable>
 );
 
-export const actionButtons = () => (
+export const actionButtons: Story = () => (
     <DataTable>
         <DataTable.Action>
             <Button color="green" content="Deploy" icon="rocket" />
@@ -128,7 +124,7 @@ export const actionButtons = () => (
     </DataTable>
 );
 
-export const filterInputs = () => (
+export const filterInputs: Story = () => (
     <DataTable>
         <DataTable.Filter>
             <Input placeholder="Blueprint" />
@@ -147,7 +143,7 @@ export const filterInputs = () => (
         ))}
     </DataTable>
 );
-export const rowSpanAndStyle = () => {
+export const rowSpanAndStyle: Story = () => {
     const grouped = _(logs.items)
         .groupBy('blueprint_id')
         .map((items, blueprintId) => ({ blueprintId, items }))
@@ -155,7 +151,7 @@ export const rowSpanAndStyle = () => {
 
     return (
         <DataTable>
-            <DataTable.Column label="ID" />
+            <DataTable.Column label="ID" />`
             <DataTable.Column label="Blueprint" name="blueprint_id" />
             <DataTable.Column label="Deployment" name="deployment_id" />
             {_.map(grouped, ({ items, blueprintId }) =>
@@ -222,7 +218,7 @@ export const columnTooltips = () => (
     </DataTable>
 );
 
-export const expandableRow = () => {
+export const expandableRow: Story = () => {
     const [selected, setSelected] = React.useState('prestashop');
 
     return (
@@ -249,7 +245,6 @@ export const expandableRow = () => {
                 <DataTable.Data>description for website</DataTable.Data>
             </DataTable.Row>
 
-            {/* @ts-expect-error TS(2339) FIXME: Property 'RowExpandable' does not exist on type 't... Remove this comment to see the full error message */}
             <DataTable.RowExpandable expanded={selected === 'prestashop'}>
                 <DataTable.Row
                     key="prestashop"
@@ -270,8 +265,7 @@ export const expandableRow = () => {
     );
 };
 
-export const empty = () => (
-    // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; totalSize: number; }'... Remove this comment to see the full error message
+export const empty: Story = () => (
     <DataTable totalSize={0}>
         <DataTable.Column label="Name" name="id" width="40%" centerAligned />
         <DataTable.Column label="Date" name="date" width="30%" centerAligned />
@@ -279,9 +273,8 @@ export const empty = () => (
     </DataTable>
 );
 
-export const emptyWithCustomMessage = () => (
+export const emptyWithCustomMessage: Story = () => (
     <DataTable
-        // @ts-expect-error TS(2322) FIXME: Type '{ children: Element[]; totalSize: number; no... Remove this comment to see the full error message
         totalSize={0}
         noDataMessage={
             <div style={{ margin: '2rem' }}>
@@ -297,7 +290,7 @@ export const emptyWithCustomMessage = () => (
 );
 emptyWithCustomMessage.storyName = 'Empty with a custom message';
 
-export const verticalAlignment = () => (
+export const verticalAlignment: Story = () => (
     <DataTable>
         <DataTable.Column label="Name" name="id" width="40%" centerAligned />
         <DataTable.Column label="Date" name="date" width="30%" centerAligned />

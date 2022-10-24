@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Form } from 'semantic-ui-react';
 
 /**
@@ -25,23 +22,5 @@ import { Form } from 'semantic-ui-react';
  *  </DataTable>
  * ```
  */
-// @ts-expect-error TS(7031) FIXME: Binding element 'children' implicitly has an 'any'... Remove this comment to see the full error message
-export default function TableFilter({ children, ...formFieldProps }) {
-    return <Form.Field {...formFieldProps}>{children}</Form.Field>;
-}
 
-TableFilter.propTypes = {
-    /**
-     * filter fields
-     */
-    children: PropTypes.node.isRequired,
-
-    /**
-     * name of the style class to be added
-     */
-    className: PropTypes.string
-};
-
-TableFilter.defaultProps = {
-    className: ''
-};
+export default Form.Field;

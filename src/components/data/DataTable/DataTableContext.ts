@@ -6,7 +6,7 @@ const DataTableContext = createContext({
     /**
      * @type {((name: string) => void)}
      */
-    setSortColumn: (_name: string) => {
+    setSortColumn: (_name: string): void => {
         throw new Error('setSortColumn not implemented');
     }
 });

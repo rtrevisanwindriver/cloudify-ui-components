@@ -13,7 +13,7 @@ describe('<DataTable />', () => {
         <DataTable.Column key="col3" label="Column three" show={false} />,
         [{ k: 1 }, { k: 2 }, { k: 3, s: true }, { k: 4 }, { k: 5 }].map(item => {
             return (
-                <DataTable.Row key={item.k} selected={item.s} onClick={item.s ? clickRowMock : null}>
+                <DataTable.Row key={item.k} selected={item.s} onClick={item.s ? clickRowMock : undefined}>
                     <DataTable.Data>Data {item.k}.1</DataTable.Data>
                     <DataTable.Data>Data {item.k}.2</DataTable.Data>
                     <DataTable.Data>Data {item.k}.3</DataTable.Data>
@@ -24,7 +24,6 @@ describe('<DataTable />', () => {
 
     it('renders', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -34,7 +33,6 @@ describe('<DataTable />', () => {
 
     it('renders data rows', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} totalSize={5} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -45,7 +43,6 @@ describe('<DataTable />', () => {
 
     it('renders selected row', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -58,7 +55,6 @@ describe('<DataTable />', () => {
 
     it('clicks selected row', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -70,7 +66,6 @@ describe('<DataTable />', () => {
 
     it('renders column attributes', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -83,7 +78,6 @@ describe('<DataTable />', () => {
 
     it('disables sort column when no name is provided', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -94,7 +88,6 @@ describe('<DataTable />', () => {
 
     it('sorts column by default props', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -107,7 +100,6 @@ describe('<DataTable />', () => {
 
     it('hides column', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -122,7 +114,6 @@ describe('<DataTable />', () => {
         // @ts-expect-error TS(2345) FIXME: Argument of type '(f: (...args: any) => any) => (.... Remove this comment to see the full error message
         const debounceSpy = jest.spyOn(_, 'debounce').mockImplementation(f => f);
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; fetchDa... Remove this comment to see the full error message
             <DataTable fetchData={fetchDataMock} pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -151,7 +142,6 @@ describe('<DataTable />', () => {
 
     it('renders action/filter items', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | (Element | Element[])... Remove this comment to see the full error message
             <DataTable totalSize={0} pageSize={25} sortColumn="col1" sortAscending={false}>
                 <DataTable.Action>
                     <Button icon="rocket" />
@@ -170,7 +160,6 @@ describe('<DataTable />', () => {
     it('sorts column on click up/down', () => {
         const fetchDataMock = jest.fn();
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -192,7 +181,6 @@ describe('<DataTable />', () => {
 
     it('updates state on sort props change', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>
@@ -204,7 +192,6 @@ describe('<DataTable />', () => {
 
     it('renders no data message if empty', () => {
         const wrapper = mount(
-            // @ts-expect-error TS(2322) FIXME: Type '{ children: (Element | Element[])[]; pageSiz... Remove this comment to see the full error message
             <DataTable pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}
             </DataTable>

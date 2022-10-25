@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import HighlightText from './HighlightText';
@@ -10,21 +11,22 @@ export default {
     decorators: [LiveEditDecorator({ Button, HighlightText })]
 };
 
-export const basic = () => (
-    // @ts-expect-error TS(2741) FIXME: Property 'language' is missing in type '{ children... Remove this comment to see the full error message
-    <HighlightText>
+type HighlightTextStory = ComponentStory<typeof HighlightText>;
+
+export const basic: HighlightTextStory = () => (
+    <HighlightText language="json">
         {`{
     "employee": {
         "name":       "sonoo",
         "salary":      56000,
-        "married":    true
+        "married":     true
     }
 }`}
     </HighlightText>
 );
 basic.storyName = 'Default';
 
-export const bash = () => (
+export const bash: HighlightTextStory = () => (
     <HighlightText language="bash">
         {`#!/bin/bash
 # declare STRING variable
@@ -34,7 +36,7 @@ echo $STRING`}
     </HighlightText>
 );
 
-export const javaScript = () => (
+export const javaScript: HighlightTextStory = () => (
     <HighlightText language="javascript">
         {`function ask(question, yes, no) {
   if (confirm(question)) yes()
@@ -54,19 +56,19 @@ ask("Do you agree?", showOk, showCancel);`}
     </HighlightText>
 );
 
-export const JSON = () => (
+export const JSON: HighlightTextStory = () => (
     <HighlightText language="json">
         {`{
     "employee": {
         "name":       "sonoo",
         "salary":      56000,
-        "married":    true
+        "married":     true
     }
 }`}
     </HighlightText>
 );
 
-export const python = () => (
+export const python: HighlightTextStory = () => (
     <HighlightText language="python">
         {`import whois
 
@@ -77,7 +79,7 @@ print w`}
     </HighlightText>
 );
 
-export const YAML = () => (
+export const YAML: HighlightTextStory = () => (
     <HighlightText language="yaml">
         {`tosca_definitions_version: cloudify_dsl_1_3
 

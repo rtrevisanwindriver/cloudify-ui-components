@@ -17,6 +17,11 @@
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "typings/components/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "toolbox": ["typings/toolbox.d.ts"]
+    }
+  },
   "scripts": {
     "audit": "npm audit --omit=dev --omit=optional",
     "build": "bash scripts/build-components.sh && npm run generate-type-declarations",

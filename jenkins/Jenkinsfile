@@ -13,7 +13,7 @@ def secrets = [
 def configuration = [vaultUrl: "${env.VAULT_URL}",  vaultCredentialId: 'vault-app-role', engineVersion: 2]
 
 def getPublishVersion(String branch){
-  return branch.replace('publish-v','')
+  return branch.replace('publish_v','')
 }
 
 pipeline {
@@ -169,7 +169,7 @@ pipeline {
     }
     stage('Deploy') {
       when {
-        expression { return env.BRANCH =~ /^publish-v.*/ }
+        expression { return env.BRANCH =~ /^publish_v.*/ }
       }
       steps {
         container('awscli'){

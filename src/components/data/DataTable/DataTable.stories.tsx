@@ -35,7 +35,7 @@ const logs = {
     ],
     metadata: {
         pagination: {
-            total: 10,
+            total: 15,
             offset: 0,
             size: 5
         }

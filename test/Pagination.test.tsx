@@ -185,6 +185,33 @@ describe('<Pagination />', () => {
         });
     });
 
+    it('disables changing pages by arrows on first and last page', () => {
+        const fetchDataMock = jest.fn();
+        const wrapper = mount(
+            <Pagination fetchData={fetchDataMock} pageSize={5} totalSize={100}>
+                <div />
+            </Pagination>
+        );
+
+        const getButton = (buttonName: string) => {
+            return wrapper
+                .find('.pagination')
+                .find('PaginationItem')
+                .filterWhere(item => item.prop('type') === buttonName);
+        };
+
+        expect(getButton('firstItem').prop('disabled')).toBe(true);
+        expect(getButton('prevItem').prop('disabled')).toBe(true);
+
+        const lastItemButton = getButton('lastItem');
+
+        expect(lastItemButton.prop('disabled')).toBe(false);
+        lastItemButton.simulate('click');
+
+        expect(getButton('nextItem').prop('disabled')).toBe(true);
+        expect(getButton('lastItem').prop('disabled')).toBe(true);
+    });
+
     it('handles invalid page size', () => {
         const fetchDataMock = jest.fn();
         const wrapper = mount(

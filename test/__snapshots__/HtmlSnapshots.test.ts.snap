@@ -576,11 +576,11 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
         >
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="firstItem"
             value={1}
           >
@@ -592,11 +592,11 @@ exports[`Storyshots Data/DataSegment Pagination 1`] = `
           </a>
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="prevItem"
             value={1}
           >
@@ -2221,7 +2221,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
           5
           <span>
              of 
-            10
+            15
              entries
           </span>
         </form>
@@ -2236,11 +2236,11 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
         >
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="firstItem"
             value={1}
           >
@@ -2252,11 +2252,11 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
           </a>
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="prevItem"
             value={1}
           >
@@ -2293,6 +2293,18 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
           <a
             aria-current={false}
             aria-disabled={false}
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+            type="pageItem"
+            value={3}
+          >
+            3
+          </a>
+          <a
+            aria-current={false}
+            aria-disabled={false}
             className="icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2314,7 +2326,7 @@ exports[`Storyshots Data/DataTable Pagination 1`] = `
             onKeyDown={[Function]}
             tabIndex={0}
             type="lastItem"
-            value={2}
+            value={3}
           >
             <i
               aria-hidden="true"
@@ -2819,7 +2831,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
           5
           <span>
              of 
-            10
+            15
              entries
           </span>
         </form>
@@ -2834,11 +2846,11 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
         >
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="firstItem"
             value={1}
           >
@@ -2850,11 +2862,11 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
           </a>
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="prevItem"
             value={1}
           >
@@ -2891,6 +2903,18 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
           <a
             aria-current={false}
             aria-disabled={false}
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+            type="pageItem"
+            value={3}
+          >
+            3
+          </a>
+          <a
+            aria-current={false}
+            aria-disabled={false}
             className="icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2912,7 +2936,7 @@ exports[`Storyshots Data/DataTable Search Filter 1`] = `
             onKeyDown={[Function]}
             tabIndex={0}
             type="lastItem"
-            value={2}
+            value={3}
           >
             <i
               aria-hidden="true"
@@ -3251,7 +3275,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
           5
           <span>
              of 
-            10
+            15
              entries
           </span>
         </form>
@@ -3266,11 +3290,11 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
         >
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="firstItem"
             value={1}
           >
@@ -3282,11 +3306,11 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
           </a>
           <a
             aria-current={false}
-            aria-disabled={false}
-            className="icon item"
+            aria-disabled={true}
+            className="disabled icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
-            tabIndex={0}
+            tabIndex={-1}
             type="prevItem"
             value={1}
           >
@@ -3323,6 +3347,18 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
           <a
             aria-current={false}
             aria-disabled={false}
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={0}
+            type="pageItem"
+            value={3}
+          >
+            3
+          </a>
+          <a
+            aria-current={false}
+            aria-disabled={false}
             className="icon item"
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3344,7 +3380,7 @@ exports[`Storyshots Data/DataTable Selectable 1`] = `
             onKeyDown={[Function]}
             tabIndex={0}
             type="lastItem"
-            value={2}
+            value={3}
           >
             <i
               aria-hidden="true"

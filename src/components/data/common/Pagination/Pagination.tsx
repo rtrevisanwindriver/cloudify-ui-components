@@ -112,6 +112,10 @@ export default class Pagination extends Component<PaginationProps, PaginationSta
         const { currentPage, pageSize: pageSizeState, showWarningPopup } = this.state;
         const showPagination =
             totalSize > PaginationInfo.pageSizes(sizeMultiplier)[0] || totalSize > pageSizeState || currentPage > 1;
+        const totalPages = Math.ceil(totalSize / pageSizeState);
+
+        const isFirstPage = currentPage === 1;
+        const isLastPage = currentPage === totalPages;
 
         return (
             <div>
@@ -142,15 +146,31 @@ export default class Pagination extends Component<PaginationProps, PaginationSta
                             {totalSize > 0 && (
                                 <PaginationNavigation
                                     activePage={currentPage}
-                                    totalPages={Math.ceil(totalSize / pageSizeState)}
+                                    totalPages={totalPages}
                                     // NOTE: assume the `activePage` is always a number
                                     onPageChange={(_e, { activePage }) => this.changePage(activePage as number)}
                                     siblingRange={0}
                                     ellipsisItem={{ content: <Icon name="ellipsis horizontal" />, icon: true }}
-                                    firstItem={{ content: <Icon name="angle double left" />, icon: true }}
-                                    lastItem={{ content: <Icon name="angle double right" />, icon: true }}
-                                    prevItem={{ content: <Icon name="angle left" />, icon: true }}
-                                    nextItem={{ content: <Icon name="angle right" />, icon: true }}
+                                    firstItem={{
+                                        content: <Icon name="angle double left" />,
+                                        icon: true,
+                                        disabled: isFirstPage
+                                    }}
+                                    lastItem={{
+                                        content: <Icon name="angle double right" />,
+                                        icon: true,
+                                        disabled: isLastPage
+                                    }}
+                                    prevItem={{
+                                        content: <Icon name="angle left" />,
+                                        icon: true,
+                                        disabled: isFirstPage
+                                    }}
+                                    nextItem={{
+                                        content: <Icon name="angle right" />,
+                                        icon: true,
+                                        disabled: isLastPage
+                                    }}
                                 />
                             )}
                         </Grid.Column>

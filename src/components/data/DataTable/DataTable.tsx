@@ -15,20 +15,11 @@ import TableRow from './TableRow';
 import TableRowExpandable from './TableRowExpandable';
 import DataTableContext from './DataTableContext';
 
+import type { FetchDataFunction } from '../common/types';
 import './DataTable.css';
 
-type FetchDataFunction = (params: {
-    gridParams: {
-        _search: string;
-        currentPage: number;
-        pageSize: number;
-        sortColumn: string;
-        sortAscending: boolean;
-    };
-}) => void;
-
 const defaultProps = {
-    fetchData: (() => {}) as FetchDataFunction,
+    fetchData: (() => Promise.resolve()) as FetchDataFunction,
     totalSize: -1,
     pageSize: 0,
     sortColumn: '',

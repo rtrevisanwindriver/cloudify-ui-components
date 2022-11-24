@@ -1,50 +1,45 @@
+import type { FunctionComponent, ReactNode } from 'react';
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { isFunction } from 'lodash';
 
 import { Segment } from 'semantic-ui-react';
+
+export interface SegmentItemProps {
+    /*
+     * primary content
+     */
+    children: ReactNode;
+
+    /*
+     * specifies if data segment item shall be selected
+     */
+    selected?: boolean;
+
+    /*
+     * specifies function to be called on action click
+     */
+    onClick?: (event: React.MouseEvent) => void;
+
+    /*
+     * CSS classname
+     */
+    className?: string;
+}
 
 /**
  * SegmentItem is a component showing content item for `DataSegment` component
  */
-// @ts-expect-error TS(7031) FIXME: Binding element 'children' implicitly has an 'any'... Remove this comment to see the full error message
-export default function SegmentItem({ children, selected, onClick, className }) {
+const SegmentItem: FunctionComponent<SegmentItemProps> = ({ children, selected = false, onClick, className = '' }) => {
     return (
         <Segment
             secondary={selected}
             className={className}
-            style={_.isFunction(onClick) ? { cursor: 'pointer' } : {}}
+            style={isFunction(onClick) ? { cursor: 'pointer' } : {}}
             onClick={onClick}
         >
             {children}
         </Segment>
     );
-}
-
-SegmentItem.propTypes = {
-    /*
-     * primary content
-     */
-    children: PropTypes.node.isRequired,
-
-    /*
-     * specifies if data segment item shall be selected
-     */
-    selected: PropTypes.bool,
-
-    /*
-     * specifies function to be called on action click
-     */
-    onClick: PropTypes.func,
-
-    /*
-     * CSS classname
-     */
-    className: PropTypes.string
 };
 
-SegmentItem.defaultProps = {
-    selected: false,
-    onClick: undefined,
-    className: ''
-};
+export default SegmentItem;

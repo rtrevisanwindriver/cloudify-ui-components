@@ -2,7 +2,7 @@
 
 exports[`Storyshots Buttons/ApproveButton Custom content 1`] = `
 <button
-  className="ui positive button ok"
+  className="ui blue button ok"
   onClick={[Function]}
 >
   <i
@@ -16,7 +16,7 @@ exports[`Storyshots Buttons/ApproveButton Custom content 1`] = `
 
 exports[`Storyshots Buttons/ApproveButton Default 1`] = `
 <button
-  className="ui positive button ok"
+  className="ui blue button ok"
   onClick={[Function]}
 >
   <i
@@ -30,7 +30,7 @@ exports[`Storyshots Buttons/ApproveButton Default 1`] = `
 
 exports[`Storyshots Buttons/CancelButton Custom content 1`] = `
 <button
-  className="ui red button basic cancel"
+  className="ui red button cancel"
   onClick={[Function]}
 >
   <i
@@ -44,7 +44,7 @@ exports[`Storyshots Buttons/CancelButton Custom content 1`] = `
 
 exports[`Storyshots Buttons/CancelButton Default 1`] = `
 <button
-  className="ui button basic cancel"
+  className="ui button cancel"
   onClick={[Function]}
 >
   <i
@@ -11099,7 +11099,7 @@ exports[`Storyshots Form/DateRange Initially Open 1`] = `
           Cancel
         </button>
         <button
-          className="ui positive button ok"
+          className="ui blue button ok"
           onClick={[Function]}
         >
           <i

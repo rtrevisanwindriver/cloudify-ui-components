@@ -11,7 +11,7 @@ import type { ButtonProps } from 'semantic-ui-react';
 export default function CancelButton({
     content = 'Cancel',
     icon = 'remove',
-    className = 'basic cancel',
+    className = 'cancel',
     ...buttonProps
 }: ButtonProps) {
     return <Button content={content} icon={icon} className={className} {...buttonProps} />;

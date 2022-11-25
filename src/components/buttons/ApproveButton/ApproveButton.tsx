@@ -30,9 +30,7 @@ const ApproveButton = ({
     content = 'Save',
     icon = 'checkmark',
     className = 'ok',
-    ...approveButtonProps
-}: ApproveButtonProps) => (
-    <Button content={content} icon={icon} className={className} positive {...approveButtonProps} />
-);
+    ...buttonProps
+}: ApproveButtonProps) => <Button content={content} icon={icon} className={className} color="blue" {...buttonProps} />;
 
 export default ApproveButton;

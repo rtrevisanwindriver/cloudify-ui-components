@@ -1,11 +1,10 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Dropdown, Icon } from 'semantic-ui-react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import HeaderMenu from './HeaderMenu';
-import type { HeaderMenuProps } from './HeaderMenu';
 
 export default {
     title: 'Layout/HeaderMenu',
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ HeaderMenu, Icon, Dropdown, DivContainer })]
 };
 
-type HeaderMenuStory = Story<Required<HeaderMenuProps>>;
+type HeaderMenuStory = ComponentStory<typeof HeaderMenu>;
 
 export const basic: HeaderMenuStory = () => (
     <DivContainer height={250}>

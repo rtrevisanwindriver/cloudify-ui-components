@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import ResourceVisibility from './ResourceVisibility';
-import type { ResourceVisibilityProps } from './ResourceVisibility';
 import type { Visibility } from '../types';
 
 export default {
@@ -12,7 +11,7 @@ export default {
     decorators: [LiveEditDecorator({ ResourceVisibility })]
 };
 
-type ResourceVisibilityStory = Story<Required<ResourceVisibilityProps>>;
+type ResourceVisibilityStory = ComponentStory<typeof ResourceVisibility>;
 
 export const unchangeable: ResourceVisibilityStory = () => <ResourceVisibility visibility="tenant" />;
 export const changeable: ResourceVisibilityStory = () => {

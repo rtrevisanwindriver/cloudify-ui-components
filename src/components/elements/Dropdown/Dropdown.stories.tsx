@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { DropdownProps } from 'semantic-ui-react';
 import Dropdown from './Dropdown';
 
 export default {
@@ -11,7 +10,7 @@ export default {
     component: Dropdown,
     decorators: [LiveEditDecorator({ Dropdown, DivContainer })]
 };
-type DropdownStory = Story<Required<DropdownProps>>;
+type DropdownStory = ComponentStory<typeof Dropdown>;
 
 export const basic: DropdownStory = () => {
     const options = [

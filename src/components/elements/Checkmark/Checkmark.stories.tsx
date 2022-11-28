@@ -1,8 +1,7 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { CheckmarkProps } from './Checkmark';
 import Checkmark from './Checkmark';
 
 export default {
@@ -10,7 +9,7 @@ export default {
     component: Checkmark,
     decorators: [LiveEditDecorator({ Checkmark })]
 };
-type CheckmarkStory = Story<Required<CheckmarkProps>>;
+type CheckmarkStory = ComponentStory<typeof Checkmark>;
 
 export const basic: CheckmarkStory = () => <Checkmark />;
 basic.storyName = 'Default';

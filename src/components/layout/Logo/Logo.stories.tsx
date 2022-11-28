@@ -1,11 +1,10 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Logo from './Logo';
-import type { LogoProps } from './Logo';
 
 export default {
     title: 'Layout/Logo',
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ Logo, DivContainer, ThemeProvider })]
 };
 
-type LogoStory = Story<Required<LogoProps>>;
+type LogoStory = ComponentStory<typeof Logo>;
 
 export const basic: LogoStory = () => (
     <DivContainer height={250} backgroundColor="blue">

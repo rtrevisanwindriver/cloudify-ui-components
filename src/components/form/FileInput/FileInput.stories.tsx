@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
+import type { ComponentStory } from '@storybook/react';
 import Form from '../Form/Form';
 
 export default {
@@ -12,7 +13,9 @@ export default {
     decorators: [LiveEditDecorator({ Button })]
 };
 
-export const basic = () => (
+type FileStory = ComponentStory<typeof Form.File>;
+
+export const basic: FileStory = () => (
     <Form>
         <Form.Field label="File">
             <Form.File name="file1" />
@@ -20,7 +23,7 @@ export const basic = () => (
     </Form>
 );
 
-export const noReset = () => (
+export const noReset: FileStory = () => (
     <Form>
         <Form.Field label="File">
             <Form.File name="file2" showReset={false} />
@@ -28,7 +31,7 @@ export const noReset = () => (
     </Form>
 );
 
-export const button = () => (
+export const button: FileStory = () => (
     <Form.File
         name="file3"
         showInput={false}
@@ -37,7 +40,7 @@ export const button = () => (
     />
 );
 
-export const controlled = () => {
+export const controlled: FileStory = () => {
     const [value, setValue] = React.useState('');
 
     return (

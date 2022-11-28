@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import VisibilityField from './VisibilityField';
-import type { VisibilityFieldProps } from './VisibilityField';
 import type { Visibility } from '../types';
 
 export default {
@@ -12,7 +11,7 @@ export default {
     decorators: [LiveEditDecorator({ VisibilityField })]
 };
 
-type VisibilityFieldStory = Story<Required<VisibilityFieldProps>>;
+type VisibilityFieldStory = ComponentStory<typeof VisibilityField>;
 
 export const unchangeable: VisibilityFieldStory = () => <VisibilityField visibility="global" allowChange={false} />;
 export const changeable: VisibilityFieldStory = () => {

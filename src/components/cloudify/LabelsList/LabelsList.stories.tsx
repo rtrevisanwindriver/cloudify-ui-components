@@ -1,8 +1,7 @@
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import React from 'react';
-import type { LabelsListProps } from './LabelsList';
 import LabelsList from './LabelsList';
 
 export default {
@@ -11,7 +10,9 @@ export default {
     decorators: [LiveEditDecorator({ LabelsList })]
 };
 
-export const basic: Story<Required<LabelsListProps>> = () => (
+type LabelsListStory = ComponentStory<typeof LabelsList>;
+
+export const basic: LabelsListStory = () => (
     <LabelsList
         labels={[
             { key: 'key1', value: 'inSystem', isInSystem: true },

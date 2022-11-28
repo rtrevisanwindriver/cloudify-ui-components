@@ -1,6 +1,5 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
-import type { ButtonProps } from 'semantic-ui-react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import CancelButton from './CancelButton';
@@ -11,8 +10,10 @@ export default {
     decorators: [LiveEditDecorator({ CancelButton })]
 };
 
-export const basic: Story<Required<ButtonProps>> = () => <CancelButton />;
+type CancelButtonStory = ComponentStory<typeof CancelButton>;
+
+export const basic: CancelButtonStory = () => <CancelButton />;
 basic.storyName = 'Default';
 
-export const custom = () => <CancelButton content="Stop" icon="stop" color="red" />;
+export const custom: CancelButtonStory = () => <CancelButton content="Stop" icon="stop" color="red" />;
 custom.storyName = 'Custom content';

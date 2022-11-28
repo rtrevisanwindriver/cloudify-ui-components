@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupConfirm from './PopupConfirm';
-import type { PopupConfirmProps } from './PopupConfirm';
 
 export default {
     title: 'Popups/PopupConfirm',
@@ -11,7 +10,7 @@ export default {
     decorators: [LiveEditDecorator({ PopupConfirm })]
 };
 
-type PopupConfirmStory = Story<Required<PopupConfirmProps>>;
+type PopupConfirmStory = ComponentStory<typeof PopupConfirm>;
 
 export const basic: PopupConfirmStory = () => (
     <PopupConfirm trigger={<button type="button">Delete</button>} content="Delete this file?" />

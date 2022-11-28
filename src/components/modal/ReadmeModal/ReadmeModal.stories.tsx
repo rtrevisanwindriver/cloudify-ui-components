@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 // @ts-expect-error TS(2307) FIXME: Cannot find module 'raw-loader!./example-content.h... Remove this comment to see the full error message
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -20,7 +20,7 @@ export default {
     }
 };
 
-type ReadmeModalStory = Story<Required<ReadmeModalProps>>;
+type ReadmeModalStory = ComponentStory<typeof ReadmeModal>;
 
 type TemplateProps = Pick<ReadmeModalProps, 'content' | 'className'>;
 const Template = ({ content, className = '' }: TemplateProps) => {

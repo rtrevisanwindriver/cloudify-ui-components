@@ -1,12 +1,11 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { Dropdown, Icon } from 'semantic-ui-react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import MenusBar from './MenusBar';
-import type { MenusBarProps } from './MenusBar';
 import HeaderMenu from '../HeaderMenu';
 
 export default {
@@ -15,7 +14,7 @@ export default {
     decorators: [LiveEditDecorator({ MenusBar, HeaderMenu, Icon, Dropdown, DivContainer, ThemeProvider })]
 };
 
-type MenusBarStory = Story<Required<MenusBarProps>>;
+type MenusBarStory = ComponentStory<typeof MenusBar>;
 
 export const basic: MenusBarStory = () => (
     <DivContainer height={250}>

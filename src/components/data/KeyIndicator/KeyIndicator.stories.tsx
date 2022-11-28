@@ -1,8 +1,7 @@
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { KeyIndicatorProps } from './KeyIndicator';
 import KeyIndicator from './KeyIndicator';
 
 export default {
@@ -11,7 +10,7 @@ export default {
     decorators: [LiveEditDecorator({ KeyIndicator })]
 };
 
-type KeyIndicatorStory = Story<Required<KeyIndicatorProps>>;
+type KeyIndicatorStory = ComponentStory<typeof KeyIndicator>;
 
 export const iconWithLabelAndNumber: KeyIndicatorStory = () => (
     <KeyIndicator title="User Stars" icon="star" number={54} />

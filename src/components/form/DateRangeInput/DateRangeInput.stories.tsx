@@ -1,12 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import Form from '../Form/Form';
 import DateRangeInput from './DateRangeInput';
-import type { DateRangeInputProps } from './DateRangeInput';
 
 export default {
     title: 'Form/DateRange',
@@ -14,7 +13,7 @@ export default {
     decorators: [LiveEditDecorator({ Form, moment })]
 };
 
-type DateRangeInputStory = Story<Required<DateRangeInputProps>>;
+type DateRangeInputStory = ComponentStory<typeof DateRangeInput>;
 
 export const basic: DateRangeInputStory = () => {
     const [timeFilter, setTimeFilter] = React.useState(Form.DateRange.EMPTY_VALUE);

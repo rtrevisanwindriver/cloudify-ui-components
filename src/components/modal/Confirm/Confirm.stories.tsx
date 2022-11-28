@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import type { Story } from '@storybook/react';
-import type { ConfirmProps } from 'semantic-ui-react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ Button, Confirm })]
 };
 
-type ConfirmStory = Story<Required<ConfirmProps>>;
+type ConfirmStory = ComponentStory<typeof Confirm>;
 
 export const basic: ConfirmStory = () => {
     const [open, setOpen] = React.useState(false);

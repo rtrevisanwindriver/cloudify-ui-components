@@ -1,11 +1,10 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import FullScreenSegment from './FullScreenSegment';
-import type { FullScreenSegmentProps } from './FullScreenSegment';
 
 export default {
     title: 'Layout/FullScreenSegment',
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ FullScreenSegment, DivContainer, ThemeProvider })]
 };
 
-type FullScreenSegmentStory = Story<Required<FullScreenSegmentProps>>;
+type FullScreenSegmentStory = ComponentStory<typeof FullScreenSegment>;
 
 export const basic: FullScreenSegmentStory = () => (
     <DivContainer height={250}>

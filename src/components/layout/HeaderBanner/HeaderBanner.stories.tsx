@@ -1,11 +1,10 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import HeaderBanner from './HeaderBanner';
-import type { HeaderBannerProps } from './HeaderBanner';
 
 export default {
     title: 'Layout/HeaderBanner',
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ HeaderBanner, DivContainer, ThemeProvider })]
 };
 
-type HeaderBannerStory = Story<Required<HeaderBannerProps>>;
+type HeaderBannerStory = ComponentStory<typeof HeaderBanner>;
 
 export const basic: HeaderBannerStory = () => (
     <DivContainer height={55} backgroundColor="black">

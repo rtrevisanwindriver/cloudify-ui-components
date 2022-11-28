@@ -1,8 +1,7 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import VisibilityIcon from './VisibilityIcon';
-import type { VisibilityIconProps } from './VisibilityIcon';
 
 export default {
     title: 'Cloudify/VisibilityIcon',
@@ -10,7 +9,7 @@ export default {
     decorators: [LiveEditDecorator({ VisibilityIcon })]
 };
 
-type VisibilityIconStory = Story<Required<VisibilityIconProps>>;
+type VisibilityIconStory = ComponentStory<typeof VisibilityIcon>;
 
 export const unknownVisibility: VisibilityIconStory = () => <VisibilityIcon />;
 export const privateVisibility: VisibilityIconStory = () => <VisibilityIcon visibility="private" />;

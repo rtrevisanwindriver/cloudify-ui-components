@@ -1,11 +1,10 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import Alert from './Alert';
-import type { AlertProps } from './Alert';
 
 export default {
     title: 'Modal/Alert',
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ Button, Alert })]
 };
 
-type AlertStory = Story<Required<AlertProps>>;
+type AlertStory = ComponentStory<typeof Alert>;
 
 export const basic: AlertStory = () => {
     const [open, setOpen] = React.useState(false);

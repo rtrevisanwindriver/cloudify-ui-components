@@ -1,10 +1,9 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Form from './Form';
 import { FormFieldWithoutMemo } from './FormField';
-import type { FormFieldProps } from './FormField';
 
 export default {
     title: 'Form/FormField',
@@ -12,7 +11,7 @@ export default {
     decorators: [LiveEditDecorator({ Form })]
 };
 
-type FormFieldStory = Story<Required<FormFieldProps>>;
+type FormFieldStory = ComponentStory<typeof FormFieldWithoutMemo>;
 
 export const required: FormFieldStory = () => (
     <Form>

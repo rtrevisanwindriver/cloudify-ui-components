@@ -1,10 +1,9 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import Menu from 'components/elements/Menu';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupMenu from './PopupMenu';
-import type { PopupMenuProps } from './PopupMenu';
 
 export default {
     title: 'Popups/PopupMenu',
@@ -12,7 +11,7 @@ export default {
     decorators: [LiveEditDecorator({ PopupMenu })]
 };
 
-type PopupMenuStory = Story<Required<PopupMenuProps>>;
+type PopupMenuStory = ComponentStory<typeof PopupMenu>;
 
 export const basic: PopupMenuStory = () => (
     <PopupMenu>

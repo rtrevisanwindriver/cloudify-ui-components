@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { TimeInputProps } from './TimeInput';
 
 import Form from '../Form';
 
@@ -13,7 +12,7 @@ export default {
     decorators: [LiveEditDecorator({ Form, DivContainer })]
 };
 
-type TimeInputStory = Story<Required<TimeInputProps>>;
+type TimeInputStory = ComponentStory<typeof Form.Time>;
 
 export const basic: TimeInputStory = () => {
     const [time, setTime] = React.useState('04:30');

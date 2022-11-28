@@ -1,12 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import Form from '../Form/Form';
 import { DatePickerWithoutMemo } from './DatePicker';
-import type { DatePickerProps } from './DatePicker';
 
 export default {
     title: 'Form/DatePicker',
@@ -14,7 +13,7 @@ export default {
     decorators: [LiveEditDecorator({ Form, moment })]
 };
 
-type DatePickerStory = Story<Required<DatePickerProps>>;
+type DatePickerStory = ComponentStory<typeof DatePickerWithoutMemo>;
 
 export const basic: DatePickerStory = () => {
     const [date, setDate] = React.useState(moment('20190101'));

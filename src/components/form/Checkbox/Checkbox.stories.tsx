@@ -1,9 +1,8 @@
 import React from 'react';
 
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { CheckboxProps } from './Checkbox';
 import Form from '../Form/Form';
 
 export default {
@@ -12,10 +11,12 @@ export default {
     decorators: [LiveEditDecorator({ Form })]
 };
 
-export const basic: Story<Required<CheckboxProps>> = () => (
+type CheckboxStory = ComponentStory<typeof Form.Checkbox>;
+
+export const basic: CheckboxStory = () => (
     <Form.Checkbox label="Notifications" help="Send e-mail notifications about updates" />
 );
 
-export const withoutHelp: Story<Required<CheckboxProps>> = () => <Form.Checkbox label="Notifications" />;
+export const withoutHelp: CheckboxStory = () => <Form.Checkbox label="Notifications" />;
 
-export const Toggle: Story<Required<CheckboxProps>> = () => <Form.Checkbox toggle label="Newsletter" />;
+export const Toggle: CheckboxStory = () => <Form.Checkbox toggle label="Newsletter" />;

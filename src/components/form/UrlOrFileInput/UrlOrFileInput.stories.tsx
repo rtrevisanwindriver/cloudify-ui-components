@@ -2,6 +2,7 @@ import React from 'react';
 import { Label } from 'semantic-ui-react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
+import type { ComponentStory } from '@storybook/react';
 import Form from '../Form/Form';
 
 export default {
@@ -10,7 +11,9 @@ export default {
     decorators: [LiveEditDecorator({ Label, Form })]
 };
 
-export const basic = () => (
+type UrlOrFileStory = ComponentStory<typeof Form.UrlOrFile>;
+
+export const basic: UrlOrFileStory = () => (
     <Form>
         <Form.Field label="File or URL">
             <Form.UrlOrFile

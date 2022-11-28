@@ -1,7 +1,6 @@
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { ProductVersionProps } from './ProductVersion';
 import ProductVersion from './ProductVersion';
 
 export default {
@@ -10,6 +9,6 @@ export default {
     decorators: [LiveEditDecorator({ ProductVersion })]
 };
 
-type ProductVersionStory = Story<Required<ProductVersionProps>>;
+type ProductVersionStory = ComponentStory<typeof ProductVersion>;
 
 export const basic: ProductVersionStory = () => <ProductVersion version="6.3.0-dev" />;

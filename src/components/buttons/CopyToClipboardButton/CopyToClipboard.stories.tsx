@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import CopyToClipboardButton from './CopyToClipboardButton';
-import type { CopyToClipboardButtonProps } from './CopyToClipboardButton';
 
 export default {
     title: 'Buttons/CopyToClipboardButton',
@@ -11,8 +10,10 @@ export default {
     decorators: [LiveEditDecorator({ CopyToClipboardButton })]
 };
 
-export const basic: Story<Required<CopyToClipboardButtonProps>> = () => <CopyToClipboardButton />;
+type CopyToClipboardButtonStory = ComponentStory<typeof CopyToClipboardButton>;
+
+export const basic: CopyToClipboardButtonStory = () => <CopyToClipboardButton />;
 basic.storyName = 'Default';
 
-export const custom = () => <CopyToClipboardButton text="Text to copy" content="Copy ID" />;
+export const custom: CopyToClipboardButtonStory = () => <CopyToClipboardButton text="Text to copy" content="Copy ID" />;
 custom.storyName = 'Custom content';

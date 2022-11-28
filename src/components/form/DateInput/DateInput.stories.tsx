@@ -1,12 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import Form from '../Form/Form';
 import DateInput from './DateInput';
-import type { DateInputProps } from './DateInput';
 
 export default {
     title: 'Form/Date',
@@ -14,7 +13,7 @@ export default {
     decorators: [LiveEditDecorator({ DateInput, Form, moment })]
 };
 
-export type DateInputStory = Story<Required<DateInputProps>>;
+export type DateInputStory = ComponentStory<typeof DateInput>;
 
 export const basic: DateInputStory = () => {
     const [date, setDate] = React.useState('');

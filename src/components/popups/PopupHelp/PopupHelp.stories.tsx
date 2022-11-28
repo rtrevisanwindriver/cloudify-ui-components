@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupHelp from './PopupHelp';
-import type { PopupHelpProps } from './PopupHelp';
 
 export default {
     title: 'Popups/PopupHelp',
@@ -11,7 +10,7 @@ export default {
     decorators: [LiveEditDecorator({ PopupHelp })]
 };
 
-type PopupHelpStory = Story<Required<PopupHelpProps>>;
+type PopupHelpStory = ComponentStory<typeof PopupHelp>;
 
 export const basic: PopupHelpStory = () => <PopupHelp content="Help information" />;
 basic.storyName = 'Default';

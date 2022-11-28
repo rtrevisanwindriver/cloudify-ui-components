@@ -2,8 +2,7 @@ import React from 'react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
-import type { MenuProps } from 'semantic-ui-react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import Menu from './Menu';
 
 export default {
@@ -12,7 +11,7 @@ export default {
     decorators: [LiveEditDecorator({ Menu })]
 };
 
-type MenuStory = Story<Required<MenuProps>>;
+type MenuStory = ComponentStory<typeof Menu>;
 
 export const example: MenuStory = () => (
     <Menu vertical>

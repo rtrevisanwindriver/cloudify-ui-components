@@ -1,17 +1,16 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import LoadingOverlay from './LoadingOverlay';
-import type { LoadingOverlayProps } from './LoadingOverlay';
 
 export default {
     title: 'Elements/LoadingOverlay',
     component: LoadingOverlay,
     decorators: [LiveEditDecorator({ Segment })]
 };
-type LoadingOverlayStory = Story<Required<LoadingOverlayProps>>;
+type LoadingOverlayStory = ComponentStory<typeof LoadingOverlay>;
 
 export const basic: LoadingOverlayStory = () => (
     <Segment>

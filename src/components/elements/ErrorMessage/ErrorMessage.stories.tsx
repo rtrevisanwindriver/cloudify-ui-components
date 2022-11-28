@@ -1,9 +1,8 @@
 import React from 'react';
 import { Button, List } from 'semantic-ui-react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { ErrorMessageProps } from './ErrorMessage';
 import ErrorMessage from './ErrorMessage';
 
 export default {
@@ -11,7 +10,7 @@ export default {
     component: ErrorMessage,
     decorators: [LiveEditDecorator({ ErrorMessage, Button, List })]
 };
-type ErrorMessageStory = Story<Required<ErrorMessageProps>>;
+type ErrorMessageStory = ComponentStory<typeof ErrorMessage>;
 
 export const basic: ErrorMessageStory = () => <ErrorMessage error="Invalid Blueprint ID provided" />;
 basic.storyName = 'Default';

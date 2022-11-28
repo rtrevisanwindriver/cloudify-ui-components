@@ -1,9 +1,8 @@
 import React from 'react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import MessageContainer from './MessageContainer';
-import type { MessageContainerProps } from './MessageContainer';
 
 export default {
     title: 'Elements/MessageContainer',
@@ -11,7 +10,7 @@ export default {
     decorators: [LiveEditDecorator({ MessageContainer })]
 };
 
-type MessageContainerStory = Story<Required<MessageContainerProps>>;
+type MessageContainerStory = ComponentStory<typeof MessageContainer>;
 
 export const basic: MessageContainerStory = () => <MessageContainer />;
 

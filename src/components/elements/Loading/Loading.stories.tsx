@@ -1,8 +1,7 @@
 import React from 'react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
-import type { Story } from '@storybook/react';
-import type { LoadingProps } from './Loading';
+import type { ComponentStory } from '@storybook/react';
 import Loading from './Loading';
 
 export default {
@@ -10,7 +9,7 @@ export default {
     component: Loading,
     decorators: [LiveEditDecorator({ Loading })]
 };
-type LoadingStory = Story<Required<LoadingProps>>;
+type LoadingStory = ComponentStory<typeof Loading>;
 
 export const basic: LoadingStory = () => <Loading />;
 basic.storyName = 'Default';

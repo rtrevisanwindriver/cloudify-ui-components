@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { Dropdown } from 'semantic-ui-react';
 
@@ -9,7 +9,6 @@ import HeaderBanner from '../HeaderBanner';
 import HeaderBar from './HeaderBar';
 import HeaderMenu from '../HeaderMenu';
 import MenusBar from '../MenusBar';
-import type { HeaderBarProps } from './HeaderBar';
 
 export default {
     title: 'Layout/HeaderBar',
@@ -17,7 +16,7 @@ export default {
     decorators: [LiveEditDecorator({ HeaderBar, HeaderBanner, HeaderMenu, MenusBar, DivContainer, ThemeProvider })]
 };
 
-type HeaderBarStory = Story<Required<HeaderBarProps>>;
+type HeaderBarStory = ComponentStory<typeof HeaderBar>;
 
 export const basic: HeaderBarStory = () => (
     <ThemeProvider theme={{ mainColor: 'green', headerTextColor: 'white' }}>

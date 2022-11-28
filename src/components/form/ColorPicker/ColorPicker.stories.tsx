@@ -1,8 +1,7 @@
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import Form from '../Form/Form';
-import type { ColorPickerProps } from './ColorPicker';
 
 export default {
     title: 'Form/ColorPicker',
@@ -14,7 +13,9 @@ export default {
     }
 };
 
-export const basic: Story<Required<ColorPickerProps>> = args => <Form.ColorPicker {...args} />;
+type ColorPickerStory = ComponentStory<typeof Form.ColorPicker>;
+
+export const basic: ColorPickerStory = args => <Form.ColorPicker {...args} />;
 basic.storyName = 'Default';
 basic.args = {
     name: '',

@@ -1,11 +1,10 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import Popup from './Popup';
-import type { PopupProps } from './Popup';
 
-type PopupStory = Story<Required<PopupProps>>;
+type PopupStory = ComponentStory<typeof Popup>;
 
 export default {
     title: 'Popups/Popup',

@@ -3,9 +3,8 @@ import React from 'react';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import DivContainer from 'decorators/DivContainer';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import GenericField from './GenericField';
-import type { GenericFieldProps } from './GenericField';
 
 import Form from '../Form';
 
@@ -19,7 +18,9 @@ export default {
     decorators: [LiveEditDecorator({ DivContainer, GenericField, Form })]
 };
 
-export const stringField: Story<Required<GenericFieldProps>> = () => {
+type GenericFieldStory = ComponentStory<typeof GenericField>;
+
+export const stringField: GenericFieldStory = () => {
     const [value, setValue] = React.useState('');
 
     return (
@@ -38,7 +39,7 @@ export const stringField: Story<Required<GenericFieldProps>> = () => {
     );
 };
 
-export const passwordField: Story<Required<GenericFieldProps>> = () => {
+export const passwordField: GenericFieldStory = () => {
     const [value, setValue] = React.useState('');
 
     return (
@@ -55,7 +56,7 @@ export const passwordField: Story<Required<GenericFieldProps>> = () => {
     );
 };
 
-export const numberField: Story<Required<GenericFieldProps>> = () => {
+export const numberField: GenericFieldStory = () => {
     const [value, setValue] = React.useState(5);
 
     return (
@@ -73,7 +74,7 @@ export const numberField: Story<Required<GenericFieldProps>> = () => {
     );
 };
 
-export const booleanField: Story<Required<GenericFieldProps>> = () => {
+export const booleanField: GenericFieldStory = () => {
     const [value, setValue] = React.useState(true);
 
     return (
@@ -89,7 +90,7 @@ export const booleanField: Story<Required<GenericFieldProps>> = () => {
     );
 };
 
-export const booleanListField: Story<Required<GenericFieldProps>> = () => {
+export const booleanListField: GenericFieldStory = () => {
     const [value, setValue] = React.useState('true');
 
     return (
@@ -106,7 +107,7 @@ export const booleanListField: Story<Required<GenericFieldProps>> = () => {
 };
 booleanListField.parameters = { storyshots: false };
 
-export const listField: Story<Required<GenericFieldProps>> = () => {
+export const listField: GenericFieldStory = () => {
     const [value, setValue] = React.useState('b');
 
     return (
@@ -126,7 +127,7 @@ export const listField: Story<Required<GenericFieldProps>> = () => {
 };
 listField.parameters = { storyshots: false };
 
-export const numberListField: Story<Required<GenericFieldProps>> = () => {
+export const numberListField: GenericFieldStory = () => {
     const [value, setValue] = React.useState(2);
 
     return (
@@ -146,7 +147,7 @@ export const numberListField: Story<Required<GenericFieldProps>> = () => {
 };
 numberListField.parameters = { storyshots: false };
 
-export const multiSelectListField: Story<Required<GenericFieldProps>> = () => {
+export const multiSelectListField: GenericFieldStory = () => {
     const [value, setValue] = React.useState([2, 3, 4]);
 
     return (
@@ -166,7 +167,7 @@ export const multiSelectListField: Story<Required<GenericFieldProps>> = () => {
 };
 multiSelectListField.parameters = { storyshots: false };
 
-export const editableListField: Story<Required<GenericFieldProps>> = () => {
+export const editableListField: GenericFieldStory = () => {
     const [value, setValue] = React.useState('b');
 
     return (
@@ -186,7 +187,7 @@ export const editableListField: Story<Required<GenericFieldProps>> = () => {
 };
 editableListField.parameters = { storyshots: false };
 
-export const numberEditableListField: Story<Required<GenericFieldProps>> = () => {
+export const numberEditableListField: GenericFieldStory = () => {
     const [value, setValue] = React.useState(2);
 
     return (
@@ -206,7 +207,7 @@ export const numberEditableListField: Story<Required<GenericFieldProps>> = () =>
 };
 numberEditableListField.parameters = { storyshots: false };
 
-export const customField: Story<Required<GenericFieldProps>> = () => {
+export const customField: GenericFieldStory = () => {
     const [value, setValue] = React.useState();
 
     return (
@@ -226,6 +227,6 @@ export const customField: Story<Required<GenericFieldProps>> = () => {
     );
 };
 
-export const noCustomTypeField: Story<Required<GenericFieldProps>> = () => (
+export const noCustomTypeField: GenericFieldStory = () => (
     <GenericField name="timeFilterTest" label="No component prop specified" type={GenericField.CUSTOM_TYPE} />
 );

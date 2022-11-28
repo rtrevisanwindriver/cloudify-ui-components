@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Button } from 'semantic-ui-react';
 import type { ModalProps } from 'semantic-ui-react';
 
@@ -21,7 +21,7 @@ export default {
     }
 };
 
-type ModalStory = Story<Required<ModalProps>>;
+type ModalStory = ComponentStory<typeof Modal>;
 
 export const basic: ModalStory = () => {
     const [open, setOpen] = React.useState(false);

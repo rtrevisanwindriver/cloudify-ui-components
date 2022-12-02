@@ -47,7 +47,6 @@ export default function ResourceVisibility({
             visibility={visibility}
             link={setGlobalAllowed}
             onClick={(e: MouseEvent<unknown>) => e.stopPropagation()}
-            bordered
             disabled={!canChangeVisibility}
             showTitle={!popupOpened}
             className={className}

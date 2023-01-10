@@ -1,18 +1,19 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import GenericFieldType from 'components/form/GenericField/GenericFieldType';
 import ColorPicker from '../src/components/form/ColorPicker';
 import GenericField from '../src/components/form/GenericField';
 
 describe('<GenericField />', () => {
     it('renders default type', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" label="label" />);
+        const wrapper = mount(<GenericField name="test" label="label" type={GenericFieldType.STRING} />);
         expect(wrapper.exists()).toEqual(true);
     });
 
     it('renders string type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="string" label="label" icon="rocket" value="test" />);
+        const wrapper = mount(
+            <GenericField name="test" type={GenericFieldType.STRING} label="label" icon="rocket" value="test" />
+        );
 
         expect(wrapper.exists('input[name="test"]')).toEqual(true);
         expect(wrapper.exists('input[type="text"]')).toEqual(true);
@@ -21,8 +22,9 @@ describe('<GenericField />', () => {
     });
 
     it('renders password type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="password" label="label" icon="key" value="test" />);
+        const wrapper = mount(
+            <GenericField name="test" type={GenericFieldType.PASSWORD} label="label" icon="key" value="test" />
+        );
 
         expect(wrapper.exists('input[name="test"]')).toEqual(true);
         expect(wrapper.exists('input[type="password"]')).toEqual(true);
@@ -31,8 +33,7 @@ describe('<GenericField />', () => {
     });
 
     it('renders number type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="number" label="label" value="5" />);
+        const wrapper = mount(<GenericField name="test" type={GenericFieldType.NUMBER} label="label" value="5" />);
 
         expect(wrapper.exists('input[name="test"]')).toEqual(true);
         expect(wrapper.exists('input[type="number"]')).toEqual(true);
@@ -40,8 +41,7 @@ describe('<GenericField />', () => {
     });
 
     it('renders boolean type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="boolean" label="label" value />);
+        const wrapper = mount(<GenericField name="test" type={GenericFieldType.BOOLEAN} label="label" value />);
 
         expect(wrapper.exists('input[name="test"]')).toEqual(true);
         expect(wrapper.exists('input[type="checkbox"]')).toEqual(true);
@@ -49,8 +49,7 @@ describe('<GenericField />', () => {
     });
 
     it('renders boolean list type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="booleanList" label="label" value />);
+        const wrapper = mount(<GenericField name="test" type={GenericFieldType.BOOLEAN_LIST} label="label" value />);
 
         expect(wrapper.find('div[role="option"].selected span').text()).toEqual('true');
         expect(wrapper.exists('div[role="listbox"].multiple')).toEqual(false);
@@ -63,8 +62,7 @@ describe('<GenericField />', () => {
         const wrapper = mount(
             <GenericField
                 name="test"
-                // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-                type="list"
+                type={GenericFieldType.LIST}
                 items={['1', '2', '3']}
                 label="label"
                 value="2"
@@ -91,8 +89,7 @@ describe('<GenericField />', () => {
         const wrapper = mount(
             <GenericField
                 name="test"
-                // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-                type="multiSelectList"
+                type={GenericFieldType.MULTI_SELECT_LIST}
                 items={['1', '2', '3', { value: '4', name: 'four' }, { value: '5', name: 'five' }]}
                 label="label"
                 value={['2', '3', '4']}
@@ -113,15 +110,17 @@ describe('<GenericField />', () => {
     });
 
     it('renders custom type input field', () => {
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="custom" label="label" component={ColorPicker} />);
+        const wrapper = mount(
+            <GenericField name="test" type={GenericFieldType.CUSTOM} label="label" component={ColorPicker} />
+        );
         expect(wrapper.exists('div.compact-picker')).toEqual(true);
     });
 
     it('handles input value changes', () => {
         const onChangeMock = jest.fn();
-        // @ts-expect-error TS(2769) FIXME: No overload matches this call.
-        const wrapper = mount(<GenericField name="test" type="string" label="label" onChange={onChangeMock} />);
+        const wrapper = mount(
+            <GenericField name="test" type={GenericFieldType.STRING} label="label" onChange={onChangeMock} />
+        );
 
         wrapper.find('input').simulate('change', { target: { value: 'Test' } });
         expect(onChangeMock).toHaveBeenCalledWith(expect.any(Object), {
@@ -142,8 +141,7 @@ describe('<GenericField />', () => {
         expect(GenericField.formatValue(GenericField.BOOLEAN_TYPE, true)).toEqual(true);
         expect(GenericField.formatValue(GenericField.BOOLEAN_TYPE, 'true')).toEqual(true);
         expect(GenericField.formatValue(GenericField.BOOLEAN_TYPE, 'false')).toEqual(false);
-        // @ts-expect-error TS(2345) FIXME: Argument of type '123' is not assignable to parame... Remove this comment to see the full error message
-        expect(GenericField.formatValue(GenericField.BOOLEAN_TYPE, 123)).toEqual(false);
+        expect(GenericField.formatValue(GenericField.BOOLEAN_TYPE, '123')).toEqual(false);
         expect(GenericField.formatValue(GenericField.NUMBER_TYPE, '123')).toEqual(123);
         expect(GenericField.formatValue(GenericField.NUMBER_LIST_TYPE, '123')).toEqual(123);
         expect(GenericField.formatValue(GenericField.NUMBER_EDITABLE_LIST_TYPE, '123')).toEqual(123);

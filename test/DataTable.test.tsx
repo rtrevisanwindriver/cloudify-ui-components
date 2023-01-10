@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import _ from 'lodash';
+import type { DebouncedFunc } from 'lodash';
 
 import { Button, Input } from 'semantic-ui-react';
 import DataTable from '../src/components/data/DataTable';
@@ -111,8 +112,7 @@ describe('<DataTable />', () => {
 
     it('renders search box', () => {
         const fetchDataMock = jest.fn();
-        // @ts-expect-error TS(2345) FIXME: Argument of type '(f: (...args: any) => any) => (.... Remove this comment to see the full error message
-        const debounceSpy = jest.spyOn(_, 'debounce').mockImplementation(f => f);
+        const debounceSpy = jest.spyOn(_, 'debounce').mockImplementation(f => f as DebouncedFunc<any>);
         const wrapper = mount(
             <DataTable fetchData={fetchDataMock} pageSize={25} sortColumn="col1" sortAscending={false}>
                 {tableContent}

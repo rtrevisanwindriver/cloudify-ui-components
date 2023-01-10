@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import type { ComponentStory } from '@storybook/react';
 
-// @ts-expect-error TS(2307) FIXME: Cannot find module 'raw-loader!./example-content.h... Remove this comment to see the full error message
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import exampleReadme from 'raw-loader!./example-content.html';
 import ReadmeModal from './ReadmeModal';

@@ -1,38 +1,44 @@
 import React from 'react';
+import type { MouseEvent, InputHTMLAttributes } from 'react';
 import { mount } from 'enzyme';
-import _ from 'lodash';
+import type { ReactWrapper } from 'enzyme';
+import { noop } from 'lodash';
 import { act } from 'react-dom/test-utils';
+import type { UrlOrFileInputProps } from 'components/form/UrlOrFileInput/UrlOrFileInput';
+import type { ButtonProps } from 'semantic-ui-react';
 import UrlOrFileInput from '../src/components/form/UrlOrFileInput';
+import FileInput from '../src/components/form/FileInput';
 
 describe('<UrlOrFileInput />', () => {
     it('selects a file and resets its state on reset button click', () => {
-        // @ts-expect-error TS(7034) FIXME: Variable 'wrapper' implicitly has type 'any' in so... Remove this comment to see the full error message
-        let wrapper;
-        act(() => {
-            // @ts-expect-error TS(2741) FIXME: Property 'onBlurUrl' is missing in type '{ onChang... Remove this comment to see the full error message
-            wrapper = mount(<UrlOrFileInput onChangeUrl={_.noop} onChangeFile={_.noop} placeholder="" name="test" />);
-        });
-
-        // @ts-expect-error TS(2532) FIXME: Object is possibly 'undefined'.
-        expect(wrapper.find('.label').text()).toEqual('URL');
-
+        const wrapper = mount<UrlOrFileInputProps>(
+            <UrlOrFileInput onChangeUrl={noop} onChangeFile={noop} onBlurUrl={noop} placeholder="" name="test" />
+        );
         const name = 'test';
-        // @ts-expect-error TS(7005) FIXME: Variable 'wrapper' implicitly has an 'any' type.
-        act(() => wrapper.find('FileInput').prop('onChange')({ name }));
+        const labelWrapper = wrapper.find('.label');
+        const inputWrapper = wrapper.find('input[type="text"]') as ReactWrapper<
+            InputHTMLAttributes<HTMLInputElement>,
+            unknown,
+            JSX.IntrinsicElements['input']
+        >;
 
-        // @ts-expect-error TS(2532) FIXME: Object is possibly 'undefined'.
-        expect(wrapper.find('.label').text()).toEqual('File');
-        // @ts-expect-error TS(2532) FIXME: Object is possibly 'undefined'.
-        expect(wrapper.find('input[type="text"]').instance().value).toEqual(name);
+        expect(labelWrapper.text()).toEqual('URL');
+
+        act(() => wrapper.find(FileInput).prop('onChange')?.({ name } as File));
+
+        expect(labelWrapper.text()).toEqual('File');
+
+        expect(inputWrapper.instance().value).toEqual(name);
 
         act(() => {
-            // @ts-expect-error TS(7005) FIXME: Variable 'wrapper' implicitly has an 'any' type.
-            wrapper.find('Button').last().props().onClick({ preventDefault: _.noop });
+            wrapper
+                .find('Button')
+                .last()
+                .props()
+                .onClick?.({ preventDefault: noop } as MouseEvent<ButtonProps>);
         });
 
-        // @ts-expect-error TS(2532) FIXME: Object is possibly 'undefined'.
-        expect(wrapper.find('.label').text()).toEqual('URL');
-        // @ts-expect-error TS(2532) FIXME: Object is possibly 'undefined'.
-        expect(wrapper.find('input[type="text"]').instance().value).toEqual('');
+        expect(labelWrapper.text()).toEqual('URL');
+        expect(inputWrapper.instance().value).toEqual('');
     });
 });

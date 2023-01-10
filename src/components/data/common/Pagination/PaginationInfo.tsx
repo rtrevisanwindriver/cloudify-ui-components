@@ -5,7 +5,7 @@ import type { DropdownItemProps } from 'semantic-ui-react';
 
 import Form from '../../../form/Form';
 
-interface PaginationInfoProps {
+export interface PaginationInfoProps {
     pageSize: number;
     onPageSizeChange: (pageSize: string) => void;
     totalSize: number;

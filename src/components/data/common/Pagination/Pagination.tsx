@@ -9,7 +9,7 @@ import PaginationInfo from './PaginationInfo';
 
 import './Pagination.css';
 
-interface PaginationProps {
+export interface PaginationProps {
     fetchData: () => void;
     totalSize: number;
     pageSize: number;

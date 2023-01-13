@@ -39,7 +39,20 @@ export interface DataTableProps {
      */
     children: ReactNode[];
     /**
-     * function used to fetch table data
+     * function that accepts grid parameters:
+     *
+     *       gridParams: {
+     *          _search: string;
+     *          currentPage: number;
+     *          pageSize: number;
+     *          sortColumn: string;
+     *          sortAscending: boolean;
+     *      };
+     *
+     * - `_search` - if `searchable` prop is set to true, then it's a text provided in the search bar, it's an empty string otherwise
+     * - `sortColumn` (both the prop, and grid param) should be matching a name of a column.
+     * - fetch data function is called everytime user changes those settings in table or a props change.
+     * - those parameters are compatible with `toolbox.refresh()`, so it's easy to use in widgets:
      * defaults to noop, not required
      */
     fetchData?: FetchDataFunction;
@@ -111,14 +124,75 @@ type DataTableState = {
 };
 
 /**
- * DataTable component enables fetching data using predefined function and showing tabular data in a simple manner.
+ * `DataTable` component enables fetching data using predefined function and showing tabular data in a simple manner.
  *
  * ## Features
- * - data pagination
+ * - data fetch with pagination
  * - selectable rows
  * - expandable rows
  * - data sorting by columns
  * - filtering data
+ *
+ * ## Data Fetch Examples
+ * This is an example of a [widget](https://github.com/cloudify-cosmo/cloudify-stage/tree/master/widgets) that uses `DataTable` component to easily display list of blueprints
+ * - It showcases compatibility of `fetchData` prop with `toolbox.refresh()`
+ * - `DataTable` component initial render triggers `fetchGridData` function, which fetches the data
+ * - `DataTable` component passes page size, page offset and sorting details (column name and ascending/descending information) to `fetchGridData` function. If any of these values change, the `fetchGridData` function is triggered again
+ * - `[params]` token in `fetchUrl` function is translated into grid parameters (see `fetchUrl` function section in [Widget Definition page](https://docs.cloudify.co/staging/dev/developer/writing_widgets/widget-definition/))
+ * - fetched data can be accessed in `render` method as `data` argument and presented using `DataTable` component
+ *
+ * js code example:
+ *
+ *      Stage.defineWidget ({
+ *          id: 'blueprints-list',
+ *          name: 'Blueprints',
+ *          description: 'Shows blueprint list',
+ *          permission: Stage.GenericConfig.CUSTOM_WIDGET_PERMISSIONS.CUSTOM_ALL,
+ *          categories: [Stage.GenericConfig.CATEGORY.BLUEPRINTS],
+ *          initialConfiguration: [
+ *             Stage.GenericConfig.POLLING_TIME_CONFIG(10),
+ *             Stage.GenericConfig.PAGE_SIZE_CONFIG(5),
+ *             Stage.GenericConfig.SORT_COLUMN_CONFIG('created_at'),
+ *             Stage.GenericConfig.SORT_ASCENDING_CONFIG(false)
+ *         ],
+ *         fetchUrl: '[manager]/blueprints?_include=id,updated_at,created_at,created_by[params]',
+ *
+ *      render(widget, data, error, toolbox) {
+ *         const { DataTable, Loading } = Stage.Basic;
+ *         if (_.isEmpty(data)) {
+ *             return <Loading />;
+ *         }
+ *
+ *         const fetchGridData = fetchParams => toolbox.refresh(fetchParams);
+ *         const { pageSize, sortColumn, sortAscending } = widget.configuration;
+ *         const { metadata, items } = data;
+ *
+ *         return (
+ *             <DataTable
+ *                 fetchData={fetchGridData}
+ *                 totalSize={metadata.pagination.total}
+ *                 pageSize={pageSize}
+ *                 sortColumn={sortColumn}
+ *                 sortAscending={sortAscending}
+ *                 searchable
+ *             >
+ *                 <DataTable.Column label="Name" name="id" width="40%" />
+ *                 <DataTable.Column label="Created" name="created_at" width="20%" />
+ *                 <DataTable.Column label="Updated" name="updated_at" width="20%" />
+ *                 <DataTable.Column label="Creator" name="created_by" width="20%" />
+ *                 {items.map(item => (
+ *                     <DataTable.Row key={item.id}>
+ *                         <DataTable.Data>{item.id}</DataTable.Data>
+ *                         <DataTable.Data>{item.created_at}</DataTable.Data>
+ *                         <DataTable.Data>{item.updated_at}</DataTable.Data>
+ *                         <DataTable.Data>{item.created_by}</DataTable.Data>
+ *                       </DataTable.Row>
+ *                  ))}
+ *                  </DataTable>
+ *              );
+ *          }
+ *      });
+ *
  *
  * ## Sub-components
  * - `DataTable.Row` = data row

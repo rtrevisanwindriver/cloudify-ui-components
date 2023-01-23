@@ -1,7 +1,7 @@
-import React from 'react';
-import { map, isArray } from 'lodash';
-import { Dropdown as SemanticUiReactDropdown } from 'semantic-ui-react';
 import type { ReactElement } from 'react';
+import React from 'react';
+import { isArray, map } from 'lodash';
+import { Dropdown as SemanticUiReactDropdown } from 'semantic-ui-react';
 
 /**
  * Dropdown is a component which extends [Dropdown](https://react.semantic-ui.com/modules/dropdown) component from Semantic-UI-React framework.
@@ -10,7 +10,7 @@ import type { ReactElement } from 'react';
  *
  * See [Dropdown](https://react.semantic-ui.com/modules/dropdown) component from Semantic-UI-React framework for details about props and usage details.
  */
-class Dropdown extends SemanticUiReactDropdown {
+export class Dropdown extends SemanticUiReactDropdown {
     render(): ReactElement {
         const props = { ...this.props };
 

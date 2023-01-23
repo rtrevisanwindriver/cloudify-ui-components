@@ -1,3 +1,1 @@
-import CancelButton from './CancelButton';
-
-export default CancelButton;
+export * from './CancelButton';

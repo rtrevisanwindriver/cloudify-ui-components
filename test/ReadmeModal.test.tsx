@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ReadmeModal from '../src/components/modal/ReadmeModal';
+import { ReadmeModal } from 'components';
 
 describe('<ReadmeModal />', () => {
     it('renders', () => {

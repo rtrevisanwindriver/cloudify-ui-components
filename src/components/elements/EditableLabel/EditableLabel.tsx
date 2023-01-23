@@ -1,6 +1,6 @@
+import type { SemanticSIZES, StrictInputProps } from 'semantic-ui-react';
 import { Input, Label } from 'semantic-ui-react';
-import type { StrictInputProps, SemanticSIZES } from 'semantic-ui-react';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { isEmpty, noop } from 'lodash';
 
 export interface EditableLabelProps {
@@ -59,7 +59,7 @@ export interface EditableLabelProps {
  * EditableLabel component shows an editable label.
  * Label can have an optional placeholder and/or initial value.
  */
-function EditableLabel({
+export function EditableLabel({
     value = '',
     className = '',
     enabled = true,

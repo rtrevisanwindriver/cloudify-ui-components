@@ -27,7 +27,11 @@ export interface ColorPickerProps {
  * Accessible as `ColorPicker` or `Form.ColorPicker`.
  *
  */
-const ColorPicker: FunctionComponent<ColorPickerProps> = ({ name = '', value = '#000000', onChange = () => {} }) => {
+export const ColorPicker: FunctionComponent<ColorPickerProps> = ({
+    name = '',
+    value = '#000000',
+    onChange = () => {}
+}) => {
     const handleInputChange: ColorChangeHandler = (color, event) => {
         onChange(event, { name, value: color.hex });
     };

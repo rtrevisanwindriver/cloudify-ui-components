@@ -3,7 +3,7 @@ import { Label } from 'semantic-ui-react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import type { ComponentStory } from '@storybook/react';
-import Form from '../Form/Form';
+import { Form } from 'components';
 
 export default {
     title: 'Form/UrlOrFile',

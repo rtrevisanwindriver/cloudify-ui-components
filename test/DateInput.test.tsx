@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DateInput from '../src/components/form/DateInput';
+import { DateInput } from 'components';
 
 describe('<DateInput />', () => {
     let dateNowSpy: jest.SpyInstance<number, []>;

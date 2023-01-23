@@ -1,11 +1,9 @@
+import type { CSSProperties, JSXElementConstructor, ReactNode, SyntheticEvent } from 'react';
 import React from 'react';
-import type { ReactNode, SyntheticEvent, JSXElementConstructor, CSSProperties } from 'react';
 import _ from 'lodash';
 
 import { Input } from 'semantic-ui-react';
-import Dropdown from 'components/elements/Dropdown';
-import ErrorMessage from 'components/elements/ErrorMessage';
-import Checkbox from 'components/form/Checkbox';
+import { Checkbox, Dropdown, ErrorMessage } from 'components';
 import FormField from '../Form/FormField';
 
 import GenericFieldType from './GenericFieldType';
@@ -144,7 +142,7 @@ export interface GenericFieldProps {
 /**
  * `GenericField` is a generic component which can be used as different input fields in Form component
  */
-class GenericField extends React.PureComponent<GenericFieldProps> {
+export class GenericField extends React.PureComponent<GenericFieldProps> {
     // eslint-disable-next-line react/static-property-placement
     static defaultProps = {
         className: '',

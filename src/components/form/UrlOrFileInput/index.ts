@@ -1,3 +1,2 @@
-import UrlOrFileInput from './UrlOrFileInput';
-
-export default UrlOrFileInput;
+export * from './UrlOrFileInput';
+export { default } from './UrlOrFileInput';

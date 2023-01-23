@@ -1,8 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import GenericFieldType from 'components/form/GenericField/GenericFieldType';
-import ColorPicker from '../src/components/form/ColorPicker';
-import GenericField from '../src/components/form/GenericField';
+import { ColorPicker, GenericField, GenericFieldType } from 'components';
 
 describe('<GenericField />', () => {
     it('renders default type', () => {

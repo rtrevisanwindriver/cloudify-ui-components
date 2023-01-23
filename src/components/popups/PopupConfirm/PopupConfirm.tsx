@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Popup, Button, Header } from 'semantic-ui-react';
-import type { PopupProps, ButtonProps } from 'semantic-ui-react';
+import type { ButtonProps, PopupProps } from 'semantic-ui-react';
+import { Button, Header, Popup } from 'semantic-ui-react';
 import { noop } from 'lodash';
 
 export interface PopupConfirmProps extends PopupProps {
@@ -32,7 +32,7 @@ export interface PopupConfirmProps extends PopupProps {
  *
  * All props supported by the underlaying `Popup` component are passed down to it.
  */
-export default function PopupConfirm({
+export function PopupConfirm({
     content = '',
     onCancel = noop,
     onConfirm = noop,
@@ -88,3 +88,5 @@ export default function PopupConfirm({
         </Popup>
     );
 }
+
+export default PopupConfirm;

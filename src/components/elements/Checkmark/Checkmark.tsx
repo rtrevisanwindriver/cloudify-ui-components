@@ -14,7 +14,7 @@ export interface CheckmarkProps extends IconProps {
  *
  * All props except `value` are passed down to the underlaying `Icon` component.
  */
-function Checkmark({ value = false, ...iconProps }: CheckmarkProps) {
+export function Checkmark({ value = false, ...iconProps }: CheckmarkProps) {
     return <Icon title={value ? 'Yes' : 'No'} name={value ? 'checkmark box' : 'square outline'} {...iconProps} />;
 }
 

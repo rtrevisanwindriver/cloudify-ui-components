@@ -1,12 +1,12 @@
 import React from 'react';
-import moment from 'moment';
 import type { Moment } from 'moment';
+import moment from 'moment';
 
-import ReactDatePicker from 'react-datepicker';
 import type { ReactDatePickerProps } from 'react-datepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
-import DateInput from '../DateInput';
+import { DateInput } from 'components';
 
 export interface DatePickerOnChangeData {
     name: DatePickerProps['name'];
@@ -107,6 +107,6 @@ export function DatePickerWithoutMemo({
     );
 }
 
-const DatePicker = React.memo<DatePickerProps>(props => <DatePickerWithoutMemo {...props} />);
+export const DatePicker = React.memo<DatePickerProps>(props => <DatePickerWithoutMemo {...props} />);
 DatePicker.displayName = 'DatePicker';
 export default DatePicker;

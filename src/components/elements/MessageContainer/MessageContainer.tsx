@@ -46,7 +46,7 @@ export interface MessageContainerProps extends Omit<GridProps, 'textAlign'> {
  * Can be displayed in full screen or inside another container.
  * All props supported by the `Grid` component are passed down to it.
  */
-const MessageContainer: FunctionComponent<MessageContainerProps> = ({
+export const MessageContainer: FunctionComponent<MessageContainerProps> = ({
     children,
     loading = false,
     margin = '80px auto',

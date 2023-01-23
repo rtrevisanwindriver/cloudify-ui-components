@@ -2,7 +2,7 @@ import React from 'react';
 import type { ModalProps } from 'semantic-ui-react';
 
 import './ReadmeModal.css';
-import Modal from '../Modal';
+import { Modal } from 'components';
 
 export interface ReadmeModalProps extends Pick<ModalProps, 'open' | 'className' | 'style'> {
     /**
@@ -18,7 +18,7 @@ export interface ReadmeModalProps extends Pick<ModalProps, 'open' | 'className' 
 /**
  * ReadmeModal is a component to present HTML content in Modal component.
  */
-export default function ReadmeModal({ className = '', content, onHide, ...modalProps }: ReadmeModalProps) {
+export function ReadmeModal({ className = '', content, onHide, ...modalProps }: ReadmeModalProps) {
     const onCancel = () => {
         onHide();
         return true;
@@ -43,3 +43,5 @@ export default function ReadmeModal({ className = '', content, onHide, ...modalP
         </Modal>
     );
 }
+
+export default ReadmeModal;

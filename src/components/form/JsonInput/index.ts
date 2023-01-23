@@ -1,3 +1,2 @@
-import JsonInput from './JsonInput';
-
-export default JsonInput;
+export * from './JsonInput';
+export { default } from './JsonInput';

@@ -1,7 +1,7 @@
 import React from 'react';
-import { range, padStart, split } from 'lodash';
-import { Table, Dropdown } from 'semantic-ui-react';
+import { padStart, range, split } from 'lodash';
 import type { DropdownProps, TableProps } from 'semantic-ui-react';
+import { Dropdown, Table } from 'semantic-ui-react';
 import type { OnChangeInputData } from '../types';
 
 const generateOptions = (start: number, end: number, step: number, padding: number) => {
@@ -36,7 +36,7 @@ export interface TimeInputProps extends TableProps {
  *
  * Accessible as `Form.Time`.
  */
-const TimeInput = ({ name, value, onChange, ...tableProps }: TimeInputProps) => {
+export const TimeInput = ({ name, value, onChange, ...tableProps }: TimeInputProps) => {
     const [hours, minutes] = split(value, ':');
 
     const handleMinutesChange: DropdownProps['onChange'] = (event, { value: minutesValue }) => {

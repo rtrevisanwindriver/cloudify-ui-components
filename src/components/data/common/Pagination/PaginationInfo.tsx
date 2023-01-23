@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import type { DropdownItemProps } from 'semantic-ui-react';
 
-import Form from '../../../form/Form';
+import { Form } from 'components';
 
 export interface PaginationInfoProps {
     pageSize: number;

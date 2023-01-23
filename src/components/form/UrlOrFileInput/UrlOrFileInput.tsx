@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
 import type { FocusEvent } from 'react';
+import React, { useCallback, useState } from 'react';
 import _ from 'lodash';
 
 import { Input, Label } from 'semantic-ui-react';
-import FileInput from '../FileInput';
+import { FileInput } from 'components';
 
 import './UrlOrFileInput.css';
 
@@ -49,7 +49,7 @@ export interface UrlOrFileInputProps {
  *
  * Accessible as `UrlOrFileInput` or `Form.UrlOrFile`.
  */
-export default function UrlOrFileInput({
+export function UrlOrFileInput({
     name,
     placeholder,
     onChangeUrl,
@@ -109,3 +109,5 @@ export default function UrlOrFileInput({
         </Input>
     );
 }
+
+export default UrlOrFileInput;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { isEmpty, compact, castArray } from 'lodash';
+import { castArray, compact, isEmpty } from 'lodash';
 import Tree, { TreeNode } from 'rc-tree';
 import type { TreeProps } from 'rc-tree/lib/Tree';
 import type { DataNode } from 'rc-tree/lib/interface';
 import 'rc-tree/assets/index.css';
-import Loading from 'components/elements/Loading';
+import { Loading } from 'components';
 
 export interface NodesTreeProps extends Partial<TreeProps> {
     /**
@@ -28,7 +28,7 @@ export interface NodesTreeProps extends Partial<TreeProps> {
  *
  * See [rc-tree](https://tree-react-component.vercel.app/) component for details about props and detailed usage information.
  */
-function NodesTree({
+export function NodesTree({
     children,
     treeData = [],
     selectable = false,

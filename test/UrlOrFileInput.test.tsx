@@ -1,13 +1,12 @@
+import type { InputHTMLAttributes, MouseEvent } from 'react';
 import React from 'react';
-import type { MouseEvent, InputHTMLAttributes } from 'react';
-import { mount } from 'enzyme';
 import type { ReactWrapper } from 'enzyme';
+import { mount } from 'enzyme';
 import { noop } from 'lodash';
 import { act } from 'react-dom/test-utils';
 import type { UrlOrFileInputProps } from 'components/form/UrlOrFileInput/UrlOrFileInput';
 import type { ButtonProps } from 'semantic-ui-react';
-import UrlOrFileInput from '../src/components/form/UrlOrFileInput';
-import FileInput from '../src/components/form/FileInput';
+import { FileInput, UrlOrFileInput } from 'components';
 
 describe('<UrlOrFileInput />', () => {
     it('selects a file and resets its state on reset button click', () => {

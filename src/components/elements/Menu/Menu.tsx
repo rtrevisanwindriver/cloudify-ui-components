@@ -8,10 +8,12 @@ import MenuItem from './MenuItem';
  *
  * See [Menu](https://react.semantic-ui.com/collections/menu/) component from Semantic-UI-React framework for details about props and usage details.
  */
-export default class Menu extends SemanticUiReactMenu {
+export class Menu extends SemanticUiReactMenu {
     render() {
         const props = { ...this.props };
         return <SemanticUiReactMenu {...props} />;
     }
 }
 Menu.Item = MenuItem;
+
+export default Menu;

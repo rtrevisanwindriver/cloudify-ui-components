@@ -1,25 +1,27 @@
-import React, { useEffect, useRef } from 'react';
 import type { CSSProperties, ReactElement } from 'react';
+import React, { useEffect, useRef } from 'react';
 import _ from 'lodash';
 
-import { Form as FormSemanticUiReact, Radio, Ref } from 'semantic-ui-react';
 import type { StrictFormProps } from 'semantic-ui-react';
+import { Form as FormSemanticUiReact, Radio, Ref } from 'semantic-ui-react';
 
-import ErrorMessage from 'components/elements/ErrorMessage';
-import FormDropdown from '../../elements/Dropdown';
-import Checkbox from '../Checkbox';
-import ColorPicker from '../ColorPicker';
-import DateInput from '../DateInput';
-import DatePicker from '../DatePicker';
-import DateRangeInput from '../DateRangeInput';
+import {
+    Checkbox,
+    ColorPicker,
+    DateInput,
+    DatePicker,
+    DateRangeInput,
+    Dropdown as FormDropdown,
+    ErrorMessage,
+    FileInput
+} from 'components';
 import FormDivider from './FormDivider';
 import FormField from './FormField';
-import FileInput from '../FileInput';
-import JsonInput from '../JsonInput';
-import TimeInput from '../TimeInput';
-import UrlOrFileInput from '../UrlOrFileInput';
 
 import './Form.css';
+import UrlOrFileInput from '../UrlOrFileInput';
+import JsonInput from '../JsonInput';
+import TimeInput from '../TimeInput';
 
 export interface FormProps extends Omit<StrictFormProps, 'error'> {
     /**
@@ -110,7 +112,7 @@ export interface FormProps extends Omit<StrictFormProps, 'error'> {
  *
  */
 
-function Form({
+export function Form({
     children,
     errors,
     errorMessageHeader = 'Errors in the form',

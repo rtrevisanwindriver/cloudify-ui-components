@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
 import type { ButtonProps } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 export interface ApproveButtonProps extends ButtonProps {
     /**
@@ -26,7 +26,7 @@ export interface ApproveButtonProps extends ButtonProps {
  * ApproveButton is customized version of [Semantic UI-React's Button component](https://react.semantic-ui.com/elements/button),
  * so all properties of that component (eg. onClick, disabled, ...) can be used here.
  */
-const ApproveButton = ({
+export const ApproveButton = ({
     content = 'Save',
     icon = 'checkmark',
     className = 'ok',

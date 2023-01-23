@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import type { FormCheckboxProps, FormInputProps } from 'semantic-ui-react';
-import Form from '../src/components/form/Form';
+import { Form } from 'components';
 
 type OnInputChangeData = FormInputProps & HTMLInputElement;
 type OnCheckboxChangeData = FormCheckboxProps & HTMLInputElement;

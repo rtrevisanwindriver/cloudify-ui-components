@@ -1,11 +1,10 @@
-import React, { memo } from 'react';
 import type { FunctionComponent } from 'react';
+import React, { memo } from 'react';
 import { get, isEmpty } from 'lodash';
 
-import { Form, Label } from 'semantic-ui-react';
 import type { FormFieldProps as FormFieldPropsSemanticReact } from 'semantic-ui-react';
-import PopupHelp from '../../popups/PopupHelp';
-import FieldLabel from '../FieldLabel/FieldLabel';
+import { Form, Label } from 'semantic-ui-react';
+import { FieldLabel, PopupHelp } from 'components';
 
 export interface FormFieldProps extends FormFieldPropsSemanticReact {
     /**

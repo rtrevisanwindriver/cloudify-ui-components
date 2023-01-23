@@ -1,9 +1,9 @@
+import type { DetailedHTMLProps, LabelHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
-import type { ReactNode, DetailedHTMLProps, LabelHTMLAttributes } from 'react';
 import { isEmpty } from 'lodash';
 import type { SemanticShorthandItem } from 'semantic-ui-react';
 
-import PopupHelp from '../../popups/PopupHelp';
+import { PopupHelp } from 'components';
 
 type HTMLLabelProps = DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 
@@ -24,7 +24,7 @@ export interface FieldLabelProps extends HTMLLabelProps {
  *
  * @return {null}
  */
-export default function FieldLabel({ label, help, ...labelProps }: FieldLabelProps) {
+export function FieldLabel({ label, help, ...labelProps }: FieldLabelProps) {
     return !isEmpty(label) ? (
         <>
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}

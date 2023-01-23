@@ -1,7 +1,7 @@
+import type { CSSProperties, FunctionComponent } from 'react';
 import React, { useContext } from 'react';
-import type { FunctionComponent, CSSProperties } from 'react';
-import { Segment } from 'semantic-ui-react';
 import type { SegmentProps } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { ThemeContext } from 'styled-components';
 import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
@@ -19,7 +19,7 @@ export interface FullScreenSegmentProps extends Pick<SegmentProps, 'className'> 
  *
  * * `mainColor` parameter is used as a background color, if not specified then `blueNormal` from default colors is chosen
  */
-const FullScreenSegment: FunctionComponent<FullScreenSegmentProps> = ({ children, className = '', style }) => {
+export const FullScreenSegment: FunctionComponent<FullScreenSegmentProps> = ({ children, className = '', style }) => {
     const theme = useContext(ThemeContext) || {};
     const backgroundColor = theme.mainColor || colors.blueNormal;
 

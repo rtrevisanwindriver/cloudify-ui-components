@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import type { MouseEvent } from 'react';
-import { noop, includes, isEqual } from 'lodash';
+import React, { useState } from 'react';
+import { includes, isEqual, noop } from 'lodash';
 import { Button, Icon, Message } from 'semantic-ui-react';
-import Confirm from 'components/modal/Confirm';
-import Popup from 'components/popups/Popup';
-import VisibilityIcon from '../VisibilityIcon';
+import { Confirm, Popup, VisibilityIcon } from 'components';
 import { defaultVisibility, visibilities } from '../consts';
 import type { Visibility } from '../types';
 import type { VisibilityIconProps } from '../VisibilityIcon/VisibilityIcon';
@@ -26,7 +24,7 @@ export interface ResourceVisibilityProps extends Pick<VisibilityIconProps, 'visi
  * clicking the icon will show a popup with the visibility options. To approve the visibility change a confirm modal is shown.
  * All props except `onSetVisibility` and `allowedSettingTo` are passed down to the underlaying `VisibilityIcon` component.
  */
-export default function ResourceVisibility({
+export function ResourceVisibility({
     visibility = defaultVisibility,
     onSetVisibility = noop,
     allowedSettingTo = [],
@@ -136,3 +134,5 @@ export default function ResourceVisibility({
         icon
     );
 }
+
+export default ResourceVisibility;

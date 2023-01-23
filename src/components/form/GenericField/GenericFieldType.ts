@@ -1,4 +1,4 @@
-enum GenericFieldType {
+export enum GenericFieldType {
     /**
      * alphanumeric input field
      */

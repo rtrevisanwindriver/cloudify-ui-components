@@ -1,17 +1,13 @@
-import React from 'react';
 import type { CSSProperties } from 'react';
-import { isEmpty, isEqual, get, map, extend, pick } from 'lodash';
-import moment from 'moment';
+import React from 'react';
+import { extend, get, isEmpty, isEqual, map, pick } from 'lodash';
 import type { Moment } from 'moment';
+import moment from 'moment';
 
-import { Button, Grid, Input, Label, List, Segment } from 'semantic-ui-react';
 import type { ButtonProps, InputProps } from 'semantic-ui-react';
-import ApproveButton from 'components/buttons/ApproveButton';
-import CancelButton from 'components/buttons/CancelButton';
-import Popup from 'components/popups/Popup';
-import type { ApproveButtonProps } from 'components/buttons/ApproveButton/ApproveButton';
-import DateInput from '../DateInput';
-import DatePicker from '../DatePicker';
+import { Button, Grid, Input, Label, List, Segment } from 'semantic-ui-react';
+import type { ApproveButtonProps } from 'components';
+import { ApproveButton, CancelButton, DateInput, DatePicker, Popup } from 'components';
 import type { DatePickerProps } from '../DatePicker/DatePicker';
 
 interface Range {
@@ -125,7 +121,7 @@ const emptyRange: Range = {
  *
  * Accessible as `Form.DateRange`.
  */
-class DateRangeInput extends React.PureComponent<DateRangeInputProps, DateRangeInputState, unknown> {
+export class DateRangeInput extends React.PureComponent<DateRangeInputProps, DateRangeInputState, unknown> {
     static EMPTY_VALUE: DateRange = {
         range: '',
         start: '',

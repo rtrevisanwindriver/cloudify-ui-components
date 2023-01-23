@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 import type { ReactWrapper, ShallowWrapper } from 'enzyme';
-import EditableLabel from '../src/components/elements/EditableLabel';
+import { mount, shallow } from 'enzyme';
+import { EditableLabel } from 'components';
 
 describe('<EditableLabel />', () => {
     function expectEditMode(wrapper: ReactWrapper | ShallowWrapper, editMode = true) {

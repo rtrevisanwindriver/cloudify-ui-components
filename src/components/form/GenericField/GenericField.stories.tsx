@@ -4,9 +4,8 @@ import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
 import DivContainer from 'decorators/DivContainer';
 import type { ComponentStory } from '@storybook/react';
+import { Form } from 'components';
 import GenericField from './GenericField';
-
-import Form from '../Form';
 
 /*
 Some stories are disabled for Storyshots tests due to:

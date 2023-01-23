@@ -1,3 +1,1 @@
-import EditableLabel from './EditableLabel';
-
-export default EditableLabel;
+export * from './EditableLabel';

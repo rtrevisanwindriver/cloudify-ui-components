@@ -5,8 +5,8 @@ import { Dropdown, Icon } from 'semantic-ui-react';
 
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
+import { HeaderMenu } from 'components';
 import MenusBar from './MenusBar';
-import HeaderMenu from '../HeaderMenu';
 
 export default {
     title: 'Layout/MenusBar',

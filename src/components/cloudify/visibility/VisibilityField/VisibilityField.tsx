@@ -1,8 +1,7 @@
 import React from 'react';
 import { dropRight, noop } from 'lodash';
 
-import Popup from 'components/popups/Popup';
-import VisibilityIcon from '../VisibilityIcon';
+import { Popup, VisibilityIcon } from 'components';
 import { defaultVisibility, visibilities, visibilityTitle } from '../consts';
 import type { Visibility } from '../types';
 
@@ -41,7 +40,7 @@ export interface VisibilityFieldProps {
  *
  * All props except `onVisibilityChange`, `disallowGlobal` and `allowChange` are passed down to the underlaying `VisibilityIcon` component.
  */
-export default function VisibilityField({
+export function VisibilityField({
     visibility = defaultVisibility,
     onVisibilityChange = noop,
     disallowGlobal,
@@ -78,3 +77,5 @@ export default function VisibilityField({
         </Popup>
     );
 }
+
+export default VisibilityField;

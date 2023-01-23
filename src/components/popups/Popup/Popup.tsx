@@ -20,7 +20,7 @@ export interface AdditionalPopupProperties {
  *
  * See [Popup](https://react.semantic-ui.com/modules/popup) component from Semantic-UI-React for details about props.
  */
-const Popup: FunctionComponent<PopupProps> & AdditionalPopupProperties = props => {
+export const Popup: FunctionComponent<PopupProps> & AdditionalPopupProperties = props => {
     const { trigger: triggerFromProps, children: childrenFromProps, ...rest } = props;
     let trigger = triggerFromProps;
     let children = childrenFromProps;

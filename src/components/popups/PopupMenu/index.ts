@@ -1,3 +1,1 @@
-import PopupMenu from './PopupMenu';
-
-export default PopupMenu;
+export * from './PopupMenu';

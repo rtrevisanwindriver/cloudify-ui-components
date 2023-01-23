@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import _ from 'lodash';
 
 import { Button } from 'semantic-ui-react';
-import DataSegment from '../src/components/data/DataSegment';
+import { DataSegment } from 'components';
 
 describe('<DataSegment />', () => {
     const selectItemMock = jest.fn();

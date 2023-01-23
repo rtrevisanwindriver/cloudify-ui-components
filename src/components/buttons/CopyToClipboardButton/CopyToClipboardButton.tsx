@@ -1,7 +1,7 @@
 import React from 'react';
+import type { ButtonProps } from 'semantic-ui-react';
 import { Button, Icon } from 'semantic-ui-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import type { ButtonProps } from 'semantic-ui-react';
 
 export interface CopyToClipboardButtonProps extends ButtonProps {
     /**
@@ -14,7 +14,7 @@ export interface CopyToClipboardButtonProps extends ButtonProps {
  * CopyToClipboardButton component shows a simple copy icon and on click action it copies prop - text to clipboard.
  * All other props are passed to the underlaying Button component.
  */
-export default function CopyToClipboardButton({ text = '', content, ...buttonProps }: CopyToClipboardButtonProps) {
+export function CopyToClipboardButton({ text = '', content, ...buttonProps }: CopyToClipboardButtonProps) {
     const stopPropagation: ButtonProps['onClick'] = event => event.stopPropagation();
 
     return (
@@ -32,3 +32,5 @@ export default function CopyToClipboardButton({ text = '', content, ...buttonPro
         </CopyToClipboard>
     );
 }
+
+export default CopyToClipboardButton;

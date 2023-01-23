@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Confirm from '../src/components/modal/Confirm';
+import { Confirm } from 'components';
 
 describe('<Confirm />', () => {
     global.requestAnimationFrame = () => 0;

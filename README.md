@@ -54,6 +54,7 @@ General guidelines for adding new components:
 - add new code to `src/components` folder
 - every exported component should be in separate folder 
 - remember to export new files using `index.ts`
+- remember to export props interface along with the component
 - build: `npm run build` (production build) or `npm run storybook` (run [StoryBook](https://storybook.js.org/) with automatic rebuilding)
 - test: `npm test` (static analysis, code style check, unit testing with [Jest](https://jestjs.io/en/) testing framework and coverage check) 
 - use [prettier](https://prettier.io/) and [eslint](https://eslint.org/) during development

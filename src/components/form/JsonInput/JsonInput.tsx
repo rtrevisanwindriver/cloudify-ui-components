@@ -1,13 +1,13 @@
+import type { ChangeEvent, CSSProperties } from 'react';
 import React from 'react';
-import type { CSSProperties, ChangeEvent } from 'react';
 import { isEqual, isString, noop } from 'lodash';
 import { types } from 'cloudify-ui-common-frontend';
 
-import { Icon, Label, TextArea, List } from 'semantic-ui-react';
 import type { TextAreaProps } from 'semantic-ui-react';
-import Popup from 'components/popups/Popup';
-import ReactJsonViewWrapper from './ReactJsonViewWrapper';
+import { Icon, Label, List, TextArea } from 'semantic-ui-react';
+import { Popup } from 'components';
 import type { ReactJsonViewWrapperProps } from './ReactJsonViewWrapper';
+import ReactJsonViewWrapper from './ReactJsonViewWrapper';
 import type { OnChangeInputData } from '../types';
 import './JsonInput.css';
 
@@ -56,7 +56,7 @@ interface JsonInputState {
  *
  * Accessible as `Form.Json`.
  */
-export default class JsonInput extends React.PureComponent<JsonInputPropsWithDefaults, JsonInputState> {
+export class JsonInput extends React.PureComponent<JsonInputPropsWithDefaults, JsonInputState> {
     // eslint-disable-next-line react/static-property-placement
     static defaultProps = {
         value: '{}',
@@ -204,3 +204,5 @@ export default class JsonInput extends React.PureComponent<JsonInputPropsWithDef
         );
     }
 }
+
+export default JsonInput;

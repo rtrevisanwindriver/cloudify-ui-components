@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentStory } from '@storybook/react';
 
-import Menu from 'components/elements/Menu';
+import { Menu } from 'components';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 import PopupMenu from './PopupMenu';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ColorPicker from '../src/components/form/ColorPicker';
+import { ColorPicker } from 'components';
 
 describe('<ColorPicker />', () => {
     it('renders with value set', () => {

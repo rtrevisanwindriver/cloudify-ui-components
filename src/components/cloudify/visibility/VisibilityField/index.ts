@@ -1,3 +1,1 @@
-import VisibilityField from './VisibilityField';
-
-export default VisibilityField;
+export * from './VisibilityField';

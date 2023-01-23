@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Pagination from '../src/components/data/common/Pagination';
-import PaginationInfo from '../src/components/data/common/Pagination/PaginationInfo';
-import type { PaginationProps } from '../src/components/data/common/Pagination/Pagination';
+import Pagination from 'components/data/common/Pagination';
+import PaginationInfo from 'components/data/common/Pagination/PaginationInfo';
+import type { PaginationProps } from 'components/data/common/Pagination/Pagination';
 
 describe('<Pagination />', () => {
     it('renders default page size', () => {

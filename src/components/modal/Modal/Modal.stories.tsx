@@ -1,9 +1,9 @@
 import React from 'react';
 import type { ComponentStory } from '@storybook/react';
-import { Button } from 'semantic-ui-react';
 import type { ModalProps } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
-import Dropdown from '../../elements/Dropdown';
+import { Dropdown } from 'components';
 import Modal from './Modal';
 
 const ModalWrapper: React.FC<ModalProps> = ({ ...props }) => <Modal {...props} />;

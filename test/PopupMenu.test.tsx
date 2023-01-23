@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import PopupMenu from '../src/components/popups/PopupMenu';
-import Menu from '../src/components/elements/Menu';
+import { Menu, PopupMenu } from 'components';
 
 describe('<PopupMenu />', () => {
     it('allows to open menu (no help)', () => {

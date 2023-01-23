@@ -1,3 +1,1 @@
-import ApproveButton from './ApproveButton';
-
-export default ApproveButton;
+export * from './ApproveButton';

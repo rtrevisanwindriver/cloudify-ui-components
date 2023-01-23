@@ -1,1 +1,1 @@
-export { default } from './FullScreenSegment';
+export * from './FullScreenSegment';

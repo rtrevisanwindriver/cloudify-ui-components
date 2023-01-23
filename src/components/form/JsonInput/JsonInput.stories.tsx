@@ -3,9 +3,9 @@ import type { Story } from '@storybook/react';
 
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
-import Form from '../Form/Form';
-import JsonInput from './JsonInput';
+import { Form } from 'components';
 import type { JsonInputProps } from './JsonInput';
+import JsonInput from './JsonInput';
 
 export default {
     title: 'Form/Json',

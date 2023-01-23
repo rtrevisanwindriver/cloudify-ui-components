@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 import type { IconProps, PopupProps, SemanticICONS } from 'semantic-ui-react';
 import { Icon } from 'semantic-ui-react';
-import Popup from '../Popup';
+import { Popup } from 'components';
 import './PopupMenu.css';
 
 export interface PopupMenuProps extends Omit<IconProps, 'name'> {
@@ -44,7 +44,7 @@ export interface PopupMenuProps extends Omit<IconProps, 'name'> {
  * dropdown menu triggered by [Icon](https://react.semantic-ui.com/elements/icon) button.
  * All props supported by the `Icon` component are passed down to it.
  */
-const PopupMenu: FunctionComponent<PopupMenuProps> = ({
+export const PopupMenu: FunctionComponent<PopupMenuProps> = ({
     children,
     position = 'bottom right',
     offset = [12, 0],

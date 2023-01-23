@@ -1,6 +1,6 @@
 import React from 'react';
-import { Confirm as ConfirmSemanticUiReact } from 'semantic-ui-react';
 import type { ConfirmProps } from 'semantic-ui-react';
+import { Confirm as ConfirmSemanticUiReact } from 'semantic-ui-react';
 
 /**
  * Confirm is a wrapper component to present simple Yes/No confirmation modal window.
@@ -8,7 +8,7 @@ import type { ConfirmProps } from 'semantic-ui-react';
  * It wraps [Semantic UI-React's Confirm component](https://react.semantic-ui.com/addons/confirm),
  * so all properties of that component (eg. content, header, ...) can be used here.
  */
-export default function Confirm({ confirmButton = 'Yes', cancelButton = 'No', ...confirmProps }: ConfirmProps) {
+export function Confirm({ confirmButton = 'Yes', cancelButton = 'No', ...confirmProps }: ConfirmProps) {
     return (
         <ConfirmSemanticUiReact
             confirmButton={confirmButton}
@@ -22,3 +22,5 @@ export default function Confirm({ confirmButton = 'Yes', cancelButton = 'No', ..
         />
     );
 }
+
+export default Confirm;

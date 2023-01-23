@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import PopupConfirm from '../src/components/popups/PopupConfirm';
+import { PopupConfirm } from 'components';
 
 describe('<PopupConfirm />', () => {
     it('renders', () => {

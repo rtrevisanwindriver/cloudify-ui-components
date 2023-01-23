@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import MessageContainer from '../src/components/elements/MessageContainer';
+import { MessageContainer } from 'components';
 
 describe('<MessageContainer />', () => {
     test('renders properly', () => {

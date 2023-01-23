@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Checkmark from '../src/components/elements/Checkmark';
+import { Checkmark } from 'components';
 
 describe('<Checkmark />', () => {
     let wrapper = mount(<Checkmark value />);

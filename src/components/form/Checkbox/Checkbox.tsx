@@ -1,8 +1,8 @@
+import type { FunctionComponent, ReactNode } from 'react';
 import React from 'react';
-import type { ReactNode, FunctionComponent } from 'react';
-import { Checkbox as SemanticUiReactCheckbox } from 'semantic-ui-react';
 import type { FormCheckboxProps } from 'semantic-ui-react';
-import FieldLabel from '../FieldLabel';
+import { Checkbox as SemanticUiReactCheckbox } from 'semantic-ui-react';
+import { FieldLabel } from 'components';
 
 export interface CheckboxProps extends FormCheckboxProps {
     /**
@@ -24,7 +24,7 @@ export interface CheckboxProps extends FormCheckboxProps {
  * Accessible as `Checkbox` or `Form.Checkbox`.
  *
  */
-const Checkbox: FunctionComponent<CheckboxProps> = ({ label, help = '', ...checkboxProps }) => (
+export const Checkbox: FunctionComponent<CheckboxProps> = ({ label, help = '', ...checkboxProps }) => (
     <SemanticUiReactCheckbox {...checkboxProps} label={<FieldLabel label={label} help={help} />} />
 );
 

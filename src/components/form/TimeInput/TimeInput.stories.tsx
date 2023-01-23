@@ -4,7 +4,7 @@ import type { ComponentStory } from '@storybook/react';
 import DivContainer from 'decorators/DivContainer';
 import LiveEditDecorator from 'decorators/LiveEditDecorator';
 
-import Form from '../Form';
+import { Form } from 'components';
 
 export default {
     title: 'Form/Time',

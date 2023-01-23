@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import LabelsList from '../src/components/cloudify/LabelsList';
+import { LabelsList } from 'components';
 
 describe('<LabelsList />', () => {
     const onChange = jest.fn();

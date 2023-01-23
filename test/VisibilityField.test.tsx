@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import VisibilityField from '../src/components/cloudify/visibility/VisibilityField';
+import { VisibilityField } from 'components';
 
 describe('<VisibilityField />', () => {
     it('renders', () => {

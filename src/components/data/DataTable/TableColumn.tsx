@@ -1,7 +1,7 @@
 import type { CSSProperties, FunctionComponent, ReactElement, ReactNode } from 'react';
 import React from 'react';
 
-import Popup from 'components/popups/Popup';
+import { Popup } from 'components';
 
 import DataTableContext from './DataTableContext';
 

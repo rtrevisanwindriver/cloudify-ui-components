@@ -1,6 +1,6 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
-import LoadingOverlay from '../LoadingOverlay';
+import { LoadingOverlay } from 'components';
 
 export interface LoadingProps {
     /**
@@ -21,7 +21,7 @@ export interface LoadingProps {
  * Loading is a block component which uses LoadingOverlay component
  * to display loader in center of parent component.
  */
-function Loading({ message = 'Loading', style, className }: LoadingProps) {
+export function Loading({ message = 'Loading', style, className }: LoadingProps) {
     return (
         <Segment basic style={{ height: '100%', zIndex: 5, ...style }} className={className}>
             <LoadingOverlay message={message} />

@@ -1,3 +1,1 @@
-import NodesTree from './NodesTree';
-
-export default NodesTree;
+export * from './NodesTree';

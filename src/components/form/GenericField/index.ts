@@ -1,3 +1,2 @@
-import GenericField from './GenericField';
-
-export default GenericField;
+export * from './GenericField';
+export * from './GenericFieldType';

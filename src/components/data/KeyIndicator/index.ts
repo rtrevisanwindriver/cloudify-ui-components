@@ -1,3 +1,1 @@
-import KeyIndicator from './KeyIndicator';
-
-export default KeyIndicator;
+export * from './KeyIndicator';

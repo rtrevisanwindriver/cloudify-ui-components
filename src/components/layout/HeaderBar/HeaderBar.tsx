@@ -1,5 +1,5 @@
+import type { CSSProperties, FunctionComponent } from 'react';
 import React, { useContext } from 'react';
-import type { FunctionComponent, CSSProperties } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
@@ -43,7 +43,7 @@ export interface HeaderBarProps {
  * * `mainColor` parameter is used as a background color, if not specified then `blueNormal` from default colors is chosen
  * * `headerTextColor` parameter is used as a text color, if not specified then `white` from default colors is chosen
  */
-const HeaderBar: FunctionComponent<HeaderBarProps> = ({ children, className = '', height = '55px' }) => {
+export const HeaderBar: FunctionComponent<HeaderBarProps> = ({ children, className = '', height = '55px' }) => {
     const theme = useContext(ThemeContext) || {};
     const backgroundColor = theme.mainColor || colors.blueNormal;
     const color = theme.headerTextColor || colors.white;

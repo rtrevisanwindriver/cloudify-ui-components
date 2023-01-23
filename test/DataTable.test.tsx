@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import _ from 'lodash';
 import type { DebouncedFunc } from 'lodash';
+import _ from 'lodash';
 
 import { Button, Input } from 'semantic-ui-react';
-import DataTable from '../src/components/data/DataTable';
+import { DataTable } from 'components';
 
 describe('<DataTable />', () => {
     const clickRowMock = jest.fn();

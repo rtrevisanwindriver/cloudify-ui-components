@@ -15,7 +15,7 @@ export interface LoadingOverlayProps extends DimmerProps {
  * to display loader in center of parent component, covering any sibling components with a dimmer.
  * All props supported by the `Dimmer` component are passed down to it.
  */
-const LoadingOverlay: FunctionComponent<LoadingOverlayProps> = ({ message = null, ...dimmerProps }) => {
+export const LoadingOverlay: FunctionComponent<LoadingOverlayProps> = ({ message = null, ...dimmerProps }) => {
     return (
         <Dimmer active inverted {...dimmerProps}>
             <Loader>{message}</Loader>

@@ -1,3 +1,1 @@
-import DataSegment from './DataSegment';
-
-export default DataSegment;
+export * from './DataSegment';

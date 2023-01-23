@@ -1,8 +1,8 @@
-import React from 'react';
 import type { FunctionComponent } from 'react';
+import React from 'react';
 import { isEmpty } from 'lodash';
 import { Icon } from 'semantic-ui-react';
-import Popup from '../Popup';
+import { Popup } from 'components';
 import type { PopupProps } from '../Popup';
 
 export interface PopupHelpProps extends PopupProps {
@@ -20,7 +20,7 @@ const defaultPopupOffset: PopupProps['offset'] = [-12, 0];
  *
  * All props supported by the underlaying `Popup` component are passed down to it.
  */
-const PopupHelp: FunctionComponent<PopupHelpProps> = ({
+export const PopupHelp: FunctionComponent<PopupHelpProps> = ({
     header = '',
     content,
     trigger = <Icon name="help circle" />,

@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
 import { Message } from 'semantic-ui-react';
-import ErrorMessage from '../src/components/elements/ErrorMessage';
+import { ErrorMessage } from 'components';
 
 describe('<ErrorMessage />', () => {
     it("doesn't render if no error passed", () => {

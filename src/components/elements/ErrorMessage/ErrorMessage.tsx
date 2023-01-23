@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { isObject, isEmpty, isArray } from 'lodash';
+import { isArray, isEmpty, isObject } from 'lodash';
 import type { MessageProps } from 'semantic-ui-react';
 import { Message } from 'semantic-ui-react';
 
@@ -40,7 +40,7 @@ export interface ErrorMessageProps extends Omit<MessageProps, 'error'> {
  * to display error message. All props supported by the `Message` component are passed down to it.
  */
 
-function ErrorMessage({
+export function ErrorMessage({
     autoHide = false,
     error,
     header = 'Error Occurred',

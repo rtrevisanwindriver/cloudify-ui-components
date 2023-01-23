@@ -1,3 +1,1 @@
-import PopupConfirm from './PopupConfirm';
-
-export default PopupConfirm;
+export * from './PopupConfirm';

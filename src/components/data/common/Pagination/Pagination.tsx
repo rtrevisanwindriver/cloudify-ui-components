@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 
-import { Icon, Grid, Message, Pagination as PaginationNavigation } from 'semantic-ui-react';
-import Popup from 'components/popups/Popup';
+import { Grid, Icon, Message, Pagination as PaginationNavigation } from 'semantic-ui-react';
+import { Popup } from 'components';
 import PaginationInfo from './PaginationInfo';
 
 import './Pagination.css';

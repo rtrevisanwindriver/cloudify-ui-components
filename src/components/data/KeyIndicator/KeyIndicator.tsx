@@ -41,7 +41,14 @@ export interface KeyIndicatorProps {
  *
  * List of available icons can be found [here](https://react.semantic-ui.com/elements/icon)
  */
-const KeyIndicator: FunctionComponent<KeyIndicatorProps> = ({ title, icon, imageSrc, number, className, style }) => {
+export const KeyIndicator: FunctionComponent<KeyIndicatorProps> = ({
+    title,
+    icon,
+    imageSrc,
+    number,
+    className,
+    style
+}) => {
     return (
         <div
             style={{

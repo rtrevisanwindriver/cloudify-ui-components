@@ -1,3 +1,1 @@
-import VisibilityIcon from './VisibilityIcon';
-
-export default VisibilityIcon;
+export * from './VisibilityIcon';

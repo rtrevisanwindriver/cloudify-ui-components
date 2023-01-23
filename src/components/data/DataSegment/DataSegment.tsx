@@ -73,7 +73,7 @@ interface DataSegmentState {
  * - `DataSegment.Item` = segment item
  * - `DataSegment.Action` = segment action area
  */
-export default class DataSegment extends Component<DataSegmentProps, DataSegmentState> {
+export class DataSegment extends Component<DataSegmentProps, DataSegmentState> {
     static Item = SegmentItem;
 
     static Action = DataAction;
@@ -185,3 +185,5 @@ export default class DataSegment extends Component<DataSegmentProps, DataSegment
         );
     }
 }
+
+export default DataSegment;

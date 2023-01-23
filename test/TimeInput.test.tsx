@@ -1,8 +1,8 @@
-import React from 'react';
 import type { SyntheticEvent } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
-import type { TimeInputProps } from 'components/form/TimeInput/TimeInput';
-import TimeInput from '../src/components/form/TimeInput';
+import type { TimeInputProps } from 'components';
+import { TimeInput } from 'components';
 
 const mountedInputName = 'time';
 type OnChange = TimeInputProps['onChange'];

@@ -1,10 +1,10 @@
-import React, { createRef, useState } from 'react';
 import type { FunctionComponent } from 'react';
+import React, { createRef, useState } from 'react';
 import { isEmpty, noop } from 'lodash';
 
-import { Button, Input } from 'semantic-ui-react';
 import type { ButtonProps, StrictButtonProps } from 'semantic-ui-react';
-import Popup from 'components/popups/Popup';
+import { Button, Input } from 'semantic-ui-react';
+import { Popup } from 'components';
 
 export interface FileInputProps {
     /**
@@ -74,7 +74,7 @@ export interface FileInputProps {
  *
  * Accessible as `FileInput` or `Form.File`.
  */
-const FileInput: FunctionComponent<FileInputProps> = ({
+export const FileInput: FunctionComponent<FileInputProps> = ({
     value = null,
     name = '',
     placeholder = '',

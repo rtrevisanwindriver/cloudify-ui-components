@@ -36,7 +36,7 @@ export interface HighlightTextProps extends Omit<SyntaxHighlighterProps, 'langua
  *
  * All props supported by [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-highlighter#props) can be specified.
  */
-const HighlightText = ({
+export const HighlightText = ({
     children = '',
     codeTagProps,
     language = 'json',

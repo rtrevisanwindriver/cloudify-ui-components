@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
 import type { CSSProperties } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import logo from 'cloudify-ui-common-frontend/images/logo.png';
 
@@ -32,7 +32,7 @@ export interface LogoProps {
  * 1. In all other cases, the default Cloudify logo will be selected
  *
  */
-export default function Logo({ className = 'logo', style, url }: LogoProps) {
+export function Logo({ className = 'logo', style, url }: LogoProps) {
     const theme = useContext(ThemeContext) || {};
     const logoUrl = url || theme.logoUrl || logo;
 
@@ -58,3 +58,5 @@ export default function Logo({ className = 'logo', style, url }: LogoProps) {
         />
     );
 }
+
+export default Logo;

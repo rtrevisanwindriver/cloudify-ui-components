@@ -1,7 +1,7 @@
-import React from 'react';
 import type { ChangeEvent, MouseEvent } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
-import FileInput from '../src/components/form/FileInput';
+import { FileInput } from 'components';
 
 // TODO: Currently no way to test refs. Test added only for coverage increase.
 describe('<FileInput />', () => {

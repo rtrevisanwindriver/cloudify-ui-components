@@ -1,3 +1,2 @@
-import TimeInput from './TimeInput';
-
-export default TimeInput;
+export * from './TimeInput';
+export { default } from './TimeInput';

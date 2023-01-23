@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import type { ReactJsonViewWrapperProps } from 'components/form/JsonInput/ReactJsonViewWrapper';
-import type { JsonInputProps } from 'components/form/JsonInput/JsonInput';
-import JsonInput from '../src/components/form/JsonInput';
+import type { JsonInputProps } from 'components';
+import { JsonInput } from 'components';
 
 describe('<JsonInput />', () => {
     it('renders', () => {

@@ -1,3 +1,1 @@
-import ReadmeModal from './ReadmeModal';
-
-export default ReadmeModal;
+export * from './ReadmeModal';

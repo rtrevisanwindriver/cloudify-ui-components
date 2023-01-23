@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Loading from '../src/components/elements/Loading';
+import { Loading } from 'components';
 
 describe('<Loading />', () => {
     test('renders properly', () => {

@@ -27,7 +27,7 @@ export interface LabelsListProps {
 /**
  * Component for displaying list of labels. Each label is accompanied by a delete icon.
  */
-const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChange }) => {
+export const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChange }) => {
     const sortedLabels = sortBy(labels, 'key', 'value');
 
     return (
@@ -60,4 +60,5 @@ const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChange }) =>
         </div>
     );
 };
+
 export default LabelsList;

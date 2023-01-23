@@ -1,3 +1,1 @@
-import ResourceVisibility from './ResourceVisibility';
-
-export default ResourceVisibility;
+export * from './ResourceVisibility';

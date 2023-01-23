@@ -1,14 +1,13 @@
 import React from 'react';
-import moment from 'moment';
 import type { Moment } from 'moment';
+import moment from 'moment';
 import { isEmpty, isEqual, noop } from 'lodash';
 
-import { Button, Input } from 'semantic-ui-react';
 import type { ButtonProps, InputProps } from 'semantic-ui-react';
-import Popup from 'components/popups/Popup';
+import { Button, Input } from 'semantic-ui-react';
+import { DatePicker, Popup } from 'components';
 import type { DatePickerProps } from '../DatePicker/DatePicker';
 import type { OnChangeInputData } from '../types';
-import DatePicker from '../DatePicker';
 
 type OnChangeEvent =
     | Parameters<Required<DatePickerProps>['onChange']>[0]
@@ -75,7 +74,7 @@ interface DateInputState {
  *
  * Accessible as `Form.Date`.
  */
-export default class DateInput extends React.PureComponent<DateInputProps, DateInputState> {
+export class DateInput extends React.PureComponent<DateInputProps, DateInputState> {
     static TIME_FORMAT = 'HH:mm';
 
     static DATE_FORMAT = 'YYYY-MM-DD';
@@ -185,3 +184,5 @@ export default class DateInput extends React.PureComponent<DateInputProps, DateI
         );
     }
 }
+
+export default DateInput;

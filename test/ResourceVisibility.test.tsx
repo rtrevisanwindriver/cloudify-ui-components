@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ResourceVisibility from '../src/components/cloudify/visibility/ResourceVisibility';
+import { ResourceVisibility } from 'components';
 
 describe('<ResourceVisibility />', () => {
     it('renders', () => {

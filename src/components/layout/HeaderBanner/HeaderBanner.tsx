@@ -1,13 +1,12 @@
 import { isBoolean } from 'lodash';
-import React, { useContext } from 'react';
 import type { CSSProperties } from 'react';
+import React, { useContext } from 'react';
 import { Header } from 'semantic-ui-react';
 import { ThemeContext } from 'styled-components';
 import colors from 'cloudify-ui-common-frontend/styles/_colors.scss';
 
-import Logo from '../Logo';
+import { Logo, ProductVersion } from 'components';
 import ProductName from './ProductName';
-import ProductVersion from '../ProductVersion';
 import LicenseEdition from './LicenseEdition';
 
 export interface HeaderBannerProps {
@@ -57,7 +56,7 @@ export interface HeaderBannerProps {
  *   * `logoUrl` parameter is used as URL for Logo component
  *   * `showVersionDetails` parameter is used to determine if license edition and product version should be visible
  */
-export default function HeaderBanner({
+export function HeaderBanner({
     className = '',
     licenseEdition = '',
     logoUrl,
@@ -97,3 +96,5 @@ export default function HeaderBanner({
         </>
     );
 }
+
+export default HeaderBanner;

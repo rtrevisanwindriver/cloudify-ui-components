@@ -1,1 +1,1 @@
-export { default } from './MenusBar';
+export * from './MenusBar';

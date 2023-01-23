@@ -1,10 +1,10 @@
-import React from 'react';
 import type { ChangeEvent } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import type { InputProps } from 'semantic-ui-react';
-import DateRangeInput from 'components/form/DateRangeInput';
-import type { DatePickerProps } from 'components/form/DatePicker/DatePicker';
+import type { DatePickerProps } from 'components';
+import { DateRangeInput } from 'components';
 
 const mountedInputName = 'date';
 type InputOnChange = InputProps['onChange'];

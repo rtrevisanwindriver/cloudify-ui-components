@@ -1,3 +1,1 @@
-import FieldLabel from './FieldLabel';
-
-export default FieldLabel;
+export * from './FieldLabel';

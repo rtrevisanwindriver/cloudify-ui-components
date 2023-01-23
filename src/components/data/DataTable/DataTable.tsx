@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { Component } from 'react';
-import { isEmpty, debounce } from 'lodash';
+import { debounce, isEmpty } from 'lodash';
 
 import { Form, Table } from 'semantic-ui-react';
 import Pagination from '../common/Pagination';
@@ -203,7 +203,7 @@ type DataTableState = {
  * - `DataTable.RowExpandable` = expandable data row;
  * - `DataTable.DataExpandable` = expandable data content;
  */
-class DataTable extends Component<DataTablePropsAfterDefault, DataTableState> {
+export class DataTable extends Component<DataTablePropsAfterDefault, DataTableState> {
     public static Row = TableRow;
 
     public static Column = TableColumn;

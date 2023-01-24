@@ -5,18 +5,16 @@ import _ from 'lodash';
 import type { StrictFormProps } from 'semantic-ui-react';
 import { Form as FormSemanticUiReact, Radio, Ref } from 'semantic-ui-react';
 
-import {
-    Checkbox,
-    ColorPicker,
-    DateInput,
-    DatePicker,
-    DateRangeInput,
-    Dropdown as FormDropdown,
-    ErrorMessage,
-    FileInput
-} from 'components';
+import ErrorMessage from '../../elements/ErrorMessage';
+import FormDropdown from '../../elements/Dropdown';
+import Checkbox from '../Checkbox';
+import ColorPicker from '../ColorPicker';
+import DateInput from '../DateInput';
+import DatePicker from '../DatePicker';
+import DateRangeInput from '../DateRangeInput';
 import FormDivider from './FormDivider';
 import FormField from './FormField';
+import FileInput from '../FileInput';
 
 import './Form.css';
 import UrlOrFileInput from '../UrlOrFileInput';

@@ -4,7 +4,7 @@
 
 .dataExpandable-appear.dataExpandable-appear-active {
     opacity: 1;
-    transition: opacity .5s ease-in;
+    transition: opacity 0.5s ease-in;
 }
 
 .dataExpandable-enter {
@@ -14,4 +14,8 @@
 .dataExpandable-enter.dataExpandable-enter-active {
     opacity: 1;
     transition: opacity 500ms ease-in;
+}
+
+.active.expanded > td {
+    background-color: #fff;
 }

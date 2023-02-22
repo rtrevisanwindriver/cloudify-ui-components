@@ -27,7 +27,7 @@ const TableDataExpandable: FunctionComponent<TableDataExpandableProps> = ({
     ...tdProps
 }) => {
     return (
-        <tr className="active">
+        <tr className="active expanded">
             <td {...tdProps} colSpan={numberOfColumns}>
                 <CSSTransition
                     classNames="dataExpandable"

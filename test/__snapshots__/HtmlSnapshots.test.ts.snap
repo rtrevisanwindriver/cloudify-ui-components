@@ -1727,7 +1727,7 @@ exports[`Storyshots Data/DataTable Expandable Row 1`] = `
           </td>
         </tr>
         <tr
-          className="active"
+          className="active expanded"
         >
           <td
             colSpan={3}

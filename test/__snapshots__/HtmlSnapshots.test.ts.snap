@@ -149,6 +149,64 @@ exports[`Storyshots Cloudify/LabelsList Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Cloudify/LabelsList With custom coloring strategy 1`] = `
+<div
+  className="ui multiple dropdown"
+  style={
+    {
+      "maxHeight": "12.2em",
+      "maxWidth": "100%",
+      "minHeight": "2em",
+      "overflow": "auto",
+      "paddingRight": "4.1em",
+    }
+  }
+>
+  <a
+    className="ui green label"
+    onClick={[Function]}
+  >
+    key1
+     
+    <span
+      style={
+        {
+          "fontWeight": "lighter",
+        }
+      }
+    >
+      inSystem
+    </span>
+    <i
+      aria-hidden="true"
+      className="delete icon"
+      onClick={[Function]}
+    />
+  </a>
+  <a
+    className="ui red label"
+    onClick={[Function]}
+  >
+    key2
+     
+    <span
+      style={
+        {
+          "fontWeight": "lighter",
+        }
+      }
+    >
+      notInSystem
+    </span>
+    <i
+      aria-hidden="true"
+      className="delete icon"
+      onClick={[Function]}
+    />
+  </a>
+</div>
+`;
+
 exports[`Storyshots Cloudify/ResourceVisibility Changeable 1`] = `
 <span>
   <i

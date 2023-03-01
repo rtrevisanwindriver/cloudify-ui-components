@@ -1,9 +1,8 @@
 import { differenceBy, sortBy } from 'lodash';
-import type { FunctionComponent } from 'react';
 import React from 'react';
+import type { SemanticCOLORS } from 'semantic-ui-react';
 import { Icon, Label as LabelComponent } from 'semantic-ui-react';
 
-const newLabelColor = 'blue';
 const labelLinesVisibleWithoutScroll = 6;
 const maxListHeight = `${labelLinesVisibleWithoutScroll * 2 + 0.2}em`;
 
@@ -13,21 +12,36 @@ export interface Label {
     isInSystem?: boolean;
 }
 
-export interface LabelsListProps {
+export type ColoringStrategy<T extends Label> = (label: T) => SemanticCOLORS | undefined;
+
+export interface LabelsListProps<T extends Label> {
     /**
      * an array of labels to be displayed
      */
-    labels: Label[];
+    labels: T[];
     /**
      * change handler called on delete icon click
      */
-    onChange: (labels: Label[]) => void;
+    onChange: (labels: T[]) => void;
+    /**
+     * label color strategy, by default coloring depends on `isInSystem` flag value
+     */
+    coloringStrategy?: ColoringStrategy<T>;
+}
+
+function defaultColoringStrategy(label: Label) {
+    const newLabelColor = 'blue';
+    return label.isInSystem === false ? newLabelColor : undefined;
 }
 
 /**
  * Component for displaying list of labels. Each label is accompanied by a delete icon.
  */
-export const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChange }) => {
+export function LabelsList<T extends Label = Label>({
+    labels,
+    onChange,
+    coloringStrategy = defaultColoringStrategy
+}: LabelsListProps<T>) {
     const sortedLabels = sortBy(labels, 'key', 'value');
 
     return (
@@ -41,12 +55,13 @@ export const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChang
                 maxWidth: '100%'
             }}
         >
-            {sortedLabels.map(({ key, value, isInSystem = true }) => {
+            {sortedLabels.map(label => {
+                const { key, value } = label;
                 return (
                     <LabelComponent
                         key={`${key}:${value}`}
                         as="a"
-                        color={isInSystem ? undefined : newLabelColor}
+                        color={coloringStrategy(label)}
                         onClick={event => event.stopPropagation()}
                     >
                         {key} <span style={{ fontWeight: 'lighter' }}>{value}</span>
@@ -59,6 +74,6 @@ export const LabelsList: FunctionComponent<LabelsListProps> = ({ labels, onChang
             })}
         </div>
     );
-};
+}
 
 export default LabelsList;

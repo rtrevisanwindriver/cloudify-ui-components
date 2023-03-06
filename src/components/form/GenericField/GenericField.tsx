@@ -2,6 +2,7 @@ import type { CSSProperties, JSXElementConstructor, ReactNode, SyntheticEvent } 
 import React from 'react';
 import _ from 'lodash';
 
+import type { FormFieldProps } from 'semantic-ui-react';
 import { Input } from 'semantic-ui-react';
 import { Checkbox, Dropdown, ErrorMessage } from 'components';
 import FormField from '../Form/FormField';
@@ -66,9 +67,9 @@ export interface GenericFieldProps {
     description?: string | ReactNode;
 
     /**
-     * specifies if a field should be marked as field with error
+     * sets the `error` property of the underlying `FormField` element
      */
-    error?: boolean;
+    error?: FormFieldProps['error'];
 
     /**
      * additional icon in right side of the input field
@@ -253,7 +254,8 @@ export class GenericField extends React.PureComponent<GenericFieldProps> {
             placeholder,
             type,
             value,
-            onChange = GenericField.defaultProps.onChange
+            onChange = GenericField.defaultProps.onChange,
+            maxLength
         } = this.props;
 
         if (
@@ -273,7 +275,9 @@ export class GenericField extends React.PureComponent<GenericFieldProps> {
                     onChange={onChange}
                     max={type === GenericFieldType.NUMBER ? max : null}
                     min={type === GenericFieldType.NUMBER ? min : null}
-                />
+                >
+                    {maxLength && <input maxLength={maxLength} />}
+                </Input>
             );
         }
         if (type === GenericFieldType.BOOLEAN) {

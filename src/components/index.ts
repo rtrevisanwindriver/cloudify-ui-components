@@ -43,6 +43,7 @@ export * from './form/TimeInput';
 export * from './form/UrlOrFileInput';
 
 /* Layout */
+export * from './layout/AccordionSection';
 export * from './layout/FullScreenSegment';
 export * from './layout/HeaderBanner';
 export * from './layout/HeaderBar';

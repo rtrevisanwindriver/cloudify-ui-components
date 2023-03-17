@@ -15106,6 +15106,45 @@ exports[`Storyshots Form/UrlOrFile Basic 1`] = `
 </form>
 `;
 
+exports[`Storyshots Layout/AccordionSection Default 1`] = `
+<div
+  className="accordion ui"
+>
+  <div
+    className="ui segment"
+  >
+    <div
+      className="title"
+      onClick={[Function]}
+      style={
+        {
+          "paddingBottom": 1,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <i
+        aria-hidden="true"
+        className="dropdown icon"
+        onClick={[Function]}
+      />
+      Accordion title
+    </div>
+    <div
+      className="content"
+      style={
+        {
+          "overflow": "visible",
+          "paddingTop": 14,
+        }
+      }
+    >
+      Accordion content
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Layout/FullScreenSegment Colored 1`] = `
 <div
   style={

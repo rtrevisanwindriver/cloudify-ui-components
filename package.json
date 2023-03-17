@@ -1,6 +1,6 @@
 {
   "name": "cloudify-ui-components",
-  "version": "2.28.0",
+  "version": "2.29.0",
   "description": "Cloudify UI React components library",
   "homepage": "https://github.com/cloudify-cosmo/cloudify-ui-components#readme",
   "repository": {

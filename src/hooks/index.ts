@@ -7,6 +7,7 @@ import useOpenProp from './useOpenProp';
 import useResettableState from './useResettableState';
 import useToggle from './useToggle';
 import useWidthObserver from './useWidthObserver';
+import useUpdateEffect from './useUpdateEffect';
 
 export {
     useBoolean,
@@ -17,5 +18,6 @@ export {
     useOpenProp,
     useResettableState,
     useToggle,
-    useWidthObserver
+    useWidthObserver,
+    useUpdateEffect
 };

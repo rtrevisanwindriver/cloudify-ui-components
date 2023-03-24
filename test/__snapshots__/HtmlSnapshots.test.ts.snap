@@ -13420,6 +13420,89 @@ Something"
 </form>
 `;
 
+exports[`Storyshots Form/OptionalCredentialsInput Default 1`] = `
+<form
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="equal width fields"
+  >
+    <div
+      className="field"
+    >
+      <div
+        className="ui toggle checkbox"
+        onChange={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+      >
+        <input
+          checked={false}
+          className="hidden"
+          readOnly={true}
+          tabIndex={0}
+          type="checkbox"
+        />
+        <label
+          style={
+            {
+              "display": "inline-block",
+            }
+          }
+        >
+          URL authentication
+        </label>
+        <div />
+      </div>
+    </div>
+    <div
+      className="disabled field"
+    >
+      <label>
+        Username
+      </label>
+      <div
+        className="ui disabled input"
+      >
+        <input
+          aria-describedby={null}
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="disabled field"
+    >
+      <label>
+        Password
+      </label>
+      <div
+        className="ui disabled input"
+      >
+        <input
+          aria-describedby={null}
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Storyshots Form/Time Basic 1`] = `
 <div
   style={

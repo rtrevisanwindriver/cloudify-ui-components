@@ -41,6 +41,7 @@ export * from './form/GenericField/GenericFieldType';
 export * from './form/JsonInput';
 export * from './form/TimeInput';
 export * from './form/UrlOrFileInput';
+export * from './form/OptionalCredentialsInput';
 
 /* Layout */
 export * from './layout/AccordionSection';

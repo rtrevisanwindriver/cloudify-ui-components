@@ -64,7 +64,7 @@ export function LabelsList<T extends Label = Label>({
                         color={coloringStrategy(label)}
                         onClick={event => event.stopPropagation()}
                     >
-                        {key} <span style={{ fontWeight: 'lighter' }}>{value}</span>
+                        {key}: <span style={{ fontWeight: 'lighter' }}> {value}</span>
                         <Icon
                             name="delete"
                             onClick={() => onChange(differenceBy(labels, [{ key, value }], { key, value }))}

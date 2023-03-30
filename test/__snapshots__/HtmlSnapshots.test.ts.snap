@@ -109,7 +109,7 @@ exports[`Storyshots Cloudify/LabelsList Default 1`] = `
     onClick={[Function]}
   >
     key1
-     
+    : 
     <span
       style={
         {
@@ -117,6 +117,7 @@ exports[`Storyshots Cloudify/LabelsList Default 1`] = `
         }
       }
     >
+       
       inSystem
     </span>
     <i
@@ -130,7 +131,7 @@ exports[`Storyshots Cloudify/LabelsList Default 1`] = `
     onClick={[Function]}
   >
     key2
-     
+    : 
     <span
       style={
         {
@@ -138,6 +139,7 @@ exports[`Storyshots Cloudify/LabelsList Default 1`] = `
         }
       }
     >
+       
       notInSystem
     </span>
     <i
@@ -167,7 +169,7 @@ exports[`Storyshots Cloudify/LabelsList With custom coloring strategy 1`] = `
     onClick={[Function]}
   >
     key1
-     
+    : 
     <span
       style={
         {
@@ -175,6 +177,7 @@ exports[`Storyshots Cloudify/LabelsList With custom coloring strategy 1`] = `
         }
       }
     >
+       
       inSystem
     </span>
     <i
@@ -188,7 +191,7 @@ exports[`Storyshots Cloudify/LabelsList With custom coloring strategy 1`] = `
     onClick={[Function]}
   >
     key2
-     
+    : 
     <span
       style={
         {
@@ -196,6 +199,7 @@ exports[`Storyshots Cloudify/LabelsList With custom coloring strategy 1`] = `
         }
       }
     >
+       
       notInSystem
     </span>
     <i

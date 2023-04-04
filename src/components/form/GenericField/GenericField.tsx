@@ -15,11 +15,10 @@ type GenericFieldItemType = {
     name?: string | number;
 };
 
-export type onChange = (
+export type onChange<T = any> = (
     proxy: SyntheticEvent<HTMLElement, Event> | undefined,
     field: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        value: any;
+        value: T;
         name?: string;
         checked?: boolean;
     }
@@ -36,11 +35,11 @@ export interface ComponentProps {
     [x: string]: any;
 }
 
-export interface GenericFieldProps {
+export interface GenericFieldProps<T = any> {
     /**
      * field's label to show above the field
      */
-    label: string;
+    label?: string;
 
     /**
      * name of the input field
@@ -101,7 +100,7 @@ export interface GenericFieldProps {
     /**
      * function called on input value change
      */
-    onChange?: onChange;
+    onChange?: onChange<T>;
 
     /**
      * specifies a short hint that describes the expected value of an input field
@@ -117,13 +116,12 @@ export interface GenericFieldProps {
     /**
      * specifies type of the field
      */
-    type: GenericFieldType;
+    type?: GenericFieldType;
 
     /**
      * specifies the value of the field
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    value?: any;
+    value?: T;
 
     /**
      * CSS class
@@ -212,7 +210,7 @@ export class GenericField extends React.PureComponent<GenericFieldProps> {
         return value;
     };
 
-    static isListType = (type: GenericFieldType): boolean => {
+    static isListType = (type?: GenericFieldType): boolean => {
         return (
             type === GenericFieldType.LIST ||
             type === GenericFieldType.NUMBER_LIST ||

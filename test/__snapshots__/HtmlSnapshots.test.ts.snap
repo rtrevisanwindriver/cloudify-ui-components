@@ -11196,6 +11196,186 @@ exports[`Storyshots Form/DateRange Initially Open 1`] = `
 </div>
 `;
 
+exports[`Storyshots Form/DynamicTable Basic 1`] = `
+<table
+  className="ui basic compact table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        First column
+      </th>
+      <th
+        className=""
+      >
+        Second column
+      </th>
+      <th
+        className=""
+      />
+    </tr>
+  </thead>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className="top aligned"
+      >
+        <div
+          className="field first"
+        >
+          <div
+            className="ui input"
+          >
+            <input
+              max={null}
+              min={null}
+              name="first"
+              onChange={[Function]}
+              placeholder=""
+              type="text"
+              value="First row"
+            />
+          </div>
+        </div>
+      </td>
+      <td
+        className="top aligned"
+      >
+        <div
+          className="field second"
+        >
+          <div
+            className="ui input"
+          >
+            <input
+              max={null}
+              min={null}
+              name="second"
+              onChange={[Function]}
+              placeholder=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </td>
+      <td
+        className="right aligned top aligned one wide"
+      >
+        <button
+          aria-label="Remove"
+          className="ui basic icon button"
+          onClick={[Function]}
+          title="Remove"
+        >
+          <i
+            aria-hidden="true"
+            className="trash icon"
+            onClick={[Function]}
+          />
+        </button>
+      </td>
+    </tr>
+    <tr
+      className=""
+    >
+      <td
+        className="top aligned"
+      >
+        <div
+          className="field first"
+        >
+          <div
+            className="ui input"
+          >
+            <input
+              max={null}
+              min={null}
+              name="first"
+              onChange={[Function]}
+              placeholder=""
+              type="text"
+              value="Second row"
+            />
+          </div>
+        </div>
+      </td>
+      <td
+        className="top aligned"
+      >
+        <div
+          className="field second"
+        >
+          <div
+            className="ui input"
+          >
+            <input
+              max={null}
+              min={null}
+              name="second"
+              onChange={[Function]}
+              placeholder=""
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </td>
+      <td
+        className="right aligned top aligned one wide"
+      >
+        <button
+          aria-label="Remove"
+          className="ui basic icon button"
+          onClick={[Function]}
+          title="Remove"
+        >
+          <i
+            aria-hidden="true"
+            className="trash icon"
+            onClick={[Function]}
+          />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+        colSpan={3}
+      >
+        <button
+          className="ui button"
+          onClick={[Function]}
+        >
+          <i
+            aria-hidden="true"
+            className="add icon"
+            onClick={[Function]}
+          />
+          Add
+        </button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
 exports[`Storyshots Form/File Basic 1`] = `
 <form
   className="ui form"

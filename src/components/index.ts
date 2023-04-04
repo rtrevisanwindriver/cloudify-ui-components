@@ -33,6 +33,7 @@ export * from './form/ColorPicker';
 export * from './form/DateInput';
 export * from './form/DatePicker';
 export * from './form/DateRangeInput';
+export * from './form/DynamicTable';
 export * from './form/FieldLabel';
 export * from './form/FileInput';
 export * from './form/Form';

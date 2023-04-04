@@ -14,7 +14,7 @@ export default {
 type HighlightTextStory = ComponentStory<typeof HighlightText>;
 
 export const basic: HighlightTextStory = () => (
-    <HighlightText language="json">
+    <HighlightText>
         {`{
     "employee": {
         "name":       "sonoo",

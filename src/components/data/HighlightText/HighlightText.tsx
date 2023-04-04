@@ -20,7 +20,7 @@ export interface HighlightTextProps extends Omit<SyntaxHighlighterProps, 'langua
     /**
      * Language name to be used as a base for syntax highlighter
      */
-    language: 'bash' | 'javascript' | 'json' | 'python' | 'yaml';
+    language?: 'bash' | 'javascript' | 'json' | 'python' | 'yaml';
 }
 
 /**

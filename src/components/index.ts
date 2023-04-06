@@ -41,6 +41,7 @@ export * from './form/GenericField';
 export * from './form/GenericField/GenericFieldType';
 export * from './form/JsonInput';
 export * from './form/TimeInput';
+export * from './form/UnmaskableSecretInput';
 export * from './form/UrlOrFileInput';
 export * from './form/OptionalCredentialsInput';
 

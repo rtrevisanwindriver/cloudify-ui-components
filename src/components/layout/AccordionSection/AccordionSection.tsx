@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import type { AccordionTitleProps } from 'semantic-ui-react';
-import { Accordion, Icon, Segment } from 'semantic-ui-react';
+import { Accordion, Divider, Icon, Segment } from 'semantic-ui-react';
 import { useToggle } from '../../..';
 
 const accordionTitleStyle = {
@@ -12,6 +12,10 @@ const accordionTitleStyle = {
 const accordionContentStyle = {
     overflow: 'visible',
     paddingTop: 14
+};
+
+const dividerStyle = {
+    margin: '0 -14px 14px'
 };
 
 export interface AccordionSectionProps {
@@ -35,6 +39,10 @@ export interface AccordionSectionProps {
      * Click handler
      */
     onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, props: AccordionTitleProps) => void;
+    /**
+     * Whether to draw a horizontal divider between accordion title and content
+     */
+    divider?: boolean;
 }
 
 /**
@@ -46,7 +54,8 @@ export function AccordionSection({
     initialActive = false,
     activeSection,
     index,
-    onClick
+    onClick,
+    divider
 }: PropsWithChildren<AccordionSectionProps>) {
     const [accordionActive, toggleAccordionActive] = useToggle(initialActive);
 
@@ -61,6 +70,7 @@ export function AccordionSection({
                 {title}
             </Accordion.Title>
             <Accordion.Content style={accordionContentStyle} active={active}>
+                {divider && <Divider style={dividerStyle} />}
                 {children}
             </Accordion.Content>
         </Segment>

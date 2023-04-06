@@ -18,3 +18,19 @@ export const basic: AccordionSectionStory = () => (
     </Accordion>
 );
 basic.storyName = 'Default';
+
+export const initiallyActive: AccordionSectionStory = () => (
+    <Accordion>
+        <AccordionSection initialActive title="Accordion title">
+            Accordion content
+        </AccordionSection>
+    </Accordion>
+);
+
+export const withDivider: AccordionSectionStory = () => (
+    <Accordion>
+        <AccordionSection initialActive divider title="Accordion title">
+            Accordion content
+        </AccordionSection>
+    </Accordion>
+);

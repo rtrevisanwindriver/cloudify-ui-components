@@ -21,7 +21,7 @@ const FieldWrapper: FunctionComponent<FormFieldProps> = ({
     required = false,
     ...fieldProps
 }) => {
-    const errorPointing = get(error, 'pointing', '');
+    const errorPointing = get(error, 'pointing', false);
     const errorContent = get(error, 'content', '');
     const errorLabel = (
         <Label

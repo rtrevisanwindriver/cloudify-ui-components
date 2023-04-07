@@ -2,7 +2,6 @@ import React from 'react';
 import { castArray, compact, isEmpty } from 'lodash';
 import Tree, { TreeNode } from 'rc-tree';
 import type { TreeProps } from 'rc-tree/lib/Tree';
-import type { DataNode } from 'rc-tree/lib/interface';
 import 'rc-tree/assets/index.css';
 import { Loading } from 'components';
 
@@ -43,22 +42,8 @@ export function NodesTree({
             </Tree>
         );
     }
-    const loop = (data: DataNode[]) => {
-        return compact(data).map(item => {
-            if (item.children) {
-                return (
-                    <TreeNode key={item.key} title={item.title}>
-                        {loop(item.children)}
-                    </TreeNode>
-                );
-            }
-            return <TreeNode key={item.key} title={item.title} />;
-        });
-    };
     return treeData.length ? (
-        <Tree showIcon={showIcon} showLine={showLine} selectable={selectable} {...treeProps}>
-            {loop(treeData)}
-        </Tree>
+        <Tree showIcon={showIcon} showLine={showLine} selectable={selectable} {...treeProps} treeData={treeData} />
     ) : (
         <Loading />
     );
